@@ -3808,3 +3808,13 @@ input, select, textarea {
 #footer a:hover {
     color: #FF6B00 !important; /* Brand Orange highlight on footer links */
 }
+
+/* FORCE FOOTER CONTAINER VISIBILITY */
+#main, #footer, #footer section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+#footer a:hover {
+    color: #FF6B00 !important; /* Forces your brand orange on hover links */
+}
