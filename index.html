@@ -1,131 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>filings4u | Launch Your Business</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .funnel-container { background: white; max-width: 500px; width: 100%; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .step { display: none; }
-        .step.active { display: block; }
-        h1 { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #111; }
-        p { color: #666; font-size: 15px; margin-bottom: 25px; line-height: 1.5; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
-        select, input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
-        .btn { background: #0070f3; color: white; border: none; width: 100%; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        .btn:hover { background: #0051a8; }
-        .upsell-card { border: 2px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 15px; position: relative; cursor: pointer; }
-        .upsell-card.selected { border-color: #0070f3; background: #f0f7ff; }
-        .upsell-price { font-weight: bold; color: #0070f3; float: right; }
-        .summary-line { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 15px; }
-        .total { font-weight: bold; font-size: 18px; border-top: 1px solid #eee; padding-top: 10px; margin-top: 15px; }
-    </style>
-</head>
-<body>
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<div class="funnel-container">
-    <!-- SCREEN 1: STATE SELECTION -->
-    <div id="step1" class="step active">
-        <h1>Form your LLC or Corporation in minutes.</h1>
-        <p>Fast, accurate, and handled completely for you. Choose your state below to launch.</p>
-        <label>Where are you forming your business?</label>
-        <select id="stateSelect">
-            <option value="" disabled selected>Select your state...</option>
-            <option value="CA" data-fee="50">California ($50 State Fee)</option>
-            <option value="DE" data-fee="90">Delaware ($90 State Fee)</option>
-            <option value="TX" data-fee="300">Texas ($300 State Fee)</option>
-        </select>
-        <button class="btn" onclick="nextStep(2)">Continue to Incorporation</button>
-    </div>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-    <!-- SCREEN 2: INTAKE -->
-    <div id="step2" class="step">
-        <h1>Tell us about your business</h1>
-        <p>Provide details to start processing your formation documents.</p>
-        <label>Desired Company Name</label>
-        <input type="text" id="bizName" placeholder="e.g. Acme Holdings LLC" required>
-        <label>Founder's Email Address</label>
-        <input type="email" id="founderEmail" placeholder="you@example.com" required>
-        <button class="btn" onclick="nextStep(3)">Save & View Packages</button>
-    </div>
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<h1>Stellar</h1>
+						<p>Just another free, fully responsive site template<br />
+						built by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</header>
 
-    <!-- SCREEN 3: UPSELLS -->
-    <div id="step3" class="step">
-        <h1>Complete your protection</h1>
-        <p>Skip the IRS hold times and state paperwork by choosing options below.</p>
-        
-        <div class="upsell-card" id="einCard" onclick="toggleUpsell('einCard')">
-            <span class="upsell-price">$79</span>
-            <strong>Obtain Federal EIN (Tax ID)</strong>
-            <div style="font-size:13px; color:#666; margin-top:5px;">Required to open a business bank account and hire employees.</div>
-        </div>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#first">First Section</a></li>
+							<li><a href="#second">Second Section</a></li>
+							<li><a href="#cta">Get Started</a></li>
+						</ul>
+					</nav>
 
-        <div class="upsell-card" id="raCard" onclick="toggleUpsell('raCard')">
-            <span class="upsell-price">$149/yr</span>
-            <strong>Registered Agent Service</strong>
-            <div style="font-size:13px; color:#666; margin-top:5px;">Protect your personal home privacy from the public registry. First 3 months free.</div>
-        </div>
-        <button class="btn" onclick="calculateTotal(); nextStep(4)">Proceed to Checkout</button>
-    </div>
+				<!-- Main -->
+					<div id="main">
 
-    <!-- SCREEN 4: CHECKOUT SUMMARY -->
-    <div id="step4" class="step">
-        <h1>Review your application</h1>
-        <p>Your order configuration is finalized.</p>
-        <div class="summary-line"><span>Standard Filing Fee:</span><span>$49.00</span></div>
-        <div class="summary-line"><span>State Registry Fee:</span><span id="summaryStateFee">$0.00</span></div>
-        <div class="summary-line" id="summaryEinRow" style="display:none;"><span>Federal EIN:</span><span>$79.00</span></div>
-        <div class="summary-line" id="summaryRaRow" style="display:none;"><span>Registered Agent:</span><span>$0.00 today</span></div>
-        <div class="summary-line total"><span>Total Amount Due:</span><span id="summaryTotal">$0.00</span></div>
-        <br>
-        <button class="btn" style="background:#24b47e;" onclick="redirectToStripe()">Complete My Formation Now</button>
-    </div>
-</div>
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Ipsum sed adipiscing</h2>
+										</header>
+										<p>Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
+										adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
+										Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
+										<ul class="actions">
+											<li><a href="generic.html" class="button">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+								</div>
+							</section>
 
-<script>
-    let currentStep = 1;
-    let einSelected = false;
-    let raSelected = false;
-    let stateFee = 0;
-    let serviceFee = 49;
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Magna veroeros</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<span class="icon solid major style1 fa-code"></span>
+										<h3>Ipsum consequat</h3>
+										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+									</li>
+									<li>
+										<span class="icon major style3 fa-copy"></span>
+										<h3>Amed sed feugiat</h3>
+										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+									</li>
+									<li>
+										<span class="icon major style5 fa-gem"></span>
+										<h3>Dolor nullam</h3>
+										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+									</li>
+								</ul>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
 
-    function nextStep(step) {
-        document.getElementById(`step${currentStep}`).classList.remove('active');
-        document.getElementById(`step${step}`).classList.add('active');
-        currentStep = step;
-    }
+						<!-- Second Section -->
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>Ipsum consequat</h2>
+									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
+									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								</header>
+								<ul class="statistics">
+									<li class="style1">
+										<span class="icon solid fa-code-branch"></span>
+										<strong>5,120</strong> Etiam
+									</li>
+									<li class="style2">
+										<span class="icon fa-folder-open"></span>
+										<strong>8,192</strong> Magna
+									</li>
+									<li class="style3">
+										<span class="icon solid fa-signal"></span>
+										<strong>2,048</strong> Tempus
+									</li>
+									<li class="style4">
+										<span class="icon solid fa-laptop"></span>
+										<strong>4,096</strong> Aliquam
+									</li>
+									<li class="style5">
+										<span class="icon fa-gem"></span>
+										<strong>1,024</strong> Nullam
+									</li>
+								</ul>
+								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
 
-    function toggleUpsell(cardId) {
-        const card = document.getElementById(cardId);
-        card.classList.toggle('selected');
-        if(cardId === 'einCard') einSelected = !einSelected;
-        if(cardId === 'raCard') raSelected = !raSelected;
-    }
+						<!-- Get Started -->
+							<section id="cta" class="main special">
+								<header class="major">
+									<h2>Congue imperdiet</h2>
+									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
+									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								</header>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button primary">Get Started</a></li>
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
 
-    function calculateTotal() {
-        const select = document.getElementById('stateSelect');
-        stateFee = parseFloat(select.options[select.selectedIndex].getAttribute('data-fee')) || 0;
-        
-        document.getElementById('summaryStateFee').innerText = `$${stateFee.toFixed(2)}`;
-        document.getElementById('summaryEinRow').style.display = einSelected ? 'flex' : 'none';
-        document.getElementById('summaryRaRow').style.display = raSelected ? 'flex' : 'none';
-        
-        let total = serviceFee + stateFee;
-        if(einSelected) total += 79;
-        
-        document.getElementById('summaryTotal').innerText = `$${total.toFixed(2)}`;
-    }
+					</div>
 
-    function redirectToStripe() {
-        // Collect custom text metadata to inject dynamically
-        const email = document.getElementById('founderEmail').value;
-        const businessName = document.getElementById('bizName').value;
-        const state = document.getElementById('stateSelect').value;
-        
-        // This targets your lightweight backend function 
-        window.location.href = `/api/checkout?email=${email}&name=${encodeURIComponent(businessName)}&state=${state}&ein=${einSelected}&ra=${raSelected}`;
-    }
-</script>
-</body>
+				
+<footer id="footer">
+    <section>
+        <h2>filings4u</h2>
+        <p>Reliable, automated corporate compliance and filing services.</p>
+    </section>
+    <section>
+        <h2>Quick Links</h2>
+        <ul class="alt">
+            <li><a href="pricing.html">Pricing Structure</a></li>
+            <li><a href="compliance.html">State Compliance Info</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+        </ul>
+    </section>
+</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
