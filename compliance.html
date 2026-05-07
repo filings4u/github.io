@@ -3,74 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ongoing Compliance Rules | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <title>Launch Your Business Instantly | filings4u</title>
+    
+    <!-- Stripe.js Library -->
+    <script src="https://stripe.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        /* 1. Trigger red borders only after validation check */
+        .was-validated input:invalid, 
+        .was-validated select:invalid, 
+        .was-validated textarea:invalid {
+            border: 2px solid red !important;
+        }
+
+        /* 2. Modern browser support for better UX */
+        input:user-invalid {
+            border: 2px solid red;
+        }
+    </style>
 </head>
-<body class="is-preload">
-    <div id="wrapper">
-
-        <!-- Global Multi-Page Navigation Bar -->
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Form Business</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="compliance.html" class="active">Compliance</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- Main Content Section -->
-        <div id="main">
-            <section class="main">
-                <header class="major">
-                    <h2>Keep Your Company Compliant</h2>
-                    <p>Forming your company is just the first step. Avoid penalties, dissolution, and state fines by staying on top of corporate compliance obligations.</p>
-                </header>
-
-                <h3>1. Annual Reports & Statements</h3>
-                <p>Most states require LLCs and Corporations to file periodic informational updates—either annually or biennially. Missing these filings can cause your business status to fall into "Not In Good Standing," leading to late fees or eventual administrative dissolution by the state.</p>
-
-                <h3>2. Franchise Taxes</h3>
-                <p>Certain states (like Delaware and California) require business entities to pay an annual privilege or franchise tax to operate. This fee is mandatory regardless of whether your business generated revenue during the year.</p>
-
-                <h3>3. Maintaining a Registered Agent</h3>
-                <p>Every business must continuously maintain a registered physical address in its state of formation to accept formal legal notices or service of process. Using our ongoing Registered Agent service ensures you never miss a time-sensitive lawsuit or state notice.</p>
-                
-                <hr />
-                
-                <center>
-                    <p><strong>Need help tracking your regulatory dates?</strong> Let filings4u handle the paperwork automate your corporate lifespans.</p>
-                    <a href="index.html" class="button primary">Launch My Business</a>
-                </center>
-            </section>
-        </div>
-
-        <!-- Footer Elements Layout -->
-        <footer id="footer">
-            <section>
-                <h2>filings4u</h2>
-                <p>Providing seamless business solutions, automated regulatory documentation frameworks, and trusted enterprise tracking models.</p>
-            </section>
-            <section>
-                <h2>Quick Navigation Links</h2>
-                <ul class="alt">
-                    <li><a href="pricing.html">Pricing Structure</a></li>
-                    <li><a href="compliance.html">State Compliance Info</a></li>
-                    <li><a href="contact.html">Contact Support</a></li>
-                </ul>
-            </section>
-        </footer>
-
-    </div>
-
-    <!-- Template Global JavaScript Files -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
+<body>
