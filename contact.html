@@ -3,31 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launch Your Business Instantly | filings4u</title>
-    
-    <!-- Stripe.js Library -->
-    <script src="https://stripe.com"></script>
-
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <style>
-        /* 1. Trigger red borders only after validation check */
-        .was-validated input:invalid, 
-        .was-validated select:invalid, 
-        .was-validated textarea:invalid {
-            border: 2px solid red !important;
-        }
-
-        /* 2. Modern browser support for better UX */
-        input:user-invalid {
-            border: 2px solid red;
-        }
-    </style>
+    <title>Contact Support Team | filings4u</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 <body>
+    <div class="brand-nav-bar">
+        <a href="index.html" style="border-bottom: none !important; display: block !important; opacity: 1 !important;">
+            <img src="/images/logo.png" alt="filings4u logo" style="height: 36px; width: auto; display: block !important;" />
+        </a>
+        <ul class="brand-nav-links">
+            <li><a href="index.html">Form Business</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="compliance.html" class="active">Compliance</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+
+        <!-- Main Content Section -->
+        <div id="main">
+            <section class="main">
+                <header class="major">
+                    <h2>Get in Touch with filings4u</h2>
+                    <p>Have questions about state filing fees, EIN turnaround speeds, or corporate structures? Drop our professional operations team a message below.</p>
+                </header>
+
+                <div class="row">
+                    <!-- Left Side: Interactive Contact Form Layout -->
+                    <div class="col-8 col-12-medium">
+                        <!-- Standard HTML Form configured to submit via free endpoint tools like Formspree or Netlify Forms -->
+                        <form method="post" action="#">
+                            <div class="row gtr-uniform">
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="text" name="name" id="name" placeholder="Full Legal Name" required />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="email" name="email" id="email" placeholder="Your Email Address" required />
+                                </div>
+                                <div class="col-12">
+                                    <select name="category" id="category">
+                                        <option value="">- Select Topic Inquiry -</option>
+                                        <option value="new-order">Starting a New Business</option>
+                                        <option value="existing-order">Status of Current Order</option>
+                                        <option value="billing">Billing & Stripe Receipts</option>
+                                        <option value="other">General Inquiries</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" id="message" placeholder="Type details about your inquiry..." rows="6" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right Side: Text Contact Details Info Box -->
+                    <div class="col-4 col-12-medium">
+                        <h3>Contact Info</h3>
+                        <p>Our dedicated operations filing desk processes submissions directly to secretaries of state offices during normal business working hours.</p>
+                        <ul class="alt">
+                            <li><strong>Email Support:</strong> support@filings4u.com</li>
+                            <li><strong>Response Times:</strong> Under 24 Business Hours</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer Elements Layout -->
+        <footer id="footer">
+            <section>
+                <h2>filings4u</h2>
+                <p>Providing seamless business solutions, automated regulatory documentation frameworks, and trusted enterprise tracking models.</p>
+            </section>
+            <section>
+                <h2>Quick Navigation Links</h2>
+                <ul class="alt">
+                    <li><a href="pricing.html">Pricing Structure</a></li>
+                    <li><a href="compliance.html">State Compliance Info</a></li>
+                    <li><a href="contact.html">Contact Support</a></li>
+                </ul>
+            </section>
+        </footer>
+
+    </div>
+
+    <!-- Template Global JavaScript Files -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

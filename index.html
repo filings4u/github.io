@@ -1,170 +1,914 @@
-<!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Stellar by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Your Business Instantly | filings4u</title>
+    
+    <!-- Stripe.js Library -->
+    <script src="https://stripe.com"></script>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
-						<h1>Stellar</h1>
-						<p>Just another free, fully responsive site template<br />
-						built by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</header>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="assets/css/main.css">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
-							<li><a href="#first">First Section</a></li>
-							<li><a href="#second">Second Section</a></li>
-							<li><a href="#cta">Get Started</a></li>
-						</ul>
-					</nav>
+    <style>
+        /* 1. Trigger red borders only after validation check */
+        .was-validated input:invalid, 
+        .was-validated select:invalid, 
+        .was-validated textarea:invalid {
+            border: 2px solid red !important;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        /* 2. Modern browser support for better UX */
+        input:user-invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
 
-						<!-- Introduction -->
-							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Ipsum sed adipiscing</h2>
-										</header>
-										<p>Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-										adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
-										Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
-										<ul class="actions">
-											<li><a href="generic.html" class="button">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-								</div>
-							</section>
+<!-- NAVIGATION BAR -->
+<nav class="brand-nav-bar">
+  <a href="index.html">
+    <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+  </a>
+  <ul class="brand-nav-links">
+    <li><a href="tax-filings.html">Tax Filings</a></li>
+    
+    <!-- BUSINESS FORMATION DROPDOWN -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+      <ul class="dropdown-content">
+        <li><a href="llc.html">Limited liability company (LLC)</a></li>
+        <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+        <li><a href="dba.html">Doing business as (DBA)</a></li>
+        <li><a href="nonprofit.html">Nonprofit</a></li>
+        <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+      </ul>
+    </li>
 
-						<!-- First Section -->
-							<section id="first" class="main special">
-								<header class="major">
-									<h2>Magna veroeros</h2>
-								</header>
-								<ul class="features">
-									<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3>Ipsum consequat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Amed sed feugiat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-									<li>
-										<span class="icon major style5 fa-gem"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-								</ul>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section>
+    <!-- COMPLIANCE SERVICES DROPDOWN -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
+      <ul class="dropdown-content">
+        <li><a href="annual-report.html">Annual report</a></li>
+        <li><a href="business-licenses.html">Business licenses</a></li>
+        <li><a href="ein.html">EIN</a></li>
+        <li><a href="operating-agreement.html">Operating agreement</a></li>
+        <li><a href="registered-agent.html">Registered agent</a></li>
+        <li><a href="dissolution.html">Dissolution</a></li>
+      </ul>
+    </li>
 
-						<!-- Second Section -->
-							<section id="second" class="main special">
-								<header class="major">
-									<h2>Ipsum consequat</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-								</header>
-								<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-code-branch"></span>
-										<strong>5,120</strong> Etiam
-									</li>
-									<li class="style2">
-										<span class="icon fa-folder-open"></span>
-										<strong>8,192</strong> Magna
-									</li>
-									<li class="style3">
-										<span class="icon solid fa-signal"></span>
-										<strong>2,048</strong> Tempus
-									</li>
-									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<strong>4,096</strong> Aliquam
-									</li>
-									<li class="style5">
-										<span class="icon fa-gem"></span>
-										<strong>1,024</strong> Nullam
-									</li>
-								</ul>
-								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section>
+    <!-- DOT DROPDOWN -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+      <ul class="dropdown-content">
+        <li><a href="owner-operators.html">Owner Operators</a></li>
+        <li><a href="trucker-authority.html">Trucker Authority</a></li>
+        <li><a href="broker-authority.html">Broker Authority</a></li>
+        <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+        <li><a href="dot-consortium.html">DOT Consortium</a></li>
+        <li><a href="driver-file.html">Driver Qualification File</a></li>
+        <li><a href="ucr-registration.html">UCR Registration</a></li>
+        <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
+      </ul>
+    </li>
 
-						<!-- Get Started -->
-							<section id="cta" class="main special">
-								<header class="major">
-									<h2>Congue imperdiet</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button primary">Get Started</a></li>
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section>
+    <li><a href="license-permits.html">License/Permits</a></li>
+  </ul>
+</nav>
 
-					</div>
 
-				
+
+<!-- WRAPPER START -->
+<div id="wrapper">
+    <!-- SECTION 1: HERO & FORM CONTAINER -->
+    <section class="hero-section" id="hero-header" style="
+        background-image: linear-gradient(180deg, rgba(10, 31, 68, 0.8), rgba(10, 31, 68, 0.65)), url('images/hero_background.jpg') !important; 
+        display: block; /* Changed from flex to block to stop vertical stretching */
+        padding-top: 30px; 
+        padding-bottom: -1000px; /* <--- THIS now strictly controls the bottom gap */
+        height: auto !important; /* Overrides any full-screen height CSS */
+        min-height: 0 !important;
+    ">
+        <div class="section-content-container" style="width: 100%;">
+            
+            <!-- THE WHITE FLOATING CARD -->
+            <div class="floating-funnel-card" style="
+                background: white; 
+                padding: 40px; 
+                border-radius: 16px; 
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+                width: 100%; 
+                max-width: 1000px; 
+                margin: 0 auto;
+                position: relative;
+            ">
+                <div class="progress-container" style="width: 100%; background: #e2e8f0; height: 8px; border-radius: 4px; margin-bottom: 30px;">
+                    <div id="progressBar" style="width: 25%; background: #FF6B00; height: 100%; border-radius: 4px; transition: 0.3s;"></div>
+                </div>
+
+
+<!-- STEP 1: INITIAL SELECTION -->
+<div id="step1" class="funnel-step active">
+    <div style="text-align: center; width: 100%;">
+        <!-- Change the 32px or 18px below to adjust sizes -->
+        <h1 style="font-size: 32px; font-family: sans-serif; margin-bottom: 10px;">
+            Now is the perfect time to start your business.
+        </h1>
+        <p class="lz-sub" style="font-size: 18px; font-family: sans-serif; color: #4a5568;">
+            Form your LLC securely for a straight <strong>$100 flat service fee</strong> plus state filing fees.
+        </p>
+    </div>
+
+    <div class="lz-inline-strip" style="display: flex; gap: 10px; width: 100%; max-width: 100%;">
+        
+        <select id="stateSelect" style="flex: 2; height: 50px; margin: 0; padding: 0 15px; border-radius: 8px; border: 2px solid #cbd5e1; font-size: 1rem; box-sizing: border-box; display: block; vertical-align: middle;">
+            <option value="" disabled selected>Select your formation state...</option>
+            <option value="AL" data-fee="100">Alabama (State Filing Fee - $100)</option>
+            <option value="AK" data-fee="250">Alaska (State Filing Fee - $250)</option>
+            <option value="AZ" data-fee="50">Arizona (State Filing Fee - $50)</option>
+            <option value="AR" data-fee="45">Arkansas (State Filing Fee - $45)</option>
+            <option value="CA" data-fee="70">California (State Filing Fee - $70)</option>
+            <option value="CO" data-fee="50">Colorado (State Filing Fee - $50)</option>
+            <option value="CT" data-fee="120">Connecticut (State Filing Fee - $120)</option>
+            <option value="DE" data-fee="90">Delaware (State Filing Fee - $90)</option>
+            <option value="FL" data-fee="125">Florida (State Filing Fee - $125)</option>
+            <option value="GA" data-fee="100">Georgia (State Filing Fee - $100)</option>
+            <option value="HI" data-fee="50">Hawaii (State Filing Fee - $50)</option>
+            <option value="ID" data-fee="100">Idaho (State Filing Fee - $100)</option>
+            <option value="IL" data-fee="150">Illinois (State Filing Fee - $150)</option>
+            <option value="IN" data-fee="95">Indiana (State Filing Fee - $95)</option>
+            <option value="IA" data-fee="50">Iowa (State Filing Fee - $50)</option>
+            <option value="KS" data-fee="160">Kansas (State Filing Fee - $160)</option>
+            <option value="KY" data-fee="40">Kentucky (State Filing Fee - $40)</option>
+            <option value="LA" data-fee="100">Louisiana (State Filing Fee - $100)</option>
+            <option value="ME" data-fee="175">Maine (State Filing Fee - $175)</option>
+            <option value="MD" data-fee="100">Maryland (State Filing Fee - $100)</option>
+            <option value="MA" data-fee="500">Massachusetts (State Filing Fee - $500)</option>
+            <option value="MI" data-fee="50">Michigan (State Filing Fee - $50)</option>
+            <option value="MN" data-fee="135">Minnesota (State Filing Fee - $135)</option>
+            <option value="MS" data-fee="50">Mississippi (State Filing Fee - $50)</option>
+            <option value="MO" data-fee="50">Missouri (State Filing Fee - $50)</option>
+            <option value="MT" data-fee="35">Montana (State Filing Fee - $35)</option>
+            <option value="NE" data-fee="105">Nebraska (State Filing Fee - $105)</option>
+            <option value="NV" data-fee="425">Nevada (State Filing Fee - $425)</option>
+            <option value="NH" data-fee="100">New Hampshire (State Filing Fee - $100)</option>
+            <option value="NJ" data-fee="125">New Jersey (State Filing Fee - $125)</option>
+            <option value="NM" data-fee="50">New Mexico (State Filing Fee - $50)</option>
+            <option value="NY" data-fee="200">New York (State Filing Fee - $200)</option>
+            <option value="NC" data-fee="125">North Carolina (State Filing Fee - $125)</option>
+            <option value="ND" data-fee="135">North Dakota (State Filing Fee - $135)</option>
+            <option value="OH" data-fee="99">Ohio (State Filing Fee - $99)</option>
+            <option value="OK" data-fee="100">Oklahoma (State Filing Fee - $100)</option>
+            <option value="OR" data-fee="100">Oregon (State Filing Fee - $100)</option>
+            <option value="PA" data-fee="125">Pennsylvania (State Filing Fee - $125)</option>
+            <option value="RI" data-fee="150">Rhode Island (State Filing Fee - $150)</option>
+            <option value="SC" data-fee="110">South Carolina (State Filing Fee - $110)</option>
+            <option value="SD" data-fee="150">South Dakota (State Filing Fee - $150)</option>
+            <option value="TN" data-fee="300">Tennessee (State Filing Fee - $300)</option>
+            <option value="TX" data-fee="300">Texas (State Filing Fee - $300)</option>
+            <option value="UT" data-fee="70">Utah (State Filing Fee - $70)</option>
+            <option value="VT" data-fee="125">Vermont (State Filing Fee - $125)</option>
+            <option value="VA" data-fee="100">Virginia (State Filing Fee - $100)</option>
+            <option value="WA" data-fee="200">Washington (State Filing Fee - $200)</option>
+            <option value="WV" data-fee="100">West Virginia (State Filing Fee - $100)</option>
+            <option value="WI" data-fee="130">Wisconsin (State Filing Fee - $130)</option>
+            <option value="WY" data-fee="100">Wyoming (State Filing Fee - $100)</option>
+        </select>
+        <button class="button primary" onclick="nextStep(2)" style="flex: 1; height: 50px; margin: 0; white-space: nowrap; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border: none; vertical-align: middle;">
+            Get started
+        </button>
+    </div>
+
+    <div class="lz-trust-row">
+        <div class="trust-badge-item">★ ★ ★ ★ ★ 4.8/5 Trust Rating</div>
+        <div class="trust-badge-item">🔒 Bank-Grade Security</div>
+        <div class="trust-badge-item">💼 100% Accuracy</div>
+    </div>
+</div>
+
+
+
+   <!-- WRAPPER FORM -->
+<form id="intakeForm" action="https://formspree.io/f/mwvyqegd" method="POST" style="width:100%;">
+
+    <!-- STEP 2: BUSINESS & PERSONAL INFO -->
+    <div id="step2" class="funnel-step" style="display:none;">
+        <h1>Complete your application</h1>
+        <p class="lz-sub">Please provide the details required for the Secretary of State filing.</p>
+        
+        <div class="step-content-stack">
+            <h3 style="text-align:left; color:#FF6B00; margin-bottom:10px; font-size: 1.1rem;">Business Information</h3>
+            <select name="User Position" required>
+                <option value="" disabled selected>Your position in the company</option>
+                <option value="Manager">Manager</option>
+                <option value="Member">Member</option>
+            </select>
+            <input type="text" name="Business Name" id="bizName" placeholder="Desired Business Name" required />
+            <input type="text" name="Business Address" placeholder="Business Address" required />
+      <div style="display: flex; gap: 10px;">
+    <input type="text" name="Business City" placeholder="City" style="flex: 2; width: 0;" required />
+    <select name="Business State" style="flex: 1; width: 0;" required>
+        <option value="" disabled selected>State</option>
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AZ">AZ</option>
+        <option value="AR">AR</option>
+        <option value="CA">CA</option>
+        <option value="CO">CO</option>
+        <option value="CT">CT</option>
+        <option value="DE">DE</option>
+        <option value="FL">FL</option>
+        <option value="GA">GA</option>
+        <option value="HI">HI</option>
+        <option value="ID">ID</option>
+        <option value="IL">IL</option>
+        <option value="IN">IN</option>
+        <option value="IA">IA</option>
+        <option value="KS">KS</option>
+        <option value="KY">KY</option>
+        <option value="LA">LA</option>
+        <option value="ME">ME</option>
+        <option value="MD">MD</option>
+        <option value="MA">MA</option>
+        <option value="MI">MI</option>
+        <option value="MN">MN</option>
+        <option value="MS">MS</option>
+        <option value="MO">MO</option>
+        <option value="MT">MT</option>
+        <option value="NE">NE</option>
+        <option value="NV">NV</option>
+        <option value="NH">NH</option>
+        <option value="NJ">NJ</option>
+        <option value="NM">NM</option>
+        <option value="NY">NY</option>
+        <option value="NC">NC</option>
+        <option value="ND">ND</option>
+        <option value="OH">OH</option>
+        <option value="OK">OK</option>
+        <option value="OR">OR</option>
+        <option value="PA">PA</option>
+        <option value="RI">RI</option>
+        <option value="SC">SC</option>
+        <option value="SD">SD</option>
+        <option value="TN">TN</option>
+        <option value="TX">TX</option>
+        <option value="UT">UT</option>
+        <option value="VT">VT</option>
+        <option value="VA">VA</option>
+        <option value="WA">WA</option>
+        <option value="WV">WV</option>
+        <option value="WI">WI</option>
+        <option value="WY">WY</option>
+    </select>
+    <input type="text" name="Business_Zip" id="bizZip" placeholder="Zip" style="flex: 1; width: 0;" required />
+</div>
+
+
+            <textarea name="Business Purpose" placeholder="What does your business do?" style="height:100px; padding:15px; border-radius:12px; border:2px solid #cbd5e1;" required></textarea>
+
+            <!-- Registered Agent -->
+            <div class="ra-section" style="margin: 20px 0;">
+                <div style="background:#f0f7ff; padding:20px; border-radius:12px; border: 1px solid #cbd5e1; text-align: left;">
+                    <p style="margin:0; color:#0a1f44; font-weight:600;">Add Registered Agent Service for $125/year?</p>
+                    <select id="agentChoice" name="RA_Selection" onchange="toggleAgentLogic()" required>
+                        <option value="" disabled selected>Please select...</option>
+                        <option value="yes">Yes, add Agent Service ($125/yr)</option>
+                        <option value="no">No, I'll enter my own</option>
+                    </select>
+                </div>
+                <div id="manualAgentFields" style="display:none; padding: 15px; border-left: 4px solid #FF6B00; background: #fafafa; margin-top: 15px;">
+    <p style="text-align:left; font-weight:700; font-size: 0.9rem; margin-bottom:10px;">Enter your Agent's details</p>
+    
+   <!-- Registered Agent Full Name -->
+<input type="text" name="Custom_Agent_Name" id="raName" placeholder="Registered Agent Full Name (Individual or Entity)" data-required="true" class="data-manual" style="margin-bottom: 10px;" />
+
+<!-- Registered Agent Address Row -->
+<input type="text" name="Custom_Agent_Address" id="raAddr" placeholder="Agent Street Address" data-required="true" class="data-manual" />
+
+<!-- Aligned Registered Agent City, State, and Zip Row -->
+<div style="display: flex; gap: 10px; margin-top: 10px;">
+    <input type="text" name="Custom_Agent_City" id="raCity" placeholder="City" style="flex: 2; width: 0;" data-required="true" class="data-manual" />
+    
+    <select name="Custom_Agent_State" id="raState" style="flex: 1; width: 0;" data-required="true" class="data-manual">
+        <option value="" disabled selected>State</option>
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AZ">AZ</option>
+        <option value="AR">AR</option>
+        <option value="CA">CA</option>
+        <option value="CO">CO</option>
+        <option value="CT">CT</option>
+        <option value="DE">DE</option>
+        <option value="FL">FL</option>
+        <option value="GA">GA</option>
+        <option value="HI">HI</option>
+        <option value="ID">ID</option>
+        <option value="IL">IL</option>
+        <option value="IN">IN</option>
+        <option value="IA">IA</option>
+        <option value="KS">KS</option>
+        <option value="KY">KY</option>
+        <option value="LA">LA</option>
+        <option value="ME">ME</option>
+        <option value="MD">MD</option>
+        <option value="MA">MA</option>
+        <option value="MI">MI</option>
+        <option value="MN">MN</option>
+        <option value="MS">MS</option>
+        <option value="MO">MO</option>
+        <option value="MT">MT</option>
+        <option value="NE">NE</option>
+        <option value="NV">NV</option>
+        <option value="NH">NH</option>
+        <option value="NJ">NJ</option>
+        <option value="NM">NM</option>
+        <option value="NY">NY</option>
+        <option value="NC">NC</option>
+        <option value="ND">ND</option>
+        <option value="OH">OH</option>
+        <option value="OK">OK</option>
+        <option value="OR">OR</option>
+        <option value="PA">PA</option>
+        <option value="RI">RI</option>
+        <option value="SC">SC</option>
+        <option value="SD">SD</option>
+        <option value="TN">TN</option>
+        <option value="TX">TX</option>
+        <option value="UT">UT</option>
+        <option value="VT">VT</option>
+        <option value="VA">VA</option>
+        <option value="WA">WA</option>
+        <option value="WV">WV</option>
+        <option value="WI">WI</option>
+        <option value="WY">WY</option>
+    </select>
+    
+    <input type="text" name="Custom_Agent_Zip" id="raZip" placeholder="Zip" maxlength="5" style="flex: 1; width: 0;" data-required="true" class="data-manual" />
+</div>
+
+
+</div>
+            </div>
+
+            <h3 style="text-align:left; color:#FF6B00; margin: 10px 0; font-size: 1.1rem;">Personal Information</h3>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" name="First Name" placeholder="First Name" required />
+                <input type="text" name="Last Name" placeholder="Last Name" required />
+            </div>
+            <input type="email" name="Email" placeholder="Email Address" required />
+            <input type="tel" name="Phone" placeholder="Phone Number" required />
+
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <button type="button" class="button primary" onclick="validateAndNext(3)">Continue to next step</button>
+                 <a href="javascript:void(0)" 
+       onclick="nextStep(1)" 
+       style="color: #64748b; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-align: center; width: 100%; display: block;">
+       ← Go Back to State Selection
+    </a>
+            </div>
+        </div>
+    </div>
+
+  <!-- STEP 3: ESSENTIAL UPSELLS -->
+<div id="step3" class="funnel-step" style="display:none;">
+    <h1>Essential additions.</h1>
+    <p class="lz-sub">Select these tools to secure your legal liability and maintain state compliance.</p>
+    
+    <div class="step-content-stack">
+        <!-- REGISTERED AGENT UPSELL -->
+        <div class="upsell-box" id="raCard" onclick="toggleUpsell('ra')">
+            <span style="float:right; font-weight:700; color:#FF6B00;">$125/yr</span>
+            <strong>Registered Agent Service</strong>
+            <p style="font-size: 0.85rem; color:#475569;">Keep your home address off public records.</p>
+        </div>
+
+        <!-- EIN UPSELL -->
+        <div class="upsell-box" id="einCard" onclick="toggleUpsell('ein')">
+            <span style="float:right; font-weight:700; color:#FF6B00;">$75</span>
+            <strong>Obtain Federal EIN (Tax ID)</strong>
+            <p style="font-size: 0.85rem; color:#475569;">Required to open a business bank account.</p>
+        </div>
+
+        <!-- ADDED: FREE OPERATING AGREEMENT (Visual Box) -->
+        <div class="upsell-box selected" style="cursor: default; border-color: #24b47e; background: #f0fff4;">
+            <span style="float:right; font-weight:700; color:#24b47e; background: #e6fffa; padding: 2px 8px; border-radius: 4px; border: 1px solid #24b47e;">FREE</span>
+            <strong>Custom Operating Agreement</strong>
+            <p style="font-size: 0.85rem; color:#475569;">Included customized legal framework for your LLC.</p>
+        </div>
+
+        <!-- Hidden Trackers -->
+        <input type="hidden" name="RA_Selected" id="raHiddenStep3" value="No">
+        <input type="hidden" name="EIN_Selected" id="einHiddenStep3" value="No">
+        <input type="hidden" name="Operating_Agreement" value="Yes (Free)">
+
+        <!-- Navigation Buttons inside Step 3 -->
+<div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px; width: 100%;">
+    
+    <!-- Primary Button -->
+    <button type="button" class="button primary" onclick="submitDataAndProgress()">
+        Continue to review
+    </button>
+
+    <!-- THE BACK BUTTON -->
+    <a href="javascript:void(0)" 
+       onclick="nextStep(2)" 
+       style="color: #64748b; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-align: center; width: 100%; display: block;">
+       ← Go Back to Business Info
+    </a>
+
+</div>
+
+    </div>
+</div>
+
+
+<!-- STEP 4: ORDER SUMMARY & SECURE CHECKOUT -->
+<div id="step4" class="funnel-step" style="display:none;">
+    <h1>Review your order.</h1>
+    <div class="step-content-stack">
+        <!-- Order Totals Box -->
+        <div style="background:#f8fafc; padding:2rem; border-radius:16px; border:1px solid #e2e8f0; text-align:left; margin-bottom: 20px;">
+            <div style="display:flex; justify-content:space-between;"><span>Service Fee:</span><span>$100.00</span></div>
+            <div style="display:flex; justify-content:space-between; margin-top:10px;"><span>Official State Fee:</span><span id="summaryStateFee">$0.00</span></div>
+            <div id="summaryRaRow" style="display:none; justify-content:space-between; margin-top:10px;"><span>Agent Service:</span><span>$125.00</span></div>
+            <div id="summaryEinRow" style="display:none; justify-content:space-between; margin-top:10px;"><span>EIN Application:</span><span>$75.00</span></div>
+            <div style="display:flex; justify-content:space-between; font-weight:800; border-top:2px solid #ddd; padding-top:1rem; margin-top:1rem; font-size:1.2rem;">
+                <span>Total Due:</span><span id="summaryTotal">$100.00</span>
+            </div>
+        </div>
+
+        <!-- STRIPE SECURE FIELD -->
+        <div id="payment-element" style="margin-bottom: 20px; min-height: 200px;">
+            <!-- Stripe will automatically inject the secure card fields here -->
+        </div>
+
+        <div id="payment-error-message" style="color: #df1b41; margin-bottom: 10px; font-size: 0.9rem; text-align: left;"></div>
+
+        <button type="button" id="submit-payment" class="button primary" style="background:#24b47e;" onclick="processSecurePayment()">
+            Pay & Complete Filing
+        </button>
+    </div>
+</div>
+
+
+</form> <!-- FORM NOW CLOSES AFTER ALL STEPS -->
+
+<script>
+// 1. GLOBAL TRACKER
+var currentActiveStep = 1;
+
+// 2. MASTER NAVIGATION ENGINE
+function nextStep(step) {
+    console.log("Navigating to step:", step);
+
+    // --- STEP 1 VALIDATION ---
+   if (currentActiveStep === 1 && step > 1) {
+    const stateSelect = document.getElementById('stateSelect');
+    
+    // Check if the dropdown is empty
+    if (!stateSelect || !stateSelect.value) {
+        stateSelect.style.border = "2px solid red"; // Turn border red
+        stateSelect.focus(); // Focus the field for the user
+        return; // STOP the code from moving to Step 2
+    } 
+    
+    // Reset to original border color if valid
+    if (stateSelect) stateSelect.style.border = "2px solid #cbd5e1"; 
+}
+
+    // --- STEP 2 VALIDATION ---
+    if (currentActiveStep === 2 && step > 2) {
+        const step2Div = document.getElementById('step2');
+        if (step2Div) {
+            step2Div.classList.add('was-validated');
+            const visibleInputs = Array.from(step2Div.querySelectorAll('input[required], select[required], textarea[required]'))
+                .filter(i => i.offsetParent !== null);
+            
+            let isValid = visibleInputs.every(i => i.checkValidity());
+            if (!isValid) {
+                const firstError = visibleInputs.find(i => !i.checkValidity());
+                if (firstError) firstError.reportValidity();
+                return;
+            }
+        }
+    }
+
+    // --- SWITCH VISIBILITY ---
+    document.querySelectorAll('.funnel-step').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('active');
+    });
+
+    const nextEl = document.getElementById('step' + step);
+    if (nextEl) {
+        nextEl.style.display = 'flex';
+        nextEl.classList.add('active');
+        currentActiveStep = step;
+        updateProgressBar(step);
+        // SYNC AGENT LOGIC
+        if (step === 2 || step === 3) {
+            const agentChoice = document.getElementById('agentChoice');
+            if (agentChoice) toggleAgentLogic();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// 3. SUMMARY CALCULATION (Moved outside nextStep)
+function submitDataAndProgress() {
+    console.log("Processing Step 4 Summary...");
+    const sel = document.getElementById('stateSelect');
+    if (!sel || !sel.options[sel.selectedIndex]) return;
+
+    const stateFee = parseFloat(sel.options[sel.selectedIndex].getAttribute('data-fee')) || 0;
+    const raActive = document.getElementById('raHiddenStep3')?.value === "Yes";
+    const einActive = document.getElementById('einHiddenStep3')?.value === "Yes";
+
+    // Update Summary UI
+    if (document.getElementById('summaryStateFee')) document.getElementById('summaryStateFee').innerText = `$${stateFee.toFixed(2)}`;
+    
+    const raRow = document.getElementById('summaryRaRow');
+    const einRow = document.getElementById('summaryEinRow');
+    if (raRow) raRow.style.display = raActive ? 'flex' : 'none';
+    if (einRow) einRow.style.display = einActive ? 'flex' : 'none';
+
+    // Math: $100 + State + $125 RA + $75 EIN
+    let total = 100 + stateFee;
+    if (raActive) total += 125;
+    if (einActive) total += 75;
+    
+    if (document.getElementById('summaryTotal')) document.getElementById('summaryTotal').innerText = `$${total.toFixed(2)}`;
+
+    // FORCE Switch to Step 4
+    document.querySelectorAll('.funnel-step').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('active'); // Remove active from Step 3
+    });
+
+    const step4 = document.getElementById('step4');
+    if (step4) {
+        step4.style.display = 'flex';
+        step4.classList.add('active'); // Add active to Step 4
+        currentActiveStep = 4;
+        updateProgressBar(4);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log("Step 4 is now active and alone.");
+    }
+}
+
+// 4. AGENT TOGGLE LOGIC
+function toggleAgentLogic() {
+    const agentSelect = document.getElementById('agentChoice');
+    const manualFields = document.getElementById('manualAgentFields');
+    const raCard = document.getElementById('raCard');
+    const raHiddenStep3 = document.getElementById('raHiddenStep3');
+
+    if (!agentSelect || !manualFields) return;
+
+    const choice = agentSelect.value;
+    const inputs = manualFields.querySelectorAll('.data-manual');
+
+    if (choice === 'no') {
+        manualFields.style.display = 'block';
+        inputs.forEach(input => {
+            if(input.getAttribute('data-required') === "true") input.required = true;
+        });
+        if (raCard) raCard.style.display = 'none';
+        if (raHiddenStep3) raHiddenStep3.value = "No";
+    } else {
+        manualFields.style.display = 'none';
+        inputs.forEach(input => input.required = false);
+        if (raCard) {
+            raCard.style.display = 'block';
+            raCard.classList.add('selected');
+        }
+        if (raHiddenStep3) raHiddenStep3.value = "Yes";
+    }
+}
+
+// 5. UPSELL CARD TOGGLE
+function toggleUpsell(type) {
+    const card = document.getElementById(type + 'Card');
+    const hiddenInput = document.getElementById(type + 'HiddenStep3');
+    if (!card || !hiddenInput) return;
+
+    card.classList.toggle('selected');
+    hiddenInput.value = card.classList.contains('selected') ? "Yes" : "No";
+}
+
+function updateProgressBar(step) {
+    const progressBar = document.getElementById('progressBar');
+    if (!progressBar) return;
+
+    // 1. Calculate width (4 steps total)
+    let width = (step / 4) * 100;
+    progressBar.style.width = width + "%";
+
+    // 2. Handle Color Change
+    if (step === 4) {
+        progressBar.style.background = "#24b47e"; // Professional Green
+    } else {
+        progressBar.style.background = "#FF6B00"; // Original Orange
+    }
+}
+
+// Initialize Stripe
+const stripe = Stripe('pk_live_51TTy4i0dNjSlvyScbq19wWCQjOhDKdFMUzkV4Et4ok1NAWFFab4qV2KyZB5CwAp6dAvpLSuMZq2xKAR3BZ1gfuTM00KtmvEgc4'); // REPLACE WITH YOUR KEY
+let elements;
+
+// This function should be triggered inside your submitDataAndProgress() 
+// right before you show Step 4
+async function initializeStripeElements(clientSecret) {
+    const appearance = { theme: 'stripe' };
+    elements = stripe.elements({ appearance, clientSecret });
+
+    const paymentElement = elements.create("payment");
+    paymentElement.mount("#payment-element");
+}
+
+async function processSecurePayment() {
+    const submitBtn = document.getElementById('submit-payment');
+    const errorMsg = document.getElementById('payment-error-message');
+    
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Processing...";
+
+    const { error } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+            // Where the user goes after payment success
+            return_url: "https://yourdomain.com", 
+        },
+    });
+
+    if (error) {
+        // Show error to user (e.g. card declined)
+        errorMsg.textContent = error.message;
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Secure Checkout";
+    }
+}
+
+</script>
+
+
+
+            </div> <!-- End Content Container -->
+        </section> <!-- End Hero Section -->
+
+                <!-- SECTION 2: VALUES AND FEATURES (COLOR: #ffffff) -->
+        <section class="full-width-section color-white">
+            <div class="section-content-container">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 3.5rem;">Everything You Need to Launch Safely</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">⚡</div>
+                        <h3>Same-Day Processing</h3>
+                        <p>We dispatch all approved articles directly to state desks inside matching operational shift logs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎯</div>
+                        <h3>100% Error-Free</h3>
+                        <p>Our automated screening rules intercept bad text formats before state rejections can take place.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🛡️</div>
+                        <h3>Asset Shielding</h3>
+                        <p>By decoupling registry data from home addresses, we lock your corporate veil protection securely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- SECTION 3: REVIEWS (COLOR: #f4f7fa) -->
+<section class="full-width-section color-slate">
+    <div class="section-content-container">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-top: 0; margin-bottom: 2rem;">Trusted by 12,000+ Founders Nationwide</h2>
+        
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"Wiped out my fears about state paperwork rules. Filings4u secured my California LLC approval inside 48 business hours cleanly!"</p>
+                <strong>— Marcus T., Logistics CEO</strong>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"The $100 flat processing model is incredibly honest. Other tools hide extra charges right up until the payment button."</p>
+                <strong>— Sarah L., E-commerce Founder</strong>
+            </div>
+
+            <!-- Review 3 (Added to complete the row) -->
+            <div class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"Using their Registered Agent service let me launch my Delaware corporation from my personal dining table safely."</p>
+                <strong>— David K., Tech Innovator</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- SECTION 4: FAQS (COLOR: #ffffff) -->
+<section class="full-width-section color-white">
+    <div class="section-content-container" style="max-width: 800px !important;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-top: 0; margin-bottom: 2.5rem;">Frequently Asked Questions</h2>
+        
+        <div class="faq-accordion">
+            <!-- FAQ Item 1 -->
+            <details class="faq-item" name="faq">
+                <summary class="faq-question">What is included in the $100 flat service fee?</summary>
+                <div class="faq-answer">
+                    Our flat fee covers complete document auditing, structural corporate review, and direct electronic submission to your chosen Secretary of State office. Mandatory state fees are passed through directly at cost.
+                </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="faq-item" name="faq">
+                <summary class="faq-question">How fast will my company be officially formed?</summary>
+                <div class="faq-answer">
+                    Turnaround times depend strictly on individual state processing desk queue volumes. Most states complete entity filings within 2 to 5 business days, though rush filing upgrades are available.
+                </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="faq-item" name="faq">
+                <summary class="faq-question">Do I need a Registered Agent?</summary>
+                <div class="faq-answer">
+                    Yes, most states require a Registered Agent to receive legal documents. Our service offers professional Registered Agent protection to keep your home address off public records.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+
+ <!-- FOOTER -->
 <footer id="footer">
-    <section>
-        <h2>filings4u</h2>
-        <p>Reliable, automated corporate compliance and filing services.</p>
-    </section>
-    <section>
-        <h2>Quick Links</h2>
-        <ul class="alt">
-            <li><a href="pricing.html">Pricing Structure</a></li>
-            <li><a href="compliance.html">State Compliance Info</a></li>
-            <li><a href="contact.html">Contact Support</a></li>
-        </ul>
-    </section>
+    <div class="footer-container">
+        <!-- Col 1: Brand & Social -->
+        <section class="footer-column">
+            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
+            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
+            <div class="footer-social">
+                <a href="#"><img src="https://flaticon.com" alt="Facebook"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Instagram"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Twitter"></a>
+                <a href="#"><img src="https://flaticon.com" alt="LinkedIn"></a>
+            </div>
+        </section>
+
+        <!-- Col 2: Formation Services -->
+        <section class="footer-column">
+            <h3>Services</h3>
+            <ul class="footer-links">
+                <li><a href="#">LLC Formation</a></li>
+                <li><a href="#">C-Corp Filing</a></li>
+                <li><a href="#">S-Corp Election</a></li>
+                <li><a href="#">Registered Agent</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 3: Popular States (THE NEW SECTION) -->
+        <section class="footer-column">
+            <h3>State Filings</h3>
+            <ul class="footer-links">
+                <li><a href="#">Texas LLC</a></li>
+                <li><a href="#">Delaware Corp</a></li>
+                <li><a href="#">Florida LLC</a></li>
+                <li><a href="#">Wyoming LLC</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 4: Platform -->
+        <section class="footer-column">
+            <h3>Platform</h3>
+            <ul class="footer-links">
+                <li><a href="pricing.html">Pricing Matrix</a></li>
+                <li><a href="compliance.html">Compliance Info</a></li>
+                <li><a href="contact.html">Support Desk</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 5: Company/Legal -->
+        <section class="footer-column">
+            <h3>Company</h3>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="copyright">
+    &copy; <span id="copyright-year">2026</span> filings4u. All rights reserved. 
+    A Subsidiary of <a href="https://www.roselandcompanies.com" target="_blank" rel="noopener" style="color: #c15254 !important; text-decoration: none;">Roseland Companies, LLC</a>.
+</div>
+
+
 </footer>
 
-			</div>
+<!-- 1. Load the correct Stripe.js library -->
+<script src="https://js.stripe.com/v3/"></script>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<script>
 
-	</body>
+function validateAndNext(step) {
+    const currentStepDiv = document.getElementById('step' + currentActiveStep);
+    currentStepDiv.classList.add('was-validated');
+
+    // Select ALL inputs, selects, and textareas in this step
+    // Replace your inputs variable with this:
+const inputs = currentStepDiv.querySelectorAll('input[required]:not([style*="display: none"]), select[required], textarea[required]');
+
+    
+    let isValid = true;
+    inputs.forEach(input => {
+        // Check if the field is actually required and invalid
+        if (input.hasAttribute('required') && !input.checkValidity()) {
+            console.warn("Blocked by field:", input.name || input.id, "Validity Message:", input.validationMessage);
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        nextStep(step);
+    } else {
+        // Find the first invalid field and try to show its error
+        const firstInvalid = currentStepDiv.querySelector(':invalid');
+        if (firstInvalid) {
+            firstInvalid.reportValidity();
+        }
+    }
+}
+
+
+function toggleAgentLogic() {
+    const choice = document.getElementById('agentChoice').value;
+    const manualFields = document.getElementById('manualAgentFields');
+    
+    // Select all inputs inside the manual section except the optional Building/Suite
+    const inputs = manualFields.querySelectorAll('.data-manual');
+
+    if (choice === 'no') {
+        manualFields.style.display = 'block';
+        // Make fields required so validation catches them
+        inputs.forEach(input => input.required = true);
+    } else {
+        manualFields.style.display = 'none';
+        // Remove required so the user can proceed to Step 3
+        inputs.forEach(input => {
+            input.required = false;
+            input.value = ""; // Clear values if they changed their mind
+        });
+    }
+}
+
+function redirectToStripe() {
+    const form = document.getElementById('intakeForm');
+    const checkoutBtn = event.target;
+    
+    // 1. Show loading state
+    checkoutBtn.innerText = "Processing...";
+    checkoutBtn.disabled = true;
+
+    // 2. Send data to Formspree
+    const data = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        // 3. Success! Now send them to your Stripe Payment Link
+        // Replace the URL below with your actual Stripe Payment Link
+        window.location.href = "https://stripe.com";
+    }).catch(error => {
+        // Fallback: If Formspree fails, try to send to Stripe anyway so you don't lose the sale
+        window.location.href = "https://stripe.com";
+    });
+}
+
+
+
+</script>
+
+
+
+
+
+
+</body>
 </html>
