@@ -1222,3 +1222,336 @@ select.invalid-field {
 .ra-btn:hover {
     background: #e65a00;
 }
+
+:root {
+    --brand-orange: #ff8c00; /* Adjust to your specific orange */
+    --brand-dark: #1a1a1a;
+}
+
+.ra-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f4f7fa 100%);
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--brand-orange);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    color: var(--brand-dark);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 35px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.modern-img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Floating effect */
+    transform: perspective(1000px) rotateY(-5deg); /* Subtle 3D look */
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--brand-dark);
+    color: white;
+    padding: 18px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.cta-button:hover {
+    background: var(--brand-orange);
+    transform: translateY(-2px);
+}
+
+/* Responsive for Mobile */
+@media (max-width: 992px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .modern-img {
+        transform: none;
+        margin-top: 40px;
+    }
+}
+
+/* HERO SECTION STYLES */
+.ra-hero {
+    position: relative;
+    /* BACKGROUND IMAGE APPLIED HERE */
+    background: linear-gradient(rgba(10, 31, 68, 0.85), rgba(10, 31, 68, 0.85)), 
+                url('images/register-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    color: #FF6B00;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    max-width: 550px;
+}
+
+/* RIGHT SIDE IMAGE */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.modern-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVE: Stack on Mobile */
+@media (max-width: 991px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content p {
+        margin: 0 auto 35px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.ra-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    /* Image Background + Gradient Overlay to make left-side text pop */
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.9) 30%, rgba(10, 31, 68, 0) 70%), 
+                url('images/register-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
+}
+
+.hero-alignment {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content-left {
+    max-width: 600px; /* Limits text width so it doesn't cover the right side */
+    text-align: left;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    color: #FF6B00;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.hero-content-left h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+}
+
+.hero-content-left p {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: #FF6B00;
+    color: white;
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #e65a00;
+    transform: translateY(-2px);
+}
+
+/* Responsive: On small screens, dim the whole image for readability */
+@media (max-width: 768px) {
+    .ra-hero {
+        background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(10, 31, 68, 0.8)), 
+                    url('images/register-hero.jpg');
+        text-align: center;
+    }
+    .hero-content-left {
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-content-left h1 {
+        font-size: 2.5rem;
+    }
+}
+.ra-hero {
+    position: relative;
+    min-height: 600px; /* Ensures the section is tall enough to see the photo */
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+}
+
+.hero-alignment {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content-left {
+    text-align: left;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    color: #FF6B00;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.ra-hero {
+    position: relative;
+    min-height: 450px; 
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    
+    /* THE FIX: Moves the image down. 
+       'center' is horizontal, '100%' is the vertical bottom. 
+       Try 80%, 90%, or 100% to find the perfect spot. */
+    background-position: center 10%; 
+
+    padding: 100px 20px;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+    .ra-hero {
+        min-height: auto;
+        /* Ensure the mobile view also pushes the image down */
+        background-position: center 10% !important;
+        text-align: center;
+    }
+}
+
+.ra-hero {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    
+    /* THE FIX: 
+       First value (85%) pushes the image focal point to the right.
+       Second value (10%) keeps it near the top. */
+    background-position: 750% 10%; 
+
+    padding: 100px 20px;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+    .ra-hero {
+        min-height: auto;
+        /* On mobile, you usually want it centered so the subject isn't cut off */
+        background-position: center center !important; 
+        text-align: center;
+    }
+}

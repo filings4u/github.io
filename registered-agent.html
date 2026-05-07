@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registered Agent Services | Filings4U</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your existing main CSS -->
+    <title>Professional Registered Agent Services | filings4u</title>
+    
+    <!-- Stripe.js Library -->
+    <script src="https://stripe.com"></script> 
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
     <style>
-        /* PAGE SPECIFIC STYLES */
         :root {
             --primary-navy: #0a1f44;
             --brand-orange: #FF6B00;
@@ -14,67 +24,69 @@
             --bg-light: #f8fafc;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #1e293b; line-height: 1.6; }
 
-        /* Hero Section */
+        /* HERO SECTION */
         .ra-hero {
-            background: linear-gradient(180deg, var(--primary-navy), #1e293b);
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #1e293b 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
         }
-        .ra-hero h1 { font-size: 2.8rem; margin-bottom: 20px; }
-        .ra-hero p { max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; opacity: 0.9; }
+        .ra-hero h1 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 800; }
+        .ra-hero p { max-width: 800px; margin: 0 auto 35px; font-size: 1.25rem; color: #cbd5e1; }
 
-        /* Main Content Grid */
-        .ra-content-section { padding: 80px 20px; }
+        /* FEATURES GRID */
+        .section-padding { padding: 80px 20px; }
         .container { max-width: 1100px; margin: 0 auto; }
         
         .ra-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         .ra-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 16px;
+            padding: 40px;
+            border-radius: 20px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            text-align: left;
-            transition: 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
         }
-        .ra-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .ra-card h3 { color: var(--primary-navy); margin-top: 0; }
-        .ra-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .ra-card:hover { transform: translateY(-10px); border-color: var(--brand-orange); }
+        .ra-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .ra-card h3 { font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 15px; }
 
-        /* CTA Section */
-        .ra-cta {
-            background: #f1f5f9;
-            padding: 60px 20px;
-            border-radius: 24px;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .cta-btn {
+        /* FAQ SECTION */
+        .faq-section { background: var(--bg-light); border-top: 1px solid #e2e8f0; }
+        .faq-item { background: white; margin-bottom: 15px; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .faq-item h4 { margin-top: 0; color: var(--primary-navy); font-size: 1.1rem; }
+
+        /* BUTTONS */
+        .cta-button {
             background: var(--brand-orange);
             color: white;
-            padding: 18px 40px;
-            border-radius: 8px;
+            padding: 18px 45px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 1.1rem;
             display: inline-block;
-            margin-top: 20px;
             transition: 0.3s;
         }
-        .cta-btn:hover { background: #e65a00; }
+        .cta-button:hover { background: #e65a00; transform: scale(1.02); }
 
-        /* Nav Helper (Matches your main site) */
-        .brand-nav-bar { background: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        /* NAVIGATION OVERRIDES (Ensure consistency) */
+        .brand-nav-bar { background: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top:0; z-index: 1000; }
         .brand-nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-        .brand-nav-links a { text-decoration: none; color: var(--primary-navy); font-weight: 600; }
+        .brand-nav-links a { text-decoration: none; color: var(--primary-navy); font-weight: 600; font-size: 0.95rem; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 0; top: 100%; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content li a { padding: 10px 20px; display: block; color: var(--primary-navy); }
+        .dropdown-content li a:hover { background: var(--bg-light); color: var(--brand-orange); }
     </style>
 </head>
 <body>
@@ -86,60 +98,127 @@
         </a>
         <ul class="brand-nav-links">
             <li><a href="tax-filings.html">Tax Filings</a></li>
-            <li><a href="index.html">Business Formation</a></li>
-            <li><a href="registered-agent.html" style="color: var(--brand-orange);">Registered Agent</a></li>
-            <li><a href="compliance.html">Compliance</a></li>
+            <li class="dropdown">
+                <a href="index.html" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="llc.html">Limited liability company (LLC)</a></li>
+                    <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+                    <li><a href="dba.html">Doing business as (DBA)</a></li>
+                    <li><a href="nonprofit.html">Nonprofit</a></li>
+                    <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn" style="color: var(--brand-orange);">Compliance Services <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="annual-report.html">Annual report</a></li>
+                    <li><a href="business-licenses.html">Business licenses</a></li>
+                    <li><a href="ein.html">EIN</a></li>
+                    <li><a href="operating-agreement.html">Operating agreement</a></li>
+                    <li><a href="registered-agent.html">Registered agent</a></li>
+                    <li><a href="dissolution.html">Dissolution</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="owner-operators.html">Owner Operators</a></li>
+                    <li><a href="trucker-authority.html">Trucker Authority</a></li>
+                    <li><a href="broker-authority.html">Broker Authority</a></li>
+                </ul>
+            </li>
+            <li><a href="license-permits.html">License/Permits</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
-    <section class="ra-hero">
-        <div class="container">
-            <span style="background: rgba(255,107,0,0.2); color: #FFD2B2; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">STATE COMPLIANCE</span>
-            <h1>Your Shield for Privacy & Compliance</h1>
-            <p>Every LLC needs a Registered Agent. We provide a professional address to receive your legal documents, keeping your home address private and your business in good standing.</p>
-            <a href="index.html" class="cta-btn">Start My LLC with Agent Service</a>
+<!-- HERO SECTION -->
+<header class="ra-hero" style="background-image: linear-gradient(to right, rgba(10, 31, 68, 0.95) 20%, rgba(10, 31, 68, 0.2) 80%), url('images/register-hero.jpg');">
+    <div class="container hero-alignment">
+        <!-- Content pushed to the left -->
+        <div class="hero-content-left">
+            <span class="hero-subtitle">The Gold Standard in Privacy</span>
+            <h1 style="color: white; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1;">
+                The Only Registered Agent You'll Ever Need.
+            </h1>
+            <p style="color: #e2e8f0; font-size: 1.25rem; margin-bottom: 35px; max-width: 550px;">
+                Every LLC is legally required to have one. Don't use your home address. Protect your privacy and never miss a legal deadline with <strong>filings4u</strong>.
+            </p>
+            <a href="index.html" class="cta-button" style="background: #FF6B00; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                Appoint Your Registered Agent — $125/yr
+            </a>
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- FEATURES -->
-    <section class="ra-content-section">
+
+
+
+
+    <!-- WHY SECTION -->
+    <section class="section-padding">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="font-size: 2.2rem; color: var(--primary-navy);">What does a Registered Agent do?</h2>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; color: var(--primary-navy);">Why filings4u for Registered Agent?</h2>
+                <p style="color: var(--slate-gray); font-size: 1.1rem;">We don't just receive mail; we protect your business reputation.</p>
             </div>
             
             <div class="ra-grid">
                 <div class="ra-card">
                     <span class="ra-icon">🛡️</span>
-                    <h3>Privacy Protection</h3>
-                    <p>When you act as your own agent, your home address becomes public record. We list our commercial address instead, protecting you from junk mail and solicitors.</p>
+                    <h3>100% Privacy Protection</h3>
+                    <p>Keep your home address off the public Secretary of State records. We list our commercial address so you stay anonymous to solicitors and junk mailers.</p>
                 </div>
                 
                 <div class="ra-card">
-                    <span class="ra-icon">⚖️</span>
-                    <h3>Legal Reliability</h3>
-                    <p>We are available during all business hours to receive Service of Process (lawsuits) and official state mail, ensuring you never miss a critical legal window.</p>
+                    <span class="ra-icon">⚡</span>
+                    <h3>Instant Digital Scanning</h3>
+                    <p>When legal documents or tax notices arrive, we scan and upload them to your dashboard within minutes. No waiting for physical mail forwards.</p>
                 </div>
                 
                 <div class="ra-card">
                     <span class="ra-icon">📅</span>
-                    <h3>Compliance Alerts</h3>
-                    <p>We track your state's annual report deadlines and notify you well in advance, so your business never falls into "Inactive" status.</p>
+                    <h3>Compliance Reminders</h3>
+                    <p>Never pay a late fee again. We track your Annual Report deadlines and notify you 60 days in advance to keep your business in good standing.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="ra-cta">
-                <h2>Don't risk your Good Standing.</h2>
-                <p>Professional Registered Agent service for only <strong>$125 per year</strong>.</p>
-                <a href="index.html" class="cta-btn" style="background: var(--primary-navy);">Get Started Now</a>
+    <!-- FAQ SECTION -->
+    <section class="section-padding faq-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary-navy);">Common Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <h4>What exactly is a Registered Agent?</h4>
+                    <p>A Registered Agent is a person or entity authorized to receive legal documents (Service of Process) and official government correspondence on behalf of your business.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I be my own Registered Agent?</h4>
+                    <p>Technically, yes—but you must list your physical address on public record and be available at that address during all business hours. Most business owners prefer the privacy of a professional service.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What happens if I don't have an agent?</h4>
+                    <p>Your business can lose its "Good Standing" status, face administrative dissolution by the state, and you might miss critical notice of a lawsuit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-padding" style="text-align: center;">
+        <div class="container">
+            <div style="background: var(--primary-navy); padding: 60px; border-radius: 30px; color: white;">
+                <h2>Secure your privacy today.</h2>
+                <p style="margin-bottom: 30px; opacity: 0.8;">Join thousands of business owners who trust filings4u for reliable compliance.</p>
+                <a href="index.html" class="cta-button">Get Started Now</a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer style="padding: 40px; text-align: center; color: var(--slate-gray); border-top: 1px solid #eee;">
-        <p>&copy; 2024 Filings4U. All rights reserved.</p>
+    <footer style="background: white; border-top: 1px solid #eee; padding: 40px 0; text-align: center; color: var(--slate-gray); font-size: 0.9rem;">
+        <p>&copy; 2024 filings4u. Helping you build, scale, and protect your vision.</p>
     </footer>
 
 </body>
