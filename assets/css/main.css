@@ -6105,7 +6105,7 @@ button {
     background-color: #ffffff; /* Fallback */
     
     /* ADD BACKGROUND IMAGE HERE */
-    background-image: url('../../images/hero-bg-pattern.jpg'); /* Suble pattern or texture */
+    background-image: url('images/index-background.jpg'); /* Suble pattern or texture */
     background-size: cover;
     background-position: center;
 }
@@ -6152,9 +6152,31 @@ button {
     z-index: -1;
 }
 
-/* SEARCH FORM RESET */
-.hero-search-form {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+.index-hybrid-hero {
+    /* 1. The Image + a dark overlay to make text pop */
+    background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(10, 31, 68, 0.5)), 
+                url('images/index-background.jpg') no-repeat;
+    
+    /* 2. Positioning */
+    background-size: cover;
+    background-position: center;
+    
+    /* 3. Give it height so the image is visible */
+    min-height: 600px;
+    width: 100%;
+    
+    /* 4. Layout */
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Ensure the container centers the content within the hero */
+.hero-split-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 2; /* Keeps text above the background */
 }
