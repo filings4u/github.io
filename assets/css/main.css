@@ -3534,3 +3534,29 @@ body {
         transform: scale(1);
     }
 }
+
+/* LLC HERO BACKGROUND */
+.llc-hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    color: white;
+
+    /* THE FIX: Gradient + Your Image */
+    background: 
+        linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+        url('../../images/llc-hero.jpg') no-repeat;
+    
+    background-size: cover;
+    background-position: center right;
+
+    background-position: center 10% !important; 
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
