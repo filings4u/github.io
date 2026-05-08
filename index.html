@@ -3,196 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Registered Agent Services | filings4u</title>
-    
-    <!-- Stripe.js Library -->
-    <script src="https://stripe.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="assets/css/main.css">
-
-
+    <title>Professional Business Formation | filings4u</title>
+    <!-- Fixed Google Font Link -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <!-- NAVIGATION BAR -->
-<nav class="brand-nav-bar">
-    <a href="index.html">
-        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
-    </a>
-    <ul class="brand-nav-links">
-        <li><a href="tax-filings.html">Tax Filings</a></li>
-        
-        <!-- BUSINESS FORMATION DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="llc.html">Limited liability company (LLC)</a></li>
-                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
-                <li><a href="dba.html">Doing business as (DBA)</a></li>
-                <li><a href="nonprofit.html">Nonprofit</a></li>
-                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+    <nav class="brand-nav-bar">
+        <div class="container nav-flex">
+            <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+            <ul class="brand-nav-links">
+                <li><a href="tax-filings.html">Tax Filings</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Business Formation ▼</a>
+                    <div class="dropdown-content">
+                        <a href="llc.html">LLC</a>
+                        <a href="corporation.html">Corporation</a>
+                    </div>
+                </li>
+                <li><a href="portal.html" class="nav-login-btn">Client Login</a></li>
             </ul>
-        </li>
+        </div>
+    </nav>
 
-        <!-- COMPLIANCE SERVICES DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="annual-report.html">Annual report</a></li>
-                <li><a href="business-licenses.html">Business licenses</a></li>
-                <li><a href="ein.html">EIN</a></li>
-                <li><a href="operating-agreement.html">Operating agreement</a></li>
-                <li><a href="registered-agent.html">Registered agent</a></li>
-                <li><a href="dissolution.html">Dissolution</a></li>
-            </ul>
-        </li>
-
-        <!-- DOT DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="owner-operators.html">Owner Operators</a></li>
-                <li><a href="trucker-authority.html">Trucker Authority</a></li>
-                <li><a href="broker-authority.html">Broker Authority</a></li>
-                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
-                <li><a href="dot-consortium.html">DOT Consortium</a></li>
-                <li><a href="driver-file.html">Driver Qualification File</a></li>
-                <li><a href="ucr-registration.html">UCR Registration</a></li>
-                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
-            </ul>
-        </li>
-        <li><a href="license-permits.html">License/Permits</a></li>
-    </ul>
-</nav>
-
- <!-- LOGIN STATE -->
-    <div id="auth-section" class="portal-container">
-        <h2 style="margin-bottom: 10px;">Portal Login</h2>
-        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 25px;">Access your formation documents and compliance vault.</p>
-        <input type="email" id="email" placeholder="Email Address">
-        <input type="password" id="password" placeholder="Password">
-        <button id="loginBtn">Sign In</button>
-    </div>
-
-    <!-- DASHBOARD STATE -->
-    <div id="dashboard-section" class="portal-container hidden">
-        <h2>Dashboard</h2>
-        <p style="font-size: 0.9rem;">Authenticated as: <strong id="userDisplay"></strong></p>
-        <div class="dashboard-grid">
-            <div class="doc-card">
-                <h4 style="margin: 0;">Formation Docs</h4>
-                <p style="font-size: 0.8rem; margin: 5px 0;">Articles of Organization, EIN</p>
-                <button style="background: var(--navy); padding: 8px; font-size: 0.8rem;">View Files</button>
+    <header class="ra-hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">Official 2026 Registration Partner</span>
+                <h1 class="hero-title">Launch Your Business<br><span class="text-orange">Without the Stress.</span></h1>
+                <p>The legal engine for modern entrepreneurs. We handle the paperwork, you handle the growth.</p>
+                <a href="#pricing" class="cta-button">Start My Business - $100</a>
+            </div>
+            <div class="hero-search-box">
+                <form id="nameSearchForm" class="hero-search-form">
+                    <input type="text" id="businessNameInput" placeholder="Check name availability..." required>
+                    <button type="submit">Search</button>
+                </form>
+                <span class="search-note">✓ Direct Secretary of State API Integration</span>
             </div>
         </div>
-        <button id="logoutBtn" style="background: transparent; color: var(--navy); border: 1px solid var(--navy); margin-top: 25px;">Logout</button>
-    </div>
+    </header>
 
-
-<!-- HERO SECTION -->
-<header class="ra-hero dba-hero">
-    <div class="container hero-relative">
-        <!-- Text Content: Now Vertically Centered -->
-        <div class="hero-content-left">
-            <span class="hero-subtitle">Fast-Track Your Ambition</span>
-            <h1 class="hero-title">Launch Your Business<br><span class="text-orange">Instant Impact.</span></h1>
-            <p>The legal engine for modern entrepreneurs. Check name availability across all 50 states instantly.</p>
-            <a href="#pricing" class="cta-button">Business Formation - $100 + State Fee</a>
-        </div>
-
-<!-- The main wrapper anchored to the right of your hero -->
-<div class="hero-search-wrapper-right"> <!-- Fixed: Added closing bracket and moved comment -->
-    <form id="nameSearchForm" class="hero-search-form">
-        <input type="text" id="businessNameInput" placeholder="Check name availability..." required>
-        <button type="submit">Search</button>
-    </form>
-    <span class="search-note">✓ Direct API integration with Secretary of State databases</span>
-</div>
-</header>
-
-
-
-   
-
-
-<!-- FOOTER -->
-<footer id="footer">
-    <div class="footer-container">
-        <!-- Col 1: Brand -->
-        <section class="footer-column brand-col">
-            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
-            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
-            <div class="footer-social">
-                <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
-                <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
-                <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
+    <section class="trust-bar">
+        <div class="container">
+            <p>Trusted by 5,000+ business owners nationwide</p>
+            <div class="logo-row">
+                <!-- Replace with actual logo files -->
+                <div class="placeholder-logo">TRUSTED PARTNER</div>
+                <div class="placeholder-logo">COMPLIANCE SAFE</div>
+                <div class="placeholder-logo">SECURE FILINGS</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Col 2: Services -->
-        <section class="footer-column">
-            <h3>Services</h3>
-            <ul class="footer-links">
-                <li><a href="llc.html">LLC Formation</a></li>
-                <li><a href="corporation.html">C-Corp Filing</a></li>
-                <li><a href="registered-agent.html">Registered Agent</a></li>
-                <li><a href="ein.html">EIN Registration</a></li>
-            </ul>
-        </section>
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Gold Standard in <span class="text-orange">Compliance.</span></h2>
+                <p>Expertly prepared documents delivered to your secure portal.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Next-Day Filing</h3>
+                    <p>We submit your formation docs within 24 hours of purchase, guaranteed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Privacy Protection</h3>
+                    <p>Use our address on public records to keep your home address off the grid.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Compliance Vault</h3>
+                    <p>Lifetime access to your digital docs and automated tax deadline alerts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Col 3: State Filings -->
-        <section class="footer-column">
-            <h3>State Filings</h3>
-            <ul class="footer-links">
-                <li><a href="#">Texas LLC</a></li>
-                <li><a href="#">Delaware Corp</a></li>
-                <li><a href="#">Florida LLC</a></li>
-                <li><a href="#">Wyoming LLC</a></li>
-            </ul>
-        </section>
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Basic</h3>
+                    <p class="price">$100 <span>+ state fee</span></p>
+                    <ul>
+                        <li>✓ Name Availability Search</li>
+                        <li>✓ Articles of Organization</li>
+                        <li>✓ Digital Doc Delivery</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Select Basic</a>
+                </div>
+                <div class="price-card popular">
+                    <span class="badge">Most Popular</span>
+                    <h3>The Professional</h3>
+                    <p class="price">$299 <span>+ state fee</span></p>
+                    <ul>
+                        <li>✓ Everything in Basic</li>
+                        <li>✓ EIN (Tax ID) Registration</li>
+                        <li>✓ Operating Agreement</li>
+                        <li>✓ 1-Year Registered Agent</li>
+                    </ul>
+                    <a href="#" class="btn-solid">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Col 4: Resources -->
-        <section class="footer-column">
-            <h3>Resources</h3>
-            <ul class="footer-links">
-                <li><a href="#">Business Help</a></li>
-                <li><a href="#">Form Templates</a></li>
-                <li><a href="#">Filing Deadlines</a></li>
-            </ul>
-        </section>
-
-        <!-- Col 5: Subscribe -->
-        <section class="footer-column subscribe-col">
-            <h3>Stay Updated</h3>
-            <form class="footer-subscribe">
-                <input type="email" placeholder="name@email.com" required>
-                <button type="submit">Sign Up</button>
-            </form>
-        </section>
-    </div>
-
-    <!-- BOTTOM BAR: Single line divider with requested info -->
-    <div class="footer-bottom">
-    <div class="copyright-info">
-    &copy; 2026 filings4u. All rights reserved. 
-    A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
-</div>
-
-</div>
-
-</footer>
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="brand-col">
+                <img src="images/logo.png" alt="filings4u" height="30">
+                <p>Simplifying corporate compliance for the modern entrepreneur.</p>
+            </div>
+            <div class="footer-links-col">
+                <h4>Services</h4>
+                <a href="llc.html">LLC Formation</a>
+                <a href="ein.html">EIN Registration</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Corporate</h4>
+                <p>&copy; 2026 filings4u. A Subsidiary of Roseland Companies, LLC</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Redirect search to the upsell flow with name
         document.getElementById('nameSearchForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const businessName = document.getElementById('businessNameInput').value;
-            window.location.href = `upsell.html?biz_name=${encodeURIComponent(businessName)}`;
+            const name = document.getElementById('businessNameInput').value;
+            window.location.href = `upsell.html?biz_name=${encodeURIComponent(name)}`;
         });
     </script>
 </body>
