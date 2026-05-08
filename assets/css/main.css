@@ -4713,6 +4713,7 @@ body { background-color: var(--black); color: #fff; font-family: 'Inter', sans-s
 /* Section Background (Off-White) */
 .bg-soft {
     background-color: #f4f7fa;
+    padding-bottom: 80px !important; /* Adjust this number to add more or less space */
 }
 
 /* Matrix Layout */
@@ -4841,4 +4842,16 @@ body { background-color: var(--black); color: #fff; font-family: 'Inter', sans-s
         transform: scale(1);
         margin: 20px 0;
     }
+}
+
+
+.section-header-center {
+    width: 100%;        /* Ensures the container spans the full width */
+    text-align: center; /* Centers the text inside the container */
+    margin-bottom: 50px; /* Provides consistent spacing above the pricing cards */
+}
+
+.section-header-center h2.navy-title {
+    margin: 0 auto;     /* Ensures no side margins are pushing it off-center */
+    display: block;
 }
