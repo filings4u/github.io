@@ -3482,7 +3482,7 @@ body {
 /* LLC SPECIFIC HERO IMAGE */
 .llc-hero {
     background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
-                url('../../images/llc-hero.jpg') no-repeat;
+                url('images/llc-hero.jpg') no-repeat;
     background-size: cover;
     background-position: center right;
 }
