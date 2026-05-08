@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | filings4u</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-soft">
 
+    <!-- NAVIGATION BAR -->
+<nav class="brand-nav-bar">
+    <a href="index.html">
+        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+    </a>
+    <ul class="brand-nav-links">
+        <li><a href="tax-filings.html">Tax Filings</a></li>
+        
+        <!-- BUSINESS FORMATION DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="llc.html">Limited liability company (LLC)</a></li>
+                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+                <li><a href="dba.html">Doing business as (DBA)</a></li>
+                <li><a href="nonprofit.html">Nonprofit</a></li>
+                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+            </ul>
+        </li>
+
+        <!-- COMPLIANCE SERVICES DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="annual-report.html">Annual report</a></li>
+                <li><a href="business-licenses.html">Business licenses</a></li>
+                <li><a href="ein.html">EIN</a></li>
+                <li><a href="operating-agreement.html">Operating agreement</a></li>
+                <li><a href="registered-agent.html">Registered agent</a></li>
+                <li><a href="dissolution.html">Dissolution</a></li>
+            </ul>
+        </li>
+
+        <!-- DOT DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="owner-operators.html">Owner Operators</a></li>
+                <li><a href="trucker-authority.html">Trucker Authority</a></li>
+                <li><a href="broker-authority.html">Broker Authority</a></li>
+                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+                <li><a href="dot-consortium.html">DOT Consortium</a></li>
+                <li><a href="driver-file.html">Driver Qualification File</a></li>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
+            </ul>
+        </li>
+        <li><a href="license-permits.html">License/Permits</a></li>
+    </ul>
+</nav>
+
+
+    <section class="section-padding order-page-padding"> 
+        <div class="container order-grid">
+            
+            <!-- LEFT: ORDER FORM -->
+            <div class="order-form-container">
+                <div class="form-card">
+                    <h2 class="navy-title" style="font-size: 1.8rem; margin-bottom: 30px;">Start Your Formation</h2>
+                    
+                    <form id="formationOrderForm">
+                        
+                        <div class="form-step">
+                            <span class="step-label">01 Business Details</span>
+                            <div class="input-group">
+                                <label>Proposed Business Name</label>
+                                <input type="text" id="order_biz_name" name="biz_name" placeholder="Enter your business name" required>
+                            </div>
+                            <div class="input-group">
+                                <label>State of Formation</label>
+                                <select name="state" required>
+                                    <option value="">Select a State</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="WY">Wyoming</option>
+                                    <!-- Add other states -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Contact Info -->
+                        <div class="form-step">
+                            <span class="step-label">02 Contact Information</span>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label>First Name</label>
+                                    <input type="text" name="first_name" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Last Name</label>
+                                    <input type="text" name="last_name" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" placeholder="for official updates" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Payment (Stripe Placeholder) -->
+                        <div class="form-step">
+                            <span class="step-label">03 Secure Payment</span>
+                            <p class="secure-note">🔒 Encrypted 256-bit SSL Connection</p>
+                            <div id="card-element"><!-- Stripe Element will go here --></div>
+                            <button type="submit" class="cta-button-block" style="margin-top: 30px;">Complete My Filing</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT: LIVE SUMMARY SIDEBAR -->
+            <aside class="order-summary-sidebar">
+                <div class="summary-card">
+                    <h4>Order Summary</h4>
+                    <div class="summary-line">
+                        <span>Formation Package</span>
+                        <span id="summary-price">$125.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>State Filing Fee</span>
+                        <span id="summary-state-fee">$300.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total Due</span>
+                        <span id="total-price">$425.00</span>
+                    </div>
+                    
+                    <div class="summary-trust">
+                        <p>✓ Accurate Filing Guarantee</p>
+                        <p>✓ Lifetime Compliance Alerts</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+ <!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-container">
+        <!-- Col 1: Brand -->
+        <section class="footer-column brand-col">
+            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
+            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
+            <div class="footer-social">
+                <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
+            </div>
+        </section>
+
+        <!-- Col 2: Services -->
+        <section class="footer-column">
+            <h3>Services</h3>
+            <ul class="footer-links">
+                <li><a href="llc.html">LLC Formation</a></li>
+                <li><a href="corporation.html">C-Corp Filing</a></li>
+                <li><a href="registered-agent.html">Registered Agent</a></li>
+                <li><a href="ein.html">EIN Registration</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 3: State Filings -->
+        <section class="footer-column">
+            <h3>State Filings</h3>
+            <ul class="footer-links">
+                <li><a href="#">Texas LLC</a></li>
+                <li><a href="#">Delaware Corp</a></li>
+                <li><a href="#">Florida LLC</a></li>
+                <li><a href="#">Wyoming LLC</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 4: Resources -->
+        <section class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li><a href="#">Business Help</a></li>
+                <li><a href="#">Form Templates</a></li>
+                <li><a href="#">Filing Deadlines</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 5: Subscribe -->
+        <section class="footer-column subscribe-col">
+            <h3>Stay Updated</h3>
+            <form class="footer-subscribe">
+                <input type="email" placeholder="name@email.com" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- BOTTOM BAR: Single line divider with requested info -->
+    <div class="footer-bottom">
+    <div class="copyright-info">
+    &copy; 2026 filings4u. All rights reserved. 
+    A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
+</div>
+
+</div>
+
+</footer>
+    <script>
+        // PRE-FILL FROM SEARCH
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const nameFromSearch = params.get('biz_name');
+            if (nameFromSearch) {
+                document.getElementById('order_biz_name').value = decodeURIComponent(nameFromSearch);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -5385,3 +5385,95 @@ body { background-color: var(--black); color: #fff; font-family: 'Inter', sans-s
 .hero-content-left {
     margin-top: 60px; /* Adjust this number to push text lower */
 }
+
+/* --- ORDER PAGE LAYOUT --- */
+.order-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-step { margin-bottom: 40px; }
+
+.step-label {
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #FF6B00;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-weight: 700; color: #0a1f44; margin-bottom: 8px; font-size: 0.95rem; }
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline-color: #FF6B00;
+}
+
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* SIDEBAR SUMMARY */
+.summary-card {
+    background: #0a1f44;
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    position: sticky;
+    top: 120px;
+}
+
+.summary-card h4 { font-size: 1.2rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+
+.summary-line { display: flex; justify-content: space-between; margin-bottom: 15px; color: #cbd5e1; font-size: 0.95rem; }
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #FF6B00;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.summary-trust { margin-top: 30px; font-size: 0.85rem; color: #94a3b8; }
+
+@media (max-width: 992px) {
+    .order-grid { grid-template-columns: 1fr; }
+    .summary-card { position: static; margin-top: 20px; }
+}
+
+/* Specific padding for the Order Page to clear the Nav Bar */
+.order-page-padding {
+    padding-top: 140px !important; /* Adjust this number to move it further down */
+    padding-bottom: 80px;
+}
+
+/* Ensure the sidebar also respects the new top spacing */
+.order-summary-sidebar {
+    position: sticky;
+    top: 160px; /* Keeps the sidebar visible while scrolling */
+}
+
+/* Mobile adjustment: reduce the gap slightly for smaller screens */
+@media (max-width: 768px) {
+    .order-page-padding {
+        padding-top: 100px !important;
+    }
+}
