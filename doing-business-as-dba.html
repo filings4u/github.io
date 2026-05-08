@@ -3,31 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launch Your Business Instantly | filings4u</title>
-    
-    <!-- Stripe.js Library -->
-    <script src="https://stripe.com"></script>
-
-    <!-- Google Fonts: Inter -->
+    <title>Corporations Formation Services | filings4u</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="assets/css/main.css">
-
-    <style>
-        /* 1. Trigger red borders only after validation check */
-        .was-validated input:invalid, 
-        .was-validated select:invalid, 
-        .was-validated textarea:invalid {
-            border: 2px solid red !important;
-        }
-
-        /* 2. Modern browser support for better UX */
-        input:user-invalid {
-            border: 2px solid red;
-        }
-    </style>
 </head>
 <body>
+
+    <!-- NAVIGATION BAR -->
+<nav class="brand-nav-bar">
+    <a href="index.html">
+        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+    </a>
+    <ul class="brand-nav-links">
+        <li><a href="tax-filings.html">Tax Filings</a></li>
+        
+        <!-- BUSINESS FORMATION DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="llc.html">Limited liability company (LLC)</a></li>
+                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+                <li><a href="dba.html">Doing business as (DBA)</a></li>
+                <li><a href="nonprofit.html">Nonprofit</a></li>
+                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+            </ul>
+        </li>
+
+        <!-- COMPLIANCE SERVICES DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="annual-report.html">Annual report</a></li>
+                <li><a href="business-licenses.html">Business licenses</a></li>
+                <li><a href="ein.html">EIN</a></li>
+                <li><a href="operating-agreement.html">Operating agreement</a></li>
+                <li><a href="registered-agent.html">Registered agent</a></li>
+                <li><a href="dissolution.html">Dissolution</a></li>
+            </ul>
+        </li>
+
+        <!-- DOT DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="owner-operators.html">Owner Operators</a></li>
+                <li><a href="trucker-authority.html">Trucker Authority</a></li>
+                <li><a href="broker-authority.html">Broker Authority</a></li>
+                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+                <li><a href="dot-consortium.html">DOT Consortium</a></li>
+                <li><a href="driver-file.html">Driver Qualification File</a></li>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
+            </ul>
+        </li>
+        <li><a href="license-permits.html">License/Permits</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO SECTION -->
+<header class="ra-hero dba-hero">
+    <div class="container">
+        <div class="hero-content-left">
+            <span class="hero-subtitle">Expand Your Brand Horizon</span>
+            <h1 class="hero-title">New Name. Same Business. <br><span class="text-orange">Instant Impact.</span></h1>
+            <p>Launch a new brand identity without the cost of a new LLC. Our DBA engine handles the state and local filings for you.</p>
+            
+            <!-- NEW: Search Availability Bar -->
+            <div class="hero-search-wrapper">
+                <form action="order.html" class="hero-search-form">
+                    <input type="text" placeholder="Enter your desired business name..." required>
+                    <button type="submit">Check Availability</button>
+                </form>
+                <span class="search-note">✓ Instant state database cross-check</span>
+            </div>
+
+            <a href="#pricing" class="cta-button">Register Your DBA — $100 + State Fees</a>
+        </div>
+    </div>
+</header>
+
+
+<!-- SECTION 1: THE ADVANTAGE (Off-White) -->
+<section class="section-padding bg-soft">
+    <div class="container">
+        <div class="feature-split-header">
+            <div class="feature-header-left">
+                <span class="badge-accent">Strategic Growth</span>
+                <h2 class="navy-title">Why Register a DBA?</h2>
+            </div>
+            <div class="feature-header-right">
+                <p>A "Doing Business As" (DBA) name—also known as a fictitious name—allows you to operate multiple brands under one legal entity.</p>
+            </div>
+        </div>
+
+        <div class="premium-feature-grid">
+            <div class="premium-feature-card">
+                <div class="feature-accent-line"></div>
+                <div class="feature-card-body">
+                    <h3>Brand Diversification</h3>
+                    <p>Launch new product lines or services under unique names while keeping all legal and tax reporting under your existing LLC or Corporation.</p>
+                </div>
+            </div>
+            <div class="premium-feature-card">
+                <div class="feature-accent-line orange"></div>
+                <div class="feature-card-body">
+                    <h3>Banking & Payments</h3>
+                    <p>Open a business bank account and accept checks or credit card payments made out to your new brand name instead of your personal name.</p>
+                </div>
+            </div>
+            <div class="premium-feature-card">
+                <div class="feature-accent-line"></div>
+                <div class="feature-card-body">
+                    <h3>Public Credibility</h3>
+                    <p>Establish a professional presence in your market. Use your DBA on websites, business cards, and marketing materials with legal authority.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: PRICING MATRIX (White) -->
+<section id="pricing" class="section-padding bg-white" style="padding-bottom: 40px !important;">
+    <div class="container">
+        <div class="section-header-center">
+            <h2 class="navy-title">DBA Registration Tiers</h2>
+        </div>
+        <div class="pricing-matrix">
+            <div class="tier-card">
+                <span class="tier-label">Standard</span>
+                <div class="price">$100 <span>+ state fees</span></div>
+                <ul class="tier-features">
+                    <li>Name Availability Search</li>
+                    <li>County/State Level Filing</li>
+                    <li>Digital Record Storage</li>
+                </ul>
+                <a href="#" class="btn-tier-outline">Get Started</a>
+            </div>
+            <div class="tier-card pro-featured">
+                <div class="pop-tag">Recommended</div>
+                <span class="tier-label">Professional</span>
+                <div class="price">$199 <span>+ state fees</span></div>
+                <ul class="tier-features">
+                    <li><strong>Everything in Standard</strong></li>
+                    <li>Federal EIN Update</li>
+                    <li>Publication Service (If Req.)</li>
+                    <li>Lifetime Compliance Alerts</li>
+                </ul>
+                <a href="#" class="cta-button">Launch Brand</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: THE PRECISION GUARANTEE (Navy Card) -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="guarantee-card">
+            <div class="guarantee-content">
+                <span class="badge-accent">Compliance Shield</span>
+                <h2 class="light-title">100% Accuracy or We Fix It.</h2>
+                <p class="light-subtitle">DBA requirements vary wildly by state and county. Our experts audit every detail to ensure your publication requirements and filing data are perfect. If there's an error, we cover the cost of the fix.</p>
+            </div>
+            <div class="guarantee-action">
+                <a href="#" class="cta-button glow-button">Start My DBA</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: THE 3-STEP PATH (Off-White) -->
+<section class="section-padding bg-soft">
+    <div class="container">
+        <div class="section-header-center">
+            <h2 class="navy-title">The Path to Your New Name</h2>
+        </div>
+        <div class="path-steps-container">
+            <div class="path-card">
+                <div class="path-number-bg">01</div>
+                <div class="path-card-content">
+                    <h4>Identity Selection</h4>
+                    <p>Provide your chosen name. We perform a high-speed audit against state and local databases to ensure the name is available.</p>
+                </div>
+            </div>
+            <div class="path-card">
+                <div class="path-number-bg">02</div>
+                <div class="path-card-content">
+                    <h4>Paperwork Audit</h4>
+                    <p>Our legal intake team prepares the specific documents for your jurisdiction, handling complex county-level requirements.</p>
+                </div>
+            </div>
+            <div class="path-card">
+                <div class="path-number-bg">03</div>
+                <div class="path-card-content">
+                    <h4>Official Activation</h4>
+                    <p>Once approved, your DBA certificate is uploaded to your digital vault. You are now legally authorized to trade under your new name.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: DBA FAQ (White) -->
+<section class="section-padding bg-white">
+    <div class="container" style="max-width: 1000px;">
+        <div class="section-header-center">
+            <h2 class="navy-title">DBA Intelligence</h2>
+        </div>
+        <div class="faq-accordion-wrapper">
+            <details class="faq-box">
+                <summary class="faq-trigger">Does a DBA provide liability protection?</summary>
+                <div class="faq-content">No. A DBA is just a name. Liability protection comes from your underlying business structure, like an LLC or Corporation.</div>
+            </details>
+            <details class="faq-box">
+                <summary class="faq-trigger">Do I need a separate tax ID for a DBA?</summary>
+                <div class="faq-content">No. Your DBA operates under the EIN (Tax ID) of your existing legal entity or your SSN if you are a sole proprietor.</div>
+            </details>
+            <details class="faq-box">
+                <summary class="faq-trigger">What is "Publication" in DBA filings?</summary>
+                <div class="faq-content">Some states require you to announce your new DBA name in a local newspaper. We handle the coordination of these legal notices for you in our Professional tier.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+
+
+
+ <!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-container">
+        <!-- Col 1: Brand -->
+        <section class="footer-column brand-col">
+            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
+            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
+            <div class="footer-social">
+                <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
+            </div>
+        </section>
+
+        <!-- Col 2: Services -->
+        <section class="footer-column">
+            <h3>Services</h3>
+            <ul class="footer-links">
+                <li><a href="llc.html">LLC Formation</a></li>
+                <li><a href="corporation.html">C-Corp Filing</a></li>
+                <li><a href="registered-agent.html">Registered Agent</a></li>
+                <li><a href="ein.html">EIN Registration</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 3: State Filings -->
+        <section class="footer-column">
+            <h3>State Filings</h3>
+            <ul class="footer-links">
+                <li><a href="#">Texas LLC</a></li>
+                <li><a href="#">Delaware Corp</a></li>
+                <li><a href="#">Florida LLC</a></li>
+                <li><a href="#">Wyoming LLC</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 4: Resources -->
+        <section class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li><a href="#">Business Help</a></li>
+                <li><a href="#">Form Templates</a></li>
+                <li><a href="#">Filing Deadlines</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 5: Subscribe -->
+        <section class="footer-column subscribe-col">
+            <h3>Stay Updated</h3>
+            <form class="footer-subscribe">
+                <input type="email" placeholder="name@email.com" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- BOTTOM BAR: Single line divider with requested info -->
+    <div class="footer-bottom">
+    <div class="copyright-info">
+    &copy; 2026 filings4u. All rights reserved. 
+    A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
