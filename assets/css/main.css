@@ -4693,3 +4693,152 @@ body { background-color: var(--black); color: #fff; font-family: 'Inter', sans-s
         grid-template-columns: 1fr; /* Single column for very small phones */
     }
 }
+
+
+/* CORPORATION HERO IMAGE */
+.corp-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/corp-hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: center right;
+    height: 60vh !important; /* Matches your tightened LLC hero */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- SECTION 2: PRICING MATRIX STYLES --- */
+
+/* Section Background (Off-White) */
+.bg-soft {
+    background-color: #f4f7fa;
+}
+
+/* Matrix Layout */
+.pricing-matrix {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+/* Base Tier Card */
+.tier-card {
+    background: #ffffff;
+    border-radius: 24px; /* Matches your 24px theme */
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Recommended Tier (Pro Featured) */
+.pro-featured {
+    border: 2px solid #FF6B00;
+    transform: scale(1.05); /* Makes it pop */
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(10, 31, 68, 0.12);
+}
+
+/* Recommended Tag */
+.pop-tag {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FF6B00;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Labels & Pricing */
+.tier-label {
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #0a1f44;
+    margin-bottom: 30px;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 400;
+}
+
+/* Feature List */
+.tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    text-align: left;
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.tier-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tier-features li::before {
+    content: "✓";
+    color: #FF6B00;
+    font-weight: 900;
+}
+
+/* Buttons */
+.btn-tier-outline {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #0a1f44;
+    color: #0a1f44;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.btn-tier-outline:hover {
+    background: #0a1f44;
+    color: #ffffff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .pricing-matrix {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pro-featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+}
