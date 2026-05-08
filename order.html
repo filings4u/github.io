@@ -60,90 +60,262 @@
 </nav>
 
 
-    <section class="section-padding order-page-padding"> 
-        <div class="container order-grid">
+    <section class="section-padding order-page-padding">
+    <div class="container order-grid">
+        
+        <!-- LEFT: THE FORM (Ensure all your form steps are inside here) -->
+        <div class="order-form-container">
+            <div class="form-card">
+                <h2 class="navy-title">Start Your Formation</h2>
+                <form id="formationOrderForm">
+                
+                <!-- Step 1: Business Information -->
+                <div class="form-step">
+                    <span class="step-label">01 Business Information</span>
+                    <div class="input-group">
+                        <label>Desired Business Name</label>
+                        <input type="text" id="order_biz_name" name="biz_name" placeholder="Enter your business name" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>State of Formation</label>
+                            <select name="state" id="state-select" required>
+                                <option value="AL" data-fee="200">Alabama (State Filing Fee - $200)</option>
+        <option value="AK" data-fee="100">Alaska (State Filing Fee - $100)</option>
+        <option value="AZ" data-fee="50">Arizona (State Filing Fee - $50)</option>
+        <option value="AR" data-fee="45">Arkansas (State Filing Fee - $45)</option>
+        <option value="CA" data-fee="70">California (State Filing Fee - $70)</option>
+        <option value="CO" data-fee="50">Colorado (State Filing Fee - $50)</option>
+        <option value="CT" data-fee="120">Connecticut (State Filing Fee - $120)</option>
+        <option value="DE" data-fee="90">Delaware (State Filing Fee - $90)</option>
+        <option value="FL" data-fee="125">Florida (State Filing Fee - $125)</option>
+        <option value="GA" data-fee="100">Georgia (State Filing Fee - $100)</option>
+        <option value="HI" data-fee="50">Hawaii (State Filing Fee - $50)</option>
+        <option value="ID" data-fee="100">Idaho (State Filing Fee - $100)</option>
+        <option value="IL" data-fee="150">Illinois (State Filing Fee - $150)</option>
+        <option value="IN" data-fee="95">Indiana (State Filing Fee - $95)</option>
+        <option value="IA" data-fee="50">Iowa (State Filing Fee - $50)</option>
+        <option value="KS" data-fee="160">Kansas (State Filing Fee - $160)</option>
+        <option value="KY" data-fee="40">Kentucky (State Filing Fee - $40)</option>
+        <option value="LA" data-fee="100">Louisiana (State Filing Fee - $100)</option>
+        <option value="ME" data-fee="175">Maine (State Filing Fee - $175)</option>
+        <option value="MD" data-fee="100">Maryland (State Filing Fee - $100)</option>
+        <option value="MA" data-fee="500">Massachusetts (State Filing Fee - $500)</option>
+        <option value="MI" data-fee="50">Michigan (State Filing Fee - $50)</option>
+        <option value="MN" data-fee="155">Minnesota (State Filing Fee - $155)</option>
+        <option value="MS" data-fee="50">Mississippi (State Filing Fee - $50)</option>
+        <option value="MO" data-fee="50">Missouri (State Filing Fee - $50)</option>
+        <option value="MT" data-fee="35">Montana (State Filing Fee - $35)</option>
+        <option value="NE" data-fee="100">Nebraska (State Filing Fee - $100)</option>
+        <option value="NV" data-fee="75">Nevada (State Filing Fee - $75)</option>
+        <option value="NH" data-fee="100">New Hampshire (State Filing Fee - $100)</option>
+        <option value="NJ" data-fee="125">New Jersey (State Filing Fee - $125)</option>
+        <option value="NM" data-fee="50">New Mexico (State Filing Fee - $50)</option>
+        <option value="NY" data-fee="200">New York (State Filing Fee - $200)</option>
+        <option value="NC" data-fee="125">North Carolina (State Filing Fee - $125)</option>
+        <option value="ND" data-fee="135">North Dakota (State Filing Fee - $135)</option>
+        <option value="OH" data-fee="99">Ohio (State Filing Fee - $99)</option>
+        <option value="OK" data-fee="100">Oklahoma (State Filing Fee - $100)</option>
+        <option value="OR" data-fee="100">Oregon (State Filing Fee - $100)</option>
+        <option value="PA" data-fee="125">Pennsylvania (State Filing Fee - $125)</option>
+        <option value="RI" data-fee="150">Rhode Island (State Filing Fee - $150)</option>
+        <option value="SC" data-fee="110">South Carolina (State Filing Fee - $110)</option>
+        <option value="SD" data-fee="150">South Dakota (State Filing Fee - $150)</option>
+        <option value="TN" data-fee="300">Tennessee (State Filing Fee - $300)</option>
+        <option value="TX" data-fee="300">Texas (State Filing Fee - $300)</option>
+        <option value="UT" data-fee="54">Utah (State Filing Fee - $54)</option>
+        <option value="VT" data-fee="125">Vermont (State Filing Fee - $125)</option>
+        <option value="VA" data-fee="100">Virginia (State Filing Fee - $100)</option>
+        <option value="WA" data-fee="200">Washington (State Filing Fee - $200)</option>
+        <option value="WV" data-fee="100">West Virginia (State Filing Fee - $100)</option>
+        <option value="WI" data-fee="130">Wisconsin (State Filing Fee - $130)</option>
+        <option value="WY" data-fee="100">Wyoming (State Filing Fee - $100)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Are you the Member or Manager?</label>
+                            <select name="role" required>
+                                <option value="">Select Role</option>
+                                <option value="Member">Member</option>
+                                <option value="Manager">Manager</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Registered Agent -->
+                <div class="form-step">
+                    <span class="step-label">02 Registered Agent Service</span>
+                    <div class="input-group">
+                        <label>Do you want to add our registered service?</label>
+                        <select name="ra_service" id="ra-service-select" required>
+                            <option value="yes">Yes - $125 Per Year</option>
+                            <option value="no">No - I'll add my Registered Agent information below</option>
+                        </select>
+                    </div>
+                  <!-- Registered Agent Details (Appears if "No" is selected) -->
+<div id="manual-ra-fields" style="display: none; background: #f8fafc; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; margin-top: 15px;">
+    <h4 style="font-size: 1rem; color: #0a1f44; margin-bottom: 20px; font-weight: 800;">Registered Agent Information</h4>
+    
+    <!-- Agent Name -->
+    <div class="input-group">
+        <label>Registered Agent Name</label>
+        <input type="text" name="ra_name" id="ra_name" placeholder="Individual or Company Name">
+    </div>
+
+    <!-- Street Address -->
+    <div class="input-group">
+        <label>Street Address</label>
+        <input type="text" name="ra_address" id="ra_address" placeholder="123 Main St">
+    </div>
+
+    <!-- Suite/Building -->
+    <div class="input-group">
+        <label>Suite, Building, Floor, etc. (Optional)</label>
+        <input type="text" name="ra_suite" id="ra_suite" placeholder="Apt 4B / Suite 200">
+    </div>
+
+    <!-- City, State, Zip Grid -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px;">
+        <div class="input-group">
+            <label>City</label>
+            <input type="text" name="ra_city" id="ra_city" placeholder="City">
+        </div>
+        <div class="input-group">
+            <label>State</label>
+            <select name="ra_state" id="ra_state">
+                <option value="">Select</option>
+                <option value="AL">AL</option><option value="AK">AK</option><option value="AZ">AZ</option>
+                <option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option>
+                <option value="CT">CT</option><option value="DE">DE</option><option value="FL">FL</option>
+                <option value="GA">GA</option><option value="HI">HI</option><option value="ID">ID</option>
+                <option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option>
+                <option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option>
+                <option value="ME">ME</option><option value="MD">MD</option><option value="MA">MA</option>
+                <option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option>
+                <option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option>
+                <option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option>
+                <option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option>
+                <option value="ND">ND</option><option value="OH">OH</option><option value="OK">OK</option>
+                <option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option>
+                <option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option>
+                <option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option>
+                <option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option>
+                <option value="WI">WI</option><option value="WY">WY</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Zip Code</label>
+            <input type="text" name="ra_zip" id="ra_zip" placeholder="12345">
+        </div>
+    </div>
+    
+    <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">Note: The Registered Agent must be located in the state of formation.</p>
+</div>
+
+                </div>
+
+<!-- S-CORP ELECTION UPSELL -->
+ <!-- Step 3: Tax Strategy -->
+<div class="form-step">
+    <span class="step-label">03 Tax Strategy</span>
+    <div class="input-group">
+        <label>Do you want to add an S-Corp Tax Election? (Save on self-employment taxes)</label>
+        <select name="scorp_election" id="scorp-select" required>
+            <option value="no">No - I'll stay with standard taxation</option>
+            <option value="yes">Yes - Add S-Corp Election ($49.00)</option>
+        </select>
+    </div>
+</div>
+
+<!-- S-CORP QUALIFICATION QUESTIONS (Hidden by default) -->
+<div id="scorp-qual-fields" style="display: none; background: #fff9f5; padding: 25px; border-radius: 16px; border: 1px solid #FF6B00; margin-top: 15px;">
+    <h4 style="font-size: 1rem; color: #0a1f44; margin-bottom: 15px;">S-Corp Eligibility Check</h4>
+    
+    <div class="input-group">
+        <label>Is the projected annual net income for the business above $50,000?</label>
+        <select name="scorp_income">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Will the business have any non-U.S. resident shareholders?</label>
+        <select name="scorp_residents">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Do you plan to issue preferred stock to investors?</label>
+        <select name="scorp_stock">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+</div>
             
-            <!-- LEFT: ORDER FORM -->
-            <div class="order-form-container">
-                <div class="form-card">
-                    <h2 class="navy-title" style="font-size: 1.8rem; margin-bottom: 30px;">Start Your Formation</h2>
-                    
-                    <form id="formationOrderForm">
-                        
-                        <div class="form-step">
-                            <span class="step-label">01 Business Details</span>
-                            <div class="input-group">
-                                <label>Proposed Business Name</label>
-                                <input type="text" id="order_biz_name" name="biz_name" placeholder="Enter your business name" required>
-                            </div>
-                            <div class="input-group">
-                                <label>State of Formation</label>
-                                <select name="state" required>
-                                    <option value="">Select a State</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="WY">Wyoming</option>
-                                    <!-- Add other states -->
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Contact Info -->
-                        <div class="form-step">
-                            <span class="step-label">02 Contact Information</span>
-                            <div class="input-row">
-                                <div class="input-group">
-                                    <label>First Name</label>
-                                    <input type="text" name="first_name" required>
-                                </div>
-                                <div class="input-group">
-                                    <label>Last Name</label>
-                                    <input type="text" name="last_name" required>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <label>Email Address</label>
-                                <input type="email" name="email" placeholder="for official updates" required>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Payment (Stripe Placeholder) -->
-                        <div class="form-step">
-                            <span class="step-label">03 Secure Payment</span>
-                            <p class="secure-note">🔒 Encrypted 256-bit SSL Connection</p>
-                            <div id="card-element"><!-- Stripe Element will go here --></div>
-                            <button type="submit" class="cta-button-block" style="margin-top: 30px;">Complete My Filing</button>
-                        </div>
-                    </form>
+            <!-- Step 4: Personal Information -->
+            <div class="form-step">
+                <span class="step-label">04 Personal Information</span>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+                    </div>
                 </div>
             </div>
 
-            <!-- RIGHT: LIVE SUMMARY SIDEBAR -->
-            <aside class="order-summary-sidebar">
-                <div class="summary-card">
-                    <h4>Order Summary</h4>
-                    <div class="summary-line">
-                        <span>Formation Package</span>
-                        <span id="summary-price">$125.00</span>
-                    </div>
-                    <div class="summary-line">
-                        <span>State Filing Fee</span>
-                        <span id="summary-state-fee">$300.00</span>
-                    </div>
-                    <div class="summary-total">
-                        <span>Total Due</span>
-                        <span id="total-price">$425.00</span>
-                    </div>
-                    
-                    <div class="summary-trust">
-                        <p>✓ Accurate Filing Guarantee</p>
-                        <p>✓ Lifetime Compliance Alerts</p>
-                    </div>
+                <!-- Step 5: Payment -->
+                <div class="form-step">
+                    <span class="step-label">05 Secure Payment</span>
+                    <div id="card-element" style="padding: 15px; border: 1px solid #cbd5e1; border-radius: 10px; background: white;"></div>
+                    <button type="submit" class="cta-button-block" style="margin-top: 30px;">Complete My Filing</button>
                 </div>
-            </aside>
+         
+</form>
+            </div>
         </div>
-    </section>
+
+        <!-- RIGHT: THE SIDEBAR (Must be outside the form-container but inside the grid) -->
+        <aside class="order-summary-sidebar">
+            <div class="summary-card">
+                <h4>Order Summary</h4>
+                <div class="summary-line">
+                    <span>Formation Package</span>
+                    <span>$125.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>State Filing Fee</span>
+                    <span id="summary-state-fee">$0.00</span>
+                </div>
+                <div id="addon-rows"></div>
+                <div class="summary-total">
+                    <span>Total Due</span>
+                    <span id="total-price">$125.00</span>
+                </div>
+            </div>
+        </aside>
+
+    </div> <!-- This closes order-grid -->
+</section>
+
 
  <!-- FOOTER -->
 <footer id="footer">
@@ -211,15 +383,189 @@
 </div>
 
 </footer>
-    <script>
-        // PRE-FILL FROM SEARCH
-        window.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const nameFromSearch = params.get('biz_name');
-            if (nameFromSearch) {
-                document.getElementById('order_biz_name').value = decodeURIComponent(nameFromSearch);
-            }
-        });
-    </script>
+   <script>
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    
+    // 1. PRE-FILL BUSINESS NAME
+    const nameFromSearch = params.get('biz_name');
+    if (nameFromSearch) {
+        const nameInput = document.getElementById('order_biz_name');
+        if (nameInput) nameInput.value = decodeURIComponent(nameFromSearch);
+    }
+
+    // 2. SETUP SUMMARY CALCULATIONS
+    const summaryContainer = document.querySelector('.summary-card');
+    const totalElement = document.getElementById('total-price');
+    const totalLine = document.querySelector('.summary-total');
+    
+    // Base Price (LLC/Corp Formation)
+    let currentTotal = 100.00; 
+
+    // Reusable function to add items to sidebar
+    function addAddonToSummary(label, price) {
+        const div = document.createElement('div');
+        div.className = 'summary-line';
+        div.innerHTML = `<span>${label}</span><span>$${price.toFixed(2)}</span>`;
+        summaryContainer.insertBefore(div, totalLine);
+        currentTotal += price;
+    }
+
+    // 3. CHECK FOR ADD-ONS (ONLY ONCE EACH)
+    if (params.get('ein') === 'true') {
+        addAddonToSummary('Federal Tax ID (EIN)', 79.00);
+    }
+
+    if (params.get('oa') === 'true') {
+        addAddonToSummary('Operating Agreement', 49.00);
+    }
+
+    if (params.get('compliance') === 'true') {
+        addAddonToSummary('Compliance Guard', 99.00);
+    }
+
+    // Handle the "addons" parameter from the multi-select buttons if used
+    const multiAddons = params.get('addons');
+    if (multiAddons) {
+        const items = multiAddons.split(',');
+        if (items.includes('ein') && params.get('ein') !== 'true') addAddonToSummary('Federal Tax ID (EIN)', 79.00);
+        if (items.includes('oa') && params.get('oa') !== 'true') addAddonToSummary('Operating Agreement', 49.00);
+        if (items.includes('cg') && params.get('compliance') !== 'true') addAddonToSummary('Compliance Guard', 99.00);
+    }
+
+    // 4. UPDATE FINAL TOTAL DISPLAY
+    totalElement.innerText = `$${currentTotal.toFixed(2)}`;
+});
+
+// Keep this outside the DOMContentLoaded if it's used on the upsell page
+let selectedItems = [];
+function toggleUpsell(id, price) {
+    const card = document.getElementById(`card-${id}`);
+    const index = selectedItems.indexOf(id);
+    if (index > -1) {
+        selectedItems.splice(index, 1);
+        card.classList.remove('selected');
+        card.querySelector('button').innerText = 'Add to Order';
+    } else {
+        selectedItems.push(id);
+        card.classList.add('selected');
+        card.querySelector('button').innerText = '✓ Added';
+    }
+}
+
+function proceedToCheckout() {
+    const itemsParam = selectedItems.join(',');
+    window.location.href = `order.html?addons=${itemsParam}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const stateSelect = document.getElementById('state-select');
+    const stateFeeDisplay = document.getElementById('summary-state-fee');
+    const totalPriceDisplay = document.getElementById('total-price');
+    const basePrice = 125.00; // Your Formation Package price
+
+    function updateOrderTotal() {
+        // 1. Get the selected state's fee
+        const selectedOption = stateSelect.options[stateSelect.selectedIndex];
+        const stateFee = parseFloat(selectedOption.getAttribute('data-fee')) || 0;
+
+        // 2. Calculate Add-ons (Logic from your previous script)
+        let addonTotal = 0;
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('ein') === 'true') addonTotal += 79;
+        if (params.get('oa') === 'true') addonTotal += 49;
+        if (params.get('compliance') === 'true') addonTotal += 99;
+
+        // 3. Update the Sidebar UI
+        stateFeeDisplay.innerText = `$${stateFee.toFixed(2)}`;
+        
+        const finalTotal = basePrice + stateFee + addonTotal;
+        totalPriceDisplay.innerText = `$${finalTotal.toFixed(2)}`;
+    }
+
+    // Run whenever the user picks a new state
+    stateSelect.addEventListener('change', updateOrderTotal);
+
+    // Run once on load to catch any pre-selected data
+    updateOrderTotal();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const raSelect = document.getElementById('ra-service-select');
+    const manualFields = document.getElementById('manual-ra-fields');
+    const raName = document.getElementById('ra_name');
+    const raAddress = document.getElementById('ra_address');
+    
+    const stateSelect = document.getElementById('state-select');
+    const stateFeeDisplay = document.getElementById('summary-state-fee');
+    const totalPriceDisplay = document.getElementById('total-price');
+    const summaryContainer = document.querySelector('.summary-card');
+
+function updateCalculations() {
+    const scorpQualFields = document.getElementById('scorp-qual-fields');
+    const stateSelect = document.getElementById('state-select');
+    const raSelect = document.getElementById('ra-service-select');
+    const scorpSelect = document.getElementById('scorp-select');
+    const addonRows = document.getElementById('addon-rows');
+    const totalPriceDisplay = document.getElementById('total-price');
+    const stateFeeDisplay = document.getElementById('summary-state-fee');
+
+    // 1. Base Values
+    const stateFee = parseFloat(stateSelect.options[stateSelect.selectedIndex].getAttribute('data-fee')) || 0;
+    const basePrice = 125.00;
+    let addonHtml = '';
+    let addonTotal = 0;
+
+    // 2. Registered Agent Logic
+    if (raSelect.value === 'yes') {
+        addonTotal += 125.00;
+        addonHtml += `
+            <div class="summary-line">
+                <span>Registered Agent Service</span>
+                <span>$125.00</span>
+            </div>`;
+        document.getElementById('manual-ra-fields').style.display = 'none';
+    } else {
+        document.getElementById('manual-ra-fields').style.display = 'block';
+    }
+
+    // 3. S-Corp Election Logic
+    if (scorpSelect.value === 'yes') {
+        addonTotal += 49.00;
+        addonHtml += `
+            <div class="summary-line">
+                <span>S-Corp Tax Election</span>
+                <span>$49.00</span>
+            </div>`;
+    }
+
+    // 4. Update UI
+    addonRows.innerHTML = addonHtml;
+    stateFeeDisplay.innerText = `$${stateFee.toFixed(2)}`;
+    
+    const finalTotal = basePrice + stateFee + addonTotal;
+    totalPriceDisplay.innerText = `$${finalTotal.toFixed(2)}`;
+}
+
+// Event Listeners
+document.getElementById('state-select').addEventListener('change', updateCalculations);
+document.getElementById('ra-service-select').addEventListener('change', updateCalculations);
+document.getElementById('scorp-select').addEventListener('change', updateCalculations);
+
+// Run on load
+updateCalculations();
+
+if (scorpSelect.value === 'yes') {
+        scorpQualFields.style.display = 'block';
+        // (existing logic to add $49 to sidebar)
+    } else {
+        scorpQualFields.style.display = 'none';
+    }
+
+});
+
+
+</script>
+
 </body>
 </html>

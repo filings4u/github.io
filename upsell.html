@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait! Special Offer | filings4u</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body class="bg-soft">
 
+    <!-- NAVIGATION REMOVED TO PREVENT DISTRACTION -->
+
+    <section class="section-padding upsell-page-padding">
+    <div class="container" style="max-width: 800px;">
+        <div class="upsell-container">
+               
+<!-- HEADER -->
+<div class="upsell-header">
+    <span class="badge-accent">Enhance Your Business Protection</span>
+    <h1 class="navy-title">Recommended Compliance Add-ons</h1>
+    <p>90% of business owners choose at least one of these to ensure their entity remains in good standing.</p>
+</div>
+
+<div class="upsell-grid">
+    <!-- Item 1: EIN -->
+    <div class="upsell-card-mini" id="card-ein">
+        <div class="upsell-card-top">
+            <span class="card-icon">📑</span>
+            <h3>Federal Tax ID (EIN)</h3>
+            <p>Required for bank accounts.</p>
+        </div>
+        <div class="upsell-card-bottom">
+            <div class="upsell-price">$79.00</div>
+            <button class="upsell-add-btn" onclick="toggleUpsell('ein')">Add to Order</button>
+        </div>
+    </div>
+
+    <!-- Item 2: Operating Agreement -->
+    <div class="upsell-card-mini" id="card-oa">
+        <div class="upsell-card-top">
+            <span class="card-icon">📜</span>
+            <h3>Operating Agreement</h3>
+            <p>Legal protection & structure.</p>
+        </div>
+        <div class="upsell-card-bottom">
+            <div class="upsell-price">$49.00</div>
+            <button class="upsell-add-btn" onclick="toggleUpsell('oa')">Add to Order</button>
+        </div>
+    </div>
+
+    <!-- Item 3: Compliance Guard -->
+    <div class="upsell-card-mini" id="card-compliance">
+        <div class="upsell-card-top">
+            <span class="card-icon">🛡️</span>
+            <h3>Compliance Guard</h3>
+            <p>Annual report automation.</p>
+        </div>
+        <div class="upsell-card-bottom">
+            <div class="upsell-price">$99.00</div>
+            <button class="upsell-add-btn" onclick="toggleUpsell('compliance')">Add to Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN PROCEED BUTTON -->
+<div class="upsell-actions" style="margin-top: 40px;">
+    <button onclick="proceedToCheckout()" class="cta-button glow-button" style="width: 100%; max-width: 400px;">
+        Proceed to Checkout
+    </button>
+    <a href="order.html" class="no-thanks-link">Skip all and continue</a>
+</div>
+
+
+
+                <!-- Trust Footer -->
+                <div class="upsell-footer">
+                    <p>🔒 Your formation progress has been saved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<script>
+    // Object to track which items are selected
+let upsellSelection = {
+    ein: false,
+    oa: false,
+    compliance: false
+};
+
+function toggleUpsell(id) {
+    const card = document.getElementById(`card-${id}`);
+    const btn = card.querySelector('.upsell-add-btn');
+
+    // Toggle the state
+    upsellSelection[id] = !upsellSelection[id];
+
+    if (upsellSelection[id]) {
+        card.classList.add('selected');
+        btn.innerText = '✓ Added';
+        btn.style.background = '#FF6B00';
+        btn.style.color = '#fff';
+    } else {
+        card.classList.remove('selected');
+        btn.innerText = 'Add to Order';
+        btn.style.background = 'transparent';
+        btn.style.color = '#0a1f44';
+    }
+}
+
+function proceedToCheckout() {
+    // Build a URL string based on selections
+    let query = `?ein=${upsellSelection.ein}&oa=${upsellSelection.oa}&compliance=${upsellSelection.compliance}`;
+    
+    // Carry over the business name if it exists in the current URL
+    const params = new URLSearchParams(window.location.search);
+    if(params.get('biz_name')) {
+        query += `&biz_name=${encodeURIComponent(params.get('biz_name'))}`;
+    }
+
+    window.location.href = `order.html${query}`;
+}
+
+</script> 
+
+</body>
+</html>
