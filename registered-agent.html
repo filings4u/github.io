@@ -6,220 +6,381 @@
     <title>Professional Registered Agent Services | filings4u</title>
     
     <!-- Stripe.js Library -->
-    <script src="https://stripe.com"></script> 
+    <script src="https://stripe.com"></script>
     
     <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="assets/css/main.css">
-    
-    <style>
-        :root {
-            --primary-navy: #0a1f44;
-            --brand-orange: #FF6B00;
-            --slate-gray: #64748b;
-            --bg-light: #f8fafc;
-        }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; color: #1e293b; line-height: 1.6; }
 
-        /* HERO SECTION */
-        .ra-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #1e293b 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .ra-hero h1 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 800; }
-        .ra-hero p { max-width: 800px; margin: 0 auto 35px; font-size: 1.25rem; color: #cbd5e1; }
-
-        /* FEATURES GRID */
-        .section-padding { padding: 80px 20px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        
-        .ra-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .ra-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
-            transition: 0.3s ease;
-        }
-        .ra-card:hover { transform: translateY(-10px); border-color: var(--brand-orange); }
-        .ra-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .ra-card h3 { font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 15px; }
-
-        /* FAQ SECTION */
-        .faq-section { background: var(--bg-light); border-top: 1px solid #e2e8f0; }
-        .faq-item { background: white; margin-bottom: 15px; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .faq-item h4 { margin-top: 0; color: var(--primary-navy); font-size: 1.1rem; }
-
-        /* BUTTONS */
-        .cta-button {
-            background: var(--brand-orange);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .cta-button:hover { background: #e65a00; transform: scale(1.02); }
-
-        /* NAVIGATION OVERRIDES (Ensure consistency) */
-        .brand-nav-bar { background: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top:0; z-index: 1000; }
-        .brand-nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-        .brand-nav-links a { text-decoration: none; color: var(--primary-navy); font-weight: 600; font-size: 0.95rem; }
-        .dropdown { position: relative; }
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 0; top: 100%; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content li a { padding: 10px 20px; display: block; color: var(--primary-navy); }
-        .dropdown-content li a:hover { background: var(--bg-light); color: var(--brand-orange); }
-    </style>
 </head>
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="brand-nav-bar">
-        <a href="index.html">
-            <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
-        </a>
-        <ul class="brand-nav-links">
-            <li><a href="tax-filings.html">Tax Filings</a></li>
-            <li class="dropdown">
-                <a href="index.html" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="llc.html">Limited liability company (LLC)</a></li>
-                    <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
-                    <li><a href="dba.html">Doing business as (DBA)</a></li>
-                    <li><a href="nonprofit.html">Nonprofit</a></li>
-                    <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" style="color: var(--brand-orange);">Compliance Services <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="annual-report.html">Annual report</a></li>
-                    <li><a href="business-licenses.html">Business licenses</a></li>
-                    <li><a href="ein.html">EIN</a></li>
-                    <li><a href="operating-agreement.html">Operating agreement</a></li>
-                    <li><a href="registered-agent.html">Registered agent</a></li>
-                    <li><a href="dissolution.html">Dissolution</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="owner-operators.html">Owner Operators</a></li>
-                    <li><a href="trucker-authority.html">Trucker Authority</a></li>
-                    <li><a href="broker-authority.html">Broker Authority</a></li>
-                </ul>
-            </li>
-            <li><a href="license-permits.html">License/Permits</a></li>
-        </ul>
-    </nav>
+   <!-- NAVIGATION BAR -->
+<nav class="brand-nav-bar">
+    <a href="index.html">
+        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+    </a>
+    <ul class="brand-nav-links">
+        <li><a href="tax-filings.html">Tax Filings</a></li>
+        
+        <!-- BUSINESS FORMATION DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="llc.html">Limited liability company (LLC)</a></li>
+                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+                <li><a href="dba.html">Doing business as (DBA)</a></li>
+                <li><a href="nonprofit.html">Nonprofit</a></li>
+                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
+            </ul>
+        </li>
 
-<!-- HERO SECTION -->
-<header class="ra-hero" style="background-image: linear-gradient(to right, rgba(10, 31, 68, 0.95) 20%, rgba(10, 31, 68, 0.2) 80%), url('images/register-hero.jpg');">
-    <div class="container hero-alignment">
-        <!-- Content pushed to the left -->
+        <!-- COMPLIANCE SERVICES DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="annual-report.html">Annual report</a></li>
+                <li><a href="business-licenses.html">Business licenses</a></li>
+                <li><a href="ein.html">EIN</a></li>
+                <li><a href="operating-agreement.html">Operating agreement</a></li>
+                <li><a href="registered-agent.html">Registered agent</a></li>
+                <li><a href="dissolution.html">Dissolution</a></li>
+            </ul>
+        </li>
+
+        <!-- DOT DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="owner-operators.html">Owner Operators</a></li>
+                <li><a href="trucker-authority.html">Trucker Authority</a></li>
+                <li><a href="broker-authority.html">Broker Authority</a></li>
+                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+                <li><a href="dot-consortium.html">DOT Consortium</a></li>
+                <li><a href="driver-file.html">Driver Qualification File</a></li>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
+            </ul>
+        </li>
+        <li><a href="license-permits.html">License/Permits</a></li>
+    </ul>
+</nav>
+
+
+   <!-- HERO SECTION -->
+<header class="ra-hero bg-white">
+    <div class="container">
         <div class="hero-content-left">
             <span class="hero-subtitle">The Gold Standard in Privacy</span>
-            <h1 style="color: white; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1;">
-                The Only Registered Agent You'll Ever Need.
-            </h1>
-            <p style="color: #e2e8f0; font-size: 1.25rem; margin-bottom: 35px; max-width: 550px;">
-                Every LLC is legally required to have one. Don't use your home address. Protect your privacy and never miss a legal deadline with <strong>filings4u</strong>.
-            </p>
-            <a href="index.html" class="cta-button" style="background: #FF6B00; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
-                Appoint Your Registered Agent — $125/yr
-            </a>
+            <h1 style="font-size: 3.5rem;">The Only Registered Agent You'll Ever Need.</h1>
+            <p>Every LLC is legally required to have one. Don't use your home address. Protect your privacy and never miss a legal deadline with <strong>filings4u</strong>.</p>
+            <a href="order.html" class="cta-button">Appoint Your Registered Agent — $125/yr</a>
         </div>
     </div>
 </header>
 
-
-
-
-
-    <!-- WHY SECTION -->
-    <section class="section-padding">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 style="font-size: 2.5rem; color: var(--primary-navy);">Why filings4u for Registered Agent?</h2>
-                <p style="color: var(--slate-gray); font-size: 1.1rem;">We don't just receive mail; we protect your business reputation.</p>
+<!-- FEATURES & PRICING -->
+<section class="section-padding bg-alt">
+    <div class="container">
+        <div class="pricing-header">
+            <h2>Protect your business with our registered agent services</h2>
+            <p>Focus on your business while we focus on keeping you compliant.</p>
+        </div>
+        
+        <div class="pricing-card-legal">
+            <div class="pricing-details">
+                <span class="price-title">Registered Agent Services</span>
+                <div class="price-value">$125 <span>/year</span></div>
+                <p class="price-note">Auto renews. Cancel anytime*</p>
+                <a href="order.html" class="cta-button-block">Get Started</a>
             </div>
-            
-            <div class="ra-grid">
-                <div class="ra-card">
-                    <span class="ra-icon">🛡️</span>
-                    <h3>100% Privacy Protection</h3>
-                    <p>Keep your home address off the public Secretary of State records. We list our commercial address so you stay anonymous to solicitors and junk mailers.</p>
-                </div>
-                
-                <div class="ra-card">
-                    <span class="ra-icon">⚡</span>
-                    <h3>Instant Digital Scanning</h3>
-                    <p>When legal documents or tax notices arrive, we scan and upload them to your dashboard within minutes. No waiting for physical mail forwards.</p>
-                </div>
-                
-                <div class="ra-card">
-                    <span class="ra-icon">📅</span>
-                    <h3>Compliance Reminders</h3>
-                    <p>Never pay a late fee again. We track your Annual Report deadlines and notify you 60 days in advance to keep your business in good standing.</p>
-                </div>
+            <div class="pricing-features">
+                <ul class="check-list">
+                    <li>Alerts when we receive important mail for you</li>
+                    <li>Documents scanned and uploaded for digital access</li>
+                    <li>Email reminders about annual report deadlines</li>
+                    <li>Unlimited secure cloud storage for business documents</li>
+                    <li>State fees covered and paperwork completed for you to switch</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FAQ SECTION -->
-    <section class="section-padding faq-section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary-navy);">Common Questions</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item">
-                    <h4>What exactly is a Registered Agent?</h4>
-                    <p>A Registered Agent is a person or entity authorized to receive legal documents (Service of Process) and official government correspondence on behalf of your business.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Can I be my own Registered Agent?</h4>
-                    <p>Technically, yes—but you must list your physical address on public record and be available at that address during all business hours. Most business owners prefer the privacy of a professional service.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>What happens if I don't have an agent?</h4>
-                    <p>Your business can lose its "Good Standing" status, face administrative dissolution by the state, and you might miss critical notice of a lawsuit.</p>
-                </div>
+<!-- HOW IT WORKS -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <h2 class="section-title-center">Get a registered agent in 3 easy steps</h2>
+        <div class="steps-grid">
+            <div class="step-item">
+                <div class="step-circle">1</div>
+                <h4>Tell us your business name</h4>
+                <p>Start the process by sharing your legal business name and state of formation.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">2</div>
+                <h4>Answer a few questions</h4>
+                <p>Provide basic details like contact info so we can set up your secure dashboard.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">3</div>
+                <h4>We file your paperwork</h4>
+                <p>We'll notify the state that we are your new agent. If you’re switching, we cover the costs.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FINAL CTA -->
-    <section class="section-padding" style="text-align: center;">
-        <div class="container">
-            <div style="background: var(--primary-navy); padding: 60px; border-radius: 30px; color: white;">
-                <h2>Secure your privacy today.</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8;">Join thousands of business owners who trust filings4u for reliable compliance.</p>
-                <a href="index.html" class="cta-button">Get Started Now</a>
+
+<!-- COMPARISON TABLE -->
+<section class="faq-full-section bg-alt compact-section">
+    <div class="container">
+        <h2 class="section-title-center">Registered Agent Service vs. Being Your Own</h2>
+        <div class="comparison-table-wrapper">
+            <table class="legal-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Using filings4u</th>
+                        <th>Being Your Own</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Privacy</strong></td>
+                        <td>Our address is public, keeping yours private.</td>
+                        <td>Your home/work address is listed on public record.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Freedom</strong></td>
+                        <td>Work from anywhere with flexible hours.</td>
+                        <td>Must be at your address Mon–Fri, 9–5.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compliance</strong></td>
+                        <td>Instant alerts and report deadline reminders.</td>
+                        <td>You track all legal filings and state notices alone.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- TESTIMONIALS -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <h2 class="section-title-center">Trusted by Business Owners Nationwide</h2>
+        <div class="ra-grid">
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"The peace of mind knowing my home address isn't public is worth every penny. Excellent service."</p>
+                <span class="author">— Marcus D.</span>
+            </div>
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Switched to filings4u from a competitor and the dashboard is so much cleaner. Highly intuitive."</p>
+                <span class="author">— Sarah J.</span>
+            </div>
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"The compliance reminders saved me from a $300 late fee this year. They really stay on top of things."</p>
+                <span class="author">— Kevin L.</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer style="background: white; border-top: 1px solid #eee; padding: 40px 0; text-align: center; color: var(--slate-gray); font-size: 0.9rem;">
-        <p>&copy; 2024 filings4u. Helping you build, scale, and protect your vision.</p>
-    </footer>
+
+
+<!-- SECTION 4: FAQS -->
+<section class="section-padding bg-alt">
+    <div class="faq-container-large">
+        <h2 class="faq-header-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-accordion-wrapper">
+            <!-- Question 1 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What exactly is a Registered Agent?</summary>
+                <div class="faq-content">
+                    A Registered Agent is a person or entity designated to receive official legal documents and government correspondence on behalf of your LLC. This includes Service of Process (lawsuit notifications), tax notices, and annual report reminders. Every LLC is legally required by the state to maintain one.
+                </div>
+            </details>
+
+            <!-- Question 2 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Can I be my own Registered Agent?</summary>
+                <div class="faq-content">
+                    Technically, yes. Most states allow you to act as your own agent if you have a physical address in the state where you formed your LLC. However, this requires your personal address to be listed on public record, and you must be available at that address during all standard business hours.
+                </div>
+            </details>
+
+            <!-- Question 3 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Why should I use a professional service instead of my home address?</summary>
+                <div class="faq-content">
+                    The primary reason is Privacy. When you use a professional service like ours, our commercial address goes on the public record, not your home address. This stops solicitors, junk mailers, and even disgruntled customers from finding out where you live.
+                </div>
+            </details>
+
+            <!-- Question 4 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What happens if I don't have a Registered Agent?</summary>
+                <div class="faq-content">
+                    Failure to maintain an active Registered Agent can result in your business losing its "Good Standing" status with the state. This can lead to hefty fines, the inability to enter into legal contracts, and eventually, the administrative dissolution (shutdown) of your LLC.
+                </div>
+            </details>
+
+            <!-- Question 5 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Do I need a Registered Agent in every state?</summary>
+                <div class="faq-content">
+                    You need a Registered Agent in the state where you formed your LLC (your "domestic" state). If you register your business to do work in other states (Foreign Qualification), you will also need a Registered Agent with a physical address in each of those states.
+                </div>
+            </details>
+
+            <!-- Question 6 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">How do I receive my documents?</summary>
+                <div class="faq-content">
+                    We provide instant digital delivery. The moment we receive a legal document or official notice at our office, we scan it and upload it to your secure dashboard. You will receive an immediate email notification so you never miss a critical deadline.
+                </div>
+            </details>
+
+            <!-- Question 7 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Will a professional agent help me stay compliant?</summary>
+                <div class="faq-content">
+                    Yes. Part of our service includes tracking your state’s Annual Report deadlines. We send you automated reminders well in advance of the due date so you can avoid late fees and keep your business compliant with the Secretary of State.
+                </div>
+            </details>
+
+            <!-- Question 8 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Can a Registered Agent be a P.O. Box?</summary>
+                <div class="faq-content">
+                    No. State law requires a Registered Agent to have a physical street address where a person can be physically served with legal papers. P.O. Boxes and private mailbox rentals are not permitted for this role.
+                </div>
+            </details>
+
+            <!-- Question 9 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What happens if my business is sued?</summary>
+                <div class="faq-content">
+                    If your business is served with a lawsuit, the process server will deliver the papers to our office. We accept them discreetly and notify you immediately. This prevents the embarrassment of being served in front of customers, employees, or family members at your place of business or home.
+                </div>
+            </details>
+
+            <!-- Question 10 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">How do I switch my Registered Agent to you?</summary>
+                <div class="faq-content">
+                    The process is simple. When you sign up for our service, we help you file a "Change of Agent" form with the Secretary of State. Once the state processes the filing, we officially become your shield for privacy and compliance.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-container">
+        <!-- Col 1: Brand -->
+        <section class="footer-column brand-col">
+            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
+            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
+            <div class="footer-social">
+                <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
+                <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
+            </div>
+        </section>
+
+        <!-- Col 2: Services -->
+        <section class="footer-column">
+            <h3>Services</h3>
+            <ul class="footer-links">
+                <li><a href="llc.html">LLC Formation</a></li>
+                <li><a href="corporation.html">C-Corp Filing</a></li>
+                <li><a href="registered-agent.html">Registered Agent</a></li>
+                <li><a href="ein.html">EIN Registration</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 3: State Filings -->
+        <section class="footer-column">
+            <h3>State Filings</h3>
+            <ul class="footer-links">
+                <li><a href="#">Texas LLC</a></li>
+                <li><a href="#">Delaware Corp</a></li>
+                <li><a href="#">Florida LLC</a></li>
+                <li><a href="#">Wyoming LLC</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 4: Resources -->
+        <section class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li><a href="#">Business Help</a></li>
+                <li><a href="#">Form Templates</a></li>
+                <li><a href="#">Filing Deadlines</a></li>
+            </ul>
+        </section>
+
+        <!-- Col 5: Subscribe -->
+        <section class="footer-column subscribe-col">
+            <h3>Stay Updated</h3>
+            <form class="footer-subscribe">
+                <input type="email" placeholder="name@email.com" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- BOTTOM BAR: Single line divider with requested info -->
+    <div class="footer-bottom">
+    <div class="copyright-info">
+    &copy; 2026 filings4u. All rights reserved. 
+    A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
+</div>
+
+</div>
+
+</footer>
+
+
+
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+
+            // Toggle active class on the clicked item
+            faqItem.classList.toggle('active');
+
+            // Optional: Close other open FAQ items (comment out if not wanted)
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
 
 </body>
 </html>

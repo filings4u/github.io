@@ -1541,7 +1541,7 @@ select.invalid-field {
     /* THE FIX: 
        First value (85%) pushes the image focal point to the right.
        Second value (10%) keeps it near the top. */
-    background-position: 85% 10%; 
+    background-position: 0% 10%; 
 
     padding: 100px 20px;
 }
@@ -1553,5 +1553,1928 @@ select.invalid-field {
         /* On mobile, you usually want it centered so the subject isn't cut off */
         background-position: center center !important; 
         text-align: center;
+    }
+
+    .ra-hero {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    
+    /* THE FIX:
+       75% = Shifted significantly to the right (past center)
+       10% = Vertical position (staying near the top) */
+    background-position: 75% 10%; 
+
+    padding: 100px 20px;
+}
+
+.ra-hero {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    
+    /* 1. Use 'fixed' to keep the background from jumping */
+    background-attachment: fixed; 
+    
+    /* 2. Explicitly set the size to ensure it fills the box before load */
+    background-size: cover;
+    
+    /* 3. The 'Just Right' position we found */
+    background-position: 75% 10%; 
+
+    padding: 100px 20px;
+    
+    /* 4. Add this to prevent 'flash' or movement on reload */
+    background-repeat: no-repeat;
+}
+
+.ra-hero {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    padding: 100px 20px;
+    
+    /* THE FIX: Moves background to CSS to prevent refresh jumps */
+    background-image: linear-gradient(to right, rgba(10, 31, 68, 0.95) 20%, rgba(10, 31, 68, 0.2) 80%), 
+                      url('images/register-hero.jpg');
+    
+    background-size: cover;
+    background-position: 75% 10%; /* Your "just right" spot */
+    background-attachment: fixed;  /* Keeps image from jumping on refresh */
+    background-repeat: no-repeat;
+}
+
+/* Cleanup for the text inside the hero */
+.hero-content-left h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content-left p {
+    color: #e2e8f0;
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    max-width: 550px;
+}
+
+.hero-content-left .cta-button {
+    background: #FF6B00;
+    color: white;
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .ra-hero {
+        background-attachment: scroll; /* Fixed doesn't work well on mobile */
+        background-position: center center;
+        text-align: center;
+    }
+}
+
+}.ra-hero {
+    width: 100%;
+    overflow: hidden; /* Prevents anything from sliding outside the screen */
+    background: #fdfdfd; 
+    padding: 80px 0;
+}
+
+.hero-alignment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content-left {
+    flex: 1; /* Takes up 50% */
+    max-width: 550px;
+    z-index: 2;
+}
+
+.hero-image-right {
+    flex: 1; /* Takes up 50% */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image-right img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* This prevents the image from moving on refresh */
+    flex-shrink: 0; 
+}
+
+/* Fix for mobile so it doesn't break the layout */
+@media (max-width: 768px) {
+    .hero-alignment {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image-right {
+        margin-top: 40px;
+    }
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* --- 1. GLOBAL SETTINGS --- */
+:root {
+    --primary-navy: #0a1f44;
+    --brand-orange: #FF6B00;
+    --slate-gray: #64748b;
+    --bg-light: #f8fafc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #1e293b;
+    line-height: 1.6;
+    text-align: left; /* Global reset to prevent center inheritance */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. NAVIGATION BAR --- */
+.brand-nav-bar {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.brand-nav-links a {
+    text-decoration: none;
+    color: var(--primary-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    top: 100%;
+    z-index: 10;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content li a { padding: 10px 20px; display: block; color: var(--primary-navy); text-decoration: none; }
+.dropdown-content li a:hover { background: var(--bg-light); color: var(--brand-orange); }
+
+/* --- 3. HERO SECTION (THE LEFT-ALIGN FIX) --- */
+.ra-hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important; /* Forces container to the left */
+    overflow: hidden;
+    color: white;
+    /* Gradient locks text in the dark side, Image locked to the right */
+    background: 
+        linear-gradient(to right, rgba(10, 31, 68, 0.98) 20%, rgba(10, 31, 68, 0.7) 45%, rgba(10, 31, 68, 0) 85%), 
+        url('images/register-hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+/* Forces the inner container NOT to center its contents */
+.ra-hero .container {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left !important;
+    width: 100%;
+}
+
+.hero-content-left {
+    max-width: 600px;
+    text-align: left !important;
+}
+
+.hero-subtitle {
+    display: block; /* Ensures it starts on its own line */
+    color: var(--brand-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: left !important;
+}
+
+.hero-content-left h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+    text-align: left !important;
+}
+
+.hero-content-left p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    text-align: left !important;
+}
+
+/* --- 4. FEATURES GRID --- */
+.section-padding { padding: 80px 0; }
+
+.ra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.ra-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.ra-card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--brand-orange); 
+}
+
+.ra-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+
+.ra-card h3 { 
+    font-size: 1.5rem; 
+    color: var(--primary-navy); 
+    margin-bottom: 15px; 
+}
+
+/* --- 5. FAQ SECTION --- */
+.faq-section { background: var(--bg-light); border-top: 1px solid #e2e8f0; }
+
+.faq-item { 
+    background: white; 
+    margin-bottom: 15px; 
+    padding: 25px; 
+    border-radius: 12px; 
+    border: 1px solid #e2e8f0; 
+}
+
+.faq-item h4 { 
+    margin-top: 0; 
+    color: var(--primary-navy); 
+    font-size: 1.1rem; 
+    margin-bottom: 10px; 
+}
+
+/* --- 6. BUTTONS & CTA --- */
+.cta-button {
+    background: var(--brand-orange);
+    color: white !important;
+    padding: 18px 45px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: 0.3s;
+    margin-left: 0 !important; /* Anchors button to left */
+}
+
+.cta-button:hover { background: #e65a00; transform: scale(1.02); }
+
+.cta-box {
+    background: var(--primary-navy);
+    padding: 60px;
+    border-radius: 30px;
+    color: white;
+    text-align: center; /* CTA box stays centered for impact */
+}
+
+/* --- 7. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .ra-hero {
+        height: auto;
+        padding: 100px 0;
+        text-align: center !important;
+        justify-content: center !important;
+        background: linear-gradient(rgba(10, 31, 68, 0.9), rgba(10, 31, 68, 0.9)), url('images/register-hero.jpg');
+    }
+    
+    .ra-hero .container {
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    .hero-content-left { 
+        max-width: 100%; 
+        text-align: center !important;
+    }
+
+    .hero-subtitle, .hero-content-left h1, .hero-content-left p {
+        text-align: center !important;
+    }
+
+    .brand-nav-bar { padding: 15px 20px; }
+}
+
+/* FOOTER */
+footer {
+    background: white;
+    border-top: 1px solid #eee;
+    padding: 40px 0;
+    text-align: center;
+    color: var(--slate-gray);
+    font-size: 0.9rem;
+}
+
+/* FORCE LEFT ALIGNMENT */
+.ra-hero {
+    display: flex !important;
+    justify-content: flex-start !important; /* Pushes content to the far left */
+    text-align: left !important;
+    align-items: center;
+    min-height: 75vh;
+    padding-left: 5%; /* Adds a professional margin from the screen edge */
+    
+    /* Lock the background image to the right */
+    background: 
+        linear-gradient(to right, rgba(10, 31, 68, 0.95) 20%, rgba(10, 31, 68, 0.6) 45%, rgba(10, 31, 68, 0) 80%),
+        url('images/register-hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+.hero-content-left {
+    max-width: 600px;
+    margin-left: 0 !important; /* Removes the "auto" centering */
+    margin-right: auto !important;
+    text-align: left !important;
+}
+
+.hero-subtitle {
+    display: block;
+    text-align: left;
+    color: #FF6B00;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-content-left h1, 
+.hero-content-left p {
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+/* Ensure the button stays on the left */
+.cta-button {
+    display: inline-block;
+    text-align: center; /* Keeps text inside button centered */
+    margin-left: 0 !important;
+}
+/* --- VARIABLES & RESET --- */
+:root {
+    --primary-navy: #0a1f44;
+    --brand-orange: #FF6B00;
+    --slate-gray: #64748b;
+    --bg-light: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #1e293b;
+    line-height: 1.6;
+    text-align: left; /* Ensures default alignment is left */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAVIGATION --- */
+.brand-nav-bar {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.brand-nav-links a {
+    text-decoration: none;
+    color: var(--primary-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    top: 100%;
+    z-index: 10;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content li a { padding: 10px 20px; display: block; color: var(--primary-navy); text-decoration: none; }
+
+/* --- HERO SECTION (FIXED LEFT ALIGNMENT) --- */
+.ra-hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Forces content box to the left */
+    overflow: hidden;
+    color: white;
+    background: 
+        linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+        url('../../images/register-hero.jpg') no-repeat; /* Path updated for css folder */
+    background-size: cover;
+    background-position: center right;
+    display: flex;
+    align-items: flex-start; /* Change from center to flex-start */
+    padding-top: 120px;      /* Adjust this number to move text lower or higher */
+    background-position: center 10%; 
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.hero-content-left {
+    max-width: 600px;
+    text-align: left; /* Explicitly locks text left */
+    margin-left: 0;   /* Removes any auto-centering */
+}
+
+.hero-subtitle {
+    display: inline-block;
+    color: var(--brand-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.hero-content-left h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+}
+
+.hero-content-left p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+}
+
+/* --- SECTIONS & CARDS --- */
+.section-padding { padding: 80px 0; }
+.ra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+.ra-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); transition: 0.3s ease; }
+.ra-card:hover { transform: translateY(-10px); border-color: var(--brand-orange); }
+.ra-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+.ra-card h3 { font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 15px; }
+
+/* --- FAQ --- */
+.faq-section { background: var(--bg-light); border-top: 1px solid #e2e8f0; }
+.faq-item { background: white; margin-bottom: 15px; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.faq-item h4 { margin-top: 0; color: var(--primary-navy); font-size: 1.1rem; margin-bottom: 10px; }
+
+/* --- BUTTONS --- */
+.cta-button {
+    background: var(--brand-orange);
+    color: white !important;
+    padding: 18px 45px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: 0.3s;
+}
+.cta-button:hover { background: #e65a00; transform: scale(1.02); }
+
+.cta-box { background: var(--primary-navy); padding: 60px; border-radius: 30px; color: white; text-align: center; }
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .ra-hero { height: auto; padding: 100px 0; text-align: center; background: linear-gradient(rgba(10, 31, 68, 0.9), rgba(10, 31, 68, 0.9)), url('../../images/register-hero.jpg'); background-size: cover; }
+    .hero-content-left { max-width: 100%; text-align: center; }
+    .hero-content-left h1 { font-size: 2.5rem; }
+}
+
+/* --- Professional Sections Styling --- */
+
+/* Why Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-navy);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Legal Card Style */
+.ra-card {
+    background: #fff;
+    padding: 40px 30px;
+    border: 1px solid #e5e7eb; /* Subtle gray border */
+    border-radius: 4px; /* Slightly sharper corners look more corporate */
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.ra-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: none; /* Corporate sites rarely "bounce" cards */
+}
+
+.card-icon-wrapper {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.legal-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    border: 2px solid var(--brand-orange);
+}
+
+.ra-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-navy);
+    font-weight: 600;
+}
+
+/* FAQ Overhaul */
+.section-title-center {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--primary-navy);
+}
+
+.faq-accordion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 30px 0;
+    background: none; /* No cards for FAQ - cleaner look */
+}
+
+.faq-item h4 {
+    font-size: 1.15rem;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.faq-item p {
+    color: var(--slate-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* CTA Overhaul (LegalZoom Style) */
+.cta-banner {
+    background: #f1f5f9; /* Light, clean background instead of dark navy */
+    border: 1px solid #e2e8f0;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.cta-content h2 {
+    color: var(--primary-navy);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cta-button-legal {
+    background: var(--brand-orange);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+
+.cta-button-legal:hover {
+    background: #d95a00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
+
+/* COMPARISON SECTION */
+.comparison-section {
+    padding: 100px 0;
+    background: #fdfdfd;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.comparison-card {
+    padding: 50px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.status-badge.error { background: #fee2e2; color: #b91c1c; }
+.status-badge.success { background: #dcfce7; color: #15803d; }
+
+.comparison-card h3 { font-size: 1.8rem; color: #0a1f44; margin-bottom: 25px; }
+
+.comparison-card ul { list-style: none; padding: 0; }
+
+.comparison-card ul li {
+    margin-bottom: 18px;
+    padding-left: 28px;
+    position: relative;
+    color: #475569;
+}
+
+.comparison-card ul li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.protection ul li::before {
+    content: "✓";
+    color: #22c55e;
+}
+
+/* PROCESS SECTION */
+.process-section {
+    padding: 100px 0;
+    text-align: center;
+    background: #0a1f44;
+    color: white;
+}
+
+.section-title { font-size: 2.5rem; margin-bottom: 60px; font-weight: 800; }
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.step-number {
+    font-size: 4rem;
+    font-weight: 900;
+    opacity: 0.1;
+    margin-bottom: -40px;
+}
+
+.step h4 { font-size: 1.4rem; margin-bottom: 15px; position: relative; z-index: 1; }
+.step p { color: #cbd5e1; line-height: 1.7; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .comparison-grid, .process-steps { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+}
+
+
+/* PRICING CARD */
+.pricing-header { text-align: center; margin-bottom: 50px; }
+.pricing-card-legal {
+    display: flex;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+.pricing-details { padding: 40px; background: #f8fafc; flex: 1; text-align: center; border-right: 1px solid #e2e8f0; }
+.price-value { font-size: 3rem; font-weight: 800; color: var(--primary-navy); }
+.price-value span { font-size: 1rem; color: var(--slate-gray); }
+.pricing-features { padding: 40px; flex: 1.5; }
+.check-list { list-style: none; padding: 0; }
+.check-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--brand-orange); font-weight: bold; }
+
+/* STEPS */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+.step-circle { width: 50px; height: 50px; background: var(--primary-navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 700; }
+
+/* TABLE */
+.legal-table { width: 100%; border-collapse: collapse; background: white; }
+.legal-table th, .legal-table td { padding: 20px; border: 1px solid #e2e8f0; text-align: left; }
+.legal-table th { background: #f1f5f9; color: var(--primary-navy); }
+
+/* TESTIMONIALS */
+.testimonial .stars { color: #facc15; margin-bottom: 15px; }
+.testimonial p { font-style: italic; font-size: 1.1rem; }
+.author { display: block; margin-top: 15px; font-weight: 700; font-size: 0.9rem; }
+
+.section-title-center { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
+.bg-light { background: #f8fafc; }
+.cta-button-block { display: block; width: 100%; background: var(--brand-orange); color: white; padding: 15px; border-radius: 6px; text-decoration: none; font-weight: 700; margin-top: 20px; }
+
+@media (max-width: 768px) {
+    .pricing-card-legal, .steps-grid { flex-direction: column; }
+    .pricing-details { border-right: none; border-bottom: 1px solid #e2e8f0; }
+}
+
+
+/* FAQ ACCORDION STYLES */
+.faq-container-fixed {
+    /* Increased from 1000px to 1200px (or use 100% for full width) */
+    max-width: 1200px; 
+    margin: 80px auto;
+    padding: 0 40px; /* Increased side padding for better containment */
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box; /* Ensures padding doesn't push width over 100% */
+}
+
+.faq-main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0a1f44;
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+.faq-accordion {
+    border-top: 1px solid #e2e8f0;
+    width: 100%; /* Forces accordion to fill the container */
+}
+
+.faq-item {
+    border-bottom: 1px solid #e2e8f0;
+    width: 100%;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #FF6B00;
+}
+
+.faq-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: #64748b;
+    margin-left: 20px; /* Keeps arrow from touching text */
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    /* Prevents horizontal overflow */
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+.faq-answer p {
+    /* Added side padding so text doesn't hit the edges of the 1200px box */
+    padding: 0 40px 25px 0; 
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem; /* Slightly larger for the wider container */
+}
+
+/* Active State Styles */
+.faq-item.active .faq-answer {
+    max-height: 2000px;
+    transition: max-height 1s ease-in-out;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+    color: #FF6B00;
+}
+
+.faq-item.active .faq-question {
+    color: #FF6B00;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .faq-container-fixed {
+        padding: 0 20px;
+    }
+    .faq-answer p {
+        padding-right: 0;
+    }
+}
+
+
+/* --- FAQ SECTION --- */
+.faq-full-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.faq-container-large {
+    max-width: 1100px; /* Stretched width */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-header-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0a1f44;
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+.faq-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    padding: 24px; /* 24px internal border/padding */
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.faq-trigger {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0a1f44; /* Font color updated */
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-trigger::-webkit-details-marker {
+    display: none;
+}
+
+.faq-trigger::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    transition: transform 0.3s ease;
+}
+
+.faq-box[open] .faq-trigger::after {
+    transform: rotate(180deg);
+    color: #FF6B00;
+}
+
+.faq-content {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #0a1f44; /* Font color updated */
+    padding-right: 20px;
+}
+
+.faq-box[open] {
+    border-color: #FF6B00;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .faq-container-large {
+        max-width: 100%;
+    }
+    .faq-header-title {
+        font-size: 2rem;
+    }
+    .faq-trigger {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* BACKGROUND ALTERNATION CLASSES */
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.bg-alt {
+    background-color: #e1e8f0; /* Your specific blue-gray */
+}
+
+/* SECTION PADDING FIX */
+.section-padding {
+    padding: 40px 0; /* Changed from 80px or 100px to 40px */
+    width: 100%;
+}
+
+/* FAQ SPECIFIC TWEAK */
+/* When the FAQ is on a #e1e8f0 background, we make the boxes white 
+   to create a clean "card" look that pops. */
+.bg-alt .faq-box {
+    background-color: #ffffff; 
+    border: none; /* Cleaner look on the colored background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.bg-alt .faq-box:hover {
+    background-color: #f8fafc; /* Subtle light hover when box is already on alt background */
+}
+
+/* Ensure the titles stay high contrast */
+.bg-alt h2 {
+    color: #0a1f44;
+}
+
+/* Footer Base Styling */
+.site-footer {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 60px 0 20px;
+    font-family: 'Arial', sans-serif;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Newsletter/Guarantee Box */
+.footer-newsletter-box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.guarantee-header {
+    flex: 1 1 600px;
+    margin-right: 20px;
+}
+
+.guarantee-header h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subscribe-form {
+    flex: 1 1 300px;
+    margin-top: 20px;
+}
+
+.subscribe-form form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.subscribe-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px 0 0 4px;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Links Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column h4 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #007bff;
+}
+
+.resource-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 20px;
+}
+
+/* Bottom Area */
+.footer-bottom {
+    border-top: 1px solid #dee2e6;
+    padding-top: 30px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.legal-disclaimer p {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-newsletter-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .guarantee-header {
+        margin-right: 0;
+    }
+    .resource-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Removes the hover lift and border color change */
+.ra-card.no-hover:hover {
+    transform: none !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important;
+    cursor: default;
+}
+
+/* Ensure stars and author styling remains consistent */
+.testimonial .stars { 
+    color: #facc15; 
+    margin-bottom: 15px; 
+    font-size: 1.2rem;
+}
+
+.testimonial p { 
+    font-style: normal; 
+    font-size: 1.05rem; 
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.author { 
+    display: block; 
+    margin-top: 20px; 
+    font-weight: 700; 
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+
+/* TESTIMONIAL CARDS CUSTOM STYLES */
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    /* 24px Rounded Corners */
+    border-radius: 24px; 
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+    text-align: left;
+    /* Ensuring no hover movement */
+    transition: none;
+}
+
+/* Remove hover effect specifically for these cards */
+.testimonial-card:hover {
+    transform: none !important;
+    border-color: #e2e8f0 !important;
+}
+
+.testimonial-card .stars {
+    color: #facc15;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.testimonial-card p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Person's Name Color */
+.testimonial-card .author {
+    display: block;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0a1f44; /* Your requested Navy color */
+}
+
+
+/* COMPARISON TABLE STYLES */
+.comparison-table-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    /* 24px Rounded Corners */
+    border-radius: 24px; 
+    /* Professional Shadow */
+    box-shadow: 0 20px 40px rgba(10, 31, 68, 0.12); 
+    /* Required to make the table corners follow the 24px radius */
+    overflow: hidden; 
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    table-layout: fixed;
+}
+
+.legal-table th, 
+.legal-table td {
+    padding: 24px; /* Matches your 24px theme for internal spacing */
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    color: #0a1f44;
+}
+
+.legal-table th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Remove border from the last row so it doesn't clash with the 24px corner */
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Zebra striping for better readability */
+.legal-table tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+
+/* Tighten the Section Spacing */
+.compact-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+.section-title-center {
+    margin-bottom: 25px !important; /* Reduces space between title and table */
+}
+
+/* COMPACT TABLE WRAPPER */
+.comparison-table-wrapper {
+    max-width: 1000px;
+    margin: 0 auto; /* Removed large top/bottom margins */
+    border-radius: 24px; 
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.08); 
+    overflow: hidden; 
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+/* COMPACT TABLE CELLS */
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legal-table th {
+    padding: 15px 20px; /* Reduced vertical padding */
+    background-color: #f8fafc;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #0a1f44;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.legal-table td {
+    padding: 12px 20px; /* Significantly reduced vertical padding for "less space" */
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    color: #0a1f44;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Remove border from last row */
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- FOOTER MASTER RESET --- */
+#footer {
+    background-color: #ffffff !important;
+    width: 100%;
+    border-top: 1px solid #e1e8f0; /* The top line of the footer */
+    padding: 40px 0 0 0 !important; /* Tight top padding, zero bottom padding */
+    margin-top: 40px;
+    color: #0a1f44;
+}
+
+/* --- THE CONTENT CONTAINER --- */
+.footer-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px 20px 20px !important; /* Tightens space before the divider line */
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* --- COLUMN STYLING --- */
+.footer-column h3 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #0a1f44;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FF6B00;
+}
+
+/* --- SUBSCRIBE BOX --- */
+.subscribe-col p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.footer-subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-subscribe input {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.footer-subscribe button {
+    background: #0a1f44;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* --- FOOTER BOTTOM (THE SINGLE DIVIDER) --- */
+.footer-bottom {
+    background-color: #ffffff !important;
+    width: 100%;
+    border-top: 1px solid #e1e8f0 !important; /* THE ONLY DIVIDER LINE */
+    border-bottom: none !important;
+    padding: 10px 0 !important; /* Very tight vertical space */
+    margin-top: 0 !important;
+}
+
+.footer-bottom .footer-container {
+    display: flex !important; /* Switches from Grid to Flex for the bottom bar */
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* --- LEGAL & BRAND TEXT --- */
+.copyright, .footer-legal-links a {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.subsidiary-link {
+    color: #c15254 !important; /* Your specific red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-legal-links a {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-bottom .footer-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* Master Footer - Clean & White */
+#footer {
+    background-color: #ffffff !important;
+    border-top: none !important; /* REMOVED TOP LINE */
+    padding: 60px 0 0 0 !important;
+    width: 100%;
+}
+
+/* Container Spacing */
+#footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px !important; /* Space above the single line */
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* THE ONE AND ONLY LINE */
+.footer-bottom {
+    background-color: #ffffff !important; /* Pure white */
+    border-top: 1px solid #e1e8f0 !important; /* THE ONLY HORIZONTAL LINE */
+    padding: 15px 0 !important; /* Decreased vertical space */
+    margin-top: 0 !important;
+}
+
+/* Align Bottom Text to Invisible Walls */
+.footer-bottom .footer-container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: none !important;
+}
+
+/* Subsidiary Link Color */
+.subsidiary-link {
+    color: #c15254 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Text and Links */
+.footer-column h3 { font-size: 0.9rem; margin-bottom: 15px; color: #0a1f44; }
+.footer-links a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
+.copyright, .footer-legal-links a { font-size: 0.8rem; color: #94a3b8; }
+.footer-legal-links a { margin-left: 20px; text-decoration: none; }
+
+/* Mobile View */
+@media (max-width: 768px) {
+    #footer .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-bottom .footer-container { flex-direction: column; gap: 10px; }
+}
+
+/* --- FOOTER CLEANUP --- */
+#footer {
+    background-color: #ffffff !important;
+    border-top: none !important;    /* Removes line at the very top of footer */
+    border-bottom: none !important; /* Removes line at the very bottom of footer */
+    padding: 60px 0 0 0 !important;
+    width: 100%;
+}
+
+/* Container Spacing */
+#footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px !important; /* Spacing above the divider */
+}
+
+/* THE ONLY DIVIDER LINE */
+.footer-bottom {
+    background-color: #ffffff !important;
+    border-top: 1px solid #e1e8f0 !important; /* THE ONLY LINE ALLOWED */
+    border-bottom: none !important;           /* KILLS THE LINE AT THE BOTTOM */
+    padding: 12px 0 !important;               /* Very tight vertical space */
+    margin: 0 !important;
+}
+
+/* Ensure no child elements inside footer have borders */
+.footer-column, 
+.footer-links, 
+.copyright, 
+.footer-legal-links {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Subsidiary Link Color */
+.subsidiary-link {
+    color: #c15254 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Text and Links */
+.footer-column h3 { font-size: 0.9rem; margin-bottom: 15px; color: #0a1f44; }
+.footer-links a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
+.copyright, .footer-legal-links a { font-size: 0.8rem; color: #94a3b8; }
+.footer-legal-links a { margin-left: 20px; text-decoration: none; }
+
+
+/* --- FOOTER MASTER STYLES --- */
+#footer {
+    background-color: #ffffff !important;
+    width: 100%;
+    /* REMOVE all top/bottom borders from the main footer container */
+    border: none !important; 
+    padding: 60px 0 0 0 !important;
+    margin: 0 !important;
+}
+
+/* Unified Container Box */
+#footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* This padding controls the gap between columns and the divider line */
+    padding: 0 20px 30px 20px !important; 
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* --- THE SINGLE DIVIDER LINE --- */
+.footer-bottom {
+    background-color: #ffffff !important;
+    /* THIS IS THE ONLY LINE ON THE PAGE */
+    border-top: 1px solid #e1e8f0 !important; 
+    border-bottom: none !important;
+    margin-top: 0 !important;
+    padding: 15px 0 !important; /* Tightens the vertical height of the bottom bar */
+}
+
+/* Reset Grid to Flex for the bottom bar so links push to the right */
+.footer-bottom .footer-container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* --- TEXT STYLES --- */
+.subsidiary-link {
+    color: #c15254 !important; /* Red color for Roseland */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.copyright, .footer-legal-links a {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.footer-legal-links a {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.footer-column h3 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #0a1f44;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    #footer .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-bottom .footer-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* --- FOOTER BOTTOM STYLES --- */
+.footer-bottom {
+    background-color: #ffffff !important;
+    width: 100%;
+    /* This is your single clean horizontal line */
+    border-top: 1px solid #e1e8f0 !important; 
+    padding: 15px 40px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.copyright-info {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.subsidiary-link {
+    color: #c15254 !important; /* Brand Red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.legal-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-left: 20px;
+}
+
+.legal-links a:hover {
+    color: #0a1f44;
+}
+
+/* Mobile Fix: Centers and stacks the text */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 20px !important;
+    }
+    .legal-links a {
+        margin: 0 10px;
+    }
+}
+
+.footer-bottom {
+    background-color: #ffffff !important;
+    width: 100%;
+    border-top: 1px solid #e1e8f0 !important;
+    padding: 20px 20px !important;
+    /* Centers everything inside the footer bottom */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.copyright-info {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center; /* Ensures the text inside the div is centered */
+}
+
+.subsidiary-link {
+    color: #c15254 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* Update this in your CSS file */
+.footer-bottom {
+    background-color: #ffffff !important;
+    width: 100%;
+    border-top: 1px solid #e1e8f0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center;
+    text-align: center;
+}
+
+.copyright-info {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.subsidiary-link {
+    color: #c15254 !important; /* Specific brand color */
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.subsidiary-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.subsidiary-link {
+    color: #c15254 !important; /* Your specific red color */
+    text-decoration: none;
+    font-weight: 600; /* Makes it look professional and slightly bold */
+}
+
+.subsidiary-link:hover {
+    text-decoration: underline; /* Standard professional hover effect */
+}
+
+
+/* FORCE RED COLOR ON SUBSIDIARY LINK */
+#footer .subsidiary-link {
+    color: #c15254 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+}
+
+#footer .subsidiary-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Ensure the copyright area is centered */
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #ffffff !important;
+    border-top: 1px solid #e1e8f0;
+}
+
+
+/* --- UNIVERSAL NAVIGATION STYLES --- */
+.brand-nav-bar {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.brand-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Forces consistent spacing between nav items */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.brand-nav-links a {
+    text-decoration: none;
+    color: #0a1f44;
+    font-weight: 600;
+    font-size: 0.95rem; /* Standardized font size */
+    transition: color 0.3s;
+}
+
+/* Dropdown Logic */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 240px; /* Fixed width for consistency */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li a {
+    padding: 10px 20px;
+    display: block;
+    color: #0a1f44;
+    font-size: 0.9rem;
+}
+
+.dropdown-content li a:hover {
+    background: #f8fafc;
+    color: #FF6B00;
+}
+
+.arrow {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 992px) {
+    .brand-nav-links {
+        gap: 15px;
+    }
+    .brand-nav-bar {
+        padding: 15px 20px;
     }
 }
