@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form LLC | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body class="portal-body">
 
+    <!-- SIDEBAR (Consistent) -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header"><img src="images/logo.png" alt="filings4u" style="height: 30px;"></div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
+        </nav>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>LLC Formation</h1>
+                <p>Step 1 of 4: Company Identity</p>
+            </div>
+            <div class="step-indicator">
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+                <div class="step">4</div>
+            </div>
+        </header>
+
+        <div class="intake-container">
+            <div class="intake-card">
+                <form action="#" method="POST">
+                    <!-- SECTION 1: NAME & STATE -->
+                    <div class="form-section">
+                        <label>Desired Business Name</label>
+                        <input type="text" placeholder="e.g. Roseland Logistics" class="intake-input" required>
+                        <small>We will automatically check availability in your chosen state.</small>
+                    </div>
+
+                    <div class="form-section" style="margin-top: 30px;">
+                        <label>State of Formation</label>
+                        <select class="intake-input">
+                            <option value="DE">Delaware</option>
+                            <option value="TX">Texas</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="FL">Florida</option>
+                            <!-- Add all states -->
+                        </select>
+                    </div>
+
+                    <div class="form-section" style="margin-top: 30px;">
+                        <label>Business Purpose (Brief Description)</label>
+                        <textarea placeholder="e.g. Long-haul trucking and freight brokerage" class="intake-input" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-footer" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="price-preview">
+                            <span style="color: #64748b;">Est. Total:</span>
+                            <strong style="font-size: 1.4rem; color: #0a1f44;">$100 <small>+ State Fee</small></strong>
+                        </div>
+                        <button type="button" class="btn-primary-small">Next Step: Management →</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- HELP SIDEBAR -->
+            <div class="intake-help">
+                <h4>Why Delaware?</h4>
+                <p>Delaware is the preferred state for 60% of Fortune 500 companies due to its business-friendly court system (Court of Chancery).</p>
+                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                <h4>Need Help?</h4>
+                <p>Chat with a formation specialist instantly.</p>
+                <button class="btn-outline-small" style="width: 100%;">Open Live Chat</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
