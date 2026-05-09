@@ -218,3 +218,71 @@
     border-color: #ff6b00;
     background: rgba(255, 107, 0, 0.02);
 }
+
+/* Secure Input Styling */
+.secure-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.secure-field {
+    padding-right: 100px !important;
+    background: #fff9f5 !important; /* Slight tint to show it's a special field */
+}
+
+.encryption-tag {
+    position: absolute;
+    right: 15px;
+    font-size: 0.7rem;
+    background: #0ea5e9;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* Modern Checkbox Styling */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+}
+
+.checkbox-container:hover input ~ .checkmark { background-color: #ccc; }
+.checkbox-container input:checked ~ .checkmark { background-color: #ff6b00; border-color: #ff6b00; }
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after { display: block; }

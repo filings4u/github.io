@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax & EIN Setup | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body class="portal-body">
 
+    <aside class="portal-sidebar">
+        <div class="sidebar-header"><img src="images/logo.png" alt="filings4u" style="height: 30px;"></div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
+        </nav>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Tax & EIN Configuration</h1>
+                <p>Step 3 of 4: Federal Identity</p>
+            </div>
+            <div class="step-indicator">
+                <div class="step">1</div>
+                <div class="step">2</div>
+                <div class="step active">3</div>
+                <div class="step">4</div>
+            </div>
+        </header>
+
+        <div class="intake-container">
+            <div class="intake-card">
+                <form action="#" method="POST">
+                    
+                    <!-- RESPONSIBLE PARTY SECTION -->
+                    <div class="form-section">
+                        <label style="font-weight: 700;">IRS Responsible Party</label>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 15px;">The IRS requires an individual (not an entity) to be the primary contact for the EIN.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <label style="font-size: 0.8rem;">Full Legal Name</label>
+                                <input type="text" placeholder="First & Last Name" class="intake-input">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.8rem;">Social Security Number (SSN)</label>
+                                <div class="secure-input-wrapper">
+                                    <input type="password" placeholder="000-00-0000" class="intake-input secure-field">
+                                    <span class="encryption-tag">🔒 Encrypted</span>
+                                </div>
+                            </div>
+                        </div>
+                        <small style="display: block; margin-top: 10px; color: #c15254; font-weight: 600;">⚠️ Note: We do not store your SSN. It is passed directly to the IRS filing engine via 256-bit encryption.</small>
+                    </div>
+
+                    <!-- MANAGERIAL POWERS (Conditional Logic) -->
+                    <div class="form-section" style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
+                        <label style="font-weight: 700;">Operating Agreement Customization</label>
+                        
+                        <div class="power-option" style="margin-top: 15px;">
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <strong>Grant Real Estate Authority</strong>
+                                <p style="font-size: 0.8rem; margin-left: 28px;">Allow the Manager to buy, sell, or mortgage company real estate without a full member vote.</p>
+                            </label>
+                        </div>
+
+                        <div class="power-option" style="margin-top: 20px;">
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <strong>Automated Banking Resolution</strong>
+                                <p style="font-size: 0.8rem; margin-left: 28px;">Generate the "Certificate of Authority" required by banks to open your business account.</p>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-footer" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <button type="button" class="btn-outline-small">← Back</button>
+                        <button type="button" class="btn-primary-small">Review & Pay →</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SECURITY TRUST BOX -->
+            <div class="intake-help">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <span style="font-size: 2.5rem;">🛡️</span>
+                    <h4 style="margin-top: 10px;">Security Standard</h4>
+                </div>
+                <p style="font-size: 0.85rem; line-height: 1.4;">Our portal uses <strong>Bank-Level AES-256 Encryption</strong>. Your sensitive data is wiped from our temporary session cache the moment the filing is acknowledged by the IRS.</p>
+                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                <div class="compliance-badge" style="background: #fff; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #e2e8f0;">
+                    <small style="color: #0a1f44; font-weight: 700;">✓ IRS Authorized Provider</small>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
