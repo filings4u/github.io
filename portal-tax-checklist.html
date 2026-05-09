@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Checklist | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        .checklist-container { display: grid; grid-template-columns: 1fr 380px; gap: 30px; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 15px; transition: 0.2s; }
+        .checklist-item:hover { border-color: #ff6b00; }
+        .checklist-item.completed { border-left: 5px solid #10b981; opacity: 0.8; }
+        .check-circle { min-width: 24px; height: 24px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .completed .check-circle { background: #10b981; border-color: #10b981; color: white; }
+        .upload-btn-mini { font-size: 0.75rem; color: #ff6b00; font-weight: 700; cursor: pointer; text-decoration: underline; }
+    </style>
+</head>
+<body class="portal-body">
 
+    <!-- PORTAL SIDEBAR WITH CONTEXT SWITCHER -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" style="height: 30px; margin-bottom: 20px;">
+            
+                <label>Active Entity</label>
+                <select class="switcher-dropdown">
+                    <option selected>Roseland Logistics LLC</option>
+                    <option>Roseland Real Estate</option>
+                    <hr>
+                    <option>+ Add Existing Entity</option>
+                </select>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-my-companies.html" class="nav-item"><span>🏢</span> My Companies</a>
+            <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
+            <a href="portal-tax-checklist.html" class="nav-item active"><span>✅</span> Tax Checklist</a>
+            <a href="portal-billing.html" class="nav-item"><span>💳</span> Billing</a>
+        </nav>
+        
+        <!-- SIDEBAR WALLET TRANSFER TOOL -->
+        <div class="sidebar-tool" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);">
+            <label style="color: #10b981;">Wallet Transfer</label>
+            <p style="font-size: 0.7rem; color: #fff; margin-bottom: 10px;">Move credit to another subsidiary.</p>
+            <button class="btn-primary-small" style="width: 100%; background: #10b981; font-size: 0.7rem;">Transfer Credit</button>
+        </div>
+
+        <div class="sidebar-footer"><a href="#" class="logout-btn">Sign Out</a></div>
+    </aside>
+
+    <main class="portal-main">
+        <!-- CONSOLIDATED RISK HEADER -->
+        <div class="portfolio-health-bar" style="background: #0a1f44; padding: 15px 25px; border-radius: 12px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; color: white;">
+            <div>
+                <span style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.7;">Portfolio Compliance Score</span>
+                <div style="font-size: 1.5rem; font-weight: 800;">94% <small style="font-weight: 400; font-size: 0.8rem; color: #10b981;">+2% this month</small></div>
+            </div>
+            <div style="width: 200px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                <div style="width: 94%; height: 100%; background: #10b981;"></div>
+            </div>
+        </div>
+
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Tax Preparation Checklist</h1>
+                <p>Required documents for <strong>2026 Federal Filing</strong></p>
+            </div>
+        </header>
+
+        <div class="checklist-container">
+            <div class="checklist-main">
+                <!-- ITEM 1 -->
+                <div class="checklist-item completed">
+                    <div class="check-circle">✓</div>
+                    <div style="flex-grow: 1;">
+                        <h4 style="color: #0a1f44;">Employer ID Confirmation (CP575)</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Automatically pulled from your filings4u Vault.</p>
+                    </div>
+                    <span style="font-size: 0.75rem; color: #10b981; font-weight: 700;">Verified</span>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="checklist-item">
+                    <div class="check-circle"></div>
+                    <div style="flex-grow: 1;">
+                        <h4 style="color: #0a1f44;">Profit & Loss Statement (P&L)</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Upload your full-year income and expense report.</p>
+                        <div class="upload-btn-mini">Upload Document</div>
+                    </div>
+                    <span class="status-pill warning">Pending</span>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="checklist-item">
+                    <div class="check-circle"></div>
+                    <div style="flex-grow: 1;">
+                        <h4 style="color: #0a1f44;">Form 2553 Acceptance Letter</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Only required if you elected S-Corp status this year.</p>
+                        <div class="upload-btn-mini">Upload Document</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRO-TIP SIDEBAR -->
+            <div class="portal-card">
+                <h3>Tax Season Tip</h3>
+                <p style="font-size: 0.85rem; color: #475569; line-height: 1.5; margin-top: 15px;">
+                    <strong>Roseland Logistics LLC</strong> is categorized as a <strong>Multi-Member LLC</strong>. 
+                    <br><br>
+                    Your federal return (Form 1065) is due by <strong>March 15</strong>, one month earlier than personal returns.
+                </p>
+                <div style="margin-top: 25px; padding: 15px; background: #f0f9ff; border-radius: 8px; border: 1px solid #0ea5e9;">
+                    <button class="btn-primary-small" style="width: 100%; background: #0ea5e9;">Connect QuickBooks</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
