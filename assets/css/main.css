@@ -7292,3 +7292,48 @@ p, h1, h2, h3, h4, h5, h6, li, span {
     line-height: 1.15;
     white-space: normal !important;
 }
+
+.ifta-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/ifta-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.ifta-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.ifta-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.permits-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/permits-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.permits-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.permits-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
