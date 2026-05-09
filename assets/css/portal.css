@@ -514,3 +514,79 @@
 .officer-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 .officer-table th { text-align: left; font-size: 0.7rem; text-transform: uppercase; color: #64748b; padding: 10px; border-bottom: 1px solid #e2e8f0; }
 .officer-table td { padding: 12px 10px; border-bottom: 1px solid #f8fafc; font-size: 0.9rem; }
+
+
+/* Sidebar Theme: Light Background, Dark Text */
+.portal-sidebar { 
+    width: 280px; 
+    background: #f4f7fa; /* Your requested color */
+    color: #0a1f44; 
+    display: flex; 
+    flex-direction: column; 
+    position: fixed; 
+    height: 100vh; 
+    border-right: 1px solid #e2e8f0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header { padding: 25px; border-bottom: 1px solid #e2e8f0; }
+
+/* Sidebar Navigation Items */
+.nav-item { 
+    display: flex; 
+    align-items: center; 
+    padding: 12px 25px; 
+    color: #64748b; 
+    text-decoration: none; 
+    font-weight: 500;
+    transition: 0.2s; 
+}
+
+.nav-item:hover, .nav-item.active { 
+    background: #fff; 
+    color: #ff6b00; 
+    border-right: 4px solid #ff6b00; 
+}
+
+.nav-item span { margin-right: 12px; filter: grayscale(1); }
+.nav-item.active span { filter: none; }
+
+/* Mobile Adaptations */
+@media (max-width: 992px) {
+    .portal-sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default on mobile */
+    }
+    .portal-sidebar.mobile-active {
+        transform: translateX(0); /* Show when active */
+    }
+    .portal-main {
+        margin-left: 0 !important;
+        padding: 20px !important;
+    }
+    .mobile-nav-toggle {
+        display: block !important;
+    }
+}
+
+.mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    z-index: 1100;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.switcher-dropdown {
+    background: #fff;
+    color: #0a1f44;
+    border: 1px solid #cbd5e1;
+}
+
