@@ -1,1 +1,35 @@
+<!-- FLEET CHANGE NOTIFICATION OVERLAY (Appears after updating Profile) -->
+<div id="bracket-modal" class="portal-card" style="max-width: 450px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; border: 2px solid #ff6b00; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <span style="font-size: 2.5rem;">🚛</span>
+        <h3 style="margin-top: 10px;">UCR Bracket Adjustment</h3>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: #475569; text-align: center;">
+        Your fleet size update has moved your entity into <strong>UCR Bracket 2 (3-5 Units)</strong>.
+    </p>
 
+    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+            <span>Current Paid Level (0-2)</span>
+            <span>$0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 5px; font-weight: 700; color: #ff6b00;">
+            <span>New Bracket Difference</span>
+            <span>+$59.00</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 15px;">
+            Your default payment method <strong>VISA **** 4242</strong> will be charged automatically in <strong>09:54</strong>.
+        </p>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn-outline-small" style="flex: 1; font-size: 0.8rem;">Revert Change</button>
+            <button class="btn-primary-small" style="flex: 1; font-size: 0.8rem;">Approve & Pay Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- BACKDROP -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 31, 68, 0.4); z-index: 999;"></div>

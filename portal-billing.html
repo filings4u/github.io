@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing & History | filings4u Portal</title>
+    <title>Financial Center | filings4u Portal</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/portal.css">
     <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        .wallet-card { background: #0a1f44; color: white; padding: 25px; border-radius: 12px; position: relative; overflow: hidden; }
+        .wallet-card h3 { color: rgba(255,255,255,0.7); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
+        .wallet-balance { font-size: 2.2rem; font-weight: 800; }
+        .wallet-decor { position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.1; transform: rotate(-15deg); }
+        .billing-type-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-weight: 700; margin-left: 10px; }
+        .badge-master { background: #e0f2fe; color: #0369a1; }
+        .billing-grid { display: grid; grid-template-columns: 1fr 380px; gap: 30px; }
+    </style>
 </head>
 <body class="portal-body">
 
@@ -15,87 +24,116 @@
         <div class="sidebar-header">
             <img src="images/logo.png" alt="filings4u" style="height: 30px; margin-bottom: 20px;">
             
-            <!-- ENTITY CONTEXT SWITCHER -->
-            
                 <label>Active Entity</label>
                 <select class="switcher-dropdown">
                     <option selected>Roseland Logistics LLC</option>
-                    <option>Roseland Real Estate Holdings</option>
+                    <option>Roseland Real Estate</option>
                     <option>Roseland Fleet Management</option>
-                    <option>+ Add New Company</option>
                 </select>
             </div>
         </div>
-        
         <nav class="sidebar-nav">
             <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
             <a href="portal-calendar.html" class="nav-item"><span>📅</span> Compliance</a>
             <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
             <a href="portal-nexus.html" class="nav-item"><span>🗺️</span> Heatmap</a>
-            <a href="portal-billing.html" class="nav-item active"><span>💳</span> Billing</a>
+            <a href="portal-billing.html" class="nav-item active"><span>💳</span> Billing & Wallet</a>
             <a href="portal-profile.html" class="nav-item"><span>⚙️</span> Profile</a>
         </nav>
-        
         <div class="sidebar-footer">
             <a href="index.html" class="logout-btn">Sign Out</a>
         </div>
     </aside>
 
+    <!-- MAIN CONTENT -->
     <main class="portal-main">
         <header class="portal-header">
             <div class="welcome-text">
-                <h1>Billing & Invoices</h1>
-                <p>Transaction history for <strong>Roseland Logistics LLC</strong></p>
-            </div>
-            <div class="header-actions">
-                <button class="btn-outline-small">Master Account Settings</button>
+                <h1>Financial Center</h1>
+                <p>Entity: <strong>Roseland Logistics LLC</strong> <span class="billing-type-badge badge-master">Master Billing Active</span></p>
             </div>
         </header>
 
-        <div class="billing-grid" style="display: grid; grid-template-columns: 1fr 350px; gap: 30px;">
-            <!-- INVOICE LIST -->
-            <div class="vault-category-card">
-                <div class="category-header"><h3>Invoice History</h3></div>
-                <div class="file-table">
-                    <div class="file-row header" style="grid-template-columns: 1.5fr 1fr 1fr 1fr;">
-                        <span>Description</span>
-                        <span>Date</span>
-                        <span>Amount</span>
-                        <span>Status</span>
+        <div class="billing-grid">
+            
+            <!-- LEFT COLUMN: CREDITS, EXEMPTIONS, AND TAX SUMMARY -->
+            <div class="billing-left-col">
+                
+                <!-- PORTAL WALLET -->
+                <div class="wallet-card">
+                    <div class="wallet-decor">💳</div>
+                    <h3>Portal Wallet Credit</h3>
+                    <div class="wallet-balance">$142.50</div>
+                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 10px;">
+                        Credits applied from prorated service cancellations. Valid for any one-time filing.
+                    </p>
+                </div>
+
+                <!-- TAX EXEMPTION STATUS -->
+                <div class="portal-card" style="margin-top: 30px; border-left: 5px solid #ff6b00;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3>Tax-Exempt Status</h3>
+                        <span class="status-pill warning">Pending Verification</span>
                     </div>
-                    <div class="file-row" style="grid-template-columns: 1.5fr 1fr 1fr 1fr;">
-                        <span class="file-info">UCR Bracket Adjustment (2 to 3 Units)</span>
-                        <span>May 09, 2026</span>
-                        <span style="font-weight: 700;">$59.00</span>
-                        <span><span class="status-pill success">Paid</span></span>
+                    <p style="font-size: 0.85rem; color: #64748b; margin: 10px 0 15px;">
+                        Upload your <strong>IRS Affirmation Letter</strong> to remove sales tax from professional fees.
+                    </p>
+                    <div class="drop-zone" style="padding: 20px;">
+                        <p style="font-size: 0.8rem;">Click to upload exemption certificate</p>
                     </div>
-                    <div class="file-row" style="grid-template-columns: 1.5fr 1fr 1fr 1fr;">
-                        <span class="file-info">Annual Report - Texas</span>
-                        <span>Apr 15, 2026</span>
-                        <span style="font-weight: 700;">$100.00</span>
-                        <span><span class="status-pill success">Paid</span></span>
+                </div>
+
+                <!-- YEAR-END TAX SUMMARY (YOUR REQUESTED COMPONENT) -->
+                <div class="portal-card" style="margin-top: 30px; border-left: 5px solid #10b981;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h3 style="margin-bottom: 5px;">Year-End Tax Summary</h3>
+                            <p style="font-size: 0.85rem; color: #64748b;">Consolidated report of all deductible professional fees and state payments.</p>
+                        </div>
+                        <span class="status-pill success">Ready for CPA</span>
+                    </div>
+
+                    <div class="report-generator" style="margin-top: 25px; display: flex; gap: 15px; align-items: center;">
+                        <select class="intake-input" style="max-width: 150px; margin-top: 0;">
+                            <option>Tax Year 2026</option>
+                            <option>Tax Year 2025</option>
+                        </select>
+                        <button class="btn-primary-small" style="background: #0a1f44;">Generate PDF Report</button>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: #f0fdf4; border-radius: 8px;">
+                        <p style="font-size: 0.8rem; color: #166534;">
+                            <strong>Note:</strong> Most fees paid to <strong>filings4u</strong> are considered ordinary and necessary business expenses and may be 100% tax-deductible.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- PAYMENT & SUBSCRIPTION SIDEBAR -->
-            <div class="portal-card">
-                <h3>Subscription Status</h3>
-                <div style="margin: 15px 0; padding: 15px; background: #f0fdf4; border-radius: 8px; border: 1px solid #bbf7d0;">
-                    <strong style="color: #166534; display: block;">Institutional Tier</strong>
-                    <p style="font-size: 0.8rem; color: #166534;">Renews May 2027</p>
+            <!-- RIGHT COLUMN: BILLING PREFERENCES -->
+            <div class="billing-right-col">
+                <div class="portal-card">
+                    <h3>Billing Preference</h3>
+                    <div style="margin-bottom: 20px;">
+                        <label class="checkbox-container" style="font-size: 0.85rem;">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <strong>Use Master Billing</strong>
+                            <p style="margin-left: 28px; font-size: 0.75rem; color: #64748b;">Charges for this entity will appear on the parent account statement.</p>
+                        </label>
+                    </div>
+                    <button class="btn-outline-small" style="width: 100%;">Add Entity-Specific Card</button>
                 </div>
-                
-                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 20px 0;">
-                
-                <h3>Primary Card</h3>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                    <span style="font-size: 0.9rem;">💳 VISA **** 4242</span>
-                    <a href="#" style="color: #ff6b00; font-size: 0.8rem; font-weight: 700;">Edit</a>
+
+                <div class="portal-card" style="margin-top: 20px;">
+                    <h3>Payment Method</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                        <span style="font-size: 0.9rem; font-weight: 600;">💳 VISA **** 4242</span>
+                        <a href="#" style="color: #ff6b00; font-size: 0.75rem; font-weight: 700;">Edit</a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
-
 </body>
 </html>
