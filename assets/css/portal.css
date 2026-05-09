@@ -388,3 +388,48 @@
 .download-link { color: #ff6b00; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
 .download-link:hover { text-decoration: underline; }
 .disabled-link { color: #cbd5e1; font-size: 0.85rem; }
+
+.month-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.timeline-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+    gap: 25px;
+}
+
+.timeline-date {
+    text-align: center;
+    min-width: 60px;
+}
+
+.timeline-date .day { display: block; font-size: 1.5rem; font-weight: 800; color: #0a1f44; }
+.timeline-date .dow { font-size: 0.75rem; color: #64748b; }
+
+.timeline-content { flex-grow: 1; }
+.timeline-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.state-tag { background: #fff1f2; color: #be123c; }
+.fed-tag { background: #f0f9ff; color: #0369a1; }
+
+.timeline-card.warning { border-left: 5px solid #ff6b00; }
+.timeline-card.info { border-left: 5px solid #0ea5e9; }
