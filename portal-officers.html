@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Officer Management | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+    <style>
+        .officer-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .officer-row { border-bottom: 1px solid #f1f5f9; }
+        .officer-row td { padding: 15px; vertical-align: middle; }
+        .status-inactive { background: #f1f5f9; color: #64748b; font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; font-weight: 700; }
+        .audit-trail-pane { background: #0a1f44; color: #94a3b8; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.8rem; height: 200px; overflow-y: auto; }
+        .log-entry { margin-bottom: 8px; border-left: 2px solid #ff6b00; padding-left: 10px; }
+        .log-entry span { color: #fff; }
+    </style>
+</head>
+<body class="portal-body">
 
+    <!-- [SIDEBAR WITH CONTEXT SWITCHER] -->
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Officer & Management History</h1>
+                <p>Required data for <strong>Texas PIR</strong> and <strong>DOT Safety Audits</strong>.</p>
+            </div>
+            <button class="btn-primary-small">+ Appoint New Officer</button>
+        </header>
+
+        <div class="nexus-grid" style="grid-template-columns: 1fr 380px;">
+            
+            <!-- ACTIVE & HISTORICAL OFFICERS -->
+            <div class="portal-card">
+                <h3>Authorized Personnel</h3>
+                <table class="officer-table">
+                    <thead>
+                        <tr style="text-align: left; font-size: 0.75rem; color: #64748b; text-transform: uppercase;">
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Term Dates</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Active Officer -->
+                        <tr class="officer-row">
+                            <td><strong>John Roseland</strong></td>
+                            <td>President / Manager</td>
+                            <td style="font-size: 0.85rem;">May 2024 - <span style="color: #10b981;">Present</span></td>
+                            <td><span class="status-pill success">Active</span></td>
+                            <td><a href="#" style="color: #c15254; font-size: 0.8rem; font-weight: 700;">Remove</a></td>
+                        </tr>
+                        <!-- Historical Inactive Officer -->
+                        <tr class="officer-row" style="opacity: 0.6;">
+                            <td>Jane Doe</td>
+                            <td>Secretary</td>
+                            <td style="font-size: 0.85rem;">Jan 2022 - Apr 2024</td>
+                            <td><span class="status-inactive">Inactive</span></td>
+                            <td><a href="#" style="color: #ff6b00; font-size: 0.8rem; font-weight: 700;">Re-Appoint</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- COMPLIANCE AUDIT LOG -->
+            <div class="portal-card">
+                <h3>Digital Audit Trail</h3>
+                <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">Historical record of administrative changes.</p>
+                <div class="audit-trail-pane">
+                    <div class="log-entry">
+                        [2024-05-09 04:55 UTC]<br>
+                        <span>SYSTEM:</span> Officer Jane Doe status set to INACTIVE.
+                    </div>
+                    <div class="log-entry">
+                        [2024-05-09 04:56 UTC]<br>
+                        <span>SYSTEM:</span> Record locked for 7-Year Retention Policy.
+                    </div>
+                    <div class="log-entry">
+                        [2024-05-10 09:00 UTC]<br>
+                        <span>USER_ADMIN:</span> New Officer John Roseland Appointed.
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: #fff9f5; border: 1px solid #ff6b00; border-radius: 8px;">
+                    <p style="font-size: 0.75rem; color: #475569;">
+                        <strong>Texas PIR Rule:</strong> Changes in Officers must be reported within the annual filing window. This audit log automatically generates your 2027 PIR data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
