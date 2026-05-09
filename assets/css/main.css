@@ -6764,7 +6764,531 @@ a.glow-button:visited {
     color: #ff6b00 !important; /* Keep your brand orange for hovers */
 }
 
-/* Adjust footer logo if it's white-only */
-.footer-logo {
-    filter: none; /* Reset if you had a brightness filter on it */
+
+/* Specifically target the subsidiary link across the site */
+.subsidiary-link, 
+a.subsidiary-link {
+    color: #c15254 !important;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+/* Add a subtle hover effect */
+.subsidiary-link:hover, 
+a.subsidiary-link:hover {
+    color: #c15254 !important;
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+
+/* Color Reset - Background White, Text Navy */
+body, html {
+    background-color: #ffffff !important;
+    color: #0a1f44 !important;
+}
+
+/* Updated Variables based on your CSS */
+:root {
+    --primary-navy: #0a1f44;
+    --brand-orange: #ff6b00;
+    --bg-light: #f4f7fa;
+    --white: #ffffff;
+    --text-main: #0a1f44;
+}
+
+/* Ensure secondary text blocks also use the dark navy for readability */
+p, h1, h2, h3, h4, h5, h6, li, span {
+    color: #0a1f44;
+}
+
+/* Keep hero text white since it's on a dark image background */
+.ra-hero, .ra-hero h1, .ra-hero p, .bg-dark-banner, .bg-dark-banner h2, .bg-dark-banner p {
+    color: #ffffff !important;
+}
+
+.ra-hero.dba-hero {
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url("../../images/index-background.jpg") no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+}
+
+
+.sole-prop-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    overflow: hidden;
+    color: white;
+    /* Professional Fade + New Image */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url('../../images/sole-proprietor-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+/* Update all hero sections for a more 'zoomed out' feel */
+.ra-hero, .dba-hero, .sole-prop-hero {
+    background-size: 100% auto !important; /* Fits width exactly */
+    background-position: top center !important; /* Ensures the focus is at the top */
+    background-attachment: scroll !important; /* 'Fixed' often causes zoom issues on mobile */
+}
+
+
+/* Widen the text container and prevent the title from wrapping */
+.hero-content-left {
+    max-width: 700px !important; /* Expansion for long titles */
+    width: 100% !important;
+}
+
+.hero-title {
+    width: 100% !important;
+    white-space: nowrap !important; /* Forces text onto one line */
+    display: block !important;
+}
+
+/* Allow wrapping on mobile devices so text doesn't cut off screen */
+@media (max-width: 768px) {
+    .hero-title {
+        white-space: normal !important;
+        font-size: 2.2rem !important; /* Slightly smaller for mobile fit */
+    }
+
+
+
+/* Optimized width for a professional wrap */
+.hero-content-left {
+    max-width: 725px !important; /* Wide enough for 'Stay in Good Standing' but forces the orange text down */
+    width: 100% !important;
+}
+
+.hero-title {
+    white-space: normal !important; /* Allows wrapping again */
+    line-height: 1.2 !important;   /* Keeps the lines close and clean */
+    display: block !important;
+}
+}
+
+.annual-report-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    overflow: hidden;
+    color: white;
+    /* Professional Fade + New Image */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url('../../images/annual-reports.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+/* Specific text width for this hero to ensure a clean wrap */
+.annual-report-hero .hero-content-left {
+    max-width: 750px !important; 
+    width: 100%;
+}
+
+.annual-report-hero {
+    /* ... existing background-gradient ... */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url('../../images/annual-reports.jpg') no-repeat !important;
+    
+    /* ZOOM OUT: 100% width and auto height prevents the "zoomed-in" look */
+    background-size: 100% auto !important; 
+    background-position: center top !important;
+    min-height: 500px !important;
+    display: flex;
+    align-items: center;
+}
+
+/* SHORTER TEXT BOX: Adjusted for a tighter, professional wrap */
+.annual-report-hero .hero-content-left {
+    max-width: 580px !important; /* Narrower width for a more vertical/centered feel */
+    width: 100%;
+}
+
+.annual-report-hero .hero-title {
+    font-size: 3rem; /* Slightly smaller if the width is shorter to keep it balanced */
+    line-height: 1.1;
+    white-space: normal !important;
+}
+
+.license-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/business-license-hero.jpg') no-repeat !important;
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.license-hero .hero-content-left {
+    max-width: 620px !important; /* Compact width for focused impact */
+    width: 100%;
+}
+
+/* Tighten the text block for a cleaner, professional look */
+.ra-hero .hero-content-left {
+    max-width: 520px !important; /* Shorter width to force a more compact block */
+    width: 100%;
+}
+
+/* Reduce the font size of the main header */
+.ra-hero .hero-title {
+    font-size: 2.6rem !important; /* Down from 3rem+ to keep it compact */
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    white-space: normal !important; /* Ensures it wraps naturally within the 520px */
+}
+
+/* Adjust the subtitle/paragraph below the header */
+.ra-hero .hero-content-left p {
+    font-size: 1.1rem;
+    max-width: 480px; /* Even tighter for the sub-text */
+    margin-bottom: 2rem;
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 768px) {
+    .ra-hero .hero-title {
+        font-size: 2rem !important;
+    }
+}
+
+.license-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    color: white;
+    /* Professional Fade + New Image */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url('../../images/business-licenses.jpg') no-repeat !important;
+    background-size: cover !important; /* Changed to cover for better filling, use 100% auto if you want more zoom-out */
+    background-position: center 20% !important; 
+}
+
+/* Shorter text box width as requested */
+.license-hero .hero-content-left {
+    max-width: 520px !important; 
+    width: 100%;
+    padding-left: 5%;
+}
+
+.license-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+.ein-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    color: white;
+    /* Professional Fade + EIN Specific Image */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 45%, 
+        rgba(10, 31, 68, 0) 80%
+    ), url('../../images/ein-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 30% !important; /* Kept shifted down for balance */
+}
+
+/* Ensure the text box stays compact for impact */
+.ein-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.operating-agreement-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/operating-agreement-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.operating-agreement-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.operating-agreement-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.dissolution-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/dissolution-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 55% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.dissolution-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.dissolution-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.trucker-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/trucker-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.trucker-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.trucker-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.heavy-tax-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/heavy-tax-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 550px !important;
+    display: flex;
+    align-items: center;
+}
+
+.heavy-tax-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.heavy-tax-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+.broker-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/broker-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center -20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.broker-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.broker-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+.consortium-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/consortium-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.consortium-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.consortium-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+/* Partner Branding in Hero */
+.partner-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-flex !important;
+}
+
+.consortium-hero .hero-content-left {
+    max-width: 580px !important; /* Slightly wider to accommodate the badge */
+}
+
+
+/* Specific CSS for the Driver Qualification File Hero */
+.dq-file-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    overflow: hidden;
+    color: white;
+    /* Professional Fade + DQ Specific Image */
+    background: linear-gradient(to right, 
+        rgba(10, 31, 68, 0.98) 25%, 
+        rgba(10, 31, 68, 0.6) 50%, 
+        rgba(10, 31, 68, 0) 85%
+    ), url('../../images/dq-file-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+/* Tightened text container for the DQ page */
+.dq-file-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.dq-file-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+/* Ensure the hero image doesn't look too zoomed in */
+.ra-hero, .dq-file-hero {
+    background-size: cover !important;
+    background-position: center 20% !important; /* Adjust this % to move the image focus up or down */
+}
+
+
+.ucr-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/ucr-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.ucr-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.ucr-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.boc3-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/boc3-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 10% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.boc3-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.boc3-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
+}
+
+
+.owner-op-hero {
+    background: linear-gradient(to right, rgba(10, 31, 68, 0.98) 25%, rgba(10, 31, 68, 0.6) 50%, rgba(10, 31, 68, 0) 85%), 
+                url('../../images/owner-operator-hero.jpg') no-repeat !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+
+.owner-op-hero .hero-content-left {
+    max-width: 520px !important;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.owner-op-hero .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.15;
+    white-space: normal !important;
 }
