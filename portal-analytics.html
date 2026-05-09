@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Analytics | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        .analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
+        .stat-card-large { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .chart-placeholder { width: 100%; height: 200px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+        .entity-breakdown-list { margin-top: 20px; }
+        .entity-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+        .health-indicator { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 10px; }
+    </style>
+</head>
+<body class="portal-body">
 
+    <!-- PORTAL SIDEBAR -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" style="height: 30px; margin-bottom: 20px;">
+            
+                <label>Viewing Context</label>
+                <!-- FIXED: Added missing <select> tag -->
+                
+                    <option value="all" selected>All Entities (Portfolio)</option>
+                    <option value="4242">Roseland Logistics LLC</option>
+                    <option value="4243">Roseland Real Estate</option>
+                    <option value="4244">Roseland Fleet Management</option>
+                </select>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-analytics.html" class="nav-item active"><span>📈</span> Portfolio Analytics</a>
+            <a href="portal-my-companies.html" class="nav-item"><span>🏢</span> My Companies</a>
+            <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
+        </nav>
+
+        <div class="sidebar-tool" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); padding: 15px; margin: 10px; border-radius: 8px;">
+            <label style="color: #10b981; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Inter-Entity Transfer</label>
+            <p style="font-size: 0.7rem; color: #fff; opacity: 0.8; margin: 5px 0 10px;">Move credits between subsidiaries instantly.</p>
+            <button class="btn-primary-small" style="width: 100%; background: #10b981; border: none; font-size: 0.7rem;">Transfer Now</button>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#" class="logout-btn">Sign Out</a>
+        </div>
+    </aside>
+
+    <!-- MAIN PORTAL CONTENT -->
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Portfolio Analytics</h1>
+                <p>Consolidated data for <strong>Roseland Companies, LLC</strong></p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-outline-small">Download Annual Spend Report</button>
+            </div>
+        </header>
+
+        <div class="analytics-grid">
+            <div class="stat-card-large">
+                <h3 style="color: #64748b; font-size: 0.8rem; text-transform: uppercase;">Consolidated Risk Score</h3>
+                <div style="font-size: 3rem; font-weight: 800; color: #0a1f44; margin: 10px 0;">94%</div>
+                <div style="height: 10px; width: 100%; background: #f1f5f9; border-radius: 5px; overflow: hidden;">
+                    <div style="width: 94%; height: 100%; background: #10b981;"></div>
+                </div>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 15px;">Your portfolio is <strong>Secure</strong>. One minor nexus alert detected in California.</p>
+            </div>
+
+            <div class="stat-card-large">
+                <h3 style="color: #64748b; font-size: 0.8rem; text-transform: uppercase;">Portfolio Spend (YTD)</h3>
+                <div style="font-size: 3rem; font-weight: 800; color: #0a1f44; margin: 10px 0;">$4,820.50</div>
+                <div class="chart-placeholder">
+                    <small style="color: #94a3b8;">[Spend Distribution: Service Fees vs Govt Fees]</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENTITY HEALTH BREAKDOWN -->
+        <div class="portal-card" style="margin-top: 30px;">
+            <h3>Subsidiary Health Status</h3>
+            
+                <!-- FIXED: Wrapped items in proper container -->
+                
+                    <span><span class="health-indicator" style="background: #10b981;"></span> Roseland Logistics LLC</span>
+                    <span style="font-weight: 700; color: #10b981;">100% Compliant</span>
+                </div>
+                
+                    <span><span class="health-indicator" style="background: #ff6b00;"></span> Roseland Real Estate</span>
+                    <span style="font-weight: 700; color: #ff6b00;">82% (Nexus Warning)</span>
+                </div>
+                
+                    <span><span class="health-indicator" style="background: #10b981;"></span> Roseland Fleet Management</span>
+                    <span style="font-weight: 700; color: #10b981;">100% Compliant</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function handleContextSwitch(entityId) {
+            document.cookie = "active_entity_id=" + entityId + "; path=/; max-age=3600";
+            if(entityId !== 'all') {
+                // In production, this would AJAX load data. For now, we redirect to dashboard.
+                window.location.href = 'portal-dashboard.html';
+            }
+        }
+    </script>
+</body>
+</html>
