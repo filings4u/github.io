@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLC Management | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body class="portal-body">
 
+    <aside class="portal-sidebar">
+        <div class="sidebar-header"><img src="images/logo.png" alt="filings4u" style="height: 30px;"></div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
+        </nav>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>LLC Management & Ownership</h1>
+                <p>Step 2 of 4: Define Authority</p>
+            </div>
+            <div class="step-indicator">
+                <div class="step">1</div>
+                <div class="step active">2</div>
+                <div class="step">3</div>
+                <div class="step">4</div>
+            </div>
+        </header>
+
+        <div class="intake-container">
+            <div class="intake-card">
+                <form action="#" method="POST">
+                    
+                    <!-- MANAGEMENT STRUCTURE -->
+                    <div class="form-section">
+                        <label style="font-weight: 700; font-size: 1.1rem;">How will your LLC be managed?</label>
+                        <div class="management-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                            <label class="radio-card">
+                                <input type="radio" name="mgmt_type" value="member" checked>
+                                <div class="card-content">
+                                    <strong>Member-Managed</strong>
+                                    <p>All owners participate in day-to-day operations and decision making.</p>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="mgmt_type" value="manager">
+                                <div class="card-content">
+                                    <strong>Manager-Managed</strong>
+                                    <p>Owners appoint specific managers (can be non-owners) to run the business.</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- MEMBER LIST -->
+                    <div class="form-section" style="margin-top: 40px;">
+                        <label style="font-weight: 700;">Company Owners (Members)</label>
+                        <div id="member-list" style="margin-top: 10px;">
+                            <div class="member-row" style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin-bottom: 15px;">
+                                <input type="text" placeholder="Full Legal Name" class="intake-input">
+                                <input type="text" placeholder="Ownership %" class="intake-input">
+                            </div>
+                        </div>
+                        <button type="button" class="btn-outline-small" style="font-size: 0.8rem;">+ Add Another Member</button>
+                    </div>
+
+                    <div class="form-footer" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+                        <button type="button" class="btn-outline-small">← Back</button>
+                        <button type="button" class="btn-primary-small">Next Step: Tax Info →</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- UPSELL & SUMMARY SIDEBAR -->
+            <div class="intake-help">
+                <div class="order-summary" style="margin-bottom: 25px;">
+                    <h4 style="margin-bottom: 10px;">Order Summary</h4>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                        <span>Service Fee</span>
+                        <span>$100.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 5px;">
+                        <span>State Fee (Texas)</span>
+                        <span>$300.00</span>
+                    </div>
+                </div>
+
+                <div class="s-corp-upsell" style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ff6b00;">
+                    <h5 style="color: #ff6b00; margin-bottom: 5px;">🚀 Optimize Your Taxes</h5>
+                    <p style="font-size: 0.8rem;">Elect S-Corp status to save on self-employment taxes (Avg. savings: $3k - $8k/year).</p>
+                    <label style="display: flex; align-items: center; gap: 10px; margin-top: 10px; font-weight: 700; cursor: pointer;">
+                        <input type="checkbox"> Add S-Corp Election (+$599)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
