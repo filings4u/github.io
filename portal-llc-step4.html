@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Review | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body class="portal-body">
 
+    <aside class="portal-sidebar">
+        <div class="sidebar-header"><img src="images/logo.png" alt="filings4u" style="height: 30px;"></div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
+        </nav>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Review & Secure Payment</h1>
+                <p>Step 4 of 4: Finalize Your Entity</p>
+            </div>
+            <div class="step-indicator">
+                <div class="step">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+                <div class="step active">4</div>
+            </div>
+        </header>
+
+        <div class="intake-container">
+            <div class="review-layout">
+                
+                <!-- SUMMARY OF SELECTIONS -->
+                <div class="intake-card">
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem;">Entity Configuration Summary</h3>
+                    
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <label>Company Name</label>
+                            <p><strong>Roseland Logistics LLC</strong></p>
+                        </div>
+                        <div class="summary-item">
+                            <label>Jurisdiction</label>
+                            <p>Texas (Secretary of State)</p>
+                        </div>
+                        <div class="summary-item">
+                            <label>Management</label>
+                            <p>Manager-Managed <span class="badge-mini">RE Authority Granted</span></p>
+                        </div>
+                        <div class="summary-item">
+                            <label>Tax Status</label>
+                            <p>S-Corp Election (Form 2553)</p>
+                        </div>
+                    </div>
+
+                    <!-- IRS HOLDING QUEUE STATUS -->
+                    <div class="holding-queue-notice" style="margin-top: 30px; padding: 15px; background: #fff9f5; border-left: 4px solid #ff6b00; border-radius: 4px;">
+                        <div style="display: flex; gap: 15px; align-items: center;">
+                            <span style="font-size: 1.5rem;">🕒</span>
+                            <div>
+                                <h4 style="color: #0a1f44; font-size: 0.9rem; margin-bottom: 5px;">IRS Queue Status: Active</h4>
+                                <p style="font-size: 0.8rem; color: #64748b;">Your EIN will be processed immediately upon payment. (IRS System Status: Open until 10PM EST)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAYMENT INTERFACE -->
+                <div class="intake-card" style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem;">Secure Payment</h3>
+                    
+                    <!-- Stripe Component Placeholder -->
+                    <div class="stripe-mock">
+                        <div class="form-section">
+                            <label style="font-size: 0.8rem;">Card Information</label>
+                            <div class="intake-input stripe-input-field">
+                                <span style="color: #64748b;">4242 4242 4242 4242</span>
+                                <span style="float: right; color: #64748b;">MM / YY CVC</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <span style="font-size: 0.85rem; color: #64748b;">I authorize filings4u to act as my authorized representative for the purposes of these state and federal filings.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary-small" style="width: 100%; height: 50px; font-size: 1.1rem; margin-top: 25px;">
+                            Pay $999.00 & Launch Entity
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER BREAKDOWN SIDEBAR -->
+            <div class="intake-help" style="background: #fff; border: 1px solid #e2e8f0;">
+                <h4 style="margin-bottom: 20px; color: #0a1f44; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;">Order Breakdown</h4>
+                
+                <div class="bill-line">
+                    <span>LLC Service Fee</span>
+                    <span>$100.00</span>
+                </div>
+                <div class="bill-line">
+                    <span>Texas State Fee</span>
+                    <span>$300.00</span>
+                </div>
+                <div class="bill-line highlight">
+                    <span>S-Corp Election (2553)</span>
+                    <span>$599.00</span>
+                </div>
+                <div class="bill-line">
+                    <span>Operating Agreement</span>
+                    <span style="color: #10b981;">FREE</span>
+                </div>
+
+                <div class="bill-total" style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #0a1f44; display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem;">
+                    <span>Total</span>
+                    <span>$999.00</span>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <img src="images/stripe-secure.png" alt="Powered by Stripe" style="height: 25px; opacity: 0.5;">
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

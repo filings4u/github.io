@@ -286,3 +286,56 @@
 }
 
 .checkbox-container input:checked ~ .checkmark:after { display: block; }
+
+
+/* Review Layout Adjustments */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.summary-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.summary-item p {
+    font-size: 1rem;
+    color: #0a1f44;
+}
+
+.badge-mini {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+/* Bill/Receipt Styles */
+.bill-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: #475569;
+}
+
+.bill-line.highlight {
+    color: #ff6b00;
+    font-weight: 600;
+}
+
+.stripe-input-field {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
