@@ -1,1 +1,27 @@
+<!-- ADDRESS ERROR MODAL -->
+<div id="address-lock-modal" class="portal-card" style="display:none; max-width: 450px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3000; border-top: 5px solid #c15254;">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <span style="font-size: 3rem;">🚫</span>
+        <h3 style="color: #c15254; margin-top: 10px;">Invalid Physical Address</h3>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: #475569; line-height: 1.5;">
+        The address provided (<strong>P.O. Box 102</strong>) is detected as a non-physical location. 
+        <br><br>
+        State law requires a <strong>Physical Street Address</strong> for Registered Agent services. Your checkout has been locked to prevent filing rejection.
+    </p>
 
+    <div style="margin-top: 25px; display: flex; gap: 10px;">
+        <button class="btn-primary-small" style="flex: 1; background: #0a1f44;" onclick="closeLock()">Update Address</button>
+    </div>
+</div>
+
+<!-- TRANSITION OVERLAY HTML -->
+<div id="switcher-overlay" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 31, 68, 0.85); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; color: white; transition: 0.3s;">
+    <div class="spinner" style="width: 40px; height: 40px; border: 4px solid #ff6b00; border-top: 4px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    <p style="margin-top: 20px; font-weight: 600; letter-spacing: 1px;">SWITCHING ENTITY...</p>
+</div>
+
+<style>
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
