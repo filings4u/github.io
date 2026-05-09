@@ -450,3 +450,35 @@
 .logout-btn:hover {
     color: #ff6b00;
 }
+
+.entity-switcher {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.entity-switcher label {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.switcher-dropdown {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+.switcher-dropdown option {
+    background: #0a1f44;
+    color: #fff;
+}
