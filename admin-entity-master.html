@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Master | Admin | filings4u</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        /* Admin Dark Theme Overrides for Sidebar */
+        .admin-sidebar { background: #020617 !important; border-right: 1px solid #1e293b !important; }
+        .admin-sidebar .nav-item { color: rgba(255,255,255,0.6) !important; }
+        .admin-sidebar .nav-item:hover, .admin-sidebar .nav-item.active { background: rgba(255,255,255,0.05) !important; color: #ff6b00 !important; }
+        .admin-sidebar .sidebar-header { border-bottom: 1px solid #1e293b !important; }
+        
+        .search-hero { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        .master-search-input { width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #e2e8f0; font-size: 1.1rem; outline: none; transition: 0.3s; }
+        .master-search-input:focus { border-color: #ff6b00; box-shadow: 0 0 0 4px rgba(255,107,0,0.1); }
+        
+        .tag-legalzoom { background: #fee2e2; color: #991b1b; font-size: 0.65rem; padding: 3px 8px; border-radius: 4px; font-weight: 800; }
+        .tag-active { background: #dcfce7; color: #166534; font-size: 0.65rem; padding: 3px 8px; border-radius: 4px; font-weight: 800; }
+    </style>
+</head>
+<body class="portal-body">
 
+    <!-- ADMIN SIDEBAR -->
+    <aside class="portal-sidebar admin-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
+            <p style="color: #ff6b00; font-size: 0.65rem; font-weight: 800; margin-top: 5px; text-transform: uppercase;">Admin Operations</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="nav-item"><span>🚨</span> Filing Queue</a>
+            <span>🏢</span> Entity Master</a>
+            <a href="admin-tax-review.html" class="nav-item"><span>⚖️</span> Tax-Exempt Review</a>
+            <a href="#" class="nav-item"><span>💰</span> Revenue Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="logout-btn" style="color: rgba(255,255,255,0.5);">Sign Out</a>
+        </div>
+    </aside>
+
+    <!-- MAIN ADMIN CONTENT -->
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>Entity Master</h1>
+                <p>Global search for all <strong>Parent Accounts</strong> and <strong>Subsidiaries</strong>.</p>
+            </div>
+            <div class="header-actions">
+                <span class="status-pill info">Total Entities: 1,284</span>
+            </div>
+        </header>
+
+        <!-- MASTER SEARCH BAR -->
+        <div class="search-hero">
+            <div style="display: flex; gap: 15px;">
+                <input type="text" placeholder="Search by Company Name, EIN, DOT #, or Owner Name..." class="master-search-input">
+                <button class="btn-primary-small" style="padding: 0 30px;">Search</button>
+            </div>
+            <div style="margin-top: 15px; display: flex; gap: 20px;">
+                <label style="font-size: 0.85rem; color: #64748b;"><input type="checkbox"> At-Risk Only</label>
+                <label style="font-size: 0.85rem; color: #64748b;"><input type="checkbox"> Former Competitor Clients</label>
+                <label style="font-size: 0.85rem; color: #64748b;"><input type="checkbox"> Delinquent SOS Status</label>
+            </div>
+        </div>
+
+        <!-- RESULTS TABLE -->
+        <div class="portal-card" style="padding: 0; overflow: hidden;">
+            <div class="file-table">
+                <div class="file-row header" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr;">
+                    <span>Entity Name / Jurisdiction</span>
+                    <span>EIN / DOT</span>
+                    <span>Parent Account</span>
+                    <span>Source</span>
+                    <span>Status</span>
+                </div>
+
+                <!-- RESULT 1 -->
+                <div class="file-row" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr;">
+                    <div>
+                        <a href="portal-profile.html" style="text-decoration: none; color: #0a1f44; font-weight: 700;">Roseland Logistics LLC</a><br>
+                        <small style="color: #64748b;">Texas (Domestic)</small>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.85rem;">XX-XXX4242</span>
+                    <span style="font-size: 0.85rem;">Roseland Companies</span>
+                    <span><span class="tag-active">DIRECT</span></span>
+                    <span class="status-pill success">Active</span>
+                </div>
+
+                <!-- RESULT 2 -->
+                <div class="file-row" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr;">
+                    <div>
+                        <a href="#" style="text-decoration: none; color: #0a1f44; font-weight: 700;">Northstar Trucking</a><br>
+                        <small style="color: #64748b;">Delaware (Foreign)</small>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.85rem;">XX-XXX8810</span>
+                    <span style="font-size: 0.85rem;">Independent</span>
+                    <span><span class="tag-legalzoom">FORMER LEGALZOOM</span></span>
+                    <span class="status-pill warning">Nexus Risk</span>
+                </div>
+
+                <!-- RESULT 3 -->
+                <div class="file-row" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr;">
+                    <div>
+                        <a href="#" style="text-decoration: none; color: #0a1f44; font-weight: 700;">Old Fleet Venture</a><br>
+                        <small style="color: #64748b;">Wyoming (Domestic)</small>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.85rem;">XX-XXX1102</span>
+                    <span style="font-size: 0.85rem;">Roseland Companies</span>
+                    <span><span class="tag-active">DIRECT</span></span>
+                    <span class="status-pill info" style="background: #f1f5f9; color: #475569;">Dissolved</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
