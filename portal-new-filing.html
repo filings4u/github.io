@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Filing | filings4u Portal</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body class="portal-body">
+
+    <!-- SIDEBAR (Consistent with Dashboard) -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" style="height: 30px;">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="#" class="nav-item active"><span>➕</span> New Filing</a>
+            <a href="#" class="nav-item"><span>📅</span> Compliance</a>
+            <a href="#" class="nav-item"><span>📂</span> Documents</a>
+        </nav>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div class="welcome-text">
+                <h1>New Filing</h1>
+                <p>Select a service to begin your document preparation.</p>
+            </div>
+            <a href="portal-dashboard.html" class="btn-outline-small">← Back to Dashboard</a>
+        </header>
+
+        <!-- SEARCH / FILTER BAR -->
+        <div class="filter-bar" style="margin-bottom: 30px;">
+            <input type="text" placeholder="Search services (e.g. 2290, DBA, IFTA)..." class="portal-search">
+        </div>
+
+        <!-- SERVICE CATEGORIES -->
+        <div class="filing-category-section">
+            <h2 class="category-title">Business Formation</h2>
+            <div class="filing-grid">
+                <div class="filing-card">
+                    <div class="card-icon">🏢</div>
+                    <h4>LLC / Corp Formation</h4>
+                    <p>Start a new legal entity in any of the 50 states.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+                <div class="filing-card">
+                    <div class="card-icon">🏷️</div>
+                    <h4>DBA (Trade Name)</h4>
+                    <p>Register a "Doing Business As" for an existing entity.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filing-category-section" style="margin-top: 50px;">
+            <h2 class="category-title">Tax & Compliance</h2>
+            <div class="filing-grid">
+                <div class="filing-card">
+                    <div class="card-icon">🚛</div>
+                    <h4>HVUT (Form 2290)</h4>
+                    <p>E-file your Heavy Use Tax and get your Schedule 1.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+                <div class="filing-card">
+                    <div class="card-icon">📅</div>
+                    <h4>Annual Reporting</h4>
+                    <p>Maintain good standing with your Secretary of State.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+                <div class="filing-card">
+                    <div class="card-icon">🏦</div>
+                    <h4>S-Corp Election</h4>
+                    <p>File Form 2553 to optimize your federal tax status.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filing-category-section" style="margin-top: 50px;">
+            <h2 class="category-title">DOT & Transportation</h2>
+            <div class="filing-grid">
+                <div class="filing-card">
+                    <div class="card-icon">🆔</div>
+                    <h4>DOT/MC Authority</h4>
+                    <p>Procure your operating authority and federal numbers.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+                <div class="filing-card">
+                    <div class="card-icon">⛽</div>
+                    <h4>IFTA Quarterly</h4>
+                    <p>Upload ELD data for quarterly fuel tax calculation.</p>
+                    <button class="btn-select">Start Filing</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
 

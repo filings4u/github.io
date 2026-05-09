@@ -1,0 +1,116 @@
+/* 
+   FILINGS4U MASTER STYLESHEET for Portal
+   Full Production Version
+*/
+
+.portal-body { background: #f8fafc; display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.portal-sidebar { width: 260px; background: #0a1f44; color: white; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+.sidebar-header { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar-nav { flex-grow: 1; padding: 20px 0; }
+.nav-item { display: flex; align-items: center; padding: 15px 30px; color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+.nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.05); color: #ff6b00; border-left: 4px solid #ff6b00; }
+.nav-item span { margin-right: 15px; font-size: 1.2rem; }
+
+/* Main Area */
+.portal-main { flex-grow: 1; margin-left: 260px; padding: 40px; }
+.portal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+
+/* Cards */
+.portal-card { background: white; border-radius: 12px; padding: 30px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+.portal-card h3 { font-size: 1.1rem; margin-bottom: 20px; color: #0a1f44; }
+
+/* Drop Zone (Upload) */
+.drop-zone { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 40px; text-align: center; cursor: pointer; transition: 0.3s; }
+.drop-zone:hover { background: #f1f5f9; border-color: #ff6b00; }
+
+/* Deadlines */
+.deadline-item { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
+.deadline-item .date { background: #f1f5f9; padding: 10px; border-radius: 8px; font-weight: 800; text-align: center; min-width: 60px; }
+.deadline-item .date span { display: block; font-size: 0.7rem; font-weight: 400; }
+.deadline-item.warning .date { background: #fee2e2; color: #c15254; }
+
+
+/* New Filing Styles */
+.category-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.filing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.filing-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filing-card:hover {
+    border-color: #ff6b00;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.filing-card h4 {
+    color: #0a1f44;
+    margin-bottom: 10px;
+}
+
+.filing-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.btn-select {
+    background: #f8fafc;
+    color: #0a1f44;
+    border: 1px solid #e2e8f0;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filing-card:hover .btn-select {
+    background: #ff6b00;
+    color: white;
+    border-color: #ff6b00;
+}
+
+.portal-search {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    outline: none;
+}
+
+.portal-search:focus {
+    border-color: #ff6b00;
+}
