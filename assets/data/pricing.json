@@ -1,0 +1,41 @@
+{
+  "last_updated": "2026-05-09T14:30:00Z",
+  "version": "1.4.2",
+  "services": {
+    "llc_formation": {
+      "base_fee": 100.00,
+      "markup_percent": 0.0,
+      "promotion": {
+        "active": true,
+        "label": "New Year Special",
+        "discount": 10.00
+      }
+    },
+    "registered_agent": {
+      "base_fee": 125.00,
+      "recurring": "annual",
+      "bulk_discount_threshold": 10,
+      "bulk_fee": 100.00
+    },
+    "s_corp_election": {
+      "base_fee": 599.00
+    }
+  },
+  "state_fees": {
+    "TX": {
+      "llc_formation": 300.00,
+      "convenience_markup": 5.00,
+      "annual_report": 0.00
+    },
+    "DE": {
+      "llc_formation": 90.00,
+      "convenience_markup": 0.00,
+      "franchise_tax_min": 175.00
+    },
+    "FL": {
+      "llc_formation": 125.00,
+      "convenience_markup": 3.00,
+      "annual_report": 138.75
+    }
+  }
+}

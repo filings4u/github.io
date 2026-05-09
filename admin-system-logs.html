@@ -8,25 +8,26 @@
     <link rel="stylesheet" href="assets/css/portal.css">
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Admin Dark Theme */
+        /* Admin Dark Theme Override for Sidebar */
         .admin-sidebar { background: #020617 !important; border-right: 1px solid #1e293b !important; }
         .admin-sidebar .nav-item { color: rgba(255,255,255,0.6) !important; }
         .admin-sidebar .nav-item:hover, .admin-sidebar .nav-item.active { background: rgba(255,255,255,0.05) !important; color: #ff6b00 !important; }
         
+        /* Log Table Styling */
         .log-table { width: 100%; border-collapse: collapse; background: white; }
         .log-row { border-bottom: 1px solid #f1f5f9; transition: background 0.2s; }
         .log-row:hover { background: #f8fafc; }
-        .log-row td { padding: 12px 20px; font-size: 0.85rem; vertical-align: top; }
+        .log-row td { padding: 15px 20px; font-size: 0.85rem; vertical-align: top; }
         
         .timestamp { font-family: 'Courier New', monospace; color: #64748b; font-weight: 700; min-width: 180px; }
         .action-tag { font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
         
-        /* Event Types */
-        .tag-kms { background: #e0f2fe; color: #0369a1; } /* Encryption Access */
+        /* Action Color Coding */
+        .tag-kms { background: #e0f2fe; color: #0369a1; } /* Data Decryption */
         .tag-sig { background: #dcfce7; color: #166534; } /* Digital Signatures */
         .tag-adm { background: #fee2e2; color: #991b1b; } /* Admin Overrides */
         
-        .raw-data-preview { font-size: 0.75rem; color: #475569; display: block; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 400px; }
+        .raw-data-preview { font-size: 0.75rem; color: #475569; display: block; margin-top: 5px; font-family: monospace; }
     </style>
 </head>
 <body class="portal-body">
@@ -43,82 +44,86 @@
             <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue Reports</a>
             <a href="admin-system-logs.html" class="nav-item active"><span>⚙️</span> System Logs</a>
         </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="logout-btn" style="color: rgba(255,255,255,0.5);">Sign Out</a>
+        </div>
     </aside>
 
+    <!-- MAIN ADMIN CONTENT -->
     <main class="portal-main">
         <header class="portal-header">
             <div class="welcome-text">
                 <h1>System Logs & Security Audit</h1>
-                <p>Monitoring AWS CloudTrail and Internal Event metadata.</p>
+                <p>Tracking <strong>AWS KMS</strong>, <strong>ESIGN</strong>, and <strong>Admin Access</strong> events.</p>
             </div>
             <div class="header-actions">
-                <button class="btn-outline-small" style="background: white;">Download Full Audit Trail</button>
+                <button class="btn-outline-small" style="background: white;">Download Full Audit Trail (CSV)</button>
             </div>
         </header>
 
-        <!-- LOG FILTER BAR -->
+        <!-- SEARCH & FILTER -->
         <div class="portal-card" style="padding: 15px 25px; margin-bottom: 25px; display: flex; gap: 20px; align-items: center;">
-            <span style="font-weight: 700; font-size: 0.85rem;">Filter By:</span>
+            <span style="font-weight: 700; font-size: 0.85rem;">Event Filter:</span>
             <select class="intake-input" style="max-width: 150px; margin: 0; padding: 5px;">
                 <option>All Events</option>
-                <option>Encryption (KMS)</option>
-                <option>Signatures (ESIGN)</option>
-                <option>Admin Access</option>
+                <option>KMS Decryption</option>
+                <option>E-Signatures</option>
+                <option>Admin Overrides</option>
             </select>
-            <input type="text" placeholder="Search by Entity ID or IP..." class="intake-input" style="max-width: 300px; margin: 0; padding: 5px;">
+            <input type="text" placeholder="Search by Entity ID, Actor, or IP..." class="intake-input" style="max-grow: 1; margin: 0; padding: 5px;">
         </div>
 
-        <!-- LOG LEDGER -->
+        <!-- LOG TABLE -->
         <div class="portal-card" style="padding: 0; overflow: hidden;">
             <table class="log-table">
                 <thead style="background: #f8fafc; text-align: left; font-size: 0.7rem; color: #64748b; text-transform: uppercase;">
                     <tr>
                         <th style="padding: 15px 20px;">Timestamp (UTC)</th>
-                        <th>Event Type</th>
-                        <th>Actor / Entity</th>
-                        <th>Metadata (IP & Payload)</th>
+                        <th>Action Type</th>
+                        <th>Actor / Target</th>
+                        <th>Security Metadata</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- LOG ENTRY 1: KMS ACCESS -->
+                    <!-- LOG ITEM: KMS DATA ACCESS -->
                     <tr class="log-row">
-                        <td class="timestamp">2026-05-09 11:42:08</td>
+                        <td class="timestamp">2026-05-09 14:02:11</td>
                         <td><span class="action-tag tag-kms">KMS_DECRYPT</span></td>
                         <td>
                             <strong>SYSTEM_CORE</strong><br>
-                            <small>Ref: Roseland Logistics</small>
+                            <small>Target: EIN_Letter_4242.pdf</small>
                         </td>
                         <td>
                             <strong>IP: 54.210.XX.XX</strong> (AWS Internal)<br>
-                            <code class="raw-data-preview">Action: Read; File: EIN_Letter_CP575.pdf; Key: alias/filings4u-vault</code>
+                            <span class="raw-data-preview">Method: AES-256-GCM; Key: alias/filings4u-vault</span>
                         </td>
                     </tr>
 
-                    <!-- LOG ENTRY 2: SIGNATURE EXECUTION -->
+                    <!-- LOG ITEM: DIGITAL SIGNATURE -->
                     <tr class="log-row">
-                        <td class="timestamp">2026-05-09 11:38:12</td>
+                        <td class="timestamp">2026-05-09 13:45:04</td>
                         <td><span class="action-tag tag-sig">ESIGN_COMPLETE</span></td>
                         <td>
-                            <strong>User: j.roseland@llc.com</strong><br>
-                            <small>Entity ID: 4242-88</small>
+                            <strong>j.roseland@llc.com</strong><br>
+                            <small>Entity: Roseland Logistics</small>
                         </td>
                         <td>
-                            <strong>IP: 192.168.1.42</strong> (Client Browser)<br>
-                            <code class="raw-data-preview">Form: 2848; Checkbox: True; BrowserID: Chrome/124.0.0</code>
+                            <strong>IP: 192.168.1.42</strong> (Client Device)<br>
+                            <span class="raw-data-preview">Browser: Chrome/124.0.0; Consent: TRUE; AuditID: SIG-88</span>
                         </td>
                     </tr>
 
-                    <!-- LOG ENTRY 3: ADMIN CONTEXT SWITCH -->
+                    <!-- LOG ITEM: ADMIN IDENTITY ASSUME -->
                     <tr class="log-row" style="background: #fff9f5;">
-                        <td class="timestamp">2026-05-09 11:35:00</td>
+                        <td class="timestamp">2026-05-09 13:30:00</td>
                         <td><span class="action-tag tag-adm">ADMIN_ASSUME</span></td>
                         <td>
                             <strong>Admin: Sara Ops</strong><br>
-                            <small>Action: Context Switch</small>
+                            <small>Context: Northstar Trucking</small>
                         </td>
                         <td>
                             <strong>IP: 72.14.XX.XX</strong> (Internal Office)<br>
-                            <code class="raw-data-preview">Target: Northstar Trucking; Reason: SOS Discrepancy Support</code>
+                            <span class="raw-data-preview">Reason: Fixed SOS Clerical Error; Ticket: #4092</span>
                         </td>
                     </tr>
                 </tbody>
