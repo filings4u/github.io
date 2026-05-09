@@ -3,172 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Registered Agent Services | filings4u</title>
-    <script src="https://stripe.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Corporations Formation Services | filings4u</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-    <!-- NAVIGATION BAR (Existing) -->
-    <nav class="brand-nav-bar">
-        <div class="container nav-flex">
-            <a href="index.html">
-                <img src="images/logo.png" alt="filings4u logo" class="logo">
-            </a>
-            <ul class="brand-nav-links">
-                <li><a href="tax-filings.html">Tax Filings</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
-                    <ul class="dropdown-content">
-                        <li><a href="llc.html">LLC</a></li>
-                        <li><a href="corporation.html">Corporation</a></li>
-                        <li><a href="nonprofit.html">Nonprofit</a></li>
-                    </ul>
-                </li>
-                <li><a href="portal.html" class="nav-login-btn">Client Login</a></li>
+ <!-- NAVIGATION BAR -->
+<nav class="brand-nav-bar">
+    <a href="index.html">
+        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+    </a>
+    <ul class="brand-nav-links">
+         <!-- TAX FILINGS DROPDOWN -->
+  <li class="dropdown">
+    <a href="tax-filings.html" class="dropbtn">Tax Filings <span class="arrow">▼</span></a>
+    <ul class="dropdown-content">
+      <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+      <li><a href="federal-income-tax.html">Federal Income Tax</a></li>
+      <li><a href="state-income-tax.html">State Income Tax</a></li>
+      <li><a href="sales-tax-registration.html">Sales Tax Registration</a></li>
+      <li><a href="payroll-tax.html">Payroll Tax (940/941)</a></li>
+      <li><a href="franchise-tax.html">Franchise Tax Filing</a></li>
+    </ul>
+  </li>
+        
+        <!-- BUSINESS FORMATION DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="llc.html">Limited liability company (LLC)</a></li>
+                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
+                <li><a href="dba.html">Doing business as (DBA)</a></li>
+                <li><a href="nonprofit.html">Nonprofit</a></li>
+                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
             </ul>
-        </div>
-    </nav>
+        </li>
 
-    <!-- HERO SECTION -->
-<header class="ra-hero dba-hero">
+        <!-- COMPLIANCE SERVICES DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="annual-report.html">Annual report</a></li>
+                <li><a href="business-licenses.html">Business licenses</a></li>
+                <li><a href="ein.html">EIN</a></li>
+                <li><a href="operating-agreement.html">Operating agreement</a></li>
+                <li><a href="registered-agent.html">Registered agent</a></li>
+                <li><a href="dissolution.html">Dissolution</a></li>
+            </ul>
+        </li>
+
+        <!-- DOT DROPDOWN -->
+        <li class="dropdown">
+            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="owner-operators.html">Owner Operators</a></li>
+                <li><a href="trucker-authority.html">Trucker Authority</a></li>
+                <li><a href="broker-authority.html">Broker Authority</a></li>
+                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
+                <li><a href="dot-consortium.html">DOT Consortium</a></li>
+                <li><a href="driver-file.html">Driver Qualification File</a></li>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
+            </ul>
+        </li>
+        <li><a href="license-permits.html">License/Permits</a></li>
+        <li><a href="portal.html" class="nav-login-btn">Client Login</a></li>
+    </ul>
+</nav>
+
+    <main class="site-wrapper">
+        
+       <header class="ra-hero dba-hero">
     <div class="container hero-relative">
         <!-- Text Content: Now Vertically Centered -->
         <div class="hero-content-left">
-            <span class="hero-subtitle">Fast-Track Your Ambition</span>
-            <h1 class="hero-title">Launch Your Business<br><span class="text-orange">Instant Impact.</span></h1>
+            <h1 class="hero-title">Launch Your Business.<br><span class="text-orange">Instant Impact.</span></h1>
             <p>The legal engine for modern entrepreneurs. Check name availability across all 50 states instantly.</p>
             <a href="#pricing" class="cta-button">Business Formation - $100 + State Fee</a>
         </div>
+</header>    
 
-<!-- The main wrapper anchored to the right of your hero -->
-<div class="hero-search-wrapper-right"> <!-- Fixed: Added closing bracket and moved comment -->
-    <form id="nameSearchForm" class="hero-search-form">
-        <input type="text" id="businessNameInput" placeholder="Check name availability..." required>
-        <button type="submit">Search</button>
-    </form>
-    <span class="search-note">✓ Direct API integration with Secretary of State databases</span>
+
+        <!-- SECTION 2: TRUST MARQUEE -->
+        <section class="trust-marquee">
+            <div class="container">
+                <p class="marquee-label">TRUSTED BY FOUNDERS IN EVERY STATE</p>
+                <div class="marquee-flex">
+                    <span>Delaware C-Corp</span>
+                    <span>Texas LLC</span>
+                    <span>Florida Nonprofit</span>
+                    <span>Wyoming LLC</span>
+                    <span>New York LLC</span>
+                </div>
+            </div>
+        </section>
+
+<!-- SECTION 3: UPDATED BENTO GRID -->
+<section id="services" class="services-bento">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Services</span>
+      <h2>Complete Compliance Suite</h2>
+    </div>
+    <div class="bento-layout">
+      <!-- Feature Box (Large Blue) -->
+      <div class="bento-box bento-main">
+        <div class="bento-inner">
+          <h3>Entity Formation</h3>
+          <p>Fast-tracked LLC and Corporation filings tailored to specific state statutes and legal requirements.</p>
+          <a href="llc.html" class="bento-link">Form Business Now →</a>
+        </div>
+      </div>
+
+       <!-- Broker Authority -->
+      <div class="bento-box">
+        <div class="bento-inner">
+          <h3>Broker Authority</h3>
+          <p>Licensing and compliance for freight brokers, including bond guidance and authority filings.</p>
+          <a href="broker-authority.html" class="bento-link">Start Brokerage</a>
+        </div>
+      </div>
+
+      <!-- Registered Agent -->
+      <div class="bento-box">
+        <div class="bento-inner">
+          <h3>Registered Agent</h3>
+          <p>Full 50-state coverage ensuring you never miss a legal notice or deadline.</p>
+          <a href="registered-agent.html" class="bento-link">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Trucker Authority -->
+      <div class="bento-box">
+        <div class="bento-inner">
+          <h3>Trucker Authority</h3>
+          <p>MC & DOT number registration, UCR filing, and BOC-3 process agent services.</p>
+          <a href="trucker-authority.html" class="bento-link">Get Authority</a>
+        </div>
+      </div>
+
+ <!-- NEW Box: Same size as Registered Agent with custom color -->
+<div class="bento-box tax-box">
+  <div class="bento-inner">
+    <h3>Tax Filings</h3>
+    <p>Stay compliant with federal and state tax requirements. Professional handling of your corporate tax documents.</p>
+    <a href="tax-filings.html" class="bento-link">Get Started</a>
+  </div>
 </div>
-</header>
+
+    </div>
+  </div>
+</section>
 
 
-
-
-
-
-    <header class="ra-hero">
-        <div class="container hero-grid">
-            <div class="hero-content-left">
-                <span class="hero-badge">Official 2026 Registration Partner</span>
-                <h1 class="hero-title">Launch Your Business<br><span class="text-orange">Without the Stress.</span></h1>
-                <p>The legal engine for modern entrepreneurs. We handle the paperwork, you handle the growth.</p>
-                <a href="#pricing" class="cta-button">Start My Business - $100</a>
-            </div>
-            <div class="hero-search-wrapper-right">
-                <form id="nameSearchForm" class="hero-search-form">
-                    <input type="text" id="businessNameInput" placeholder="Check name availability..." required>
-                    <button type="submit">Search</button>
-                </form>
-                <span class="search-note">✓ Direct Secretary of State API Integration</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- SECTION 1: TRUST BAR -->
-    <section class="trust-bar">
-        <div class="container">
-            <p>Trusted by 5,000+ business owners nationwide</p>
-            <div class="logo-row">
-                <img src="images/trust-1.png" alt="Trust">
-                <img src="images/trust-2.png" alt="Trust">
-                <img src="images/trust-3.png" alt="Trust">
-                <img src="images/trust-4.png" alt="Trust">
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: FEATURES GRID -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Gold Standard in <span class="text-orange">Compliance.</span></h2>
-                <p>Expertly prepared documents delivered to your secure portal.</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="icon">⚡</div>
-                    <h3>Next-Day Filing</h3>
-                    <p>We submit your formation docs within 24 hours of purchase, guaranteed.</p>
+        <!-- SECTION 4: STICKY VALUE PROPOSITION -->
+        <section class="value-proposition">
+            <div class="container value-grid">
+                <div class="value-sticky">
+                    <h2>Built for the <br>Modern Founder</h2>
+                    <p>Why businesses choose filings4u for their corporate lifecycle.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="icon">🛡️</div>
-                    <h3>Privacy Protection</h3>
-                    <p>Use our address on public records to keep your home address off the grid.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📊</div>
-                    <h3>Compliance Vault</h3>
-                    <p>Lifetime access to your digital docs and automated tax deadline alerts.</p>
+                <div class="value-list">
+                    <div class="value-item">
+                        <span class="v-num">01</span>
+                        <h4>Transparent Ecosystem</h4>
+                        <p>Flat $100 service fee. We hate hidden upsells as much as you do. Clear state fees + one service price.</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="v-num">02</span>
+                        <h4>Speed to Market</h4>
+                        <p>Our proprietary filing engine processes documents in under 24 hours to get you operational faster.</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="v-num">03</span>
+                        <h4>Real-Time Portal</h4>
+                        <p>Access every document and track filing status 24/7 through your secure entrepreneur dashboard.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTION 3: PRICING (LEGALZOOM STYLE) -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Basic</h3>
-                    <p class="price">$100 <span>+ state fee</span></p>
-                    <ul>
-                        <li>✓ Name Availability Search</li>
-                        <li>✓ Articles of Organization</li>
-                        <li>✓ Digital Doc Delivery</li>
-                    </ul>
-                    <a href="#" class="btn-outline">Select Basic</a>
-                </div>
-                <div class="price-card popular">
-                    <span class="badge">Most Popular</span>
-                    <h3>The Professional</h3>
-                    <p class="price">$299 <span>+ state fee</span></p>
-                    <ul>
-                        <li>✓ Everything in Basic</li>
-                        <li>✓ EIN (Tax ID) Registration</li>
-                        <li>✓ Operating Agreement</li>
-                        <li>✓ 1-Year Registered Agent</li>
-                    </ul>
-                    <a href="#" class="btn-solid">Get Started</a>
+    </main>
+
+
+<!-- SECTION: THE ELITE GUARANTEE (Navy & White) -->
+<section class="section-padding bg-dark-banner">
+    <div class="container">
+        <div class="guarantee-card">
+            <div class="guarantee-content">
+                <h2 class="light-title">The filings4u Precision Guarantee</h2>
+                <p class="light-subtitle">We don’t just file paperwork; we secure your future. If any state agency rejects your filing due to an error on our part, we will resolve the issue immediately and cover all additional government fees. Total accuracy, zero risk.</p>
+                
+                <div class="guarantee-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✓</span> 100% Error-Free Audit
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">✓</span> State Fee Protection
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SECTION 4: HOW IT WORKS -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>Your Journey to <span class="text-orange">Launch.</span></h2>
-            <div class="steps">
-                <div class="step"><span>1</span><h4>Check Name</h4></div>
-                <div class="step"><span>2</span><h4>Enter Info</h4></div>
-                <div class="step"><span>3</span><h4>Launch</h4></div>
+            <div class="guarantee-action">
+                <a href="#pricing" class="cta-button glow-button">
+                    Secure My LLC Today
+                </a>
+                <p class="terms-text">No hidden retainers. Transparent one-time filing fees.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- SECTION 5: FINAL CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Ready to make it official?</h2>
-            <p>Join thousands of founders who started with filings4u.</p>
-            <a href="#nameSearchForm" class="cta-button">Check Your Name Now</a>
+
+<!-- SECTION 4: FAQS -->
+<section class="section-padding bg-alt">
+    <div class="faq-container-large">
+        <h2 class="faq-header-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-accordion-wrapper">
+            <!-- Question 1 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What exactly is a Registered Agent?</summary>
+                <div class="faq-content">
+                    A Registered Agent is a person or entity designated to receive official legal documents and government correspondence on behalf of your LLC. This includes Service of Process (lawsuit notifications), tax notices, and annual report reminders. Every LLC is legally required by the state to maintain one.
+                </div>
+            </details>
+
+            <!-- Question 2 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Can I be my own Registered Agent?</summary>
+                <div class="faq-content">
+                    Technically, yes. Most states allow you to act as your own agent if you have a physical address in the state where you formed your LLC. However, this requires your personal address to be listed on public record, and you must be available at that address during all standard business hours.
+                </div>
+            </details>
+
+            <!-- Question 3 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Why should I use a professional service instead of my home address?</summary>
+                <div class="faq-content">
+                    The primary reason is Privacy. When you use a professional service like ours, our commercial address goes on the public record, not your home address. This stops solicitors, junk mailers, and even disgruntled customers from finding out where you live.
+                </div>
+            </details>
+
+            <!-- Question 4 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What happens if I don't have a Registered Agent?</summary>
+                <div class="faq-content">
+                    Failure to maintain an active Registered Agent can result in your business losing its "Good Standing" status with the state. This can lead to hefty fines, the inability to enter into legal contracts, and eventually, the administrative dissolution (shutdown) of your LLC.
+                </div>
+            </details>
+
+            <!-- Question 5 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Do I need a Registered Agent in every state?</summary>
+                <div class="faq-content">
+                    You need a Registered Agent in the state where you formed your LLC (your "domestic" state). If you register your business to do work in other states (Foreign Qualification), you will also need a Registered Agent with a physical address in each of those states.
+                </div>
+            </details>
+
+            <!-- Question 6 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">How do I receive my documents?</summary>
+                <div class="faq-content">
+                    We provide instant digital delivery. The moment we receive a legal document or official notice at our office, we scan it and upload it to your secure dashboard. You will receive an immediate email notification so you never miss a critical deadline.
+                </div>
+            </details>
+
+            <!-- Question 7 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Will a professional agent help me stay compliant?</summary>
+                <div class="faq-content">
+                    Yes. Part of our service includes tracking your state’s Annual Report deadlines. We send you automated reminders well in advance of the due date so you can avoid late fees and keep your business compliant with the Secretary of State.
+                </div>
+            </details>
+
+            <!-- Question 8 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">Can a Registered Agent be a P.O. Box?</summary>
+                <div class="faq-content">
+                    No. State law requires a Registered Agent to have a physical street address where a person can be physically served with legal papers. P.O. Boxes and private mailbox rentals are not permitted for this role.
+                </div>
+            </details>
+
+            <!-- Question 9 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">What happens if my business is sued?</summary>
+                <div class="faq-content">
+                    If your business is served with a lawsuit, the process server will deliver the papers to our office. We accept them discreetly and notify you immediately. This prevents the embarrassment of being served in front of customers, employees, or family members at your place of business or home.
+                </div>
+            </details>
+
+            <!-- Question 10 -->
+            <details class="faq-box" name="faq">
+                <summary class="faq-trigger">How do I switch my Registered Agent to you?</summary>
+                <div class="faq-content">
+                    The process is simple. When you sign up for our service, we help you file a "Change of Agent" form with the Secretary of State. Once the state processes the filing, we officially become your shield for privacy and compliance.
+                </div>
+            </details>
         </div>
-    </section>
+    </div>
+</section>
 
-<!-- FOOTER -->
+
+
+    <!-- FOOTER -->
 <footer id="footer">
     <div class="footer-container">
         <!-- Col 1: Brand -->
@@ -235,12 +378,5 @@
 
 </footer>
 
-    <script>
-        document.getElementById('nameSearchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const businessName = document.getElementById('businessNameInput').value;
-            window.location.href = `upsell.html?biz_name=${encodeURIComponent(businessName)}`;
-        });
-    </script>
 </body>
 </html>

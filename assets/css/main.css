@@ -6435,30 +6435,336 @@ body {
     .portal-main { padding: 30px 15px; }
 }
 
-/* Navigation Login Button */
-.nav-login-btn {
-    background-color: var(--orange);
-    color: #ffffff !important; /* Forces white text */
-    padding: 8px 20px !important;
-    border-radius: 4px;
+
+/* --- GLOBAL RESET & VARIABLES --- */
+:root {
+    --navy: #0a1f44;
+    --orange: #ff6b00;
+    --ghost-white: #f4f7fa;
+    --white: #ffffff;
+    --text-muted: #6b7280;
+    --border: #e1e8ef;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; transition: var(--ease); }
+ul { list-style: none; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+/* --- NAVIGATION --- */
+.brand-nav-bar { height: 80px; background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; }
+.nav-container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 32px; }
+.brand-nav-links { display: flex; align-items: center; gap: 30px; }
+.brand-nav-links a { color: var(--navy); font-weight: 600; font-size: 0.95rem; }
+.brand-nav-links a:hover { color: var(--orange); }
+.nav-login-btn { background: var(--navy); color: white !important; padding: 10px 20px; border-radius: 6px; }
+
+/* --- HERO SECTION --- */
+.hero-premium { background: var(--navy); color: var(--white); padding: 160px 0 100px; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+.status-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 107, 0, 0.1); color: var(--orange); padding: 8px 16px; border-radius: 100px; font-weight: 700; font-size: 0.85rem; margin-bottom: 30px; }
+.pulse-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 0 rgba(255, 107, 0, 0.4); animation: pulse 2s infinite; }
+.hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+.highlight-orange { color: var(--orange); }
+.hero-subtitle { font-size: 1.25rem; opacity: 0.8; margin-bottom: 45px; max-width: 580px; }
+.hero-actions { display: flex; gap: 20px; }
+
+.btn { padding: 18px 36px; border-radius: 8px; font-weight: 700; display: inline-block; cursor: pointer; transition: var(--ease); }
+.btn-primary { background: var(--orange); color: white; }
+.btn-primary:hover { background: #e65a00; transform: translateY(-4px); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
+.btn-outline:hover { background: rgba(255,255,255,0.05); }
+
+/* --- TRUST MARQUEE --- */
+.trust-marquee { background: var(--ghost-white); padding: 40px 0; border-bottom: 1px solid var(--border); }
+.marquee-label { text-align: center; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 25px; }
+.marquee-flex { display: flex; justify-content: space-around; font-weight: 700; opacity: 0.6; color: var(--navy); font-size: 1.1rem; }
+
+/* --- BENTO SERVICES --- */
+.services-bento { padding: 120px 0; }
+.section-heading { text-align: center; margin-bottom: 70px; }
+.eyebrow { color: var(--orange); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; }
+.section-heading h2 { font-size: 2.8rem; font-weight: 800; margin-top: 10px; }
+.bento-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.bento-box { background: var(--ghost-white); padding: 50px; border-radius: 24px; border: 1px solid var(--border); transition: var(--ease); }
+.bento-box:hover { transform: translateY(-10px); border-color: var(--orange); }
+.bento-main { grid-column: span 2; background: var(--navy); color: white; border: none; }
+.bento-box h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; }
+.bento-link { color: var(--orange); font-weight: 700; display: inline-block; margin-top: 25px; }
+
+/* --- VALUE PROPOSITION --- */
+.value-proposition { padding: 120px 0; background: var(--ghost-white); }
+.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+.value-sticky { position: sticky; top: 120px; height: fit-content; }
+.value-sticky h2 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
+.value-item { padding-bottom: 50px; border-bottom: 1px solid #d1d9e0; margin-bottom: 50px; }
+.v-num { color: var(--orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+.value-item h4 { font-size: 1.5rem; margin-bottom: 10px; }
+
+/* --- CONVERSION CTA --- */
+.final-cta { padding: 100px 0; }
+.cta-banner { background: var(--navy); color: white; padding: 80px; border-radius: 32px; display: flex; justify-content: space-between; align-items: center; }
+.cta-text h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.btn-white { background: var(--white); color: var(--navy); }
+
+/* --- FOOTER --- */
+footer { background: #fff; padding: 100px 0 40px; border-top: 1px solid var(--border); }
+.footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; padding: 0 40px 60px; }
+.footer-column h3 { margin-bottom: 25px; font-size: 1rem; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--text-muted); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 40px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+/* --- ANIMATIONS --- */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .hero-grid, .bento-layout, .value-grid, .footer-container { grid-template-columns: 1fr; }
+    .bento-main { grid-column: span 1; }
+    .cta-banner { flex-direction: column; text-align: center; gap: 40px; }
+    .hero-content { text-align: center; }
+    .hero-actions { justify-content: center; }
+}
+
+
+/* --- PURE NEUTRAL CORPORATE VARIABLES --- */
+:root {
+    --navy: #0a1f44;
+    --orange: #ff6b00;
+    --white: #ffffff;
+    --neutral-gray: #f8f8f8; /* Pure neutral gray background, zero blue saturation */
+    --border-gray: #dddddd;  /* Solid gray border, no cool/blue tint */
+    --text-main: #0a1f44;
+    --text-muted: #555555;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- SYSTEM-WIDE BLUE REMOVAL --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    /* Disables the blue highlight/flash on mobile taps */
+    -webkit-tap-highlight-color: transparent !important; 
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: var(--white); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+    -webkit-font-smoothing: antialiased; 
+}
+
+/* Forces all links to inherit text color instead of default browser blue */
+a { 
+    text-decoration: none; 
+    color: inherit !important; 
+    transition: var(--ease); 
+}
+
+/* Prevents visited links from turning purple/blue */
+a:visited, a:hover, a:focus, a:active {
+    color: inherit !important;
+    outline: none !important;
+}
+
+/* --- LAYOUT COMPONENTS --- */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.section-padding { padding: 100px 0; }
+.bg-white { background-color: var(--white); }
+.bg-neutral { background-color: var(--neutral-gray); }
+
+/* Navigation */
+.brand-nav-bar { 
+    height: 80px; 
+    background: var(--white); 
+    border-bottom: 1px solid var(--border-gray); 
+    display: flex; 
+    align-items: center; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+
+/* Hero Section */
+.hero-premium { background: var(--navy); color: var(--white); padding: 160px 0 100px; overflow: hidden; }
+.highlight-orange { color: var(--orange) !important; }
+
+/* Compliance Shield */
+.guarantee-card { 
+    background: var(--navy); 
+    border-radius: 32px; 
+    padding: 60px 80px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
+    color: var(--white);
+    box-shadow: 0 40px 80px rgba(10, 31, 68, 0.15);
+}
+
+.badge-accent { 
+    color: var(--orange); 
+    text-transform: uppercase; 
+    font-weight: 800; 
+    letter-spacing: 2px; 
+    font-size: 0.85rem; 
+    display: block; 
+    margin-bottom: 15px; 
+}
+
+/* Bento Grid (Cleaned of all blue) */
+.bento-box { 
+    background: var(--neutral-gray); 
+    padding: 40px; 
+    border-radius: 24px; 
+    border: 1px solid var(--border-gray); 
+    transition: var(--ease); 
+}
+
+.bento-main { background: var(--navy); color: var(--white); border: none; }
+.bento-box:hover { border-color: var(--orange); transform: translateY(-8px); }
+
+/* Final CTA Banner */
+.cta-banner { 
+    background: var(--navy); 
+    color: var(--white); 
+    padding: 80px; 
+    border-radius: 32px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+
+.badge-accent {
+    background: transparent; /* Removes the sky blue background */
+    color: #ffffff;          /* Keeps the text white */
+    padding: 0;              /* Removes the box spacing */
+    text-transform: uppercase;
     font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+
+
+/* Update the bento grid action links to orange */
+.bento-link {
+    color: #ff6b00;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid var(--orange);
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.nav-login-btn:hover {
-    background-color: transparent;
-    color: var(--orange) !important;
-    border: 1px solid var(--orange);
+/* Add a hover state so it darkens slightly when moused over */
+.bento-link:hover {
+    color: #e65a00;
+    text-decoration: underline;
 }
 
-/* Ensure the parent nav items align correctly */
-.brand-nav-links {
-    display: flex;
-    align-items: center;
-    list-style: none;
+
+/* Specifically target links with the bento-link class to override defaults */
+.bento-layout .bento-inner a.bento-link {
+    color: #ff6b00 !important; /* The !important tag ensures this rule wins */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.bento-layout .bento-inner a.bento-link:hover {
+    color: #e65a00 !important;
+    text-decoration: underline;
+}
+
+
+/* Target the text inside all primary buttons specifically */
+.cta-button, 
+.glow-button, 
+.nav-login-btn,
+.footer-subscribe button,
+a.cta-button,
+a.glow-button,
+a.nav-login-btn {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+}
+
+/* Ensure white text persists on hover and for visited links */
+.cta-button:hover, 
+.glow-button:hover, 
+.nav-login-btn:hover,
+a.cta-button:visited,
+a.glow-button:visited {
+    color: #ffffff !important;
+}
+
+
+.bento-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
+/* Ensure the white text still applies to links inside blue boxes */
+.bento-main .bento-link {
+    color: #ffffff !important;
+}
 
+
+.tax-box {
+    background-color: #0a1f44 !important;
+}
+
+/* Ensure the text inside the dark box stays white */
+.tax-box h3, 
+.tax-box p {
+    color: #ffffff !important;
+}
+
+/* Make the link white or orange so it stands out */
+.tax-box .bento-link {
+    color: #ff6b00 !important; /* Using your orange for the link */
+}
+
+
+/* Update Footer to light background with dark text */
+#footer {
+    background-color: #f4f7fa !important;
+    color: #0a1f44 !important;
+}
+
+/* Ensure headings and links are dark for readability */
+#footer h3, 
+#footer .footer-column p,
+#footer .footer-links li a,
+#footer .copyright-info,
+#footer .copyright-info a {
+    color: #0a1f44 !important;
+}
+
+/* Adjust the bottom bar divider color */
+.footer-bottom {
+    background-color: #f4f7fa !important;
+    border-top: 1px solid #e1e8ed; /* Subtle line to separate bottom bar */
+}
+
+/* Ensure social icons or hover effects stay visible */
+#footer .footer-links li a:hover {
+    color: #ff6b00 !important; /* Keep your brand orange for hovers */
+}
+
+/* Adjust footer logo if it's white-only */
+.footer-logo {
+    filter: none; /* Reset if you had a brightness filter on it */
+}
