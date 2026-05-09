@@ -482,3 +482,35 @@
     background: #0a1f44;
     color: #fff;
 }
+
+
+/* Sidebar Tool Styles */
+.sidebar-tool {
+    margin: 20px 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar-tool label { font-size: 0.65rem; text-transform: uppercase; color: #64748b; display: block; margin-bottom: 8px; }
+.checker-box { display: flex; gap: 5px; }
+.checker-box input { flex-grow: 1; background: #0a1f44; border: 1px solid #1e293b; color: white; padding: 5px; font-size: 0.75rem; border-radius: 4px; }
+.checker-box button { background: #ff6b00; border: none; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
+
+/* Optimizer Banner */
+.optimizer-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0f9ff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    border-left: 5px solid #0ea5e9;
+}
+.opt-math { text-align: right; }
+.opt-math span { display: block; font-size: 1.8rem; font-weight: 800; color: #0a1f44; transition: 0.3s; }
+
+/* Officer Table */
+.officer-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.officer-table th { text-align: left; font-size: 0.7rem; text-transform: uppercase; color: #64748b; padding: 10px; border-bottom: 1px solid #e2e8f0; }
+.officer-table td { padding: 12px 10px; border-bottom: 1px solid #f8fafc; font-size: 0.9rem; }
