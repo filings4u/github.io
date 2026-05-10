@@ -3,69 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Service Name] | filings4u Official</title>
-    <!-- Modern Sans-Serif Stack -->
+    <title>filings4u | Professional Business Compliance</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
             --navy: #0a1f44;
-            --soft-blue: #f4f7ff;
             --emerald: #10b981;
+            --ice: #f4f7fa;
+            --white: #ffffff;
             --border: #e2e8f0;
             --text-muted: #64748b;
         }
 
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); background: #ffffff; -webkit-font-smoothing: antialiased; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-        /* ULTRA-CLEAN NAV */
-        nav { display: flex; justify-content: space-between; padding: 20px 8%; align-items: center; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .logo { height: 38px; }
+        /* NAVIGATION */
+        nav { 
+            display: flex; justify-content: space-between; padding: 15px 8%; align-items: center; 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); 
+        }
+        .logo { height: 35px; }
         .nav-links { display: flex; align-items: center; gap: 40px; }
-        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--emerald); }
-        .btn-client-portal { background: var(--navy); color: white !important; padding: 12px 24px; border-radius: 50px; font-size: 0.85rem; }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; }
+        .btn-client-portal { background: var(--navy); color: white !important; padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; }
 
-        /* THE NEXT-GEN HERO */
+        /* REFINED SPLIT HERO */
         .hero { 
-            padding: 120px 8%; 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
-            align-items: center; 
-            background: radial-gradient(circle at 0% 0%, #f4f7ff 0%, #ffffff 50%);
+            min-height: 70vh; /* Reduced height to keep content "above the fold" */
+            align-items: center;
+            background: var(--white);
         }
-        .hero-tag { background: #e0e7ff; color: #4338ca; padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; }
-        .hero h1 { font-size: 4.5rem; line-height: 1.05; letter-spacing: -0.04em; margin: 0 0 25px 0; }
-        .hero p { font-size: 1.3rem; color: var(--text-muted); line-height: 1.6; max-width: 500px; margin-bottom: 45px; }
 
-        /* INTERACTIVE CTA */
-        .cta-wrapper { display: flex; align-items: center; gap: 25px; }
-        .btn-main { background: var(--emerald); color: white; padding: 22px 50px; border-radius: 12px; font-size: 1.2rem; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3); }
+        /* Left Side with Soft Gradient */
+        .hero-left {
+            padding: 40px 10% 40px 16%;
+            background: linear-gradient(100deg, var(--ice) 0%, var(--white) 100%);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        /* FLOATING ELEMENT ANIMATION (Optional visualization) */
-        .hero-visual { position: relative; }
-        .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.4); border-radius: 24px; padding: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.05); }
+        /* Right Side Image - No Borders, Clean Fit */
+        .hero-right {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
 
-        /* THE "WHY" GRID - High Density Info */
-        .features { padding: 100px 8%; background: #ffffff; }
+        .hero-img {
+            width: 100%;
+            height: 80%; /* Smaller scaling so it doesn't feel overwhelming */
+            background-image: url('../images/hero-image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 24px 0 0 24px; /* Soft rounding only on the inner side */
+        }
+
+        .hero-tag { background: rgba(16, 185, 129, 0.1); color: var(--emerald); padding: 6px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; letter-spacing: -0.04em; margin: 0 0 20px 0; font-weight: 800; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; max-width: 450px; margin-bottom: 35px; }
+
+        .btn-main { background: var(--emerald); color: white; padding: 18px 40px; border-radius: 12px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2); }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3); }
+
+        /* FEATURE CARDS */
+        .features { padding: 80px 8%; background: var(--white); }
         .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
         .card { padding: 30px; border-radius: 20px; border: 1px solid var(--border); transition: 0.3s; }
-        .card:hover { border-color: var(--navy); background: var(--soft-blue); }
-        .card-icon { width: 50px; height: 50px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
-
-        /* THE "SOCIAL PROOF" SECTION */
-        .social { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); }
-        .social-logos { display: flex; justify-content: center; gap: 60px; opacity: 0.4; filter: grayscale(1); margin-top: 30px; }
-        .social-logos img { height: 25px; }
-
-        /* FOOTER REDESIGN */
-        footer { padding: 100px 8% 50px; background: var(--navy); color: #94a3b8; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; }
-        .footer-col h4 { color: white; margin-bottom: 25px; }
-        .footer-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.95rem; }
-        .footer-col a:hover { color: white; }
+        .card:hover { border-color: var(--emerald); background: var(--ice); transform: translateY(-5px); }
+        .card-icon { font-size: 1.5rem; margin-bottom: 15px; display: block; }
+        .card h3 { font-size: 1rem; margin-bottom: 10px; }
+        .card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
     </style>
 </head>
 <body>
@@ -76,99 +90,48 @@
             <a href="limited-liability-company.html">Formations</a>
             <a href="ucr-registration.html">Transportation</a>
             <a href="tax-filings.html">Tax Center</a>
-            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a>
+            <a href="login.html" class="btn-client-portal">Secure Portal</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-text">
-            <div class="hero-tag">New Standard for 2026</div>
-            <h1>Compliance <br>at the Speed <br>of <span style="color: var(--emerald);">Data.</span></h1>
-            <p>Automate your business filings with the industry's most advanced entity management platform.</p>
-            <div class="cta-wrapper">
-                <a href="https://filings4u.com" class="btn-main">Get Started →</a>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">
-                    <strong>Encrypted & Bonded</strong><br>
-                    Verified state-level processing
-                </div>
+        <div class="hero-left">
+            <div class="hero-tag">2026 Compliance Systems</div>
+            <h1>Entity <br>Management <br><span style="color: var(--emerald);">Redefined.</span></h1>
+            <p>The industry’s most intelligent platform for business registrations, DOT authorities, and tax filings.</p>
+            <div>
+                <a href="portal-llc-intake.html" class="btn-main">Start Your Filing →</a>
             </div>
         </div>
-        <div class="hero-visual">
-            <div class="glass-card">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                    <div style="width: 40%; height: 10px; background: #e2e8f0; border-radius: 5px;"></div>
-                    <div style="width: 20%; height: 10px; background: var(--emerald); border-radius: 5px;"></div>
-                </div>
-                <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;">Delaware LLC</div>
-                <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Processing through State API...</div>
-                <div style="background: #f1f5f9; height: 100px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #cbd5e0; font-weight: 800; font-size: 2rem;">FILINGS4U</div>
-            </div>
+        <div class="hero-right">
+            <div class="hero-img"></div>
         </div>
     </header>
-
-    <section class="social">
-        <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 2px;">Integrated with Official Channels</div>
-        <div class="social-logos">
-            <img src="images/irs-logo.png" alt="IRS">
-            <img src="images/fmcsa-logo.png" alt="FMCSA">
-            <img src="images/sos-logo.png" alt="SOS">
-        </div>
-    </section>
 
     <section class="features">
         <div class="grid">
             <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Real-Time Filing</h3>
-                <p>Direct connectivity with Secretary of State portals for instant entity deployment.</p>
+                <span class="card-icon">⚡</span>
+                <h3>Instant Filing</h3>
+                <p>Direct state connections for immediate application processing.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Privacy First</h3>
-                <p>Integrated Registered Agent services keep your home address off public databases.</p>
+                <span class="card-icon">🛡️</span>
+                <h3>Privacy Shield</h3>
+                <p>Registered Agent network keeps your personal data off the record.</p>
             </div>
             <div class="card">
-                <div class="card-icon">📂</div>
-                <h3>Digital Vault</h3>
-                <p>All your official certificates, EINs, and IDs stored in one encrypted location.</p>
+                <span class="card-icon">📂</span>
+                <h3>Smart Vault</h3>
+                <p>Secure storage for all official business and tax certificates.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Expert Review</h3>
-                <p>Our automation is double-checked by compliance humans before every submission.</p>
+                <span class="card-icon">🚚</span>
+                <h3>Fleet Ready</h3>
+                <p>Integrated IFTA and UCR management built for logistics.</p>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col" style="padding-right: 50px;">
-                <img src="images/logo-white.png" alt="filings4u" style="height: 35px; margin-bottom: 25px;">
-                <p style="font-size: 0.9rem; line-height: 1.6;">Precision compliance software for modern corporate entities and interstate transportation fleets.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Solutions</h4>
-                <a href="limited-liability-company.html">LLC Formations</a>
-                <a href="ucr-registration.html">UCR Registration</a>
-                <a href="international-fuel-tax-agreement-ifta.html">IFTA Management</a>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <a href="pricing.html">Pricing</a>
-                <a href="compliance.html">Compliance API</a>
-                <a href="contact.html">Support</a>
-            </div>
-            <div class="footer-col">
-                <h4>Safety</h4>
-                <a href="#">Security Audit</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">Privacy</a>
-            </div>
-        </div>
-        <div style="margin-top: 80px; text-align: center; font-size: 0.8rem; opacity: 0.5;">
-            &copy; 2026 filings4u Technologies. Authorized State Filing Agent.
-        </div>
-    </footer>
 
 </body>
 </html>
