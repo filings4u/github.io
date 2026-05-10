@@ -3,135 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>filings4u | Professional Business Compliance</title>
+    <title>filings4u | Elite Entity Management</title>
     <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0a1f44;
-            --emerald: #10b981;
-            --ice: #f4f7fa;
-            --white: #ffffff;
-            --border: #e2e8f0;
-            --text-muted: #64748b;
-        }
-
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-        /* NAVIGATION */
-        nav { 
-            display: flex; justify-content: space-between; padding: 15px 8%; align-items: center; 
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); 
-        }
-        .logo { height: 35px; }
-        .nav-links { display: flex; align-items: center; gap: 40px; }
-        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; }
-        .btn-client-portal { background: var(--navy); color: white !important; padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; }
-
-        /* REFINED SPLIT HERO */
-        .hero { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            min-height: 70vh; /* Reduced height to keep content "above the fold" */
-            align-items: center;
-            background: var(--white);
-        }
-
-        /* Left Side with Soft Gradient */
-        .hero-left {
-            padding: 40px 10% 40px 16%;
-            background: linear-gradient(100deg, var(--ice) 0%, var(--white) 100%);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Right Side Image - No Borders, Clean Fit */
-        .hero-right {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 80%; /* Smaller scaling so it doesn't feel overwhelming */
-            background-image: url('../images/hero-image.jpg'); 
-            background-size: cover;
-            background-position: center;
-            border-radius: 24px 0 0 24px; /* Soft rounding only on the inner side */
-        }
-
-        .hero-tag { background: rgba(16, 185, 129, 0.1); color: var(--emerald); padding: 6px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; letter-spacing: -0.04em; margin: 0 0 20px 0; font-weight: 800; }
-        .hero p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; max-width: 450px; margin-bottom: 35px; }
-
-        .btn-main { background: var(--emerald); color: white; padding: 18px 40px; border-radius: 12px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2); }
-        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3); }
-
-        /* FEATURE CARDS */
-        .features { padding: 80px 8%; background: var(--white); }
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .card { padding: 30px; border-radius: 20px; border: 1px solid var(--border); transition: 0.3s; }
-        .card:hover { border-color: var(--emerald); background: var(--ice); transform: translateY(-5px); }
-        .card-icon { font-size: 1.5rem; margin-bottom: 15px; display: block; }
-        .card h3 { font-size: 1rem; margin-bottom: 10px; }
-        .card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
-    </style>
+    <!-- LINK TO YOUR SEPARATE CSS FILE -->
+    <link rel="stylesheet" href="site-elite.css">
 </head>
 <body>
 
+    <!-- SHARED NAVIGATION -->
     <nav>
         <img src="images/logo.png" alt="filings4u" class="logo">
         <div class="nav-links">
             <a href="limited-liability-company.html">Formations</a>
             <a href="ucr-registration.html">Transportation</a>
             <a href="tax-filings.html">Tax Center</a>
-            <a href="login.html" class="btn-client-portal">Secure Portal</a>
+            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a>
         </div>
     </nav>
 
+    <!-- HERO SECTION (Rectangular Strip) -->
     <header class="hero">
-        <div class="hero-left">
-            <div class="hero-tag">2026 Compliance Systems</div>
-            <h1>Entity <br>Management <br><span style="color: var(--emerald);">Redefined.</span></h1>
-            <p>The industry’s most intelligent platform for business registrations, DOT authorities, and tax filings.</p>
-            <div>
-                <a href="portal-llc-intake.html" class="btn-main">Start Your Filing →</a>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-img"></div>
+        <div class="hero-image-bg" style="background-image: url('images/hero-image.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Precision Compliance</span>
+            <h1>Automate <br>Your Entity.</h1>
+            <p>High-fidelity business registration and transportation authority management for the modern operator.</p>
+            <a href="https://filings4u.com" class="btn-main">Start Your Filing →</a>
         </div>
     </header>
 
-    <section class="features">
-        <div class="grid">
-            <div class="card">
-                <span class="card-icon">⚡</span>
-                <h3>Instant Filing</h3>
-                <p>Direct state connections for immediate application processing.</p>
+    <!-- CONTENT PLACEHOLDER -->
+    <main>
+        <!-- We will drop the "Operational Edge" and "Directory" sections here -->
+    </main>
+
+    <!-- SHARED FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="filings4u" style="height: 30px;">
+                <p style="font-size: 0.9rem; margin-top: 20px;">Precision compliance software for modern corporate entities.</p>
             </div>
-            <div class="card">
-                <span class="card-icon">🛡️</span>
-                <h3>Privacy Shield</h3>
-                <p>Registered Agent network keeps your personal data off the record.</p>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="limited-liability-company.html">LLC Formation</a></li>
+                    <li><a href="ucr-registration.html">UCR Registration</a></li>
+                </ul>
             </div>
-            <div class="card">
-                <span class="card-icon">📂</span>
-                <h3>Smart Vault</h3>
-                <p>Secure storage for all official business and tax certificates.</p>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="compliance.html">API Docs</a></li>
+                </ul>
             </div>
-            <div class="card">
-                <span class="card-icon">🚚</span>
-                <h3>Fleet Ready</h3>
-                <p>Integrated IFTA and UCR management built for logistics.</p>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
             </div>
         </div>
-    </section>
+    </footer>
 
 </body>
 </html>
