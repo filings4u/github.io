@@ -3,92 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Portal | filings4u</title>
+    <title>Client Gateway | filings4u</title>
     <style>
-        :root { --navy: #0a1f44; --orange: #ff6b00; --ice: #f4f7fa; }
-        body { font-family: 'Inter', sans-serif; background: var(--ice); color: var(--navy); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .portal-container { max-width: 450px; width: 90%; padding: 40px; background: #fff; border-radius: 16px; box-shadow: 0 20px 40px rgba(10,31,68,0.1); text-align: center; }
-        .hidden { display: none; }
-        input { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; }
-        button { background: var(--orange); color: #fff; padding: 14px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.3s; }
-        button:hover { background: #e66000; }
-        .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 25px; }
-        .doc-card { padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; text-align: left; }
+        /* BASE STYLES */
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --success-green: #48bb78;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfcfc;
+            display: flex;
+        }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar-header { margin-bottom: 40px; padding-left: 5px; }
+        .sidebar-logo { height: 45px; width: auto; }
+
+        .sidebar-nav { display: flex; flex-direction: column; height: 100%; }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+
+        .nav-item:hover, .nav-item.active { background-color: var(--primary-blue); color: var(--white); }
+        .nav-item span { margin-right: 12px; }
+
+        .logout-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        .portal-main {
+            margin-left: 280px; 
+            width: calc(100% - 280px);
+            padding: 50px 60px; 
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portal-header { margin-bottom: 40px; }
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+
+        /* GATEWAY COMPONENTS */
+        .gateway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .gateway-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .gateway-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+
+        .gateway-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .gateway-card h2 { margin: 0 0 10px; color: var(--primary-blue); }
+        .gateway-card p { margin: 0; color: var(--text-gray); line-height: 1.6; }
+        
+        .card-footer {
+            margin-top: 25px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
 
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-my-companies.html" class="nav-item"><span>🏢</span> My Companies</a>
+            <a href="portal-new-filing.html" class="nav-item"><span>➕</span> New Filing</a>
+            <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
+            </div>
+        </nav>
+    </aside>
 
-    <!-- LOGIN STATE -->
-    <div id="auth-section" class="portal-container">
-        <h2 style="margin-bottom: 10px;">Portal Login</h2>
-        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 25px;">Access your formation documents and compliance vault.</p>
-        <input type="email" id="email" placeholder="Email Address">
-        <input type="password" id="password" placeholder="Password">
-        <button id="loginBtn">Sign In</button>
-    </div>
+    <main class="portal-main">
+        <div class="content-container">
+            <header class="portal-header">
+                <div class="welcome-text">
+                    <h1>Portal Gateway</h1>
+                    <p>Select your operational environment.</p>
+                </div>
+            </header>
 
-    <!-- DASHBOARD STATE -->
-    <div id="dashboard-section" class="portal-container hidden">
-        <h2>Dashboard</h2>
-        <p style="font-size: 0.9rem;">Authenticated as: <strong id="userDisplay"></strong></p>
-        <div class="dashboard-grid">
-            <div class="doc-card">
-                <h4 style="margin: 0;">Formation Docs</h4>
-                <p style="font-size: 0.8rem; margin: 5px 0;">Articles of Organization, EIN</p>
-                <button style="background: var(--navy); padding: 8px; font-size: 0.8rem;">View Files</button>
+            <div class="gateway-grid">
+                <!-- DASHBOARD LINK -->
+                <a href="portal-dashboard.html" class="gateway-card">
+                    <span class="gateway-icon">📊</span>
+                    <h2>Entity Dashboard</h2>
+                    <p>Access active filings, compliance scores, and upcoming deadlines for your primary logistics company.</p>
+                    <div class="card-footer">Enter Dashboard →</div>
+                </a>
+
+                <!-- COMPANY HUB LINK -->
+                <a href="portal-my-companies.html" class="gateway-card">
+                    <span class="gateway-icon">🏢</span>
+                    <h2>Company Hub</h2>
+                    <p>Manage multiple entities, view jurisdictional heatmaps, and optimize state franchise tax liabilities.</p>
+                    <div class="card-footer">Manage Entities →</div>
+                </a>
+
+                <!-- VAULT LINK -->
+                <a href="portal-vault.html" class="gateway-card">
+                    <span class="gateway-icon">📂</span>
+                    <h2>Document Vault</h2>
+                    <p>Retrieve EIN confirmation letters, Articles of Organization, and official state correspondence.</p>
+                    <div class="card-footer">Open Vault →</div>
+                </a>
             </div>
         </div>
-        <button id="logoutBtn" style="background: transparent; color: var(--navy); border: 1px solid var(--navy); margin-top: 25px;">Logout</button>
-    </div>
+    </main>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-
-        // YOUR FIREBASE CONFIGURATION
-        const firebaseConfig = {
-            apiKey: "AIzaSyA_45sXieC6fdfQstLQ2a21psXeOxhfdwo",
-            authDomain: "customer-portal-18728.firebaseapp.com",
-            projectId: "customer-portal-18728",
-            storageBucket: "customer-portal-18728.firebasestorage.app",
-            messagingSenderId: "117765841972",
-            appId: "1:117765841972:web:9746c4f3037270a7811661",
-            measurementId: "G-Q2L5R7LP6R"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        const authSection = document.getElementById('auth-section');
-        const dashboardSection = document.getElementById('dashboard-section');
-        const userDisplay = document.getElementById('userDisplay');
-
-        // Monitor Auth State
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                authSection.classList.add('hidden');
-                dashboardSection.classList.remove('hidden');
-                userDisplay.textContent = user.email;
-            } else {
-                authSection.classList.remove('hidden');
-                dashboardSection.classList.add('hidden');
-            }
-        });
-
-        // Login Action
-        document.getElementById('loginBtn').onclick = async () => {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-            } catch (err) {
-                alert("Login Failed: " + err.message);
-            }
-        };
-
-        // Logout Action
-        document.getElementById('logoutBtn').onclick = () => signOut(auth);
-    </script>
+    <script src="portal-switcher.js"></script>
 </body>
 </html>

@@ -2,122 +2,225 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Service Catalog | Admin | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Manager | filings4u Admin</title>
     <style>
-        .admin-sidebar { background: #020617 !important; border-right: 1px solid #1e293b !important; }
-        .admin-sidebar .nav-item { color: rgba(255,255,255,0.6) !important; }
-        .price-input-group { display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 5px 10px; border-radius: 6px; border: 1px solid #cbd5e1; }
-        .price-input-group input { border: none; background: transparent; width: 80px; font-weight: 700; color: #0a1f44; outline: none; }
-        .category-tab { padding: 10px 20px; cursor: pointer; border-bottom: 3px solid transparent; color: #64748b; font-weight: 600; }
-        .category-tab.active { border-color: #ff6b00; color: #0a1f44; }
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --danger-red: #e53e3e;
+            --success-green: #48bb78;
+            --staff-red: #c15254;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfcfc;
+            display: flex;
+        }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .sidebar-header { margin-bottom: 30px; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 12px; display: block; }
+
+        .admin-badge {
+            background: var(--staff-red);
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .nav-item span { margin-right: 12px; width: 20px; text-align: center; }
+
+        .logout-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        .portal-main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 50px 60px;
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+
+        /* SERVICE MANAGER COMPONENTS */
+        .manager-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.75rem; color: var(--text-gray); padding: 15px; border-bottom: 2px solid var(--bg-light); text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid var(--bg-light); font-size: 0.9rem; }
+
+        .btn-edit {
+            color: var(--primary-blue);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .btn-edit:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .status-tag {
+            font-weight: bold;
+            color: var(--success-green);
+        }
     </style>
 </head>
-<body class="portal-body">
+<body>
 
-    <!-- ADMIN SIDEBAR -->
-    <aside class="portal-sidebar admin-sidebar">
+     <!-- PORTAL SIDEBAR -->
+   <aside class="portal-sidebar">
         <div class="sidebar-header">
-            <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
-            <p style="color: #ff6b00; font-size: 0.65rem; font-weight: 800; margin-top: 5px;">ADMIN OPERATIONS</p>
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <span class="admin-badge">Staff Account</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="admin-dashboard.html" class="nav-item"><span>🚨</span> Queue Hub</a>
-            <span>🏢</span> Entity Master</a>
-            <a href="admin-service-manager.html" class="nav-item active"><span>🛠️</span> Service Catalog</a>
-            <a href="admin-system-logs.html" class="nav-item"><span>⚙️</span> System Logs</a>
+            <a href="admin-dashboard.html" class="nav-item active"><span>📈</span> Overview</a>
+            <a href="admin-entity-master.html" class="nav-item"><span>🏢</span> Entity Master</a>
+            <a href="admin-compliance-audit.html" class="nav-item"><span>⚖️</span> Audit Queue</a>
+            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue</a>
+            <a href="admin-system-logs.html" class="nav-item"><span>🖥️</span> Logs</a>
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
+            </div>
         </nav>
     </aside>
 
+    <!-- MAIN PORTAL CONTENT -->
     <main class="portal-main">
-        <header class="portal-header">
-            <div class="welcome-text">
-                <h1>Service Catalog Manager</h1>
-                <p>Global pricing control for all 50 states and federal filings.</p>
+        <div class="content-container">
+            <header class="portal-header">
+                <div class="welcome-text">
+                    <h1>Service Manager</h1>
+                    <p>Configure platform services, catalog pricing, and availability</p>
+                </div>
+            </header>
+
+            <div class="manager-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Name</th>
+                            <th>Default Price</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>IFTA Quarterly Filing</strong></td>
+                            <td>$150.00</td>
+                            <td>Compliance</td>
+                            <td><span class="status-tag">Live</span></td>
+                            <td><a href="#" class="btn-edit">Edit Pricing</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delaware Annual Report</strong></td>
+                            <td>$75.00</td>
+                            <td>State Tax</td>
+                            <td><span class="status-tag">Live</span></td>
+                            <td><a href="#" class="btn-edit">Edit Pricing</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>BOC-3 Processing</strong></td>
+                            <td>$50.00</td>
+                            <td>DOT Authority</td>
+                            <td><span class="status-tag">Live</span></td>
+                            <td><a href="#" class="btn-edit">Edit Pricing</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <button class="btn-primary-small" style="background: #10b981;">Save All Changes</button>
-        </header>
-
-        <!-- CATEGORY TABS -->
-        <div style="display: flex; gap: 30px; border-bottom: 1px solid #e2e8f0; margin-bottom: 30px;">
-            <div class="category-tab active">Formation</div>
-            <div class="category-tab">Tax Filings</div>
-            <div class="category-tab">DOT/Transportation</div>
-            <div class="category-tab">State Fees (Lookup)</div>
-        </div>
-
-        <!-- SERVICE MANAGEMENT TABLE -->
-        <div class="portal-card" style="padding: 0; overflow: hidden;">
-            <table class="log-table" style="width: 100%;">
-                <thead style="background: #f8fafc; text-align: left; font-size: 0.75rem; color: #64748b;">
-                    <tr>
-                        <th style="padding: 15px 25px;">Service Name</th>
-                        <th>Status</th>
-                        <th>Base Service Fee</th>
-                        <th>Recurring?</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="log-row">
-                        <td style="padding: 15px 25px;">
-                            <strong>LLC Formation</strong><br>
-                            <small>Articles of Organization + Basic Minutes</small>
-                        </td>
-                        <td><span class="status-pill success">Active</span></td>
-                        <td>
-                            <div class="price-input-group">
-                                <span>$</span><input type="text" value="100.00">
-                            </div>
-                        </td>
-                        <td>One-time</td>
-                        <td><a href="#" style="color: #ff6b00; font-weight: 700;">Edit Logic</a></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td style="padding: 15px 25px;">
-                            <strong>Registered Agent Service</strong><br>
-                            <small>Mandatory state legal representation</small>
-                        </td>
-                        <td><span class="status-pill success">Active</span></td>
-                        <td>
-                            <div class="price-input-group">
-                                <span>$</span><input type="text" value="125.00">
-                            </div>
-                        </td>
-                        <td>Annual</td>
-                        <td><a href="#" style="color: #ff6b00; font-weight: 700;">Edit Logic</a></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </main>
-
-    <!-- ACCOUNTABILITY OVERLAY (For Context Switching) -->
-    
-        <div class="portal-card" style="width: 400px; border-top: 5px solid #ff6b00;">
-            <h3>Security Verification</h3>
-            <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">You are attempting to assume the identity of a client. This action will be logged.</p>
-            
-            <div style="margin-top: 20px;">
-                <label style="font-size: 0.8rem; font-weight: 700;">Reason for Access (Required)</label>
-                <select class="intake-input" id="access-reason">
-                    <option value="">-- Select Reason --</option>
-                    <option>Fixing State Filing Rejection</option>
-                    <option>Billing Discrepancy Support</option>
-                    <option>Manual Doc Upload for Client</option>
-                    <option>Technical Bug Investigation</option>
-                </select>
-                <textarea class="intake-input" style="margin-top: 10px;" placeholder="Additional ticket reference notes..."></textarea>
-            </div>
-
-            <div style="margin-top: 25px; display: flex; gap: 10px;">
-                <button class="btn-outline-small" style="flex: 1;" onclick="cancelSwitch()">Cancel</button>
-                <button class="btn-primary-small" style="flex: 1;" onclick="confirmSwitch()">Authorize Access</button>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>

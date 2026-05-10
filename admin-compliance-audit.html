@@ -2,123 +2,209 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Compliance Audit Generator | filings4u Admin</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Audit Queue | filings4u Staff</title>
     <style>
-        .admin-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
-        .audit-form-grid { display: grid; grid-template-columns: 1fr 400px; gap: 30px; margin-top: 20px; }
-        .audit-check-item { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: #fff; border-bottom: 1px solid #f1f5f9; }
-        .audit-check-item:last-child { border-bottom: none; }
-        .gap-alert { background: #fff1f2; border: 1px solid #fda4af; padding: 12px; border-radius: 8px; margin-top: 10px; }
-        .source-badge { background: #fee2e2; color: #991b1b; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-weight: 800; }
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --danger-red: #e53e3e;
+            --success-green: #48bb78;
+            --staff-red: #c15254;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfcfc;
+            display: flex;
+        }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .sidebar-header { margin-bottom: 30px; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 12px; display: block; }
+
+        .admin-badge {
+            background: var(--staff-red);
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .nav-item span { margin-right: 12px; width: 20px; text-align: center; }
+
+        .logout-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        .portal-main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 50px 60px;
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+        .welcome-text p { margin: 5px 0; color: var(--text-gray); }
+
+        /* AUDIT QUEUE CARD */
+        .portal-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; font-size: 0.8rem; color: var(--text-gray); padding: 12px; border-bottom: 2px solid var(--bg-light); text-transform: uppercase; }
+        td { padding: 15px 12px; border-bottom: 1px solid var(--bg-light); font-size: 0.9rem; }
+        
+        .btn-audit {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
-<body class="portal-body" style="background: #f1f5f9;">
+<body>
 
-    <div class="admin-layout">
-        <!-- SIDEBAR (Dark Admin Theme) -->
-        <aside class="portal-sidebar" style="background: #020617; color: white;">
-            <div class="sidebar-header" style="border-bottom: 1px solid #1e293b;">
-                <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
-                <div style="margin-top: 8px; font-size: 0.65rem; color: #ff6b00; font-weight: 800;">ADMIN OPS</div>
+    <!-- PORTAL SIDEBAR -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <span class="admin-badge">Staff Account</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="nav-item active"><span>📈</span> Overview</a>
+            <a href="admin-entity-master.html" class="nav-item"><span>🏢</span> Entity Master</a>
+            <a href="admin-compliance-audit.html" class="nav-item"><span>⚖️</span> Audit Queue</a>
+            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue</a>
+            <a href="admin-system-logs.html" class="nav-item"><span>🖥️</span> Logs</a>
+            
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
             </div>
-            <nav class="sidebar-nav">
-                <a href="admin-dashboard.html" class="nav-item" style="color:rgba(255,255,255,0.7)"><span>🚨</span> Filing Queue</a>
-                <a href="#" class="nav-item active" style="color:white"><span>📋</span> Audit Generator</a>
-                <a href="admin-nonprofit.html" class="nav-item" style="color:rgba(255,255,255,0.7)"><span>⚖️</span> Tax-Exempt Review</a>
-            </nav>
-        </aside>
+        </nav>
+    </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="portal-main" style="padding: 40px;">
+    <!-- MAIN PORTAL CONTENT -->
+    <main class="portal-main">
+        <div class="content-container">
             <header class="portal-header">
                 <div class="welcome-text">
-                    <h1>Compliance Audit Task</h1>
-                    <p>Generating report for: <strong>Northstar Trucking LLC</strong> <span class="source-badge">FORMER LEGALZOOM</span></p>
-                </div>
-                <div class="header-actions">
-                    <button class="btn-outline-small" style="background:white;">Cancel Audit</button>
+                    <h1>Audit Queue</h1>
+                    <p>Reviewing <strong>42 pending filings</strong></p>
                 </div>
             </header>
 
-            <div class="audit-form-grid">
-                <!-- AUDIT CHECKLIST -->
-                <div class="portal-card">
-                    <h3 style="margin-bottom: 20px;">Manual Verification Points</h3>
-                    <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-                        
-                        <div class="audit-check-item">
-                            <div>
-                                <strong>Secretary of State Standing</strong>
-                                <p style="font-size: 0.8rem; color: #64748b;">Verify entity status on official state registry.</p>
-                            </div>
-                            <select class="intake-input" style="width: 150px; margin: 0;">
-                                <option>Good Standing</option>
-                                <option selected>Delinquent</option>
-                                <option>Dissolved</option>
-                            </select>
-                        </div>
-
-                        <div class="audit-check-item">
-                            <div>
-                                <strong>Registered Agent Consistency</strong>
-                                <p style="font-size: 0.8rem; color: #64748b;">Check if current agent matches filings4u records.</p>
-                            </div>
-                            <label class="checkbox-container" style="margin: 0;"><input type="checkbox"> <span class="checkmark"></span></label>
-                        </div>
-
-                        <div class="audit-check-item">
-                            <div>
-                                <strong>Annual Report History</strong>
-                                <p style="font-size: 0.8rem; color: #64748b;">Identify any skipped or incomplete years.</p>
-                            </div>
-                            <label class="checkbox-container" style="margin: 0;"><input type="checkbox" checked> <span class="checkmark"></span></label>
-                        </div>
-
-                        <div class="audit-check-item" style="background: #fff9f5;">
-                            <div>
-                                <strong style="color: #ff6b00;">Officer Registry Discrepancy</strong>
-                                <p style="font-size: 0.8rem; color: #64748b;">Do current officers match the 2026 PIR?</p>
-                            </div>
-                            <label class="checkbox-container" style="margin: 0;"><input type="checkbox" checked> <span class="checkmark"></span></label>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 25px;">
-                        <label style="font-weight: 700; font-size: 0.9rem;">Internal Auditor Notes</label>
-                        <textarea class="intake-input" rows="4" placeholder="Mention specific gaps found in competitor's previous filings..."></textarea>
-                    </div>
-                </div>
-
-                <!-- REPORT PREVIEW & SEND -->
-                <div class="portal-card" style="border-top: 5px solid #0a1f44;">
-                    <h3>Report Delivery</h3>
-                    <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">This will generate a "Health Report" and notify the client via <strong>SMS & Email</strong>.</p>
-                    
-                    <div class="gap-alert">
-                        <strong style="color: #991b1b; font-size: 0.85rem;">🚨 2 Critical Gaps Identified</strong>
-                        <p style="font-size: 0.75rem; color: #991b1b; margin-top: 5px;">Entity is delinquent in Texas and missing the 2025 Annual Report.</p>
-                    </div>
-
-                    <div style="margin-top: 30px; display: grid; gap: 15px;">
-                        <button class="btn-primary-small" style="background: #0a1f44; height: 50px;">
-                            Generate & Send Health Report
-                        </button>
-                        <button class="btn-outline-small" style="height: 45px;">
-                            Preview PDF Report
-                        </button>
-                    </div>
-
-                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
-                        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: #64748b;">Upsell Trigger</h4>
-                        <p style="font-size: 0.8rem; font-weight: 700; color: #10b981; margin-top: 5px;">✓ Includes "Emergency Reinstatement" Service Offer</p>
-                    </div>
-                </div>
+            <div class="portal-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entity Name</th>
+                            <th>Filing Type</th>
+                            <th>Submitted</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Roseland Logistics LLC</strong></td>
+                            <td>IFTA Q1 2026</td>
+                            <td>May 09, 2026</td>
+                            <td><span style="color: #ed8936; font-weight: bold;">Pending Review</span></td>
+                            <td><button class="btn-audit">Audit Now</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Swift Hauling Inc</strong></td>
+                            <td>BOC-3 Update</td>
+                            <td>May 08, 2026</td>
+                            <td><span style="color: #ed8936; font-weight: bold;">Pending Review</span></td>
+                            <td><button class="btn-audit">Audit Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
 
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Page | filings4u</title>
+    <!-- LINK TO YOUR GLOBAL CSS -->
+    <link rel="stylesheet" href="portal-global.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
+            <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
+            <!-- Logout Button -->
+            <div class="logout-container"><a href="login.html" class="logout-btn">Sign Out</a></div>
+        </nav>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="portal-main">
+        <div class="content-container">
+            
+            <!-- HEADER COMPONENT -->
+            <header class="portal-header">
+                <div class="welcome-text">
+                    <h1>Page Title</h1>
+                    <p>Subtext for user context.</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" placeholder="Search...">
+                    </div>
+                    <div class="notification-container">
+                        <div class="notification-wrapper">
+                            🔔<div class="notification-dot"></div>
+                        </div>
+                        <div class="notification-dropdown">
+                            <div class="dropdown-header">Recent Alerts</div>
+                            <a href="#" class="notif-item">New document in vault</a>
+                        </div>
+                    </div>
+                    <button class="btn-primary-small">+ New Action</button>
+                </div>
+            </header>
+
+            <!-- PAGE SPECIFIC CONTENT GOES HERE -->
+            <div class="portal-card">
+                <p>Welcome to your new scaled portal page!</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- LINK TO YOUR GLOBAL JS -->
+    <script src="portal-global.js"></script>
+</body>
+</html>

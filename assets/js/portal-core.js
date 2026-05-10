@@ -86,3 +86,26 @@ const PortalApp = {
 };
 
 document.addEventListener('DOMContentLoaded', () => PortalApp.init());
+
+
+// portal-global.js
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Highlight current sidebar link
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-item').forEach(item => {
+        if (item.getAttribute('href') === currentPath) item.classList.add('active');
+    });
+
+    // 2. Notification Toggle
+    const bell = document.querySelector('.notification-wrapper');
+    const dropdown = document.querySelector('.notification-dropdown');
+    
+    if (bell && dropdown) {
+        bell.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', () => dropdown.classList.remove('show'));
+    }
+});

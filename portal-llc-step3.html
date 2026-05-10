@@ -3,101 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax & EIN Setup | filings4u Portal</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-</head>
-<body class="portal-body">
+    <title>Step 3: Address | filings4u</title>
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --success-green: #48bb78;
+        }
 
-    <aside class="portal-sidebar">
-        <div class="sidebar-header"><img src="images/logo.png" alt="filings4u" style="height: 30px;"></div>
-        <nav class="sidebar-nav">
-            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
-            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
-        </nav>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fcfcfc; display: flex; }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px; height: 100vh; background: var(--bg-light); border-right: 1px solid var(--border-color);
+            padding: 20px; position: fixed; display: flex; flex-direction: column; z-index: 100; box-sizing: border-box;
+        }
+
+        /* GUEST MODE: Hides nav items */
+        .sidebar-locked .sidebar-nav, .sidebar-locked .logout-container { display: none !important; }
+        
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 10px; }
+
+        /* MAIN CONTENT AREA */
+        .portal-main { margin-left: 260px; width: calc(100% - 260px); padding: 50px 60px; box-sizing: border-box; }
+        .content-container { max-width: 900px; margin: 0 auto; }
+
+        /* PROGRESS BAR STYLES */
+        .step-indicator { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+        .step-indicator::before { content: ""; position: absolute; top: 15px; left: 0; right: 0; height: 2px; background: var(--border-color); z-index: 1; }
+        
+        .step { width: 30px; height: 30px; background: var(--white); border: 2px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2; color: var(--text-gray); }
+        .step.completed { background: var(--success-green); border-color: var(--success-green); color: white; }
+        .step.active { border-color: var(--primary-blue); background: var(--primary-blue); color: var(--white); }
+        
+        .step-label { font-size: 0.75rem; margin-top: 8px; color: var(--text-gray); font-weight: 600; }
+        .step-wrapper { display: flex; flex-direction: column; align-items: center; flex: 1; }
+
+        /* INTAKE CARD & INPUTS */
+        .intake-card { background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .intake-input { width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; box-sizing: border-box; margin-bottom: 20px; outline: none; }
+        .intake-input:focus { border-color: var(--primary-blue); }
+
+        .btn-next { background-color: var(--primary-blue); color: var(--white); border: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+    <!-- LOCKED SIDEBAR -->
+    <aside class="portal-sidebar sidebar-locked">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <div style="margin-top: 15px; font-size: 0.7rem; color: #a0aec0; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Formation Wizard</div>
+        </div>
     </aside>
 
+    <!-- MAIN PORTAL WRAPPER -->
     <main class="portal-main">
-        <header class="portal-header">
-            <div class="welcome-text">
-                <h1>Tax & EIN Configuration</h1>
-                <p>Step 3 of 4: Federal Identity</p>
-            </div>
+        <div class="content-container">
+            
+            <!-- STEP INDICATOR -->
             <div class="step-indicator">
-                <div class="step">1</div>
-                <div class="step">2</div>
-                <div class="step active">3</div>
-                <div class="step">4</div>
+                <div class="step-wrapper"><div class="step completed">✓</div><div class="step-label">Basic Info</div></div>
+                <div class="step-wrapper"><div class="step completed">✓</div><div class="step-label">Members</div></div>
+                <div class="step-wrapper"><div class="step active">3</div><div class="step-label">Address</div></div>
+                <div class="step-wrapper"><div class="step">4</div><div class="step-label">Review</div></div>
             </div>
-        </header>
 
-        <div class="intake-container">
+            <!-- INTAKE CARD -->
             <div class="intake-card">
-                <form action="#" method="POST">
+                <form action="portal-llc-step4.html">
+                    <label style="font-weight: 700; color: var(--primary-blue); display: block; margin-bottom: 10px;">Business Address</label>
+                    <input type="text" class="intake-input" placeholder="Street Address" required>
                     
-                    <!-- RESPONSIBLE PARTY SECTION -->
-                    <div class="form-section">
-                        <label style="font-weight: 700;">IRS Responsible Party</label>
-                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 15px;">The IRS requires an individual (not an entity) to be the primary contact for the EIN.</p>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                            <div>
-                                <label style="font-size: 0.8rem;">Full Legal Name</label>
-                                <input type="text" placeholder="First & Last Name" class="intake-input">
-                            </div>
-                            <div>
-                                <label style="font-size: 0.8rem;">Social Security Number (SSN)</label>
-                                <div class="secure-input-wrapper">
-                                    <input type="password" placeholder="000-00-0000" class="intake-input secure-field">
-                                    <span class="encryption-tag">🔒 Encrypted</span>
-                                </div>
-                            </div>
-                        </div>
-                        <small style="display: block; margin-top: 10px; color: #c15254; font-weight: 600;">⚠️ Note: We do not store your SSN. It is passed directly to the IRS filing engine via 256-bit encryption.</small>
+                    <div style="background: #f0f7ff; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #cce3ff;">
+                        <strong style="color: var(--primary-blue);">Registered Agent Service</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-gray); margin: 5px 0;">filings4u will act as your professional agent ($125/yr).</p>
                     </div>
 
-                    <!-- MANAGERIAL POWERS (Conditional Logic) -->
-                    <div class="form-section" style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
-                        <label style="font-weight: 700;">Operating Agreement Customization</label>
-                        
-                        <div class="power-option" style="margin-top: 15px;">
-                            <label class="checkbox-container">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                <strong>Grant Real Estate Authority</strong>
-                                <p style="font-size: 0.8rem; margin-left: 28px;">Allow the Manager to buy, sell, or mortgage company real estate without a full member vote.</p>
-                            </label>
-                        </div>
-
-                        <div class="power-option" style="margin-top: 20px;">
-                            <label class="checkbox-container">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                <strong>Automated Banking Resolution</strong>
-                                <p style="font-size: 0.8rem; margin-left: 28px;">Generate the "Certificate of Authority" required by banks to open your business account.</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-footer" style="margin-top: 40px; display: flex; justify-content: space-between;">
-                        <button type="button" class="btn-outline-small">← Back</button>
-                        <button type="button" class="btn-primary-small">Review & Pay →</button>
-                    </div>
+                    <button type="submit" class="btn-next">Review Application →</button>
                 </form>
             </div>
 
-            <!-- SECURITY TRUST BOX -->
-            <div class="intake-help">
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <span style="font-size: 2.5rem;">🛡️</span>
-                    <h4 style="margin-top: 10px;">Security Standard</h4>
-                </div>
-                <p style="font-size: 0.85rem; line-height: 1.4;">Our portal uses <strong>Bank-Level AES-256 Encryption</strong>. Your sensitive data is wiped from our temporary session cache the moment the filing is acknowledged by the IRS.</p>
-                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-                <div class="compliance-badge" style="background: #fff; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #e2e8f0;">
-                    <small style="color: #0a1f44; font-weight: 700;">✓ IRS Authorized Provider</small>
-                </div>
-            </div>
         </div>
     </main>
 

@@ -3,122 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Command Center | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Admin Dashboard | filings4u Staff</title>
     <style>
-        .admin-layout { display: grid; grid-template-columns: 260px 1fr 320px; min-height: 100vh; }
-        .admin-sidebar { background: #020617; color: white; padding: 20px; position: sticky; top: 0; height: 100vh; }
-        .admin-main { padding: 40px; background: #f1f5f9; }
-        .admin-right-bar { background: #fff; border-left: 1px solid #e2e8f0; padding: 25px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --danger-red: #e53e3e;
+            --success-green: #48bb78;
+            --staff-red: #c15254;
+        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fcfcfc; display: flex; }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar { 
+            width: 260px; 
+            height: 100vh; 
+            background: var(--bg-light); 
+            border-right: 1px solid var(--border-color); 
+            padding: 20px; 
+            position: fixed; 
+            display: flex; 
+            flex-direction: column; 
+            z-index: 100; 
+            box-sizing: border-box;
+        }
+        .sidebar-header { margin-bottom: 30px; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 12px; display: block; }
         
-        .ops-card { background: #f8fafc; border-radius: 8px; padding: 15px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
-        .ops-card h4 { font-size: 0.75rem; text-transform: uppercase; color: #64748b; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .admin-badge { 
+            background: var(--staff-red); 
+            color: white; 
+            font-size: 0.8rem; /* Increased font size */
+            padding: 6px 12px; 
+            border-radius: 4px; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav { flex-grow: 1; margin-top: 20px; display: flex; flex-direction: column; }
         
-        .reconcile-item { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; }
-        .tag-competitor { background: #fee2e2; color: #991b1b; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; font-weight: 800; }
+        .nav-item { 
+            display: flex; 
+            align-items: center; 
+            padding: 12px 15px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            border-radius: 8px; 
+            margin-bottom: 8px; 
+            transition: 0.3s; 
+            color: var(--primary-blue); 
+        }
+        .nav-item:hover, .nav-item.active { background-color: var(--primary-blue); color: var(--white); }
+        .nav-item span { margin-right: 12px; width: 20px; text-align: center; }
+
+        .logout-container { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+        .logout-btn { display: block; text-align: center; text-decoration: none; background-color: var(--primary-blue); color: var(--white); padding: 12px; border-radius: 8px; font-weight: 600; }
+
+        /* MAIN CONTENT AREA */
+        .portal-main { margin-left: 260px; width: calc(100% - 260px); padding: 50px 60px; box-sizing: border-box; }
+        .content-container { max-width: 1200px; margin: 0 auto; }
+
+        .portal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+        .header-actions { display: flex; gap: 20px; align-items: center; }
+        .search-input { padding: 10px 15px 10px 35px; border: 1px solid var(--border-color); border-radius: 8px; width: 250px; outline: none; }
+
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 40px; }
+        .stat-card { background: var(--white); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .stat-card h2 { margin: 10px 0 0; color: var(--primary-blue); font-size: 1.8rem; }
+
+        .portal-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .portal-card { background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         
-        /* Deductibility Chart Style */
-        .chart-mini { height: 10px; display: flex; border-radius: 5px; overflow: hidden; margin: 10px 0; }
-        .fee-service { background: #ff6b00; height: 100%; }
-        .fee-govt { background: #0a1f44; height: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; font-size: 0.8rem; color: var(--text-gray); padding: 12px; border-bottom: 2px solid var(--bg-light); }
+        td { padding: 12px; border-bottom: 1px solid var(--bg-light); font-size: 0.9rem; }
+        .status-pill { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .status-pill.urgent { background: #fff5f5; color: var(--danger-red); }
     </style>
 </head>
-<body class="portal-body">
-
-    <!-- Admin Dashboard Notification -->
-<div class="admin-alert-banner" id="gen-failure" style="display:none; background: #c15254; color: white; padding: 10px 25px; font-weight: 700;">
-    🚨 GENERATION FAILURE: Transaction #4242 (Roseland Logistics) - IRS Connection Timeout. Intervention Required.
-</div>
-
-
-    <div class="admin-layout">
-        <!-- LEFT SIDEBAR -->
-        <aside class="admin-sidebar">
-            <div class="sidebar-header" style="margin-bottom: 30px;">
-                <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
-                <p style="color: #ff6b00; font-size: 0.65rem; font-weight: 800; margin-top: 5px;">INTERNAL OPERATIONS</p>
+<body>
+    <aside class="portal-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <span class="admin-badge">Staff Account</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="nav-item active"><span>📈</span> Overview</a>
+            <a href="admin-entity-master.html" class="nav-item"><span>🏢</span> Entity Master</a>
+            <a href="admin-compliance-audit.html" class="nav-item"><span>⚖️</span> Audit Queue</a>
+            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue</a>
+            <a href="admin-system-logs.html" class="nav-item"><span>🖥️</span> Logs</a>
+            
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
             </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item active" style="color:white"><span>🚨</span> Filing Queue</a>
-                <a href="#" class="nav-item" style="color:white"><span>🏢</span> Entity Master</a>
-                <a href="#" class="nav-item" style="color:white"><span>💰</span> Revenue</a>
-                <a href="#" class="nav-item" style="color:white"><span>⚙️</span> System Logs</a>
-            </nav>
-        </aside>
+        </nav>
+    </aside>
 
-        <!-- CENTER MAIN CONTENT -->
-        <main class="admin-main">
+    <main class="portal-main">
+        <div class="content-container">
             <header class="portal-header">
-                <div>
-                    <h1>Filing Operations</h1>
-                    <p>Priority items requiring manual transmission.</p>
+                <div class="welcome-text">
+                    <h1>Admin Dashboard</h1>
+                    <p>System-wide performance overview</p>
                 </div>
                 <div class="header-actions">
-                    <span class="status-pill warning">4 Pending SOS</span>
+                    <input type="text" class="search-input" placeholder="Search accounts...">
                 </div>
             </header>
 
-            <div class="table-card">
-                <div class="file-table">
-                    <div class="file-row header" style="grid-template-columns: 2fr 1fr 1fr;">
-                        <span>Entity / Service</span>
-                        <span>Acquisition</span>
-                        <span>Action</span>
-                    </div>
-                    <div class="file-row" style="grid-template-columns: 2fr 1fr 1fr;">
-                        <div>
-                            <strong>Northstar Trucking LLC</strong><br>
-                            <small>LLC Formation + S-Corp Election</small>
-                        </div>
-                        <span><span class="tag-competitor">FORMER LEGALZOOM</span></span>
-                        <button class="btn-primary-small" style="background: #10b981;">Transmit SOS</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- RIGHT SIDEBAR (OPS PANEL) -->
-        <aside class="admin-right-bar">
-            <h3>Operations Panel</h3>
-            
-            <!-- REVENUE RECONCILIATION -->
-            <div class="ops-card" style="margin-top: 20px;">
-                <h4>Fee Reconciliation (YTD)</h4>
-                <div class="chart-mini">
-                    <div class="fee-service" style="width: 65%;" title="Service Fees"></div>
-                    <div class="fee-govt" style="width: 35%;" title="Govt Fees"></div>
-                </div>
-                <div class="reconcile-item">
-                    <span>Service (Deductible)</span>
-                    <strong>$142,400</strong>
-                </div>
-                <div class="reconcile-item">
-                    <span>Govt (Capitalized)</span>
-                    <strong>$76,200</strong>
-                </div>
-                <small style="color: #10b981; font-weight: 700;">✓ Accounts Balanced</small>
+            <div class="stats-row">
+                <div class="stat-card"><small>Daily Revenue</small><h2>$12,450</h2></div>
+                <div class="stat-card"><small>Active Entities</small><h2>1,204</h2></div>
+                <div class="stat-card"><small>Pending Audits</small><h2 style="color: var(--danger-red);">42</h2></div>
+                <div class="stat-card"><small>System Health</small><h2 style="color: var(--success-green);">99.9%</h2></div>
             </div>
 
-            <!-- SYSTEM OVERRIDES -->
-            <div class="ops-card">
-                <h4>Admin Security</h4>
-                <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 10px;">Authorized Override for snapshot records.</p>
-                <button class="btn-outline-small" style="width: 100%; border-color: #c15254; color: #c15254;">
-                    🔑 Master Lock Key
-                </button>
+            <div class="portal-grid">
+                <div class="portal-card">
+                    <h3>Compliance Alerts</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Entity</th><th>Type</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Swift Hauling</strong></td>
+                                <td>UCR</td>
+                                <td><span class="status-pill urgent">Overdue</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="portal-card">
+                    <h3>Recent Logs</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-gray);">User #405 updated address.</p>
+                </div>
             </div>
-
-            <!-- COMPETITOR CONVERSION -->
-            <div class="ops-card" style="border-left: 4px solid #ff6b00;">
-                <h4>Conversion Pipeline</h4>
-                <div style="font-size: 1.2rem; font-weight: 800;">12 Entities</div>
-                <p style="font-size: 0.75rem; color: #475569;">Acquired from competitors this month.</p>
-                <button class="btn-primary-small" style="width: 100%; margin-top: 10px; font-size: 0.7rem;">Run Compliance Audits</button>
-            </div>
-        </aside>
-    </div>
-
+        </div>
+    </main>
 </body>
 </html>

@@ -3,131 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Logs | Admin | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>System Logs | filings4u Admin</title>
     <style>
-        /* Admin Dark Theme Override for Sidebar */
-        .admin-sidebar { background: #020617 !important; border-right: 1px solid #1e293b !important; }
-        .admin-sidebar .nav-item { color: rgba(255,255,255,0.6) !important; }
-        .admin-sidebar .nav-item:hover, .admin-sidebar .nav-item.active { background: rgba(255,255,255,0.05) !important; color: #ff6b00 !important; }
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --staff-red: #c15254;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfcfc;
+            display: flex;
+        }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .sidebar-header { margin-bottom: 30px; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 12px; display: block; }
+
+        .admin-badge {
+            background: var(--staff-red);
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .nav-item span { margin-right: 12px; width: 20px; text-align: center; }
+
+        .logout-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        .portal-main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 50px 60px;
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+
+        /* LOG VIEW COMPONENTS */
+        .log-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .log-entry {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            gap: 20px;
+            align-items: baseline;
+        }
+
+        .timestamp { color: #94a3b8; min-width: 160px; }
+        .action-tag { font-weight: bold; color: var(--primary-blue); min-width: 100px; }
+        .message { color: var(--text-gray); }
         
-        /* Log Table Styling */
-        .log-table { width: 100%; border-collapse: collapse; background: white; }
-        .log-row { border-bottom: 1px solid #f1f5f9; transition: background 0.2s; }
-        .log-row:hover { background: #f8fafc; }
-        .log-row td { padding: 15px 20px; font-size: 0.85rem; vertical-align: top; }
-        
-        .timestamp { font-family: 'Courier New', monospace; color: #64748b; font-weight: 700; min-width: 180px; }
-        .action-tag { font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
-        
-        /* Action Color Coding */
-        .tag-kms { background: #e0f2fe; color: #0369a1; } /* Data Decryption */
-        .tag-sig { background: #dcfce7; color: #166534; } /* Digital Signatures */
-        .tag-adm { background: #fee2e2; color: #991b1b; } /* Admin Overrides */
-        
-        .raw-data-preview { font-size: 0.75rem; color: #475569; display: block; margin-top: 5px; font-family: monospace; }
+        .type-payment { color: #48bb78; }
+        .type-error { color: var(--danger-red); }
     </style>
 </head>
-<body class="portal-body">
+<body>
 
-    <!-- ADMIN SIDEBAR -->
-    <aside class="portal-sidebar admin-sidebar">
+     <!-- PORTAL SIDEBAR -->
+   <aside class="portal-sidebar">
         <div class="sidebar-header">
-            <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
-            <p style="color: #ff6b00; font-size: 0.65rem; font-weight: 800; margin-top: 5px; text-transform: uppercase;">Admin Operations</p>
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <span class="admin-badge">Staff Account</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="admin-dashboard.html" class="nav-item"><span>🚨</span> Filing Queue</a>
-            <span>🏢</span> Entity Master</a>
-            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue Reports</a>
-            <a href="admin-system-logs.html" class="nav-item active"><span>⚙️</span> System Logs</a>
+            <a href="admin-dashboard.html" class="nav-item active"><span>📈</span> Overview</a>
+            <a href="admin-entity-master.html" class="nav-item"><span>🏢</span> Entity Master</a>
+            <a href="admin-compliance-audit.html" class="nav-item"><span>⚖️</span> Audit Queue</a>
+            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue</a>
+            <a href="admin-system-logs.html" class="nav-item"><span>🖥️</span> Logs</a>
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
+            </div>
         </nav>
-        <div class="sidebar-footer">
-            <a href="index.html" class="logout-btn" style="color: rgba(255,255,255,0.5);">Sign Out</a>
-        </div>
     </aside>
 
-    <!-- MAIN ADMIN CONTENT -->
+    <!-- MAIN PORTAL CONTENT -->
     <main class="portal-main">
-        <header class="portal-header">
-            <div class="welcome-text">
-                <h1>System Logs & Security Audit</h1>
-                <p>Tracking <strong>AWS KMS</strong>, <strong>ESIGN</strong>, and <strong>Admin Access</strong> events.</p>
+        <div class="content-container">
+            <header class="portal-header">
+                <div class="welcome-text">
+                    <h1>System Logs</h1>
+                    <p>Live audit trail of platform activity and background tasks</p>
+                </div>
+            </header>
+
+            <div class="log-card">
+                <div class="log-entry">
+                    <span class="timestamp">2026-05-09 22:15:04</span>
+                    <span class="action-tag type-payment">[PAYMENT]</span>
+                    <span class="message">Transaction #TXN-9042 settled for Roseland Logistics LLC.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="timestamp">2026-05-09 22:12:30</span>
+                    <span class="action-tag">[USER]</span>
+                    <span class="message">Address Guardrail triggered for EIN ending in 1234.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="timestamp">2026-05-09 22:01:15</span>
+                    <span class="action-tag type-error">[ERROR]</span>
+                    <span class="message">Failed API handshake with Delaware SOS portal. Retrying in 30s.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="timestamp">2026-05-09 21:55:12</span>
+                    <span class="action-tag">[SYSTEM]</span>
+                    <span class="message">Automatic database backup completed successfully.</span>
+                </div>
             </div>
-            <div class="header-actions">
-                <button class="btn-outline-small" style="background: white;">Download Full Audit Trail (CSV)</button>
-            </div>
-        </header>
-
-        <!-- SEARCH & FILTER -->
-        <div class="portal-card" style="padding: 15px 25px; margin-bottom: 25px; display: flex; gap: 20px; align-items: center;">
-            <span style="font-weight: 700; font-size: 0.85rem;">Event Filter:</span>
-            <select class="intake-input" style="max-width: 150px; margin: 0; padding: 5px;">
-                <option>All Events</option>
-                <option>KMS Decryption</option>
-                <option>E-Signatures</option>
-                <option>Admin Overrides</option>
-            </select>
-            <input type="text" placeholder="Search by Entity ID, Actor, or IP..." class="intake-input" style="max-grow: 1; margin: 0; padding: 5px;">
-        </div>
-
-        <!-- LOG TABLE -->
-        <div class="portal-card" style="padding: 0; overflow: hidden;">
-            <table class="log-table">
-                <thead style="background: #f8fafc; text-align: left; font-size: 0.7rem; color: #64748b; text-transform: uppercase;">
-                    <tr>
-                        <th style="padding: 15px 20px;">Timestamp (UTC)</th>
-                        <th>Action Type</th>
-                        <th>Actor / Target</th>
-                        <th>Security Metadata</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- LOG ITEM: KMS DATA ACCESS -->
-                    <tr class="log-row">
-                        <td class="timestamp">2026-05-09 14:02:11</td>
-                        <td><span class="action-tag tag-kms">KMS_DECRYPT</span></td>
-                        <td>
-                            <strong>SYSTEM_CORE</strong><br>
-                            <small>Target: EIN_Letter_4242.pdf</small>
-                        </td>
-                        <td>
-                            <strong>IP: 54.210.XX.XX</strong> (AWS Internal)<br>
-                            <span class="raw-data-preview">Method: AES-256-GCM; Key: alias/filings4u-vault</span>
-                        </td>
-                    </tr>
-
-                    <!-- LOG ITEM: DIGITAL SIGNATURE -->
-                    <tr class="log-row">
-                        <td class="timestamp">2026-05-09 13:45:04</td>
-                        <td><span class="action-tag tag-sig">ESIGN_COMPLETE</span></td>
-                        <td>
-                            <strong>j.roseland@llc.com</strong><br>
-                            <small>Entity: Roseland Logistics</small>
-                        </td>
-                        <td>
-                            <strong>IP: 192.168.1.42</strong> (Client Device)<br>
-                            <span class="raw-data-preview">Browser: Chrome/124.0.0; Consent: TRUE; AuditID: SIG-88</span>
-                        </td>
-                    </tr>
-
-                    <!-- LOG ITEM: ADMIN IDENTITY ASSUME -->
-                    <tr class="log-row" style="background: #fff9f5;">
-                        <td class="timestamp">2026-05-09 13:30:00</td>
-                        <td><span class="action-tag tag-adm">ADMIN_ASSUME</span></td>
-                        <td>
-                            <strong>Admin: Sara Ops</strong><br>
-                            <small>Context: Northstar Trucking</small>
-                        </td>
-                        <td>
-                            <strong>IP: 72.14.XX.XX</strong> (Internal Office)<br>
-                            <span class="raw-data-preview">Reason: Fixed SOS Clerical Error; Ticket: #4092</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </main>
 

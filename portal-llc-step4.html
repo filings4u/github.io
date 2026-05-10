@@ -3,145 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Review & Payment | filings4u Portal</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Review & Submit | filings4u Portal</title>
+    <style>
+        /* GLOBAL VARIABLES & BASE */
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --success-green: #48bb78;
+        }
+
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fcfcfc; display: flex; }
+
+        /* SIDEBAR STYLES (LOCKED) */
+        .portal-sidebar {
+            width: 260px; height: 100vh; background: var(--bg-light); border-right: 1px solid var(--border-color);
+            padding: 20px; position: fixed; display: flex; flex-direction: column; z-index: 100; box-sizing: border-box;
+        }
+        .sidebar-locked .sidebar-nav, .sidebar-locked .logout-container { display: none !important; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 10px; }
+
+        /* MAIN WRAPPER */
+        .portal-main { margin-left: 260px; width: calc(100% - 260px); padding: 50px 60px; box-sizing: border-box; }
+        .content-container { max-width: 900px; margin: 0 auto; }
+
+        /* PROGRESS BAR */
+        .step-indicator { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+        .step-indicator::before { content: ""; position: absolute; top: 15px; left: 0; right: 0; height: 2px; background: var(--border-color); z-index: 1; }
+        .step { width: 30px; height: 30px; background: var(--white); border: 2px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2; color: var(--text-gray); }
+        .step.completed { background: var(--success-green); border-color: var(--success-green); color: white; }
+        .step.active { border-color: var(--primary-blue); background: var(--primary-blue); color: var(--white); }
+        .step-label { font-size: 0.75rem; margin-top: 8px; color: var(--text-gray); font-weight: 600; }
+        .step-wrapper { display: flex; flex-direction: column; align-items: center; flex: 1; }
+
+        /* CARDS & PRICE BREAKDOWN */
+        .intake-card { background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .price-breakdown { margin-top: 30px; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+        .price-header { background: var(--bg-light); padding: 15px 20px; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; font-size: 0.75rem; border-bottom: 1px solid var(--border-color); }
+        .price-body { padding: 10px 20px; }
+        .price-row { display: flex; justify-content: space-between; padding: 12px 0; font-size: 0.95rem; border-bottom: 1px solid #f1f5f9; }
+        .price-row:last-child { border-bottom: none; }
+        .total-row { background: var(--primary-blue); color: white; padding: 15px 20px; display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; }
+        .fee-type { font-size: 0.75rem; color: var(--text-gray); display: block; font-weight: normal; margin-top: 2px; }
+
+        /* BUTTON GROUP */
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+        .btn-back { background: var(--white); border: 1px solid var(--border-color); color: var(--text-gray); padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; text-align: center; flex: 1; cursor: pointer; }
+        .btn-pay { background-color: var(--success-green); color: var(--white); border: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; flex: 2; font-size: 1.1rem; transition: opacity 0.2s; }
+        .btn-pay:hover { opacity: 0.9; }
+    </style>
 </head>
-<body class="portal-body">
+<body>
 
-    <!-- MOBILE NAV TOGGLE -->
-    <button class="mobile-nav-toggle" onclick="toggleSidebar()">MENU</button>
-
-    <!-- SIDEBAR -->
-    <aside class="portal-sidebar" id="sidebar">
+    <!-- LOCKED SIDEBAR -->
+    <aside class="portal-sidebar sidebar-locked">
         <div class="sidebar-header">
-            <img src="images/logo.png" alt="filings4u" style="height: 28px; margin-bottom: 20px;">
-            
-                <label>Active Entity</label>
-                
-                    <option value="4242">Roseland Logistics LLC</option>
-                    <option value="4243">Roseland Real Estate</option>
-                </select>
-            </div>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="portal-dashboard.html" class="nav-item"><span>📊</span> Dashboard</a>
-            <a href="portal-services-list.html" class="nav-item active"><span>➕</span> New Filing</a>
-            <a href="portal-vault.html" class="nav-item"><span>📂</span> Vault</a>
-            <a href="portal-billing.html" class="nav-item"><span>💳</span> Billing</a>
-        </nav>
-        <div class="sidebar-footer">
-            <a href="index.html" class="logout-btn">Sign Out</a>
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <div style="margin-top: 15px; font-size: 0.7rem; color: #a0aec0; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Formation Wizard</div>
         </div>
     </aside>
 
     <main class="portal-main">
-        <header class="portal-header">
-            <div class="welcome-text">
-                <h1>Review & Secure Payment</h1>
-                <p>Step 4 of 4: Finalize <strong>Roseland Logistics LLC</strong></p>
-            </div>
-            <div class="step-indicator">
-                <div class="step">1</div><div class="step">2</div><div class="step">3</div><div class="step active">4</div>
-            </div>
-        </header>
-
-        <div class="intake-container" style="display: grid; grid-template-columns: 1fr 400px; gap: 30px;">
+        <div class="content-container">
             
-            <div class="checkout-flow">
-                <!-- ORDER SUMMARY BOX -->
-                <div class="portal-card" style="margin-bottom: 25px;">
-                    <h3 style="margin-bottom: 20px;">Entity Summary</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem;">
-                        <div><label style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">State</label><p><strong>Texas</strong></p></div>
-                        <div><label style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">Tax Status</label><p><strong>S-Corp Election</strong></p></div>
+            <!-- PROGRESS BAR -->
+            <div class="step-indicator">
+                <div class="step-wrapper"><div class="step completed">✓</div><div class="step-label">Basic Info</div></div>
+                <div class="step-wrapper"><div class="step completed">✓</div><div class="step-label">Members</div></div>
+                <div class="step-wrapper"><div class="step completed">✓</div><div class="step-label">Address</div></div>
+                <div class="step-wrapper"><div class="step active">4</div><div class="step-label">Review</div></div>
+            </div>
+
+            <div class="intake-card">
+                <h2 style="color: var(--primary-blue); margin-top: 0;">Final Review & Payment</h2>
+                <p style="color: var(--text-gray); margin-bottom: 30px;">Verify your order details below. Click pay to submit your registration to the state.</p>
+
+                <div class="price-breakdown">
+                    <div class="price-header">Payment Summary</div>
+                    <div class="price-body">
+                        <div class="price-row">
+                            <div><strong>LLC Formation Service</strong><span class="fee-type">Standard processing & document prep</span></div>
+                            <span>$199.00</span>
+                        </div>
+                        <div class="price-row">
+                            <div><strong>Registered Agent Service</strong><span class="fee-type">Professional representation (Annual)</span></div>
+                            <span>$125.00</span>
+                        </div>
+                        <div class="price-row">
+                            <div><strong>State Filing Fee (Delaware)</strong><span class="fee-type">Direct pass-through state expense</span></div>
+                            <span>$90.00</span>
+                        </div>
+                    </div>
+                    <div class="total-row">
+                        <span>Amount Due Today</span>
+                        <span>$414.00</span>
                     </div>
                 </div>
 
-                <!-- PARTAL-PAYMENT CHECKOUT COMPONENT (THE REQUESTED CODE) -->
-                <div id="payment-status-area">
-                    <div class="portal-card" style="border: 2px solid #0a1f44;">
-                        <h3 style="margin-bottom: 20px;">Secure Checkout</h3>
-                        
-                        <!-- WALLET APPLICATION BOX -->
-                        <div id="wallet-application" style="background: #f0fdf4; border: 1px solid #10b981; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <strong style="color: #166534; display: block;">Portal Credit Applied</strong>
-                                    <span style="font-size: 0.85rem; color: #475569;">You have <strong>$142.50</strong> available.</span>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="font-weight: 800; color: #166534;">-$142.50</span>
-                                    <!-- OPT-OUT TOGGLE -->
-                                    <br><small><a href="#" onclick="toggleWallet(false)" style="color: #be123c;">Remove Credit</a></small>
-                                </div>
-                            </div>
-                        </div>
+                <div style="background: #fff5f5; padding: 15px; border-radius: 8px; font-size: 0.85rem; color: #c53030; border: 1px solid #feb2b2; margin-top: 25px;">
+                    <strong>Authorization:</strong> By submitting, you authorize <strong>filings4u</strong> to charge $414.00 and file on your behalf.
+                </div>
 
-                        <!-- FINAL TOTAL CALCULATION -->
-                        <div style="margin-bottom: 30px; padding: 0 10px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #64748b;">
-                                <span>Order Subtotal</span>
-                                <span>$999.00</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800; color: #0a1f44; padding-top: 15px; border-top: 2px solid #f1f5f9;">
-                                <span>Remaining Balance</span>
-                                <span style="color: #ff6b00;">$856.50</span>
-                            </div>
-                            <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">Your primary card <strong>VISA **** 4242</strong> will be charged for the remaining balance.</p>
-                        </div>
-
-                        <!-- STRIPE ATTEMPT BUTTON -->
-                        <button id="pay-btn" class="btn-primary-small" style="width: 100%; height: 55px; font-size: 1.1rem;" onclick="processPartialPayment()">
-                            Complete Payment ($856.50)
-                        </button>
-                    </div>
+                <!-- UPDATED BUTTON GROUP WITH BACK BUTTON -->
+                <div class="btn-group">
+                    <a href="portal-llc-step3.html" class="btn-back">← Back to Address</a>
+                    <button class="btn-pay" onclick="window.location.href='portal-billing-trigger.html'">Finalize & Pay $414.00 →</button>
                 </div>
             </div>
 
-            <!-- RECEIPT SIDEBAR -->
-            <div class="intake-help">
-                <h4>Bill Details</h4>
-                <div style="margin-top: 20px; font-size: 0.85rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>LLC Formation</span><span>$100.00</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Texas State Fee</span><span>$300.00</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #ff6b00;"><span>S-Corp Election</span><span>$599.00</span></div>
-                </div>
-                <hr style="border:0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-                <p style="font-size: 0.75rem; color: #64748b; line-height: 1.4;">
-                    🔒 AES-256 Encrypted Payment. Your data is wiped post-transmission.
-                </p>
-            </div>
         </div>
     </main>
 
-    <script src="assets/js/portal-state.js"></script>
-    <script>
-        function processPartialPayment() {
-            const btn = document.getElementById('pay-btn');
-            btn.innerHTML = '<div class="spinner-small"></div> Processing...';
-            btn.disabled = true;
-
-            // Trigger the Socket Listener we built earlier
-            if(typeof SuccessSocket !== 'undefined') {
-                SuccessSocket.init('TX-4242-ORDER');
-            } else {
-                // Fallback if socket logic isn't loaded
-                setTimeout(() => { alert("Payment Processed Successfully!"); window.location.href="portal-post-launch.html"; }, 2000);
-            }
-        }
-
-        function toggleWallet(use) {
-            const box = document.getElementById('wallet-application');
-            box.style.display = use ? 'block' : 'none';
-            // Adjust the logic to update the total here...
-            alert("Payment totals updated.");
-        }
-
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('mobile-active');
-        }
-    </script>
 </body>
 </html>

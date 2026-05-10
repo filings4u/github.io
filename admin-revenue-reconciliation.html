@@ -3,140 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenue Reconciliation | Admin | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/portal.css">
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Revenue Reconciliation | filings4u Admin</title>
     <style>
-        /* Admin Dark Theme */
-        .admin-sidebar { background: #020617 !important; border-right: 1px solid #1e293b !important; }
-        .admin-sidebar .nav-item { color: rgba(255,255,255,0.6) !important; }
-        .admin-sidebar .nav-item:hover, .admin-sidebar .nav-item.active { background: rgba(255,255,255,0.05) !important; color: #ff6b00 !important; }
-        
-        .recon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .ledger-table { width: 100%; border-collapse: collapse; }
-        .ledger-row { border-bottom: 1px solid #f1f5f9; }
-        .ledger-row td { padding: 15px; font-size: 0.9rem; }
-        .amount-pos { color: #10b981; font-weight: 700; }
-        .amount-neg { color: #c15254; font-weight: 700; }
-        
-        /* State Fee Liability Indicator */
-        .liability-card { border-left: 5px solid #ff6b00; }
-        .service-card { border-left: 5px solid #10b981; }
+        :root {
+            --primary-blue: #0a1f44;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e2e8f0;
+            --text-gray: #4a5568;
+            --danger-red: #e53e3e;
+            --success-green: #48bb78;
+            --staff-red: #c15254;
+        }
 
-        /* Assume Identity Status Bar */
-        .admin-context-bar { background: #ff6b00; color: white; padding: 10px 25px; font-size: 0.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        .exit-context { background: rgba(255,255,255,0.2); border: 1px solid white; color: white; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfcfc;
+            display: flex;
+        }
+
+        /* SIDEBAR STYLES */
+        .portal-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .sidebar-header { margin-bottom: 30px; }
+        .sidebar-logo { height: 45px; width: auto; margin-bottom: 12px; display: block; }
+
+        .admin-badge {
+            background: var(--staff-red);
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .nav-item span { margin-right: 12px; width: 20px; text-align: center; }
+
+        .logout-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        .portal-main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 50px 60px;
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h1 { margin: 0; color: var(--primary-blue); }
+
+        /* REVENUE COMPONENTS */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .stat-card small { color: var(--text-gray); font-weight: 600; }
+        .stat-card h2 { margin: 10px 0 0; color: var(--primary-blue); font-size: 2rem; }
+
+        .portal-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; font-size: 0.75rem; color: var(--text-gray); padding: 15px; border-bottom: 2px solid var(--bg-light); text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid var(--bg-light); font-size: 0.9rem; }
+
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .status-pill.success { background: #c6f6d5; color: #22543d; }
     </style>
 </head>
-<body class="portal-body">
+<body>
 
-    <!-- ADMIN SIDEBAR -->
-    <aside class="portal-sidebar admin-sidebar">
+      <!-- PORTAL SIDEBAR -->
+   <aside class="portal-sidebar">
         <div class="sidebar-header">
-            <img src="images/logo.png" alt="filings4u" style="height: 25px; filter: brightness(0) invert(1);">
-            <p style="color: #ff6b00; font-size: 0.65rem; font-weight: 800; margin-top: 5px; text-transform: uppercase;">Admin Operations</p>
+            <img src="images/logo.png" alt="filings4u" class="sidebar-logo">
+            <span class="admin-badge">Staff Account</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="admin-dashboard.html" class="nav-item"><span>🚨</span> Filing Queue</a>
-            <span>🏢</span> Entity Master</a>
-            <a href="admin-tax-review.html" class="nav-item"><span>⚖️</span> Tax-Exempt Review</a>
-            <a href="admin-revenue-reconciliation.html" class="nav-item active"><span>💰</span> Revenue Reports</a>
+            <a href="admin-dashboard.html" class="nav-item active"><span>📈</span> Overview</a>
+            <a href="admin-entity-master.html" class="nav-item"><span>🏢</span> Entity Master</a>
+            <a href="admin-compliance-audit.html" class="nav-item"><span>⚖️</span> Audit Queue</a>
+            <a href="admin-revenue-reconciliation.html" class="nav-item"><span>💰</span> Revenue</a>
+            <a href="admin-system-logs.html" class="nav-item"><span>🖥️</span> Logs</a>
+            
+            <div class="logout-container">
+                <a href="index.html" class="logout-btn">Sign Out</a>
+            </div>
         </nav>
-        <div class="sidebar-footer">
-            <a href="index.html" class="logout-btn" style="color: rgba(255,255,255,0.5);">Sign Out</a>
-        </div>
     </aside>
 
+    <!-- MAIN PORTAL CONTENT -->
     <main class="portal-main">
-        <!-- ASSUME IDENTITY NOTIFICATION (Hidden by default, shown when acting as client) -->
-        <div class="admin-context-bar" id="contextBar" style="display: none;">
-            <span>VIEWING PORTAL AS: <strong>Roseland Logistics LLC</strong> (ID: 4242-88)</span>
-            <button class="exit-context" onclick="exitContext()">Exit Client View</button>
-        </div>
+        <div class="content-container">
+            <header class="portal-header">
+                <div class="welcome-text">
+                    <h1>Revenue Reconciliation</h1>
+                    <p>Financial oversight and transaction settlement</p>
+                </div>
+            </header>
 
-        <header class="portal-header">
-            <div class="welcome-text">
-                <h1>Revenue Reconciliation</h1>
-                <p>Real-time balance of Service Revenue vs. State Liabilities.</p>
+            <!-- REVENUE STATS -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <small>Gross Revenue (MTD)</small>
+                    <h2>$84,200.00</h2>
+                </div>
+                <div class="stat-card">
+                    <small>Pending Settlements</small>
+                    <h2>$12,150.00</h2>
+                </div>
+                <div class="stat-card">
+                    <small>Approved Refunds</small>
+                    <h2 style="color: var(--danger-red);">$340.00</h2>
+                </div>
             </div>
-            <div class="header-actions">
-                <button class="btn-outline-small" style="background: white;">Export CSV for CPA</button>
-            </div>
-        </header>
 
-        <!-- KPI CARDS -->
-        <div class="recon-grid">
-            <div class="portal-card service-card">
-                <small style="color: #64748b; text-transform: uppercase; font-weight: 700;">Net Service Revenue</small>
-                <div style="font-size: 2rem; font-weight: 800;">$14,250.00</div>
-                <p style="font-size: 0.8rem; color: #10b981; margin-top: 5px;">✓ Fully Earned (Deductible Fee)</p>
-            </div>
-            <div class="portal-card liability-card">
-                <small style="color: #64748b; text-transform: uppercase; font-weight: 700;">State Fee Liabilities</small>
-                <div style="font-size: 2rem; font-weight: 800;">$4,800.00</div>
-                <p style="font-size: 0.8rem; color: #ff6b00; margin-top: 5px;">⚠️ Scheduled Pass-Through</p>
-            </div>
             <div class="portal-card">
-                <small style="color: #64748b; text-transform: uppercase; font-weight: 700;">Total Payout Gap</small>
-                <div style="font-size: 2rem; font-weight: 800; color: #0ea5e9;">$0.00</div>
-                <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Stripe Balance matches Ledger</p>
+                <h3>Recent Transactions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Entity</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#TXN-9042</td>
+                            <td><strong>Roseland Logistics LLC</strong></td>
+                            <td>$450.00</td>
+                            <td>May 09, 2026</td>
+                            <td><span class="status-pill success">Settled</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TXN-9039</td>
+                            <td><strong>Swift Hauling Inc</strong></td>
+                            <td>$125.00</td>
+                            <td>May 08, 2026</td>
+                            <td><span class="status-pill success">Settled</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TXN-8812</td>
+                            <td><strong>Titan Fleet Systems</strong></td>
+                            <td>$2,100.00</td>
+                            <td>May 05, 2026</td>
+                            <td><span class="status-pill success">Settled</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-
-        <!-- TRANSACTION LEDGER -->
-        <div class="portal-card" style="padding: 0; overflow: hidden;">
-            <div class="category-header"><h3>Transaction Reconciliation Ledger</h3></div>
-            <table class="ledger-table">
-                <thead style="background: #f8fafc; text-align: left; font-size: 0.75rem; color: #64748b; text-transform: uppercase;">
-                    <tr>
-                        <th style="padding: 15px;">Transaction / Entity</th>
-                        <th>Date</th>
-                        <th>Gross Collected</th>
-                        <th>State Fee (Out)</th>
-                        <th>Service Rev (In)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="ledger-row">
-                        <td>
-                            <strong>TX LLC Formation</strong><br>
-                            Roseland Logistics LLC</small>
-                        </td>
-                        <td>May 09, 2026</td>
-                        <td class="amount-pos">$400.00</td>
-                        <td class="amount-neg">-$300.00</td>
-                        <td>$100.00</td>
-                    </tr>
-                    <tr class="ledger-row">
-                        <td>
-                            <strong>S-Corp Election</strong><br>
-                            <small style="color: #64748b;">Northstar Trucking</small>
-                        </td>
-                        <td>May 09, 2026</td>
-                        <td class="amount-pos">$599.00</td>
-                        <td>$0.00</td>
-                        <td>$599.00</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </main>
 
-    <script>
-        function assumeIdentity(entityName) {
-            document.getElementById('contextBar').style.display = 'flex';
-            // Logic: Set Session Cookie for Entity and redirect to Client Dashboard
-            document.cookie = "admin_acting_as=" + entityName + "; path=/";
-            alert("Assuming identity of " + entityName + ". Redirecting to Client Dashboard...");
-            window.location.href = 'portal-dashboard.html';
-        }
-
-        function exitContext() {
-            document.getElementById('contextBar').style.display = 'none';
-            document.cookie = "admin_acting_as=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            location.reload();
-        }
-    </script>
 </body>
 </html>
