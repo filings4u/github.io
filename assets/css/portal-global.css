@@ -1,0 +1,119 @@
+/* portal-global.css */
+
+:root {
+    --primary-blue: #0a1f44;
+    --white: #ffffff;
+    --bg-light: #f8f9fa;
+    --border-color: #e2e8f0;
+    --text-gray: #4a5568;
+    --danger-red: #e53e3e;
+    --success-green: #48bb78;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+    display: flex;
+}
+
+/* SIDEBAR STYLES */
+.portal-sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--bg-light);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    height: 45px;
+    width: auto;
+    margin-bottom: 40px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    color: var(--primary-blue);
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.nav-item span { margin-right: 12px; }
+
+.logout-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.logout-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* MAIN AREA & SPACING */
+.portal-main {
+    margin-left: 280px; 
+    width: calc(100% - 280px);
+    padding: 50px 60px; 
+    box-sizing: border-box;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* UI COMPONENTS (Reusable across all pages) */
+.portal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.btn-primary-small {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.portal-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
