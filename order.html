@@ -4,35 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review & Pay | filings4u</title>
-    <script src="https://stripe.com"></script>
-    <link rel="stylesheet" href="assets/css/site-elite.css">
-    <style>
-        :root { --border: #e2e8f0; --navy: #0f172a; --ice: #f8fafc; }
-        body { font-family: sans-serif; background: var(--ice); margin: 0; padding: 20px; }
-        .checkout-wrapper { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        #checkout { margin-top: 20px; min-height: 450px; }
-        #loading-message { text-align: center; padding: 80px; color: #64748b; }
-    </style>
-</head>
-<body>
-
-    <main class="checkout-wrapper">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <img src="images/logo.png" style="height: 35px;">
-            <h2>Complete Your Filing</h2>
-            <p>Secure payment for your corporate infrastructure</p>
-        </div>
-
-        <!-- STYLED LOADING MESSAGE -->
-        <div id="loading-message">
-            <div style="font-size: 1.2rem; font-weight: 700; color: var(--navy);">🔒 Connecting to Stripe...</div>
-            <p>Please wait while we prepare your secure checkout.</p>
-        </div>
-
-        <!-- STRIPE MOUNTS HERE (MUST BE EMPTY) -->
-        <div id="checkout"></div> 
-    </main>
-
     <script>
         // 1. YOUR STRIPE PUBLISHABLE KEY
         const stripe = Stripe('pk_test_51TTy4u1hrjQxq47MgsMyTpdS4Aadnk4H63kILJaWbuUfppSySDt4Ijx9we7zkkCFEaeqzQ7C3k7Ql9HcSA5Urh3n00pEKGxNLE'); 
@@ -81,5 +52,35 @@
 
         initialize();
     </script>
+    <script src="https://stripe.com"></script>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
+    <style>
+        :root { --border: #e2e8f0; --navy: #0f172a; --ice: #f8fafc; }
+        body { font-family: sans-serif; background: var(--ice); margin: 0; padding: 20px; }
+        .checkout-wrapper { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        #checkout { margin-top: 20px; min-height: 450px; }
+        #loading-message { text-align: center; padding: 80px; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <main class="checkout-wrapper">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="images/logo.png" style="height: 35px;">
+            <h2>Complete Your Filing</h2>
+            <p>Secure payment for your corporate infrastructure</p>
+        </div>
+
+        <!-- STYLED LOADING MESSAGE -->
+        <div id="loading-message">
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--navy);">🔒 Connecting to Stripe...</div>
+            <p>Please wait while we prepare your secure checkout.</p>
+        </div>
+
+        <!-- STRIPE MOUNTS HERE (MUST BE EMPTY) -->
+        <div id="checkout"></div> 
+    </main>
+
+
 </body>
 </html>
