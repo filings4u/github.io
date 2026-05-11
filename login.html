@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | filings4u Professional</title>
+    <title>Secure Login | filings4u Professional</title>
     <link rel="stylesheet" href="assets/css/site-elite.css">
     <style>
         .login-container { max-width: 450px; margin: 80px auto; background: white; padding: 50px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(10,31,68,0.08); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--navy); }
-        .form-group input { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; }
+        .form-group input { width: 100%; padding: 14px; border-radius: 8px; border: 1.5px solid var(--border); font-family: inherit; font-size: 1rem; }
+        #errorMessage { color: #e53e3e; font-size: 0.85rem; margin-bottom: 15px; display: none; background: #fff5f5; padding: 10px; border-radius: 6px; border: 1px solid #feb2b2; }
     </style>
 </head>
 <body style="background: var(--ice);">
@@ -22,22 +23,77 @@
     <span class="hero-tag">Client Access</span>
     <h2 style="margin-bottom: 30px;">Welcome Back.</h2>
     
-    <form action="https://portal.filings4u.com/index.html">
+    <!-- ERROR MESSAGE BOX -->
+    <div id="errorMessage"></div>
+
+    <form id="loginForm">
         <div class="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="name@company.com" required>
+            <input type="email" id="email" placeholder="name@company.com" required>
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" placeholder="••••••••" required>
+            <input type="password" id="password" placeholder="••••••••" required>
         </div>
-        <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">Sign In to Portal →</button>
+        <button type="submit" id="loginBtn" class="btn-main" style="width: 100%; margin-top: 10px;">Sign In to Portal →</button>
     </form>
 
     <div style="margin-top: 30px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
         <p style="font-size: 0.85rem; color: var(--text-muted);">New client? <a href="signup.html" style="color: var(--emerald); font-weight: 700; text-decoration: none;">Create an account</a></p>
     </div>
 </main>
+
+<!-- 1. LOAD FIREBASE COMPAT SDKS -->
+<script src="https://gstatic.com"></script>
+<script src="https://gstatic.com"></script>
+
+<script>
+  // 2. PASTE YOUR CONFIG FROM STEP 1 HERE
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA_45sXieC6fdfQstLQ2a21psXeOxhfdwo",
+  authDomain: "customer-portal-18728.firebaseapp.com",
+  projectId: "customer-portal-18728",
+  storageBucket: "customer-portal-18728.firebasestorage.app",
+  messagingSenderId: "117765841972",
+  appId: "1:117765841972:web:9746c4f3037270a7811661",
+  measurementId: "G-Q2L5R7LP6R"
+};
+
+  // 3. INITIALIZE FIREBASE
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // 4. LOGIN LOGIC
+  const loginForm = document.getElementById('loginForm');
+  const errorDiv = document.getElementById('errorMessage');
+
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('loginBtn');
+
+    // UI Feedback
+    btn.innerText = "Authenticating...";
+    btn.style.opacity = "0.7";
+    errorDiv.style.display = 'none';
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Success: Redirect to the portal subdomain
+        window.location.href = "https://filings4u.com";
+      })
+      .catch((error) => {
+        // Failure: Show error message
+        btn.innerText = "Sign In to Portal →";
+        btn.style.opacity = "1";
+        errorDiv.innerText = "Error: " + error.message;
+        errorDiv.style.display = 'block';
+      });
+  });
+</script>
 
 </body>
 </html>
