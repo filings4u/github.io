@@ -2,78 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Review & Pay | filings4u</title>
-    <script src="https://js.stripe.com/v3/"></script>
+    <title>Complete Your Order | filings4u</title>
+    <script src="https://stripe.com"></script>
     <link rel="stylesheet" href="assets/css/site-elite.css">
     <style>
-        .checkout-wrapper { max-width: 800px; margin: 40px auto; background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        #checkout { margin-top: 20px; min-height: 400px; }
-        #loading-spinner { text-align: center; padding: 100px 0; color: #64748b; font-weight: 600; }
+        .checkout-wrapper { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        #checkout { margin-top: 20px; min-height: 450px; }
+        #loading { text-align: center; padding: 60px; color: var(--text-gray); }
     </style>
 </head>
 <body style="background: var(--ice);">
 
     <main class="checkout-wrapper">
-        <h2>Complete Your Filing</h2>
-        <p>Your portal access and federal filings will be provisioned immediately after payment.</p>
+        <h2>Secure Checkout</h2>
+        <p>Complete your payment to activate your corporate portal.</p>
 
-        <!-- Spinner shown while we talk to Supabase -->
-        <div id="loading-spinner">
-            <div style="margin-bottom: 15px;">🔒 Securely connecting to Stripe...</div>
-            <small>Please do not refresh the page.</small>
-        </div>
-
-        <!-- Stripe mounts here -->
+        <!-- Container for the Stripe Form -->
+        <div id="loading">🔒 Connecting to secure payment gateway...</div>
         <div id="checkout"></div> 
     </main>
 
     <script>
-        // 1. REPLACE THIS WITH YOUR REAL STRIPE KEY (from Developers > API Keys)
+        // REPLACE WITH YOUR ACTUAL PUBLISHABLE KEY (pk_test_...)
         const stripe = Stripe('pk_test_51TTy4u1hrjQxq47MgsMyTpdS4Aadnk4H63kILJaWbuUfppSySDt4Ijx9we7zkkCFEaeqzQ7C3k7Ql9HcSA5Urh3n00pEKGxNLE'); 
 
+        // 1. Get data saved from the Wizard
         const orderData = JSON.parse(sessionStorage.getItem('pendingOrder'));
 
-        async function initializeCheckout() {
+        async function initialize() {
+            if (!orderData) {
+                alert("Order session expired. Please restart the wizard.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            // 2. Fetch the client secret from your Supabase Function
+            const fetchClientSecret = async () => {
+                const response = await fetch('https://supabase.co', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: orderData.customer_email,
+                        company_name: orderData.company_name,
+                        amount: parseInt(orderData.price || 599) * 100 // Convert to cents
+                    })
+                });
+
+                const { clientSecret, error } = await response.json();
+                if (error) throw new Error(error);
+                return clientSecret;
+            };
+
+            // 3. Initialize and mount the Stripe Embedded form
             try {
-                // 2. This function tells Stripe how to get the clientSecret
-                const fetchClientSecret = async () => {
-                    const response = await fetch('https://supabase.co', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            email: orderData.customer_email,
-                            company_name: orderData.company_name,
-                            amount: (orderData.price || 599) * 100 // Amount in cents
-                        })
-                    });
-
-                    if (!response.ok) throw new Error('Failed to create session');
-                    
-                    const { clientSecret } = await response.json();
-                    return clientSecret;
-                };
-
-                // 3. Initialize the embedded form
                 const checkout = await stripe.initEmbeddedCheckout({ fetchClientSecret });
-
-                // 4. Hide loading message and show the form
-                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('loading').style.display = 'none';
                 checkout.mount('#checkout');
-
-            } catch (error) {
-                console.error("Initialization Error:", error);
-                document.getElementById('loading-spinner').innerHTML = 
-                    `<div style="color:red">Error loading payment form. Please contact support.</div>`;
+            } catch (e) {
+                console.error(e);
+                document.getElementById('loading').innerText = "Error loading checkout. Please refresh.";
             }
         }
 
-        // Run the script if we have data, otherwise send them back to the wizard
-        if (orderData && orderData.customer_email) {
-            initializeCheckout();
-        } else {
-            alert("No order data found. Returning to start.");
-            window.location.href = 'index.html';
-        }
+        initialize();
     </script>
 </body>
 </html>
