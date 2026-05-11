@@ -12,7 +12,7 @@
         .form-group label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--navy); }
         .form-group input { width: 100%; padding: 14px; border-radius: 8px; border: 1.5px solid var(--border); font-family: inherit; font-size: 1rem; box-sizing: border-box; }
         #errorMessage { color: #e53e3e; font-size: 0.85rem; margin-bottom: 15px; display: none; background: #fff5f5; padding: 10px; border-radius: 6px; border: 1px solid #feb2b2; }
-        .btn-main { background: var(--navy); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-main { background: var(--navy); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -34,7 +34,7 @@
                 <label>Password</label>
                 <input type="password" id="password" required>
             </div>
-            <button type="submit" id="loginBtn" class="btn-main" style="width: 100%; margin-top: 10px;">Sign In to Portal →</button>
+            <button type="submit" id="loginBtn" class="btn-main">Sign In to Portal →</button>
         </form>
 
         <div style="margin-top: 30px; text-align: center; border-top: 1px solid var(--border); padding-top: 25px;">
@@ -47,92 +47,76 @@
         </div>
     </main>
 
-    <!-- 1. CORRECTED FIREBASE COMPAT SDKS -->
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+<!-- Load the specific Auth and App modules -->
+<script type="module">
+  import { initializeApp } from "https://gstatic.com";
+  import { 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    sendPasswordResetEmail 
+  } from "https://gstatic.com";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // 1. YOUR CONFIG
   const firebaseConfig = {
     apiKey: "AIzaSyA_45sXieC6fdfQstLQ2a21psXeOxhfdwo",
-    authDomain: "customer-portal-18728.firebaseapp.com",
+    authDomain: "://firebaseapp.com",
     projectId: "customer-portal-18728",
     storageBucket: "customer-portal-18728.firebasestorage.app",
     messagingSenderId: "117765841972",
-    appId: "1:117765841972:web:9746c4f3037270a7811661",
-    measurementId: "G-Q2L5R7LP6R"
+    appId: "1:117765841972:web:9746c4f3037270a7811661"
   };
 
-  // Initialize Firebase
+  // 2. INITIALIZE
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+
+  const loginForm = document.getElementById('loginForm');
+  const errorDiv = document.getElementById('errorMessage');
+  const loginBtn = document.getElementById('loginBtn');
+
+  // 3. LOGIN & REDIRECT LOGIC
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    loginBtn.innerText = "Authenticating...";
+    errorDiv.style.display = 'none';
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // Success: Redirect to dashboard
+      window.location.href = "https://filings4u.com";
+    } catch (error) {
+      loginBtn.innerText = "Sign In to Portal →";
+      
+      // TEST: Redirect on wrong email or "user not found"
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-email') {
+        window.location.href = "verify.html?error=notfound";
+      } else {
+        errorDiv.innerText = error.message;
+        errorDiv.style.display = 'block';
+      }
+    }
+  });
+
+  // 4. PASSWORD RESET GENERATION
+  // We attach it to the window so the onclick="sendPasswordReset()" still works
+  window.sendPasswordReset = async function() {
+    const email = document.getElementById('email').value;
+    if (!email) {
+      alert("Please enter your email address first.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Success! Check your email to set your password.");
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
 </script>
 
-    <script>
-        // 2. CONFIG
-        const firebaseConfig = {
-            apiKey: "AIzaSyA_45sXieC6fdfQstLQ2a21psXeOxhfdwo",
-            authDomain: "customer-portal-18728.firebaseapp.com",
-            projectId: "customer-portal-18728",
-            storageBucket: "customer-portal-18728.firebasestorage.app",
-            messagingSenderId: "117765841972",
-            appId: "1:117765841972:web:9746c4f3037270a7811661"
-        };
 
-        // 3. INITIALIZE
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-
-        const loginForm = document.getElementById('loginForm');
-        const errorDiv = document.getElementById('errorMessage');
-        const loginBtn = document.getElementById('loginBtn');
-
-        // 4. LOGIN LOGIC + REDIRECT ON WRONG EMAIL
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            loginBtn.innerText = "Authenticating...";
-            errorDiv.style.display = 'none';
-
-            auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Success: Check if verified
-                    if (!userCredential.user.emailVerified) {
-                        window.location.href = "verify.html"; // Redirect to your verify page
-                    } else {
-                        window.location.href = "https://filings4u.com";
-                    }
-                })
-                .catch((error) => {
-                    loginBtn.innerText = "Sign In to Portal →";
-                    
-                    // If email is wrong/not found, redirect to verify/error page
-                    if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-email') {
-                        window.location.href = "verify.html?error=notfound";
-                    } else {
-                        errorDiv.innerText = error.message;
-                        errorDiv.style.display = 'block';
-                    }
-                });
-        });
-
-        // 5. GENERATE PASSWORD (RESET EMAIL)
-        function sendPasswordReset() {
-            const email = document.getElementById('email').value;
-            if (!email) {
-                alert("Please enter your email address first.");
-                return;
-            }
-            auth.sendPasswordResetEmail(email)
-                .then(() => alert("Password reset email sent! Check your inbox."))
-                .catch((error) => alert(error.message));
-        }
-    </script>
 </body>
 </html>
