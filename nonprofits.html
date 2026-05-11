@@ -3,371 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nonprofit Formation Services | filings4u</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Non-Profit Formation | filings4u Professional</title>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
 </head>
 <body>
-    <!-- NAVIGATION BAR -->
-    <nav class="brand-nav-bar">
-        <a href="index.html">
-            <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
+<nav>
+    <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+    <div class="nav-links">
+        <!-- BUSINESS FORMATION -->
+        <div class="nav-item-dropdown">
+            <a href="#">Formations ▾</a>
+            <div class="dropdown-content">
+                <a href="limited-liability-company.html">LLC Formation</a>
+                <a href="corporations.html">Corporations (C/S-Corp)</a>
+                <a href="doing-business-as-dba.html">DBA Registration</a>
+                <a href="nonprofits.html">Nonprofit Organization</a>
+                <a href="sole-proprietorship.html">Sole Proprietorship</a>
+            </div>
+        </div>
+
+        <!-- COMPLIANCE SERVICES -->
+        <div class="nav-item-dropdown">
+            <a href="#">Compliance ▾</a>
+            <div class="dropdown-content">
+                <a href="annual-reports.html">Annual Reports</a>
+                <a href="business-licenses.html">Business Licenses</a>
+                <a href="employer-identification-number-ein.html">Employer ID (EIN)</a>
+                <a href="operating-agreement.html">Operating Agreement</a>
+                <a href="registered-agent.html">Registered Agent</a>
+                <a href="dissolution.html">Entity Dissolution</a>
+            </div>
+        </div>
+
+        <!-- TAX FILINGS -->
+        <div class="nav-item-dropdown">
+            <a href="#">Tax Filings ▾</a>
+            <div class="dropdown-content">
+                <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
+                <a href="federal-income-tax.html">Federal Income Tax</a>
+                <a href="state-income-tax.html">State Income Tax</a>
+                <a href="sales-tax-registration.html">Sales Tax Registration</a>
+                <a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a>
+                <a href="franchise-tax.html">Franchise Tax Filing</a>
+            </div>
+        </div>
+
+        <!-- DOT & FLEET -->
+        <div class="nav-item-dropdown">
+            <a href="#">DOT & Fleet ▾</a>
+            <div class="dropdown-content">
+                <a href="owner-operators.html">Owner Operators</a>
+                <a href="trucker-authority.html">Trucker Authority</a>
+                <a href="broker-authority.html">Broker Authority</a>
+                <a href="dot-consortium.html">DOT Consortium</a>
+                <a href="driver-qualification-file.html">Driver Qualification File</a>
+                <a href="ucr-registration.html">UCR Registration</a>
+                <a href="process-agents-boc-3.html">Process Agent (BOC-3)</a>
+                <a href="international-fuel-tax-agreement-ifta.html">IFTA Registration</a>
+                <a href="licenses-permits.html">Licenses & Permits</a>
+            </div>
+        </div>
+
+        <a href="login.html" class="btn-client-portal">Secure Portal</a>
+    </div>
+</nav>
+
+
+<!-- SECTION 1: COMPACT HERO WITH IMAGE -->
+<main class="page-container">
+    <div class="service-grid">
+        <article class="content-area">
+            <span class="hero-tag">Social Infrastructure</span>
+            <h1>Non-Profit <br>Deployment.</h1>
+            <p>Launch your mission with professional-grade legal structure. We manage your Articles of Incorporation and 501(c) ready bylaws to secure your organization's future.</p>
+            <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 50px;">
+                <div style="height: 2px; width: 30px; background: var(--emerald);"></div>
+                <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Tax-Exempt Ready Drafting</span>
+            </div>
+            <a href="#pricing" class="btn-main">Start Your Mission →</a>
+        </article>
+        <aside>
+            <div class="hero-image-container">
+                <img src="images/nonprofit-hero.jpg" alt="Non-Profit Setup">
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- SECTION 2: FEATURES -->
+<section class="feature-section">
+    <div class="hero-tag">Infrastructure</div>
+    <h2 style="margin-bottom: 20px;">Built for Compliance.</h2>
+    <div class="icon-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+        <div class="icon-box">
+            <h4>Bylaws Setup</h4>
+            <p>501(c)(3) compliant governing documents designed to meet IRS strict guidelines.</p>
+        </div>
+        <div class="icon-box">
+            <h4>Conflict Policy</h4>
+            <p>Automated drafting of essential Conflict of Interest policies for board integrity.</p>
+        </div>
+        <div class="icon-box">
+            <h4>Asset Shield</h4>
+            <p>Protecting your organizers and directors with limited liability provisions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: PRICING -->
+<section id="pricing" class="pricing-section">
+    <span class="hero-tag">Deployment Tiers</span>
+    <h2>Transparent mission pricing.</h2>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Basic</h3>
+            <div class="amount">$299 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard non-profit state filing.</p>
+            <ul class="price-features">
+                <li>Articles of Incorporation</li>
+                <li>Exempt-Ready Bylaws</li>
+                <li>Digital Document Access</li>
+            </ul>
+            <a href="order.html?plan=np-basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Basic</a>
+        </div>
+        <div class="price-card featured">
+            <div class="price-badge">Most Popular</div>
+            <h3>Elite</h3>
+            <div class="amount">$599 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full exemption infrastructure.</p>
+            <ul class="price-features">
+                <li>Everything in Basic</li>
+                <li><strong>EIN Tax ID Filing</strong></li>
+                <li>1023-EZ Prep Support</li>
+                <li>Board Resolution Kit</li>
+            </ul>
+            <a href="order.html?plan=np-elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
+        </div>
+        <div class="price-card">
+            <h3>Enterprise</h3>
+            <div class="amount">$999 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total organizational management.</p>
+            <ul class="price-features">
+                <li>Everything in Elite</li>
+                <li>Full 1023 Long-Form Prep</li>
+                <li>State Tax Exempt Filing</li>
+                <li>Dedicated Mission Expert</li>
+            </ul>
+            <a href="order.html?plan=np-enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: THE HUB (NAVY) -->
+<section class="feature-section">
+    <div class="hero-tag">Specialized Infrastructure</div>
+    <h2 style="margin-bottom: 20px;">Tailored for your industry.</h2>
+    <div class="icon-grid">
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Corporate Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">Entity formation, EIN acquisition, and custom Operating Agreements for modern startups.</p>
+        </div>
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Logistics Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">DOT/MC authority, UCR registration, and IFTA management for fleets and owner-operators.</p>
+        </div>
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Tax Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">Federal Income, State Nexus, and Payroll Tax (940/941) filings powered by IRS direct sync.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
+<section class="faq-section">
+    <div class="hero-tag">Knowledge Base</div>
+    <h2 style="margin-bottom: 30px;">Common Questions</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>How does filings4u automate my business?</h4>
+            <p>We use direct API handshakes with Secretary of State, IRS, and FMCSA systems to process your data without manual data entry errors.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I manage multiple fleets?</h4>
+            <p>Yes, our dashboard allows you to toggle between different EINs and MC numbers from a single secure login.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: RESOURCE HUB -->
+<section class="resource-section">
+    <div class="hero-tag">Insights</div>
+    <h2>Founder Insights</h2>
+    <div class="resource-grid">
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Launch</span>
+                <h4>2026 Small Business Checklist</h4>
+            </div>
         </a>
-        <ul class="brand-nav-links">
-            <!-- TAX FILINGS DROPDOWN -->
-            <li class="dropdown">
-                <a href="tax-filings.html" class="dropbtn">Tax Filings <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
-                    <li><a href="federal-income-tax.html">Federal Income Tax</a></li>
-                    <li><a href="state-income-tax.html">State Income Tax</a></li>
-                    <li><a href="sales-tax-registration.html">Sales Tax Registration</a></li>
-                    <li><a href="payroll-tax.html">Payroll Tax (940/941)</a></li>
-                    <li><a href="franchise-tax.html">Franchise Tax Filing</a></li>
-                </ul>
-            </li>
-            <!-- BUSINESS FORMATION DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="llc.html">Limited liability company (LLC)</a></li>
-                    <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
-                    <li><a href="dba.html">Doing business as (DBA)</a></li>
-                    <li><a href="nonprofit.html">Nonprofit</a></li>
-                    <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
-                </ul>
-            </li>
-            <!-- COMPLIANCE SERVICES DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="annual-report.html">Annual report</a></li>
-                    <li><a href="business-licenses.html">Business licenses</a></li>
-                    <li><a href="ein.html">EIN</a></li>
-                    <li><a href="operating-agreement.html">Operating agreement</a></li>
-                    <li><a href="registered-agent.html">Registered agent</a></li>
-                    <li><a href="dissolution.html">Dissolution</a></li>
-                </ul>
-            </li>
-            <!-- DOT DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
-                <ul class="dropdown-content">
-                    <li><a href="owner-operators.html">Owner Operators</a></li>
-                    <li><a href="trucker-authority.html">Trucker Authority</a></li>
-                    <li><a href="broker-authority.html">Broker Authority</a></li>
-                    <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
-                    <li><a href="dot-consortium.html">DOT Consortium</a></li>
-                    <li><a href="driver-file.html">Driver Qualification File</a></li>
-                    <li><a href="ucr-registration.html">UCR Registration</a></li>
-                    <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
-                </ul>
-            </li>
-            <li><a href="license-permits.html">License/Permits</a></li>
-            <li><a href="portal.html" class="nav-login-btn">Client Login</a></li>
-        </ul>
-    </nav>
-
-    <!-- SECTION 1: HERO -->
-    <header class="ra-hero dba-hero">
-        <div class="container hero-relative">
-            <div class="hero-content-left">
-                <h1 class="hero-title">Start Your Nonprofit.<br><span class="text-orange">Mission Driven.</span></h1>
-                <p>Expert 501(c)(3) formation for visionaries. We handle the complex IRS and state paperwork so you can focus on making an impact.</p>
-                <a href="#pricing" class="cta-button">Form Your Nonprofit - $100 + State Fee</a>
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Compliance</span>
+                <h4>DOT Authority 101</h4>
             </div>
-        </div>
-    </header>
-
-   <!-- SECTION 2: THE BENTO GRID (The Exemption Suite) -->
-<section class="services-bento">
-    <div class="container">
-        <div class="section-heading">
-            <span class="eyebrow">Strategic Selection</span>
-            <h2>Select Your Organization Type</h2>
-        </div>
-        <div class="bento-layout">
-            <!-- Tier 1 (Navy) -->
-            <div class="bento-box tax-box">
-                <div class="bento-inner">
-                    <div class="box-icon" style="font-size: 2rem; margin-bottom: 1rem;">🏛️</div>
-                    <h3>501(c)(3) Public Charity</h3>
-                    <p>For religious, educational, and charitable organizations. The gold standard for securing federal grants and individual tax-deductible donations.</p>
-                    <a href="#" class="bento-link">Select Path →</a>
-                </div>
+        </a>
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Tax</span>
+                <h4>Maximizing Depreciation</h4>
             </div>
-
-            <!-- Tier 2 -->
-            <div class="bento-box">
-                <div class="bento-inner">
-                    <div class="box-icon" style="font-size: 2rem; margin-bottom: 1rem;">🤝</div>
-                    <h3>501(c)(4) Social Welfare</h3>
-                    <p>For civic leagues and local associations. Optimized for community advocacy and lobbying efforts not permitted under (c)(3) status.</p>
-                    <a href="#" class="bento-link">Select Path</a>
-                </div>
-            </div>
-
-            <!-- Tier 3 -->
-            <div class="bento-box">
-                <div class="bento-inner">
-                    <div class="box-icon" style="font-size: 2rem; margin-bottom: 1rem;">🏢</div>
-                    <h3>501(c)(6) Trade Boards</h3>
-                    <p>For business leagues, chambers of commerce, and professional real estate boards focusing on industry-wide improvement.</p>
-                    <a href="#" class="bento-link">Select Path</a>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
 </section>
 
-<!-- SECTION 3: STICKY VALUE PROP (The Operational Edge) -->
-<section class="value-proposition">
-    <div class="container value-grid">
-        <div class="value-sticky">
-            <h2>The filings4u<br>Operational Edge</h2>
-            <p>We go beyond the "State Charter" to ensure your organization is audit-proof and institutionally sound.</p>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/logo-white.png" alt="filings4u" style="height: 35px;">
+            <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px;">
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+            </div>
         </div>
-        <div class="value-list">
-            <div class="value-item" style="border-left: 4px solid #ff6b00; padding-left: 25px; margin-bottom: 40px;">
-                <h4>Governance Integrity</h4>
-                <p><strong>OBJECTIVE:</strong> <em>Zero-Conflict Board Structure.</em></p>
-                <p>We provide specialized Conflict of Interest policies that meet the strict "rebuttable presumption" requirements used by the IRS to prevent private inurement issues.</p>
-            </div>
-            <div class="value-item" style="border-left: 4px solid #ff6b00; padding-left: 25px; margin-bottom: 40px;">
-                <h4>Exemption Velocity</h4>
-                <p><strong>OBJECTIVE:</strong> <em>Accelerated Federal Approval.</em></p>
-                <p>Our filing logic is pre-synced with the IRS Form 1023-EZ eligibility requirements, ensuring your articles don't contain language that triggers an automatic rejection or manual audit.</p>
-            </div>
-            <div class="value-item" style="border-left: 4px solid #ff6b00; padding-left: 25px;">
-                <h4>Administrative Continuity</h4>
-                <p><strong>OBJECTIVE:</strong> <em>Permanent Public Record.</em></p>
-                <p>We establish your initial "Minute Book," a digital archive of your first board meeting and adoption of bylaws, which is the first document requested during any financial audit or grant application.</p>
-            </div>
+        <div class="footer-col">
+            <h4>Formations</h4>
+            <ul>
+                <li><a href="limited-liability-company.html">LLC Formation</a></li>
+                <li><a href="corporations.html">Corporations</a></li>
+                <li><a href="nonprofits.html">Non-Profits</a></li>
+                <li><a href="registered-agent.html">Registered Agent</a></li>
+                <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Fleet & DOT</h4>
+            <ul>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
+                <li><a href="trucker-authority.html">DOT Authority</a></li>
+                <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li>
+                <li><a href="heavy-use-tax-2290.html">Form 2290</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="login.html">Client Portal</a></li>
+                <li><a href="compliance.html">Compliance Hub</a></li>
+                <li><a href="contact.html">Contact Experts</a></li>
+                <li><a href="annual-reports.html">Annual Reports</a></li>
+                <li><a href="pricing.html">Pricing Plans</a></li>
+            </ul>
         </div>
     </div>
-</section>
-
-<!-- SECTION 6: PRICING PLANS -->
-<section id="pricing" class="section-padding" style="background: #ffffff;">
-    <div class="container">
-        <div class="section-heading" style="text-align: center; margin-bottom: 50px;">
-            <span class="eyebrow">Transparent Investment</span>
-            <h2>Formation Packages</h2>
-            <p>Direct service fees. No hidden retainers. Professional execution.</p>
-        </div>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding-top: 20px;">
-            
-            <!-- Tier 1: Basic Formation -->
-            <div style="background: #ffffff; border: 1px solid #e1e8ed; border-radius: 12px; padding: 40px; flex: 1; min-width: 300px; max-width: 380px; display: flex; flex-direction: column; transition: transform 0.3s ease;">
-                <h3 style="margin-bottom: 10px;">Essential</h3>
-                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">$100 <span style="font-size: 1rem; color: #666; font-weight: 400;">+ State Fees</span></div>
-                <p style="color: #666; margin-bottom: 30px;">For founders who only need official state incorporation and a tax ID.</p>
-                <ul style="list-style: none; padding: 0; margin-bottom: 40px; flex-grow: 1;">
-                    <li style="margin-bottom: 12px;">✓ Articles of Incorporation</li>
-                    <li style="margin-bottom: 12px;">✓ Name Availability Check</li>
-                    <li style="margin-bottom: 12px;">✓ Federal EIN Procurement</li>
-                    <li style="margin-bottom: 12px; color: #ccc;">✗ Custom Bylaws</li>
-                    <li style="margin-bottom: 12px; color: #ccc;">✗ 1023-EZ Prep</li>
-                </ul>
-                <a href="#" class="cta-button" style="text-align: center; background: #0a1f44;">Start Basic</a>
-            </div>
-
-            <!-- Tier 2: Best Value (Featured) -->
-            <div style="background: #ffffff; border: 2px solid #ff6b00; border-radius: 12px; padding: 40px; flex: 1; min-width: 300px; max-width: 380px; position: relative; transform: scale(1.05); box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; flex-direction: column; z-index: 2;">
-                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #ff6b00; color: #fff; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Most Popular</div>
-                <h3 style="margin-bottom: 10px;">Professional</h3>
-                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">$299 <span style="font-size: 1rem; color: #666; font-weight: 400;">+ State Fees</span></div>
-                <p style="color: #666; margin-bottom: 30px;">The complete "Audit-Proof" foundation for new 501(c)(3) charities.</p>
-                <ul style="list-style: none; padding: 0; margin-bottom: 40px; flex-grow: 1;">
-                    <li style="margin-bottom: 12px;">✓ <strong>Everything in Essential</strong></li>
-                    <li style="margin-bottom: 12px;">✓ IRS-Compliant Bylaws</li>
-                    <li style="margin-bottom: 12px;">✓ Conflict of Interest Policy</li>
-                    <li style="margin-bottom: 12px;">✓ Form 1023-EZ Prep Support</li>
-                    <li style="margin-bottom: 12px;">✓ Digital Minute Book</li>
-                </ul>
-                <a href="#" class="cta-button glow-button" style="text-align: center;">Go Professional</a>
-            </div>
-
-            <!-- Tier 3: Institutional -->
-            <div style="background: #ffffff; border: 1px solid #e1e8ed; border-radius: 12px; padding: 40px; flex: 1; min-width: 300px; max-width: 380px; display: flex; flex-direction: column; transition: transform 0.3s ease;">
-                <h3 style="margin-bottom: 10px;">Institutional</h3>
-                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">$599 <span style="font-size: 1rem; color: #666; font-weight: 400;">+ State Fees</span></div>
-                <p style="color: #666; margin-bottom: 30px;">Concierge service for organizations requiring long-form 1023 applications.</p>
-                <ul style="list-style: none; padding: 0; margin-bottom: 40px; flex-grow: 1;">
-                    <li style="margin-bottom: 12px;">✓ <strong>Everything in Professional</strong></li>
-                    <li style="margin-bottom: 12px;">✓ Full Form 1023 Application</li>
-                    <li style="margin-bottom: 12px;">✓ 3-Year Financial Projection</li>
-                    <li style="margin-bottom: 12px;">✓ Expedited State Filing</li>
-                    <li style="margin-bottom: 12px;">✓ 1-Hr Compliance Consultation</li>
-                </ul>
-                <a href="#" class="cta-button" style="text-align: center; background: #0a1f44;">Select Institutional</a>
-            </div>
-
-        </div>
-
-        <!-- State Fee Disclaimer -->
-        <div style="text-align: center; margin-top: 60px; color: #888; font-size: 0.85rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-            <p>*Government filing fees vary by state (typically $20-$200) and are not included in service pricing. External IRS user fees for 501(c)(3) status are also separate. Full breakdown provided during checkout.</p>
-        </div>
+    <div class="footer-bottom">
+        <div> <p style="margin: 0; font-size: 0.85rem;">&copy; 2026 filings4u Technologies. All rights reserved.</p> </div>
+        <div class="trust-badge"> <span>SECURE</span> 256-bit SSL Encrypted Connection </div>
+        <div class="legal-links"> <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a> <a href="#">Refund Policy</a> </div>
     </div>
-</section>
-
-
-
-<!-- SECTION 4: FAQS -->
-<section class="section-padding" style="background-color: #f4f7fa;">
-    <div class="faq-container-large">
-        <h2 class="faq-header-title">Frequently Asked Questions</h2>
-        <div class="faq-accordion-wrapper">
-            
-            <!-- Question 1 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">What is the difference between a Nonprofit and 501(c)(3) status?</summary>
-                <div class="faq-content">
-                    "Nonprofit" is a state-level legal status for your corporation. "501(c)(3)" is a federal tax-exempt status granted by the IRS. You must first form your nonprofit corporation at the state level before you can apply for federal tax exemption.
-                </div>
-            </details>
-
-            <!-- Question 2 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">How many board members do I need?</summary>
-                <div class="faq-content">
-                    Most states require a minimum of three directors. For 501(c)(3) purposes, the IRS generally prefers at least three individuals who are not related to each other to ensure proper oversight and public accountability.
-                </div>
-            </details>
-
-            <!-- Question 3 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">What exactly is a Registered Agent?</summary>
-                <div class="faq-content">
-                    A Registered Agent is a person or entity designated to receive official legal documents and government correspondence on behalf of your Nonprofit. Every corporation is legally required by the state to maintain one to ensure "Good Standing."
-                </div>
-            </details>
-
-            <!-- Question 4 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">Does the $100 fee include the IRS application fee?</summary>
-                <div class="faq-content">
-                    No. Our $100 service fee covers the professional preparation and filing of your state articles. The IRS charges a separate user fee ($275 for Form 1023-EZ or $600 for the full Form 1023) which is paid directly to the Department of Treasury.
-                </div>
-            </details>
-
-            <!-- Question 5 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">Can I pay myself a salary from a Nonprofit?</summary>
-                <div class="faq-content">
-                    Yes. Nonprofit employees and officers can be paid "reasonable compensation" for the services they provide. This must be documented and approved by the board to ensure it meets IRS guidelines against "private inurement."
-                </div>
-            </details>
-
-            <!-- Question 6 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">How long does the entire process take?</summary>
-                <div class="faq-content">
-                    State incorporation typically takes 1–3 business days. Once incorporated, obtaining an EIN is instant. The IRS tax-exempt approval can take anywhere from 4 weeks (for the 1023-EZ) to 6 months (for the full 1023).
-                </div>
-            </details>
-
-            <!-- Question 7 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">What are Bylaws and why do I need them?</summary>
-                <div class="faq-content">
-                    Bylaws are the internal "rulebook" for your organization. They dictate how directors are elected, how meetings are conducted, and how the nonprofit is governed. The IRS requires these to be adopted to grant tax-exempt status.
-                </div>
-            </details>
-
-            <!-- Question 8 -->
-            <details class="faq-box" name="faq">
-                <summary class="faq-trigger">Will a professional agent help me stay compliant?</summary>
-                <div class="faq-content">
-                    Yes. We track your state’s Annual Report deadlines and 990-N filing dates. We send automated reminders well in advance so your nonprofit never accidentally loses its tax-exempt status.
-                </div>
-            </details>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-    <!-- SECTION 4: THE PRECISION GUARANTEE (Navy & White) -->
-    <section class="section-padding bg-dark-banner">
-        <div class="container">
-            <div class="guarantee-card">
-                <div class="guarantee-content">
-                    <h2 class="light-title">The filings4u Precision Guarantee</h2>
-                    <p class="light-subtitle">We don’t just file paperwork; we secure your future. If any state agency rejects your filing due to an error on our part, we will resolve the issue immediately and cover all additional government fees. Total accuracy, zero risk.</p>
-                    <div class="guarantee-meta">
-                        <div class="meta-item"><span class="meta-icon">✓</span> 100% Error-Free Audit</div>
-                        <div class="meta-item"><span class="meta-icon">✓</span> State Fee Protection</div>
-                    </div>
-                </div>
-                <div class="guarantee-action">
-                    <a href="#pricing" class="cta-button glow-button">Secure My Nonprofit Today</a>
-                    <p class="terms-text">Flat service fee. Transparent state costs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer id="footer">
-        <div class="footer-container">
-            <section class="footer-column brand-col">
-                <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
-                <p>Simplifying corporate compliance for the modern entrepreneur.</p>
-                <div class="footer-social">
-                    <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
-                    <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
-                    <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
-                </div>
-            </section>
-            <section class="footer-column">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="llc.html">LLC Formation</a></li>
-                    <li><a href="corporation.html">C-Corp Filing</a></li>
-                    <li><a href="registered-agent.html">Registered Agent</a></li>
-                    <li><a href="ein.html">EIN Registration</a></li>
-                </ul>
-            </section>
-            <section class="footer-column">
-                <h3>State Filings</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Texas LLC</a></li>
-                    <li><a href="#">Delaware Corp</a></li>
-                    <li><a href="#">Florida LLC</a></li>
-                    <li><a href="#">Wyoming LLC</a></li>
-                </ul>
-            </section>
-            <section class="footer-column">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Business Help</a></li>
-                    <li><a href="#">Form Templates</a></li>
-                    <li><a href="#">Filing Deadlines</a></li>
-                </ul>
-            </section>
-            <section class="footer-column subscribe-col">
-                <h3>Stay Updated</h3>
-                <form class="footer-subscribe">
-                    <input type="email" placeholder="name@email.com" required>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </section>
-        </div>
-        <div class="footer-bottom">
-            <div class="copyright-info">
-                &copy; 2026 filings4u. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
-            </div>
-        </div>
-    </footer>
+</footer>
 </body>
 </html>

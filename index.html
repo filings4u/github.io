@@ -3,71 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>filings4u | Elite Entity Management</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- LINK TO YOUR SEPARATE CSS FILE -->
-    <link rel="stylesheet" href="site-elite.css">
+    <title>filings4u | Professional Compliance Dashboard</title>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
 </head>
 <body>
 
-    <!-- SHARED NAVIGATION -->
-    <nav>
-        <img src="images/logo.png" alt="filings4u" class="logo">
-        <div class="nav-links">
-            <a href="limited-liability-company.html">Formations</a>
-            <a href="ucr-registration.html">Transportation</a>
-            <a href="tax-filings.html">Tax Center</a>
-            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION (Rectangular Strip) -->
-    <header class="hero">
-        <div class="hero-image-bg" style="background-image: url('images/hero-image.jpg');"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-tag">Precision Compliance</span>
-            <h1>Automate <br>Your Entity.</h1>
-            <p>High-fidelity business registration and transportation authority management for the modern operator.</p>
-            <a href="https://filings4u.com" class="btn-main">Start Your Filing →</a>
-        </div>
-    </header>
-
-    <!-- CONTENT PLACEHOLDER -->
-    <main>
-        <!-- We will drop the "Operational Edge" and "Directory" sections here -->
-    </main>
-
-    <!-- SHARED FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="images/logo-white.png" alt="filings4u" style="height: 30px;">
-                <p style="font-size: 0.9rem; margin-top: 20px;">Precision compliance software for modern corporate entities.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Solutions</h4>
-                <ul>
-                    <li><a href="limited-liability-company.html">LLC Formation</a></li>
-                    <li><a href="ucr-registration.html">UCR Registration</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="compliance.html">API Docs</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
+<nav>
+    <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+    <div class="nav-links">
+        <!-- BUSINESS FORMATION -->
+        <div class="nav-item-dropdown">
+            <a href="#">Formations ▾</a>
+            <div class="dropdown-content">
+                <a href="limited-liability-company.html">LLC Formation</a>
+                <a href="corporations.html">Corporations (C/S-Corp)</a>
+                <a href="doing-business-as-dba.html">DBA Registration</a>
+                <a href="nonprofits.html">Nonprofit Organization</a>
+                <a href="sole-proprietorship.html">Sole Proprietorship</a>
             </div>
         </div>
-    </footer>
 
+        <!-- COMPLIANCE SERVICES -->
+        <div class="nav-item-dropdown">
+            <a href="#">Compliance ▾</a>
+            <div class="dropdown-content">
+                <a href="annual-reports.html">Annual Reports</a>
+                <a href="business-licenses.html">Business Licenses</a>
+                <a href="employer-identification-number-ein.html">Employer ID (EIN)</a>
+                <a href="operating-agreement.html">Operating Agreement</a>
+                <a href="registered-agent.html">Registered Agent</a>
+                <a href="dissolution.html">Entity Dissolution</a>
+            </div>
+        </div>
+
+        <!-- TAX FILINGS -->
+        <div class="nav-item-dropdown">
+            <a href="#">Tax Filings ▾</a>
+            <div class="dropdown-content">
+                <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
+                <a href="federal-income-tax.html">Federal Income Tax</a>
+                <a href="state-income-tax.html">State Income Tax</a>
+                <a href="sales-tax-registration.html">Sales Tax Registration</a>
+                <a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a>
+                <a href="franchise-tax.html">Franchise Tax Filing</a>
+            </div>
+        </div>
+
+        <!-- DOT & FLEET -->
+        <div class="nav-item-dropdown">
+            <a href="#">DOT & Fleet ▾</a>
+            <div class="dropdown-content">
+                <a href="owner-operators.html">Owner Operators</a>
+                <a href="trucker-authority.html">Trucker Authority</a>
+                <a href="broker-authority.html">Broker Authority</a>
+                <a href="dot-consortium.html">DOT Consortium</a>
+                <a href="driver-qualification-file.html">Driver Qualification File</a>
+                <a href="ucr-registration.html">UCR Registration</a>
+                <a href="process-agents-boc-3.html">Process Agent (BOC-3)</a>
+                <a href="international-fuel-tax-agreement-ifta.html">IFTA Registration</a>
+                <a href="licenses-permits.html">Licenses & Permits</a>
+            </div>
+        </div>
+
+        <a href="login.html" class="btn-client-portal">Secure Portal</a>
+    </div>
+</nav>
+
+
+<!-- SECTION 1: HERO -->
+<main class="page-container">
+    <div class="service-grid">
+        <article class="content-area">
+            <span class="hero-tag">Enterprise Ecosystem</span>
+            <h1>The Hub for <br>Total Compliance.</h1>
+            <p>Automate your corporate structures and DOT authorities from one single dashboard. We provide the technical handshake between you and state, federal, and local jurisdictions.</p>
+            <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 50px;">
+                <div style="height: 2px; width: 30px; background: var(--emerald);"></div>
+                <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Active Entity Sync: 10,000+ Verified</span>
+            </div>
+            <a href="limited-liability-company.html" class="btn-main">Get Started →</a>
+        </article>
+        <aside>
+            <div class="hero-image-container">
+                <img src="images/dashboard-hero.jpg" alt="Compliance Dashboard Preview">
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- SECTION 2: THE HUB (NAVY) -->
+<section class="feature-section">
+    <div class="hero-tag">Specialized Infrastructure</div>
+    <h2 style="margin-bottom: 20px;">Tailored for your industry.</h2>
+    <div class="icon-grid">
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Corporate Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">Entity formation, EIN acquisition, and custom Operating Agreements for modern startups.</p>
+        </div>
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Logistics Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">DOT/MC authority, UCR registration, and IFTA management for fleets and owner-operators.</p>
+        </div>
+        <div class="icon-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--emerald); margin-bottom:10px;">Tax Suite</h4>
+            <p style="color: rgba(255,255,255,0.7);">Federal Income, State Nexus, and Payroll Tax (940/941) filings powered by IRS direct sync.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: CORE STATS (ICE) -->
+<section id="pricing" class="pricing-section">
+    <span class="hero-tag">System Advantage</span>
+    <h2>Performance by the numbers.</h2>
+    <div class="pricing-grid">
+        <div class="price-card" style="text-align: center;">
+            <div class="amount" style="font-size: 4rem;">24h</div>
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Avg. Processing</p>
+        </div>
+        <div class="price-card featured" style="text-align: center;">
+            <div class="amount" style="font-size: 4rem;">100%</div>
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Audit Success</p>
+        </div>
+        <div class="price-card" style="text-align: center;">
+            <div class="amount" style="font-size: 4rem;">256bit</div>
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">AES Encryption</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
+<section class="faq-section">
+    <div class="hero-tag">Knowledge Base</div>
+    <h2 style="margin-bottom: 30px;">Common Questions</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>How does filings4u automate my business?</h4>
+            <p>We use direct API handshakes with Secretary of State, IRS, and FMCSA systems to process your data without manual data entry errors.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I manage multiple fleets?</h4>
+            <p>Yes, our dashboard allows you to toggle between different EINs and MC numbers from a single secure login.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: RESOURCE HUB -->
+<section class="resource-section">
+    <div class="hero-tag">Insights</div>
+    <h2>Founder Insights</h2>
+    <div class="resource-grid">
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Launch</span>
+                <h4>2026 Small Business Checklist</h4>
+            </div>
+        </a>
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Compliance</span>
+                <h4>DOT Authority 101</h4>
+            </div>
+        </a>
+        <a href="#" class="blog-card">
+            <div style="height:150px; background:#ddd;"></div>
+            <div style="padding:20px;">
+                <span class="hero-tag" style="margin-bottom:5px;">Tax</span>
+                <h4>Maximizing Depreciation</h4>
+            </div>
+        </a>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/logo-white.png" alt="filings4u" style="height: 35px;">
+            <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px;">
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Formations</h4>
+            <ul>
+                <li><a href="limited-liability-company.html">LLC Formation</a></li>
+                <li><a href="corporations.html">Corporations</a></li>
+                <li><a href="nonprofits.html">Non-Profits</a></li>
+                <li><a href="registered-agent.html">Registered Agent</a></li>
+                <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Fleet & DOT</h4>
+            <ul>
+                <li><a href="ucr-registration.html">UCR Registration</a></li>
+                <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
+                <li><a href="trucker-authority.html">DOT Authority</a></li>
+                <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li>
+                <li><a href="heavy-use-tax-2290.html">Form 2290</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="login.html">Client Portal</a></li>
+                <li><a href="compliance.html">Compliance Hub</a></li>
+                <li><a href="contact.html">Contact Experts</a></li>
+                <li><a href="annual-reports.html">Annual Reports</a></li>
+                <li><a href="pricing.html">Pricing Plans</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div> <p style="margin: 0; font-size: 0.85rem;">&copy; 2026 filings4u Technologies. All rights reserved.</p> </div>
+        <div class="trust-badge"> <span>SECURE</span> 256-bit SSL Encrypted Connection </div>
+        <div class="legal-links"> <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a> <a href="#">Refund Policy</a> </div>
+    </div>
+</footer>
 </body>
 </html>

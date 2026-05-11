@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broker Bond Underwriting | filings4u</title>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
+    <style>
+        .wizard-card { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; border: 1px solid var(--border); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+        .form-group input, select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
+    </style>
+</head>
+<body style="background: var(--ice);">
+    <nav style="background: white; padding: 15px 8%; border-bottom: 1px solid var(--border);"><img src="images/logo.png" style="height: 30px;"></nav>
+
+    <main class="wizard-card">
+        <span class="hero-tag">Surety Underwriting</span>
+        <h2>BMC-84 Bond Application</h2>
+        <form action="portal-setup.html">
+            <div class="form-group"><label>Ownership Percentage (%)</label><input type="text" placeholder="e.g. 100%"></div>
+            <div class="form-group"><label>Prior surety claim or refusal?</label><select><option>No</option><option>Yes</option></select></div>
+            <div class="form-group"><label>Ever declared bankruptcy?</label><select><option>No</option><option>Yes</option></select></div>
+            <div class="form-group"><label>Any pending lawsuits or liens?</label><select><option>No</option><option>Yes</option></select></div>
+            
+            <hr style="margin:20px 0; border:0; border-top:1px solid var(--border);">
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:15px;">OPTIONAL: Spouse data for improved bond rates.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group"><label>Spouse First Name</label><input type="text"></div>
+                <div class="form-group"><label>Spouse Last Name</label><input type="text"></div>
+            </div>
+            
+            <button type="submit" class="btn-main" style="width:100%">Get My Quote →</button>
+        </form>
+    </main>
+</body>
+</html>

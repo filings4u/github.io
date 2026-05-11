@@ -3,569 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Checkout | filings4u</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Secure Checkout | filings4u Professional</title>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
+    <style>
+        .intake-grid { display: grid; grid-template-columns: 1fr 380px; gap: 40px; margin-top: 30px; }
+        .form-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: var(--navy); }
+        .form-group input, .form-group select { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; font-size: 0.95rem; }
+        .summary-card { background: var(--ice); padding: 30px; border-radius: 20px; position: sticky; top: 100px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; }
+    </style>
 </head>
-<body class="bg-soft">
+<body>
 
-    <!-- NAVIGATION BAR -->
-<nav class="brand-nav-bar">
-    <a href="index.html">
-        <img src="images/logo.png" alt="filings4u logo" style="height: 36px;">
-    </a>
-    <ul class="brand-nav-links">
-        <li><a href="tax-filings.html">Tax Filings</a></li>
-        
-        <!-- BUSINESS FORMATION DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Business Formation <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="llc.html">Limited liability company (LLC)</a></li>
-                <li><a href="corporation.html">Corporation (C corp, S corp)</a></li>
-                <li><a href="dba.html">Doing business as (DBA)</a></li>
-                <li><a href="nonprofit.html">Nonprofit</a></li>
-                <li><a href="sole-proprietorship.html">Sole proprietorship</a></li>
-            </ul>
-        </li>
-
-        <!-- COMPLIANCE SERVICES DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Compliance Services <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="annual-report.html">Annual report</a></li>
-                <li><a href="business-licenses.html">Business licenses</a></li>
-                <li><a href="ein.html">EIN</a></li>
-                <li><a href="operating-agreement.html">Operating agreement</a></li>
-                <li><a href="registered-agent.html">Registered agent</a></li>
-                <li><a href="dissolution.html">Dissolution</a></li>
-            </ul>
-        </li>
-
-        <!-- DOT DROPDOWN -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">DOT <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-                <li><a href="owner-operators.html">Owner Operators</a></li>
-                <li><a href="trucker-authority.html">Trucker Authority</a></li>
-                <li><a href="broker-authority.html">Broker Authority</a></li>
-                <li><a href="heavy-use-tax.html">Heavy Use Tax (2290)</a></li>
-                <li><a href="dot-consortium.html">DOT Consortium</a></li>
-                <li><a href="driver-file.html">Driver Qualification File</a></li>
-                <li><a href="ucr-registration.html">UCR Registration</a></li>
-                <li><a href="boc3-filing.html">Process Agent (BOC-3)</a></li>
-            </ul>
-        </li>
-        <li><a href="license-permits.html">License/Permits</a></li>
-    </ul>
+<nav>
+    <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+    <div class="nav-links">
+        <a href="index.html">Back to Dashboard</a>
+    </div>
 </nav>
 
+<main class="page-container">
+    <div class="service-grid">
+        <article class="content-area">
+            <span class="hero-tag">Secure Intake</span>
+            <h1>Review & <br>Submit Filing.</h1>
+            <p>Enter your business details below. Your information is encrypted and transmitted directly to the appropriate jurisdiction via our secure handshake protocol.</p>
+        </article>
+    </div>
 
-    <section class="section-padding order-page-padding">
-    <div class="container order-grid">
-        
-        <!-- LEFT: THE FORM (Ensure all your form steps are inside here) -->
-        <div class="order-form-container">
-            <div class="form-card">
-                <h2 class="navy-title">Start Your Formation</h2>
-                <form id="formationOrderForm">
-                
-                <!-- Step 1: Business Information -->
-                <div class="form-step">
-                    <span class="step-label">01 Business Information</span>
-                    <div class="input-group">
-                        <label>Desired Business Name</label>
-                        <input type="text" id="order_biz_name" name="biz_name" placeholder="Enter your business name" required>
-                    </div>
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label>State of Formation</label>
-                            <select name="state" id="state-select" required>
-                                <option value="AL" data-fee="200">Alabama (State Filing Fee - $200)</option>
-        <option value="AK" data-fee="100">Alaska (State Filing Fee - $100)</option>
-        <option value="AZ" data-fee="50">Arizona (State Filing Fee - $50)</option>
-        <option value="AR" data-fee="45">Arkansas (State Filing Fee - $45)</option>
-        <option value="CA" data-fee="70">California (State Filing Fee - $70)</option>
-        <option value="CO" data-fee="50">Colorado (State Filing Fee - $50)</option>
-        <option value="CT" data-fee="120">Connecticut (State Filing Fee - $120)</option>
-        <option value="DE" data-fee="90">Delaware (State Filing Fee - $90)</option>
-        <option value="FL" data-fee="125">Florida (State Filing Fee - $125)</option>
-        <option value="GA" data-fee="100">Georgia (State Filing Fee - $100)</option>
-        <option value="HI" data-fee="50">Hawaii (State Filing Fee - $50)</option>
-        <option value="ID" data-fee="100">Idaho (State Filing Fee - $100)</option>
-        <option value="IL" data-fee="150">Illinois (State Filing Fee - $150)</option>
-        <option value="IN" data-fee="95">Indiana (State Filing Fee - $95)</option>
-        <option value="IA" data-fee="50">Iowa (State Filing Fee - $50)</option>
-        <option value="KS" data-fee="160">Kansas (State Filing Fee - $160)</option>
-        <option value="KY" data-fee="40">Kentucky (State Filing Fee - $40)</option>
-        <option value="LA" data-fee="100">Louisiana (State Filing Fee - $100)</option>
-        <option value="ME" data-fee="175">Maine (State Filing Fee - $175)</option>
-        <option value="MD" data-fee="100">Maryland (State Filing Fee - $100)</option>
-        <option value="MA" data-fee="500">Massachusetts (State Filing Fee - $500)</option>
-        <option value="MI" data-fee="50">Michigan (State Filing Fee - $50)</option>
-        <option value="MN" data-fee="155">Minnesota (State Filing Fee - $155)</option>
-        <option value="MS" data-fee="50">Mississippi (State Filing Fee - $50)</option>
-        <option value="MO" data-fee="50">Missouri (State Filing Fee - $50)</option>
-        <option value="MT" data-fee="35">Montana (State Filing Fee - $35)</option>
-        <option value="NE" data-fee="100">Nebraska (State Filing Fee - $100)</option>
-        <option value="NV" data-fee="75">Nevada (State Filing Fee - $75)</option>
-        <option value="NH" data-fee="100">New Hampshire (State Filing Fee - $100)</option>
-        <option value="NJ" data-fee="125">New Jersey (State Filing Fee - $125)</option>
-        <option value="NM" data-fee="50">New Mexico (State Filing Fee - $50)</option>
-        <option value="NY" data-fee="200">New York (State Filing Fee - $200)</option>
-        <option value="NC" data-fee="125">North Carolina (State Filing Fee - $125)</option>
-        <option value="ND" data-fee="135">North Dakota (State Filing Fee - $135)</option>
-        <option value="OH" data-fee="99">Ohio (State Filing Fee - $99)</option>
-        <option value="OK" data-fee="100">Oklahoma (State Filing Fee - $100)</option>
-        <option value="OR" data-fee="100">Oregon (State Filing Fee - $100)</option>
-        <option value="PA" data-fee="125">Pennsylvania (State Filing Fee - $125)</option>
-        <option value="RI" data-fee="150">Rhode Island (State Filing Fee - $150)</option>
-        <option value="SC" data-fee="110">South Carolina (State Filing Fee - $110)</option>
-        <option value="SD" data-fee="150">South Dakota (State Filing Fee - $150)</option>
-        <option value="TN" data-fee="300">Tennessee (State Filing Fee - $300)</option>
-        <option value="TX" data-fee="300">Texas (State Filing Fee - $300)</option>
-        <option value="UT" data-fee="54">Utah (State Filing Fee - $54)</option>
-        <option value="VT" data-fee="125">Vermont (State Filing Fee - $125)</option>
-        <option value="VA" data-fee="100">Virginia (State Filing Fee - $100)</option>
-        <option value="WA" data-fee="200">Washington (State Filing Fee - $200)</option>
-        <option value="WV" data-fee="100">West Virginia (State Filing Fee - $100)</option>
-        <option value="WI" data-fee="130">Wisconsin (State Filing Fee - $130)</option>
-        <option value="WY" data-fee="100">Wyoming (State Filing Fee - $100)</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label>Are you the Member or Manager?</label>
-                            <select name="role" required>
-                                <option value="">Select Role</option>
-                                <option value="Member">Member</option>
-                                <option value="Manager">Manager</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="intake-grid">
+        <!-- FORM SECTION -->
+        <div class="form-card">
+            <h3 style="margin-bottom: 25px;">Business Information</h3>
+            <div class="form-group">
+                <label>Company Name (Desired)</label>
+                <input type="text" placeholder="e.g. Acme Logistics LLC">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label>Filing State</label>
+                    <select>
+                        <option>Delaware</option>
+                        <option>Texas</option>
+                        <option>Florida</option>
+                        <option>Wyoming</option>
+                    </select>
                 </div>
-
-                <!-- Step 2: Registered Agent -->
-                <div class="form-step">
-                    <span class="step-label">02 Registered Agent Service</span>
-                    <div class="input-group">
-                        <label>Do you want to add our registered service?</label>
-                        <select name="ra_service" id="ra-service-select" required>
-                            <option value="yes">Yes - $125 Per Year</option>
-                            <option value="no">No - I'll add my Registered Agent information below</option>
-                        </select>
-                    </div>
-                  <!-- Registered Agent Details (Appears if "No" is selected) -->
-<div id="manual-ra-fields" style="display: none; background: #f8fafc; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; margin-top: 15px;">
-    <h4 style="font-size: 1rem; color: #0a1f44; margin-bottom: 20px; font-weight: 800;">Registered Agent Information</h4>
-    
-    <!-- Agent Name -->
-    <div class="input-group">
-        <label>Registered Agent Name</label>
-        <input type="text" name="ra_name" id="ra_name" placeholder="Individual or Company Name">
-    </div>
-
-    <!-- Street Address -->
-    <div class="input-group">
-        <label>Street Address</label>
-        <input type="text" name="ra_address" id="ra_address" placeholder="123 Main St">
-    </div>
-
-    <!-- Suite/Building -->
-    <div class="input-group">
-        <label>Suite, Building, Floor, etc. (Optional)</label>
-        <input type="text" name="ra_suite" id="ra_suite" placeholder="Apt 4B / Suite 200">
-    </div>
-
-    <!-- City, State, Zip Grid -->
-    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px;">
-        <div class="input-group">
-            <label>City</label>
-            <input type="text" name="ra_city" id="ra_city" placeholder="City">
-        </div>
-        <div class="input-group">
-            <label>State</label>
-            <select name="ra_state" id="ra_state">
-                <option value="">Select</option>
-                <option value="AL">AL</option><option value="AK">AK</option><option value="AZ">AZ</option>
-                <option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option>
-                <option value="CT">CT</option><option value="DE">DE</option><option value="FL">FL</option>
-                <option value="GA">GA</option><option value="HI">HI</option><option value="ID">ID</option>
-                <option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option>
-                <option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option>
-                <option value="ME">ME</option><option value="MD">MD</option><option value="MA">MA</option>
-                <option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option>
-                <option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option>
-                <option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option>
-                <option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option>
-                <option value="ND">ND</option><option value="OH">OH</option><option value="OK">OK</option>
-                <option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option>
-                <option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option>
-                <option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option>
-                <option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option>
-                <option value="WI">WI</option><option value="WY">WY</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label>Zip Code</label>
-            <input type="text" name="ra_zip" id="ra_zip" placeholder="12345">
-        </div>
-    </div>
-    
-    <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">Note: The Registered Agent must be located in the state of formation.</p>
-</div>
-
-                </div>
-
-<!-- S-CORP ELECTION UPSELL -->
- <!-- Step 3: Tax Strategy -->
-<div class="form-step">
-    <span class="step-label">03 Tax Strategy</span>
-    <div class="input-group">
-        <label>Do you want to add an S-Corp Tax Election? (Save on self-employment taxes)</label>
-        <select name="scorp_election" id="scorp-select" required>
-            <option value="no">No - I'll stay with standard taxation</option>
-            <option value="yes">Yes - Add S-Corp Election ($49.00)</option>
-        </select>
-    </div>
-</div>
-
-<!-- S-CORP QUALIFICATION QUESTIONS (Hidden by default) -->
-<div id="scorp-qual-fields" style="display: none; background: #fff9f5; padding: 25px; border-radius: 16px; border: 1px solid #FF6B00; margin-top: 15px;">
-    <h4 style="font-size: 1rem; color: #0a1f44; margin-bottom: 15px;">S-Corp Eligibility Check</h4>
-    
-    <div class="input-group">
-        <label>Is the projected annual net income for the business above $50,000?</label>
-        <select name="scorp_income">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <label>Will the business have any non-U.S. resident shareholders?</label>
-        <select name="scorp_residents">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <label>Do you plan to issue preferred stock to investors?</label>
-        <select name="scorp_stock">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-        </select>
-    </div>
-</div>
-            
-            <!-- Step 4: Personal Information -->
-            <div class="form-step">
-                <span class="step-label">04 Personal Information</span>
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>First Name</label>
-                        <input type="text" name="first_name" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Last Name</label>
-                        <input type="text" name="last_name" required>
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="email@example.com" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Phone Number</label>
-                        <input type="tel" name="phone" placeholder="(555) 555-5555" required>
-                    </div>
+                <div class="form-group">
+                    <label>Entity Type</label>
+                    <select>
+                        <option>LLC</option>
+                        <option>Corporation</option>
+                        <option>B-Corp</option>
+                    </select>
                 </div>
             </div>
 
-                <!-- Step 5: Payment -->
-                <div class="form-step">
-                    <span class="step-label">05 Secure Payment</span>
-                    <div id="card-element" style="padding: 15px; border: 1px solid #cbd5e1; border-radius: 10px; background: white;"></div>
-                    <button type="submit" class="cta-button-block" style="margin-top: 30px;">Complete My Filing</button>
-                </div>
-         
-</form>
+            <h3 style="margin-bottom: 25px; margin-top: 40px;">Contact Details</h3>
+            <div class="form-group">
+                <label>Primary Contact Name</label>
+                <input type="text" placeholder="John Doe">
             </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="john@example.com">
+            </div>
+
+            <button type="submit" class="btn-main" style="width: 100%; margin-top: 20px;">Submit Secure Filing</button>
         </div>
 
-        <!-- RIGHT: THE SIDEBAR (Must be outside the form-container but inside the grid) -->
-        <aside class="order-summary-sidebar">
-            <div class="summary-card">
-                <h4>Order Summary</h4>
-                <div class="summary-line">
-                    <span>Formation Package</span>
-                    <span>$125.00</span>
-                </div>
-                <div class="summary-line">
-                    <span>State Filing Fee</span>
-                    <span id="summary-state-fee">$0.00</span>
-                </div>
-                <div id="addon-rows"></div>
-                <div class="summary-total">
-                    <span>Total Due</span>
-                    <span id="total-price">$125.00</span>
-                </div>
+        <!-- SUMMARY SIDEBAR -->
+        <aside class="summary-card">
+            <h4 style="margin-bottom: 20px;">Order Summary</h4>
+            <div class="summary-row">
+                <span>Elite LLC Formation</span>
+                <strong>$199.00</strong>
             </div>
+            <div class="summary-row">
+                <span>State Filing Fee</span>
+                <strong>$90.00</strong>
+            </div>
+            <div class="summary-row">
+                <span>Registered Agent</span>
+                <span style="color: var(--emerald); font-weight: 700;">INCLUDED</span>
+            </div>
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+            <div class="summary-row" style="font-size: 1.1rem; color: var(--navy);">
+                <strong>Total Due</strong>
+                <strong>$289.00</strong>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 20px; line-height: 1.4;">
+                By clicking submit, you agree to our Terms of Service and authorize filings4u to act as your agent for this filing.
+            </p>
         </aside>
-
-    </div> <!-- This closes order-grid -->
-</section>
-
-
- <!-- FOOTER -->
-<footer id="footer">
-    <div class="footer-container">
-        <!-- Col 1: Brand -->
-        <section class="footer-column brand-col">
-            <img src="images/logo.png" alt="filings4u logo" class="footer-logo">
-            <p>Simplifying corporate compliance for the modern entrepreneur.</p>
-            <div class="footer-social">
-                <a href="#"><img src="https://flaticon.com" alt="Facebook" width="20"></a>
-                <a href="#"><img src="https://flaticon.com" alt="Instagram" width="20"></a>
-                <a href="#"><img src="https://flaticon.com" alt="Twitter" width="20"></a>
-            </div>
-        </section>
-
-        <!-- Col 2: Services -->
-        <section class="footer-column">
-            <h3>Services</h3>
-            <ul class="footer-links">
-                <li><a href="llc.html">LLC Formation</a></li>
-                <li><a href="corporation.html">C-Corp Filing</a></li>
-                <li><a href="registered-agent.html">Registered Agent</a></li>
-                <li><a href="ein.html">EIN Registration</a></li>
-            </ul>
-        </section>
-
-        <!-- Col 3: State Filings -->
-        <section class="footer-column">
-            <h3>State Filings</h3>
-            <ul class="footer-links">
-                <li><a href="#">Texas LLC</a></li>
-                <li><a href="#">Delaware Corp</a></li>
-                <li><a href="#">Florida LLC</a></li>
-                <li><a href="#">Wyoming LLC</a></li>
-            </ul>
-        </section>
-
-        <!-- Col 4: Resources -->
-        <section class="footer-column">
-            <h3>Resources</h3>
-            <ul class="footer-links">
-                <li><a href="#">Business Help</a></li>
-                <li><a href="#">Form Templates</a></li>
-                <li><a href="#">Filing Deadlines</a></li>
-            </ul>
-        </section>
-
-        <!-- Col 5: Subscribe -->
-        <section class="footer-column subscribe-col">
-            <h3>Stay Updated</h3>
-            <form class="footer-subscribe">
-                <input type="email" placeholder="name@email.com" required>
-                <button type="submit">Sign Up</button>
-            </form>
-        </section>
     </div>
+</main>
 
-    <!-- BOTTOM BAR: Single line divider with requested info -->
-    <div class="footer-bottom">
-    <div class="copyright-info">
-    &copy; 2026 filings4u. All rights reserved. 
-    A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" class="subsidiary-link">Roseland Companies, LLC</a>
-</div>
-
-</div>
-
+<footer class="site-footer" style="margin-top: 80px;">
+    <!-- [STANDARDIZED FOOTER CONTENT] -->
 </footer>
-   <script>
-window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    
-    // 1. PRE-FILL BUSINESS NAME
-    const nameFromSearch = params.get('biz_name');
-    if (nameFromSearch) {
-        const nameInput = document.getElementById('order_biz_name');
-        if (nameInput) nameInput.value = decodeURIComponent(nameFromSearch);
-    }
-
-    // 2. SETUP SUMMARY CALCULATIONS
-    const summaryContainer = document.querySelector('.summary-card');
-    const totalElement = document.getElementById('total-price');
-    const totalLine = document.querySelector('.summary-total');
-    
-    // Base Price (LLC/Corp Formation)
-    let currentTotal = 100.00; 
-
-    // Reusable function to add items to sidebar
-    function addAddonToSummary(label, price) {
-        const div = document.createElement('div');
-        div.className = 'summary-line';
-        div.innerHTML = `<span>${label}</span><span>$${price.toFixed(2)}</span>`;
-        summaryContainer.insertBefore(div, totalLine);
-        currentTotal += price;
-    }
-
-    // 3. CHECK FOR ADD-ONS (ONLY ONCE EACH)
-    if (params.get('ein') === 'true') {
-        addAddonToSummary('Federal Tax ID (EIN)', 79.00);
-    }
-
-    if (params.get('oa') === 'true') {
-        addAddonToSummary('Operating Agreement', 49.00);
-    }
-
-    if (params.get('compliance') === 'true') {
-        addAddonToSummary('Compliance Guard', 99.00);
-    }
-
-    // Handle the "addons" parameter from the multi-select buttons if used
-    const multiAddons = params.get('addons');
-    if (multiAddons) {
-        const items = multiAddons.split(',');
-        if (items.includes('ein') && params.get('ein') !== 'true') addAddonToSummary('Federal Tax ID (EIN)', 79.00);
-        if (items.includes('oa') && params.get('oa') !== 'true') addAddonToSummary('Operating Agreement', 49.00);
-        if (items.includes('cg') && params.get('compliance') !== 'true') addAddonToSummary('Compliance Guard', 99.00);
-    }
-
-    // 4. UPDATE FINAL TOTAL DISPLAY
-    totalElement.innerText = `$${currentTotal.toFixed(2)}`;
-});
-
-// Keep this outside the DOMContentLoaded if it's used on the upsell page
-let selectedItems = [];
-function toggleUpsell(id, price) {
-    const card = document.getElementById(`card-${id}`);
-    const index = selectedItems.indexOf(id);
-    if (index > -1) {
-        selectedItems.splice(index, 1);
-        card.classList.remove('selected');
-        card.querySelector('button').innerText = 'Add to Order';
-    } else {
-        selectedItems.push(id);
-        card.classList.add('selected');
-        card.querySelector('button').innerText = '✓ Added';
-    }
-}
-
-function proceedToCheckout() {
-    const itemsParam = selectedItems.join(',');
-    window.location.href = `order.html?addons=${itemsParam}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const stateSelect = document.getElementById('state-select');
-    const stateFeeDisplay = document.getElementById('summary-state-fee');
-    const totalPriceDisplay = document.getElementById('total-price');
-    const basePrice = 125.00; // Your Formation Package price
-
-    function updateOrderTotal() {
-        // 1. Get the selected state's fee
-        const selectedOption = stateSelect.options[stateSelect.selectedIndex];
-        const stateFee = parseFloat(selectedOption.getAttribute('data-fee')) || 0;
-
-        // 2. Calculate Add-ons (Logic from your previous script)
-        let addonTotal = 0;
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('ein') === 'true') addonTotal += 79;
-        if (params.get('oa') === 'true') addonTotal += 49;
-        if (params.get('compliance') === 'true') addonTotal += 99;
-
-        // 3. Update the Sidebar UI
-        stateFeeDisplay.innerText = `$${stateFee.toFixed(2)}`;
-        
-        const finalTotal = basePrice + stateFee + addonTotal;
-        totalPriceDisplay.innerText = `$${finalTotal.toFixed(2)}`;
-    }
-
-    // Run whenever the user picks a new state
-    stateSelect.addEventListener('change', updateOrderTotal);
-
-    // Run once on load to catch any pre-selected data
-    updateOrderTotal();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const raSelect = document.getElementById('ra-service-select');
-    const manualFields = document.getElementById('manual-ra-fields');
-    const raName = document.getElementById('ra_name');
-    const raAddress = document.getElementById('ra_address');
-    
-    const stateSelect = document.getElementById('state-select');
-    const stateFeeDisplay = document.getElementById('summary-state-fee');
-    const totalPriceDisplay = document.getElementById('total-price');
-    const summaryContainer = document.querySelector('.summary-card');
-
-function updateCalculations() {
-    const scorpQualFields = document.getElementById('scorp-qual-fields');
-    const stateSelect = document.getElementById('state-select');
-    const raSelect = document.getElementById('ra-service-select');
-    const scorpSelect = document.getElementById('scorp-select');
-    const addonRows = document.getElementById('addon-rows');
-    const totalPriceDisplay = document.getElementById('total-price');
-    const stateFeeDisplay = document.getElementById('summary-state-fee');
-
-    // 1. Base Values
-    const stateFee = parseFloat(stateSelect.options[stateSelect.selectedIndex].getAttribute('data-fee')) || 0;
-    const basePrice = 125.00;
-    let addonHtml = '';
-    let addonTotal = 0;
-
-    // 2. Registered Agent Logic
-    if (raSelect.value === 'yes') {
-        addonTotal += 125.00;
-        addonHtml += `
-            <div class="summary-line">
-                <span>Registered Agent Service</span>
-                <span>$125.00</span>
-            </div>`;
-        document.getElementById('manual-ra-fields').style.display = 'none';
-    } else {
-        document.getElementById('manual-ra-fields').style.display = 'block';
-    }
-
-    // 3. S-Corp Election Logic
-    if (scorpSelect.value === 'yes') {
-        addonTotal += 49.00;
-        addonHtml += `
-            <div class="summary-line">
-                <span>S-Corp Tax Election</span>
-                <span>$49.00</span>
-            </div>`;
-    }
-
-    // 4. Update UI
-    addonRows.innerHTML = addonHtml;
-    stateFeeDisplay.innerText = `$${stateFee.toFixed(2)}`;
-    
-    const finalTotal = basePrice + stateFee + addonTotal;
-    totalPriceDisplay.innerText = `$${finalTotal.toFixed(2)}`;
-}
-
-// Event Listeners
-document.getElementById('state-select').addEventListener('change', updateCalculations);
-document.getElementById('ra-service-select').addEventListener('change', updateCalculations);
-document.getElementById('scorp-select').addEventListener('change', updateCalculations);
-
-// Run on load
-updateCalculations();
-
-if (scorpSelect.value === 'yes') {
-        scorpQualFields.style.display = 'block';
-        // (existing logic to add $49 to sidebar)
-    } else {
-        scorpQualFields.style.display = 'none';
-    }
-
-});
-
-
-</script>
 
 </body>
 </html>

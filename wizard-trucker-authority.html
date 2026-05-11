@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trucker Authority Intake | filings4u</title>
+    <link rel="stylesheet" href="assets/css/site-elite.css">
+    <style>
+        .wizard-card { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+        .form-group input, select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; }
+        .form-section { display: none; }
+        .form-section.active { display: block; }
+    </style>
+</head>
+<body style="background: var(--ice);">
+    <nav style="background: white; padding: 15px 8%; border-bottom: 1px solid var(--border);"><img src="images/logo.png" style="height: 30px;"></nav>
+
+    <main class="wizard-card">
+        <form action="portal-setup.html">
+            <!-- STEP 1: PERSONAL & CDL -->
+            <div class="form-section active" id="s1">
+                <span class="hero-tag">Step 1: Driver Identity</span>
+                <h2>Owner & CDL Details</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group"><label>First Name*</label><input type="text" required></div>
+                    <div class="form-group"><label>Last Name*</label><input type="text" required></div>
+                </div>
+                <div class="form-group"><label>Social Security Number*</label><input type="password" placeholder="XXX-XX-XXXX" required></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group"><label>CDL Number*</label><input type="text" required></div>
+                    <div class="form-group"><label>CDL State*</label><input type="text" required></div>
+                </div>
+                <div class="form-group"><label>Upload CDL Copy*</label><input type="file" required></div>
+                <button type="button" class="btn-main" style="width:100%" onclick="next(2)">Continue →</button>
+            </div>
+
+            <!-- STEP 2: FLEET SPECS -->
+            <div class="form-section" id="s2">
+                <span class="hero-tag">Step 2: Equipment</span>
+                <h2>Fleet Infrastructure</h2>
+                <div class="form-group"><label>Company Name (Legal)</label><input type="text"></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group"><label>Number of Power Units</label><input type="number"></div>
+                    <div class="form-group"><label>Number of Trailers</label><input type="number"></div>
+                </div>
+                <div class="form-group">
+                    <label>Cargo Type</label>
+                    <select><option>General Freight</option><option>Household Goods</option><option>Hazardous Materials</option></select>
+                </div>
+                <button type="button" class="btn-main" style="width:100%" onclick="next(3)">Finalize Authority →</button>
+            </div>
+        </form>
+    </main>
+
+    <script>function next(n){ document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active')); document.getElementById('s'+n).classList.add('active'); }</script>
+</body>
+</html>
