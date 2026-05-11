@@ -316,16 +316,32 @@ const firebaseConfig = {
         submitBtn.innerText = "Creating Secure Account...";
         submitBtn.disabled = true;
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Success: Redirect to success/payment page
+        // Updated Firebase Submit Logic inside signup.html
+document.getElementById('masterIntake').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('own_email').value;
+    const password = document.querySelector('input[type="password"]').value;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+
+    submitBtn.innerText = "Initializing Security...";
+    submitBtn.disabled = true;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // SUCCESS: Send Verification Email
+            userCredential.user.sendEmailVerification().then(() => {
+                alert("Account created! Please check your email and click the verification link before signing in.");
                 window.location.href = "success.html";
-            })
-            .catch((error) => {
-                submitBtn.innerText = "Authorize & Pay →";
-                submitBtn.disabled = false;
-                alert("Account Creation Error: " + error.message);
             });
+        })
+        .catch((error) => {
+            submitBtn.innerText = "Authorize & Pay →";
+            submitBtn.disabled = false;
+            alert("Security Error: " + error.message);
+        });
+});
+
     });
 </script>
 
