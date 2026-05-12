@@ -40,7 +40,7 @@
     <script>
         // 1. Initialize Supabase
         const supabaseUrl = 'https://supabase.co';
-        const supabaseKey = 'YOUR_ANON_KEY'; // Get this from your Supabase Dashboard Settings > API
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'; // Get this from your Supabase Dashboard Settings > API
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
         const loginForm = document.getElementById('loginForm');
@@ -71,6 +71,7 @@
                 window.location.href = 'update-password.html' + hash;
             }
         };
+        
     </script>
 </body>
 </html>
