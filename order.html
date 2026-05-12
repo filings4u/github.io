@@ -65,7 +65,8 @@
                         body: JSON.stringify({
                             email: orderData.customer_email,
                             company_name: orderData.company_name,
-                            amount: parseInt(orderData.price || 599) * 100 
+                            amount: parseInt(orderData.price || 599) * 100,
+                            service_type: 'trucker' 
                         })
                     });
 
