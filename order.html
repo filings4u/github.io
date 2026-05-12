@@ -4,55 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review & Pay | filings4u</title>
-    <script>
-        // 1. YOUR STRIPE PUBLISHABLE KEY
-        const stripe = Stripe('pk_test_51TTy4u1hrjQxq47MgsMyTpdS4Aadnk4H63kILJaWbuUfppSySDt4Ijx9we7zkkCFEaeqzQ7C3k7Ql9HcSA5Urh3n00pEKGxNLE'); 
-
-        // 2. GET DATA FROM THE WIZARD
-        const orderData = JSON.parse(sessionStorage.getItem('pendingOrder'));
-
-        async function initialize() {
-            if (!orderData || !orderData.customer_email) {
-                alert("Order session not found. Returning to wizard.");
-                window.location.href = "wizard-trucker-authority.html";
-                return;
-            }
-
-            try {
-                // 3. FETCH THE CLIENT SECRET FROM SUPABASE
-                const fetchClientSecret = async () => {
-                    const response = await fetch('https://lrbimrlbskjweynxlgas.supabase.co/functions/v1/stripe-webhook', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            email: orderData.customer_email,
-                            company_name: orderData.company_name,
-                            amount: parseInt(orderData.price || 599) * 100 // Convert to cents
-                        })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error);
-                    return data.clientSecret;
-                };
-
-                // 4. INITIALIZE THE EMBEDDED FORM
-                const checkout = await stripe.initEmbeddedCheckout({ fetchClientSecret });
-
-                // 5. HIDE LOADING AND MOUNT
-                document.getElementById('loading-message').style.display = 'none';
-                checkout.mount('#checkout');
-
-            } catch (err) {
-                console.error("Initialization failed:", err);
-                document.getElementById('loading-message').innerHTML = 
-                    `<div style="color:red; font-weight:700;">Error: ${err.message}. Please refresh or contact support.</div>`;
-            }
-        }
-
-        initialize();
-    </script>
+    
+    <!-- 1. LOAD THE LIBRARY FIRST -->
     <script src="https://stripe.com"></script>
+    
     <link rel="stylesheet" href="assets/css/site-elite.css">
     <style>
         :root { --border: #e2e8f0; --navy: #0f172a; --ice: #f8fafc; }
@@ -71,16 +26,55 @@
             <p>Secure payment for your corporate infrastructure</p>
         </div>
 
-        <!-- STYLED LOADING MESSAGE -->
         <div id="loading-message">
             <div style="font-size: 1.2rem; font-weight: 700; color: var(--navy);">🔒 Connecting to Stripe...</div>
             <p>Please wait while we prepare your secure checkout.</p>
         </div>
 
-        <!-- STRIPE MOUNTS HERE (MUST BE EMPTY) -->
         <div id="checkout"></div> 
     </main>
 
+    <script>
+        // 2. WAIT FOR DOM TO LOAD
+        window.onload = async function() {
+            const orderData = JSON.parse(sessionStorage.getItem('pendingOrder'));
+            
+            // Your real key from the snippet above
+            const stripe = Stripe('pk_test_51TTy4u1hrjQxq47MgsMyTpdS4Aadnk4H63kILJaWbuUfppSySDt4Ijx9we7zkkCFEaeqzQ7C3k7Ql9HcSA5Urh3n00pEKGxNLE');
 
+            if (!orderData || !orderData.customer_email) {
+                alert("Order session not found. Returning to wizard.");
+                window.location.href = "wizard-trucker-authority.html";
+                return;
+            }
+
+            try {
+                const fetchClientSecret = async () => {
+                    const response = await fetch('https://lrbimrlbskjweynxlgas.supabase.co/functions/v1/stripe-webhook', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email: orderData.customer_email,
+                            company_name: orderData.company_name,
+                            amount: parseInt(orderData.price || 599) * 100 
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (data.error) throw new Error(data.error);
+                    return data.clientSecret;
+                };
+
+                const checkout = await stripe.initEmbeddedCheckout({ fetchClientSecret });
+                document.getElementById('loading-message').style.display = 'none';
+                checkout.mount('#checkout');
+
+            } catch (err) {
+                console.error("Initialization failed:", err);
+                document.getElementById('loading-message').innerHTML = 
+                    `<div style="color:red; font-weight:700;">Error: ${err.message}. Please refresh or contact support.</div>`;
+            }
+        };
+    </script>
 </body>
 </html>
