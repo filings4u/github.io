@@ -252,26 +252,9 @@
     </aside>
 </div>
 
-<!-- 1. Load Firebase SDKs first -->
-<script src="https://gstatic.com"></script>
-<script src="https://gstatic.com"></script>
 
 <script>
-    // 2. Firebase Configuration
-   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA_45sXieC6fdfQstLQ2a21psXeOxhfdwo",
-  authDomain: "customer-portal-18728.firebaseapp.com",
-  projectId: "customer-portal-18728",
-  storageBucket: "customer-portal-18728.firebasestorage.app",
-  messagingSenderId: "117765841972",
-  appId: "1:117765841972:web:9746c4f3037270a7811661",
-  measurementId: "G-Q2L5R7LP6R"
-};
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
 
     // 3. Page Session Timestamp
     document.getElementById('timestamp').innerText = "Session: " + new Date().toLocaleString();
@@ -305,44 +288,6 @@ const firebaseConfig = {
         nextStep(10);
     }
 
-    // 7. FIREBASE SUBMIT LOGIC (Account Creation)
-    document.getElementById('masterIntake').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const email = document.getElementById('own_email').value; // Field from Step 2
-        const password = document.querySelector('input[type="password"]').value; // Field from Step 10
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-
-        submitBtn.innerText = "Creating Secure Account...";
-        submitBtn.disabled = true;
-
-        // Updated Firebase Submit Logic inside signup.html
-document.getElementById('masterIntake').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('own_email').value;
-    const password = document.querySelector('input[type="password"]').value;
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-
-    submitBtn.innerText = "Initializing Security...";
-    submitBtn.disabled = true;
-
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // SUCCESS: Send Verification Email
-            userCredential.user.sendEmailVerification().then(() => {
-                alert("Account created! Please check your email and click the verification link before signing in.");
-                window.location.href = "success.html";
-            });
-        })
-        .catch((error) => {
-            submitBtn.innerText = "Authorize & Pay →";
-            submitBtn.disabled = false;
-            alert("Security Error: " + error.message);
-        });
-});
-
-    });
 </script>
 
 </body>
