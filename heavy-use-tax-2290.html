@@ -110,48 +110,60 @@
     </div>
 </section>
 
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent filing pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">$25 <span>/ Vehicle</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard e-file for owner-operators.</p>
-            <ul class="price-features">
-                <li>Single VIN Filing</li>
-                <li>IRS Schedule 1 Delivery</li>
-                <li>Email Support</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Basic</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$99 <span>/ Fleet</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Unlimited filings for small fleets.</p>
-            <ul class="price-features">
-                <li>Everything in Basic</li>
-                <li><strong>Priority VIN Correction</strong></li>
-                <li>VIN Pre-Audit Check</li>
-                <li>SMS Filing Alerts</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$249 <span>/ Fleet</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total management for high-volume fleets.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>IFTA Data Integration</li>
-                <li>Multi-Year Record Archiving</li>
-                <li>Dedicated Fleet Manager</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent filing pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Standard / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Standard</h3> 
+            <div class="amount">$25 <span>/ Vehicle</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard e-file for owner-operators.</p> 
+            <ul class="price-features"> 
+                <li>Single VIN Filing</li> 
+                <li>IRS Schedule 1 Delivery</li> 
+                <li>Email Support</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=heavy-use-tax-2290&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Basic</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$99 <span>/ Fleet</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Unlimited filings for small fleets.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Basic</li> 
+                <li><strong>Priority VIN Correction</strong></li> 
+                <li>VIN Pre-Audit Check</li> 
+                <li>SMS Filing Alerts</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=heavy-use-tax-2290&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$249 <span>/ Fleet</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total management for high-volume fleets.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>IFTA Data Integration</li> 
+                <li>Multi-Year Record Archiving</li> 
+                <li>Dedicated Fleet Manager</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=heavy-use-tax-2290&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">

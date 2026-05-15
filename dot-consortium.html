@@ -115,49 +115,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent formation pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">$199 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential enrollment for owner-operators.</p>
-            <ul class="price-features">
-                <li>Random Pool Enrollment</li>
-                <li>Quarterly Pool Maintenance</li>
-                <li>Digital Compliance Certificate</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Standard</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$349 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Full safety management suite.</p>
-            <ul class="price-features">
-                <li>Everything in Standard</li>
-                <li><strong>Clearinghouse Queries</strong></li>
-                <li>Policy Manual Drafting</li>
-                <li>Priority Support</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$599 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total fleet safety monitoring.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>Multi-Driver Dashboard</li>
-                <li>MRO Account Access</li>
-                <li>Audit Defense Support</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent formation pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Standard / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Standard</h3> 
+            <div class="amount">$199 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential enrollment for owner-operators.</p> 
+            <ul class="price-features"> 
+                <li>Random Pool Enrollment</li> 
+                <li>Quarterly Pool Maintenance</li> 
+                <li>Digital Compliance Certificate</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=dot-consortium&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Standard</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$349 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full safety management suite.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Standard</li> 
+                <li><strong>Clearinghouse Queries</strong></li> 
+                <li>Policy Manual Drafting</li> 
+                <li>Priority Support</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=dot-consortium&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$599 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total fleet safety monitoring.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>Multi-Driver Dashboard</li> 
+                <li>MRO Account Access</li> 
+                <li>Audit Defense Support</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=dot-consortium&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">

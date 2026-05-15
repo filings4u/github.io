@@ -114,49 +114,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent formation pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">$75 <span>One-Time</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential filing for new MC numbers.</p>
-            <ul class="price-features">
-                <li>National Agent Designation</li>
-                <li>FMCSA System Submission</li>
-                <li>Digital BOC-3 Copy</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Standard</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$149 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Continuous authority maintenance.</p>
-            <ul class="price-features">
-                <li>Everything in Standard</li>
-                <li><strong>Proactive Mail Scanning</strong></li>
-                <li>UCR Registration Link</li>
-                <li>Priority 24h review</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$299 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total fleet jurisdictional setup.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>Multi-Entity Discounts</li>
-                <li>Dedicated Compliance Expert</li>
-                <li>Lifetime Support</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent formation pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Standard / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Standard</h3> 
+            <div class="amount">$75 <span>One-Time</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential filing for new MC numbers.</p> 
+            <ul class="price-features"> 
+                <li>National Agent Designation</li> 
+                <li>FMCSA System Submission</li> 
+                <li>Digital BOC-3 Copy</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=process-agents-boc-3&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Standard</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$149 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Continuous authority maintenance.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Standard</li> 
+                <li><strong>Proactive Mail Scanning</strong></li> 
+                <li>UCR Registration Link</li> 
+                <li>Priority 24h review</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=process-agents-boc-3&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$299 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total fleet jurisdictional setup.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>Multi-Entity Discounts</li> 
+                <li>Dedicated Compliance Expert</li> 
+                <li>Lifetime Support</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=process-agents-boc-3&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">
     <div class="hero-tag">Knowledge Base</div>

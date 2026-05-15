@@ -1,273 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Our Experts | filings4u Professional</title>
-    <link rel="stylesheet" href="assets/css/site-elite.css">
-</head>
-<body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Contact Our Experts | filings4u Professional</title> 
+    <link rel="stylesheet" href="assets/css/site-elite.css"> 
+    <style>
+        .contact-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        @media (min-width: 900px) {
+            .contact-layout-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+        }
+        .info-panel-card {
+            background: #0a1f44;
+            color: #ffffff;
+            padding: 45px;
+            border-radius: 16px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+        .info-panel-card h2 {
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+            font-weight: 800;
+        }
+        .info-panel-card p {
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .contact-method-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .contact-method-row h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #10b981;
+        }
+        .contact-method-row p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .contact-method-row a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-method-row a:hover {
+            text-decoration: underline;
+        }
+        .form-panel-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(10,31,68,0.02);
+            box-sizing: border-box;
+        }
+        .form-panel-card h3 {
+            color: #0a1f44;
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .form-panel-card p {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        .contact-form-group {
+            margin-bottom: 20px;
+        }
+        .contact-form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #4a5568;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .contact-form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            color: #0a1f44;
+            transition: border-color 0.2s;
+        }
+        .contact-form-input:focus {
+            border-color: #0a1f44;
+        }
+        .contact-form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            color: #0a1f44;
+            min-height: 140px;
+            font-family: inherit;
+            line-height: 1.5;
+            resize: vertical;
+        }
+        .contact-form-textarea:focus {
+            border-color: #0a1f44;
+        }
+    </style>
+</head> 
+<body> 
+    <nav> 
+        <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a> 
+        <div class="nav-links"> 
+            <!-- BUSINESS FORMATION --> 
+            <div class="nav-item-dropdown"> 
+                <a href="#">Formations ▾</a> 
+                <div class="dropdown-content"> 
+                    <a href="limited-liability-company.html">LLC Formation</a> 
+                    <a href="corporations.html">Corporations (C/S-Corp)</a> 
+                    <a href="doing-business-as-dba.html">DBA Registration</a> 
+                    <a href="nonprofits.html">Nonprofit Organization</a> 
+                    <a href="sole-proprietorship.html">Sole Proprietorship</a> 
+                </div> 
+            </div> 
+            <!-- COMPLIANCE SERVICES --> 
+            <div class="nav-item-dropdown"> 
+                <a href="#">Compliance ▾</a> 
+                <div class="dropdown-content"> 
+                    <a href="annual-reports.html">Annual Reports</a> 
+                    <a href="business-licenses.html">Business Licenses</a> 
+                    <a href="employer-identification-number-ein.html">Employer ID (EIN)</a> 
+                    <a href="operating-agreement.html">Operating Agreement</a> 
+                    <a href="registered-agent.html">Registered Agent</a> 
+                    <a href="dissolution.html">Entity Dissolution</a> 
+                </div> 
+            </div> 
+            <!-- TAX FILINGS --> 
+            <div class="nav-item-dropdown"> 
+                <a href="#">Tax Filings ▾</a> 
+                <div class="dropdown-content"> 
+                    <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a> 
+                    <a href="federal-income-tax.html">Federal Income Tax</a> 
+                    <a href="state-income-tax.html">State Income Tax</a> 
+                    <a href="sales-tax-registration.html">Sales Tax Registration</a> 
+                    <a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a> 
+                    <a href="franchise-tax.html">Franchise Tax Filing</a> 
+                </div> 
+            </div> 
+            <!-- DOT & FLEET --> 
+            <div class="nav-item-dropdown"> 
+                <a href="#">DOT & Fleet ▾</a> 
+                <div class="dropdown-content"> 
+                    <a href="owner-operators.html">Owner Operators</a> 
+                    <a href="trucker-authority.html">Trucker Authority</a> 
+                    <a href="broker-authority.html">Broker Authority</a> 
+                    <a href="dot-consortium.html">DOT Consortium</a> 
+                    <a href="driver-qualification-file.html">Driver Qualification File</a> 
+                    <a href="ucr-registration.html">UCR Registration</a> 
+                    <a href="process-agents-boc-3.html">Process Agent (BOC-3)</a> 
+                    <a href="international-fuel-tax-agreement-ifta.html">IFTA Registration</a> 
+                    <a href="licenses-permits.html">Licenses & Permits</a> 
+                    <a href="trucker-insurance.html">Trucker Insurance</a> 
+                    <a href="broker-insurance.html">Broker Insurance</a> 
+                </div> 
+            </div> 
+            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a> 
+        </div> 
+    </nav> 
 
-<nav>
-    <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
-    <div class="nav-links">
-        <!-- BUSINESS FORMATION -->
-        <div class="nav-item-dropdown">
-            <a href="#">Formations ▾</a>
-            <div class="dropdown-content">
-                <a href="limited-liability-company.html">LLC Formation</a>
-                <a href="corporations.html">Corporations (C/S-Corp)</a>
-                <a href="doing-business-as-dba.html">DBA Registration</a>
-                <a href="nonprofits.html">Nonprofit Organization</a>
-                <a href="sole-proprietorship.html">Sole Proprietorship</a>
+    <!-- SECTION 1: SPLIT CONFIGURATION LAYOUT WRAPPER -->
+    <div class="contact-layout-grid">
+        
+        <!-- LEFT PANEL: STRICT CONTACT DIRECTORY OVERVIEW -->
+        <div class="info-panel-card">
+            <h2>Contact Headquarters</h2>
+            <p>Connect immediately with our structural filing directorate to bypass administrative delays or update corporate assets.</p>
+            
+            <div class="contact-method-row">
+                <div>
+                    <h4>Corporate Office</h4>
+                    <p>filings4u, LLC<br>100 Roseland Parkway, Suite 400<br>Atlanta, GA 30303</p>
+                </div>
+            </div>
+
+            <div class="contact-method-row">
+                <div>
+                    <h4>Telephony Routing</h4>
+                    <p>Toll-Free Hotline: <a href="tel:8005550199">+1 (800) 555-0199</a><br>Secure Business Fax: +1 (404) 555-0149</p>
+                </div>
+            </div>
+
+            <div class="contact-method-row">
+                <div>
+                    <h4>Email Dispatch</h4>
+                    <p>Support Channels: <a href="mailto:support@filings4u.com">support@filings4u.com</a><br>Enterprise Group: <a href="mailto:enterprise@filings4u.com">enterprise@filings4u.com</a></p>
+                </div>
             </div>
         </div>
 
-        <!-- COMPLIANCE SERVICES -->
-        <div class="nav-item-dropdown">
-            <a href="#">Compliance ▾</a>
-            <div class="dropdown-content">
-                <a href="annual-reports.html">Annual Reports</a>
-                <a href="business-licenses.html">Business Licenses</a>
-                <a href="employer-identification-number-ein.html">Employer ID (EIN)</a>
-                <a href="operating-agreement.html">Operating Agreement</a>
-                <a href="registered-agent.html">Registered Agent</a>
-                <a href="dissolution.html">Entity Dissolution</a>
-            </div>
-        </div>
+        <!-- RIGHT PANEL: COMPLIANCE INTAKE CONTROL FORM -->
+        <div class="form-panel-card">
+            <h3>Submit Urgent Inquiry</h3>
+            <p>Type your parameters directly below to log an encrypted help desk ticket inside our tracking repository loops.</p>
+            
+            <form onsubmit="alert('Case query securely routed to senior filing coordinator queue.'); this.reset(); return false;">
+                <div class="contact-form-group">
+                    <label>Full Business Name</label>
+                    <input type="text" class="contact-form-input" placeholder="e.g., Alpha Logistics LLC" required>
+                </div>
 
-        <!-- TAX FILINGS -->
-        <div class="nav-item-dropdown">
-            <a href="#">Tax Filings ▾</a>
-            <div class="dropdown-content">
-                <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
-                <a href="federal-income-tax.html">Federal Income Tax</a>
-                <a href="state-income-tax.html">State Income Tax</a>
-                <a href="sales-tax-registration.html">Sales Tax Registration</a>
-                <a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a>
-                <a href="franchise-tax.html">Franchise Tax Filing</a>
-            </div>
-        </div>
+                <div class="contact-form-group">
+                    <label>Corporate Email Address</label>
+                    <input type="email" class="contact-form-input" placeholder="name@company.com" required>
+                </div>
 
-        <!-- DOT & FLEET -->
-        <div class="nav-item-dropdown">
-            <a href="#">DOT & Fleet ▾</a>
-            <div class="dropdown-content">
-                <a href="owner-operators.html">Owner Operators</a>
-                <a href="trucker-authority.html">Trucker Authority</a>
-                <a href="broker-authority.html">Broker Authority</a>
-                <a href="dot-consortium.html">DOT Consortium</a>
-                <a href="driver-qualification-file.html">Driver Qualification File</a>
-                <a href="ucr-registration.html">UCR Registration</a>
-                <a href="process-agents-boc-3.html">Process Agent (BOC-3)</a>
-                <a href="international-fuel-tax-agreement-ifta.html">IFTA Registration</a>
-                <a href="licenses-permits.html">Licenses & Permits</a>
-                <a href="trucker-insurance.html">Trucker Insurance</a>
-                <a href="broker-insurance.html">Broker Insurance</a>
-            </div>
-        </div>
+                <div class="contact-form-group">
+                    <label>Filing Key / USDOT Number</label>
+                    <input type="text" class="contact-form-input" placeholder="e.g., DOT #3948291 (Optional)">
+                </div>
 
-        <!-- Main Site Navigation -->
-<a href="https://portal.filings4u.com" class="btn-client-portal">Secure Portal</a>
+                <div class="contact-form-group">
+                    <label>Case Specifications</label>
+                    <textarea class="contact-form-textarea" placeholder="Detail any state rejection notices, missing corporate tax structures, or urgent authority updates here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-main" style="width: 100%; text-align: center; border: none; cursor: pointer; padding: 14px;">Transmit Ticket Instantly →</button>
+            </form>
+        </div>
 
     </div>
-</nav>
 
-<!-- SECTION 1: COMPACT HERO WITH IMAGE -->
-<main class="page-container">
-    <div class="service-grid">
-        <article class="content-area">
-            <span class="hero-tag">Direct Support</span>
-            <h1>Contact our <br>Compliance Experts.</h1>
-            <p>Connect with our senior filing officers for specialized entity guidance. Whether you are scaling a fleet or launching a new corporation, we provide the technical support you need.</p>
-            <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 50px;">
-                <div style="height: 2px; width: 30px; background: var(--emerald);"></div>
-                <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Support Priority Active</span>
-            </div>
-            <a href="mailto:support@filings4u.com" class="btn-main">Send an Email →</a>
-        </article>
-        <aside>
-            <div class="hero-image-container">
-                <img src="images/contact-hero.jpg" alt="Expert Support Center">
-            </div>
-        </aside>
-    </div>
-</main>
-
-<!-- SECTION 2: FEATURES (NAVY - 40px Padding) -->
-<section class="feature-section">
-    <div class="hero-tag">Infrastructure</div>
-    <h2 style="margin-bottom: 20px;">Support Architecture.</h2>
-    <div class="icon-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
-        <div class="icon-box">
-            <h4>Technical Desk</h4>
-            <p>Resolution for complex jurisdictional filing errors or IRS rejection notices.</p>
-        </div>
-        <div class="icon-box">
-            <h4>Billing Link</h4>
-            <p>Direct assistance with state fee reconciliations and service renewals.</p>
-        </div>
-        <div class="icon-box">
-            <h4>Filing Concierge</h4>
-            <p>High-volume entity onboarding for law firms and large transport companies.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 3: PRICING (Contact Page Info) -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Response Times</span>
-    <h2>Transparent support standards.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">24h <span>Response</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard ticket support for all clients.</p>
-            <ul class="price-features">
-                <li>Email Response within 1 Day</li>
-                <li>Digital Help Center Access</li>
-                <li>Portal Messaging</li>
-            </ul>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Priority</div>
-            <h3>Elite</h3>
-            <div class="amount">4h <span>Response</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Priority assistance for Elite subscribers.</p>
-            <ul class="price-features">
-                <li>Dedicated Account Rep</li>
-                <li>Live Chat Handshake</li>
-                <li>Expedited Filing Review</li>
-            </ul>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">Instant <span>Access</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Direct line for high-volume fleets.</p>
-            <ul class="price-features">
-                <li>Direct Phone Access</li>
-                <li>Audit Defense Consultation</li>
-                <li>Entity Portfolio Management</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
-<section class="faq-section">
-    <div class="hero-tag">Knowledge Base</div>
-    <h2 style="margin-bottom: 30px;">Common Questions</h2>
-    <div class="faq-grid">
-        <div class="faq-item">
-            <h4>What is an LLC?</h4>
-            <p>A Limited Liability Company protects your personal assets from business debts and lawsuits by creating a separate legal entity.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Do I need an EIN?</h4>
-            <p>Yes, an Employer Identification Number is required to open a business bank account and hire employees. We include this in our Elite and Enterprise plans.</p>
-        </div>
-        <div class="faq-item">
-            <h4>What is a Registered Agent?</h4>
-            <p>A Registered Agent is a designated individual or entity that receives official legal documents on behalf of your business.</p>
-        </div>
-        <div class="faq-item">
-            <h4>How long does formation take?</h4>
-            <p>State processing times vary, but most LLCs are approved within 3-5 business days. Expedited options are available in most states.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 5: RESOURCE HUB -->
-<section class="resource-section">
-    <div class="hero-tag">Insights</div>
-    <h2>Strategic Insights for Founders</h2>
-    <div class="resource-grid">
-        <a href="#" class="blog-card">
-            <div class="blog-thumb"><img src="images/blog-compliance.jpg" alt="Compliance"></div>
-            <div class="blog-body">
-                <span>Regulatory</span>
-                <h4>The 2026 Corporate Transparency Act</h4>
-                <p>Mandatory BOI reporting requirements for all new LLCs.</p>
-            </div>
-        </a>
-        <a href="#" class="blog-card">
-            <div class="blog-thumb"><img src="images/blog-shield.jpg" alt="Protection"></div>
-            <div class="blog-body">
-                <span>Asset Shield</span>
-                <h4>Keeping Your Shield Strong</h4>
-                <p>Common mistakes that jeopardize your personal protection.</p>
-            </div>
-        </a>
-        <a href="#" class="blog-card">
-            <div class="blog-thumb"><img src="images/blog-tax.jpg" alt="Tax"></div>
-            <div class="blog-body">
-                <span>Tax Strategy</span>
-                <h4>LLC vs. S-Corp Election</h4>
-                <p>Which structure saves the most in self-employment taxes?</p>
-            </div>
-        </a>
-    </div>
-</section>
-
-<footer class="site-footer">
-    <div class="footer-container">
-        <!-- BRAND COLUMN -->
-        <div class="footer-brand">
-            <img src="images/logo-white.png" alt="filings4u" style="height: 35px;">
-            <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
-            <div style="margin-top: 25px; display: flex; gap: 15px;">
-                <!-- Social Placeholders -->
-                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-                <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-            </div>
-        </div>
-        <!-- FORMATIONS COLUMN -->
-        <div class="footer-col">
-            <h4>Formations</h4>
-            <ul>
-                <li><a href="limited-liability-company.html">LLC Formation</a></li>
-                <li><a href="corporations.html">Corporations</a></li>
-                <li><a href="nonprofits.html">Non-Profits</a></li>
-                <li><a href="registered-agent.html">Registered Agent</a></li>
-                <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li>
-            </ul>
-        </div>
-        <!-- TRANSPORTATION COLUMN -->
-        <div class="footer-col">
-            <h4>Fleet & DOT</h4>
-            <ul>
-                <li><a href="ucr-registration.html">UCR Registration</a></li>
-                <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
-                <li><a href="trucker-authority.html">DOT Authority</a></li>
-                <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li>
-                <li><a href="heavy-use-tax-2290.html">Form 2290</a></li>
-            </ul>
-        </div>
-        <!-- SUPPORT COLUMN -->
-        <div class="footer-col">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="login.html">Client Portal</a></li>
-                <li><a href="compliance.html">Compliance Hub</a></li>
-                <li><a href="contact.html">Contact Experts</a></li>
-                <li><a href="annual-reports.html">Annual Reports</a></li>
-                <li><a href="pricing.html">Pricing Plans</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div>
-            <p style="margin: 0; font-size: 0.85rem;">&copy; 2026 filings4u Technologies. All rights reserved.</p>
-        </div>
-        <div class="trust-badge">
-            <span>SECURE</span> 256-bit SSL Encrypted Connection
-        </div>
-        <div class="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Refund Policy</a>
-        </div>
-    </div>
-</footer></body>
+    <!-- SITE MASTER FOOTER INFRASTRUCTURE --> 
+    <footer class="site-footer"> 
+        <div class="footer-container"> 
+            <div class="footer-brand"> 
+                <img src="images/logo-white.png" alt="filings4u" style="height: 35px;"> 
+                <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p> 
+                <div style="margin-top: 25px; display: flex; gap: 15px;"> 
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> <svg width="14" height="14" fill="white" viewBox="0 0 16 16"> <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/> </svg> </a> 
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> <svg width="16" height="16" fill="white" viewBox="0 0 16 16"> <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.301 1.103.33 3.483.33 4.246 0 .763-.029 3.143-.33 4.246a2.01 2.01 0 0 1-1.415 1.419c-1.123.302-5.288.332-6.11.335h-.09c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.419C.03 11.143 0 8.763 0 8c0-.763.029-3.143.33-4.246a2.01 2.01 0 0 1 1.415-1.42c1.123-.302 5.288-.332 6.11-.335h.089zM6.374 11.155l4.356-2.651a.26.26 0 0 0 0-.442L6.374 5.412a.26.26 0 0 0-.398.221v5.301a.26.26 0 0 0 .398.22z"/> </svg> </a> 
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> <svg width="12" height="12" fill="white" viewBox="0 0 16 16"> <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/> </svg> </a> 
+                </div> 
+            </div> 
+            <div class="footer-col"> 
+                <h4>Formations</h4> 
+                <ul> 
+                    <li><a href="limited-liability-company.html">LLC Formation</a></li> 
+                    <li><a href="corporations.html">Corporations</a></li> 
+                    <li><a href="nonprofits.html">Non-Profits</a></li> 
+                    <li><a href="registered-agent.html">Registered Agent</a></li> 
+                    <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li> 
+                </ul> 
+            </div> 
+            <div class="footer-col"> 
+                <h4>Fleet & DOT</h4> 
+                <ul> 
+                    <li><a href="ucr-registration.html">UCR Registration</a></li> 
+                    <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li> 
+                    <li><a href="trucker-authority.html">DOT Authority</a></li> 
+                    <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li> 
+                    <li><a href="heavy-use-tax-2290.html">Form 2290</a></li> 
+                </ul> 
+            </div> 
+            <div class="footer-col"> 
+                <h4>Support</h4> 
+                <ul> 
+                    <li><a href="login.html">Client Portal</a></li> 
+                    <li><a href="compliance.html">Compliance Hub</a></li> 
+                    <li><a href="contact.html">Contact Experts</a></li> 
+                    <li><a href="annual-reports.html">Annual Reports</a></li> 
+                    <li><a href="pricing.html">Pricing Plans</a></li> 
+                </ul> 
+            </div> 
+        </div> 
+        <div class="footer-bottom"> 
+            <div> 
+                <p style="margin: 0; font-size: 0.85rem; line-height: 1.4; overflow-wrap: break-word;"> &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #c15254; text-decoration: none; font-weight: bold;">Roseland Companies, LLC</a> </p> 
+            </div> 
+            <div class="trust-badge"> <span>SECURE</span> 256-bit SSL Encrypted Connection </div> 
+            <div class="legal-links"> 
+                <a href="/privacy-policy">Privacy Policy</a> 
+                <a href="/terms-of-service">Terms of Service</a> 
+                <a href="/refund-policy">Refund Policy</a> 
+            </div> 
+        </div> 
+    </footer> 
+</body> 
 </html>

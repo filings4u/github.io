@@ -114,49 +114,59 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent formation pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">$599 <span>+ State Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential setup for leased-on drivers.</p>
-            <ul class="price-features">
-                <li>LLC Formation</li>
-                <li>Tax ID (EIN) Filing</li>
-                <li>Commercial Address Access</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Standard</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$1,199 <span>+ State Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Full independent authority suite.</p>
-            <ul class="price-features">
-                <li>Everything in Standard</li>
-                <li><strong>DOT & MC Authority</strong></li>
-                <li>BOC-3 Process Agent</li>
-                <li>Priority 24h Review</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$1,899 <span>+ State Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total turn-key logistics setup.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>UCR & IFTA Registration</li>
-                <li>Drug & Alcohol Consortium</li>
-                <li>Dedicated Fleet Expert</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent formation pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Standard / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Standard</h3> 
+            <div class="amount">$599 <span>+ State Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Essential setup for leased-on drivers.</p> 
+            <ul class="price-features"> 
+                <li>LLC Formation</li> 
+                <li>Tax ID (EIN) Filing</li> 
+                <li>Commercial Address Access</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=owner-operators&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Standard</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$1,199 <span>+ State Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full independent authority suite.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Standard</li> 
+                <li><strong>DOT & MC Authority</strong></li> 
+                <li>BOC-3 Process Agent</li> 
+                <li>Priority 24h Review</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=owner-operators&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$1,899 <span>+ State Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total turn-key logistics setup.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>UCR & IFTA Registration</li> 
+                <li>Drug & Alcohol Consortium</li> 
+                <li>Dedicated Fleet Expert</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=owner-operators&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">

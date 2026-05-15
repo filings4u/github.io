@@ -114,49 +114,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent formation pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="amount">$199 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard filing for single-member LLCs.</p>
-            <ul class="price-features">
-                <li>Federal Income Tax Prep</li>
-                <li>Single State Filing</li>
-                <li>Digital Archive Access</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Standard</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$449 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Comprehensive S-Corp/C-Corp tax suite.</p>
-            <ul class="price-features">
-                <li>Everything in Standard</li>
-                <li><strong>Payroll Tax (940/941) Sync</strong></li>
-                <li>S-Corp Election Support</li>
-                <li>Priority Support</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$899 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total multi-entity management.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>Sales Tax Registration</li>
-                <li>Multi-State Nexus Audit</li>
-                <li>Dedicated Tax Expert</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent formation pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Standard / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Standard</h3> 
+            <div class="amount">$199 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard filing for single-member LLCs.</p> 
+            <ul class="price-features"> 
+                <li>Federal Income Tax Prep</li> 
+                <li>Single State Filing</li> 
+                <li>Digital Archive Access</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=federal-income-tax&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Standard</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$449 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Comprehensive S-Corp/C-Corp tax suite.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Standard</li> 
+                <li><strong>Payroll Tax (940/941) Sync</strong></li> 
+                <li>S-Corp Election Support</li> 
+                <li>Priority Support</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=federal-income-tax&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$899 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total multi-entity management.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>Sales Tax Registration</li> 
+                <li>Multi-State Nexus Audit</li> 
+                <li>Dedicated Tax Expert</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=federal-income-tax&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">

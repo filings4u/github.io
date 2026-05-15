@@ -87,7 +87,7 @@
         </article>
         <aside>
             <div class="hero-image-container">
-                <img src="images/ucr-hero.jpg" alt="Fleet Compliance Setup">
+                <img src="images\ucr-hero.jpg" alt="Fleet Compliance Setup">
             </div>
         </aside>
     </div>
@@ -113,49 +113,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent filing pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Basic</h3>
-            <div class="amount">$75 <span>+ Gov Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard federal filing for motor carriers.</p>
-            <ul class="price-features">
-                <li>MCS-150 Data Verification</li>
-                <li>UCR Registry Submission</li>
-                <li>Digital Receipt Access</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Basic</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$149 <span>+ Gov Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Priority processing and authority sync.</p>
-            <ul class="price-features">
-                <li>Everything in Basic</li>
-                <li><strong>Priority 12h Review</strong></li>
-                <li>DOT Authority Snapshot</li>
-                <li>Audit-Ready Storage</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$299 <span>+ Gov Fees</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Multi-unit management for large fleets.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>BOC-3 Multi-State Link</li>
-                <li>IFTA Filing Prep</li>
-                <li>Dedicated Fleet Expert</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent filing pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Basic / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Basic</h3> 
+            <div class="amount">$75 <span>+ Gov Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard federal filing for motor carriers.</p> 
+            <ul class="price-features"> 
+                <li>MCS-150 Data Verification</li> 
+                <li>UCR Registry Submission</li> 
+                <li>Digital Receipt Access</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=ucr-registration&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Basic</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$149 <span>+ Gov Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Priority processing and authority sync.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Basic</li> 
+                <li><strong>Priority 12h Review</strong></li> 
+                <li>DOT Authority Snapshot</li> 
+                <li>Audit-Ready Storage</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=ucr-registration&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$299 <span>+ Gov Fees</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Multi-unit management for large fleets.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>BOC-3 Multi-State Link</li> 
+                <li>IFTA Filing Prep</li> 
+                <li>Dedicated Fleet Expert</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=ucr-registration&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE -->
 <section class="faq-section">

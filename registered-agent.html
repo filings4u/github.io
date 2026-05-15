@@ -114,49 +114,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent formation pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Basic</h3>
-            <div class="amount">$125 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard representation for a single state.</p>
-            <ul class="price-features">
-                <li>Commercial Filing Address</li>
-                <li>Digital Mail Scanning</li>
-                <li>Standard Document Forwarding</li>
-            </ul>
-            <a href="order.html?plan=basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Basic</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$199 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Full automation and legal infrastructure.</p>
-            <ul class="price-features">
-                <li>Everything in Basic</li>
-                <li><strong>Compliance Shield Monitoring</strong></li>
-                <li>Annual Report Filing Support</li>
-                <li>Unlimited Secure Storage</li>
-            </ul>
-            <a href="order.html?plan=elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$449 <span>/ Year</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Multi-state management for fleets.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>Multi-State Discounting</li>
-                <li>Dedicated Account Expert</li>
-                <li>Priority Legal Intake</li>
-            </ul>
-            <a href="order.html?plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent formation pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Basic / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Basic</h3> 
+            <div class="amount">$125 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard representation for a single state.</p> 
+            <ul class="price-features"> 
+                <li>Commercial Filing Address</li> 
+                <li>Digital Mail Scanning</li> 
+                <li>Standard Document Forwarding</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=registered-agent&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Basic</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$199 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full automation and legal infrastructure.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Basic</li> 
+                <li><strong>Compliance Shield Monitoring</strong></li> 
+                <li>Annual Report Filing Support</li> 
+                <li>Unlimited Secure Storage</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=registered-agent&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$449 <span>/ Year</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Multi-state management for fleets.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>Multi-State Discounting</li> 
+                <li>Dedicated Account Expert</li> 
+                <li>Priority Legal Intake</li> 
+            </ul> 
+            <!-- FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=registered-agent&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">
