@@ -72,7 +72,6 @@
     </div>
 </nav>
 
-
 <!-- SECTION 1: COMPACT HERO WITH IMAGE -->
 <main class="page-container">
     <div class="service-grid">
@@ -114,49 +113,60 @@
     </div>
 </section>
 
-<!-- SECTION 3: PRICING -->
-<section id="pricing" class="pricing-section">
-    <span class="hero-tag">Deployment Tiers</span>
-    <h2>Transparent mission pricing.</h2>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h3>Basic</h3>
-            <div class="amount">$299 <span>+ State Fee</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard non-profit state filing.</p>
-            <ul class="price-features">
-                <li>Articles of Incorporation</li>
-                <li>Exempt-Ready Bylaws</li>
-                <li>Digital Document Access</li>
-            </ul>
-            <a href="order.html?plan=np-basic" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Basic</a>
-        </div>
-        <div class="price-card featured">
-            <div class="price-badge">Most Popular</div>
-            <h3>Elite</h3>
-            <div class="amount">$599 <span>+ State Fee</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Full exemption infrastructure.</p>
-            <ul class="price-features">
-                <li>Everything in Basic</li>
-                <li><strong>EIN Tax ID Filing</strong></li>
-                <li>1023-EZ Prep Support</li>
-                <li>Board Resolution Kit</li>
-            </ul>
-            <a href="order.html?plan=np-elite" class="btn-main" style="width: 100%; text-align: center;">Select Elite</a>
-        </div>
-        <div class="price-card">
-            <h3>Enterprise</h3>
-            <div class="amount">$999 <span>+ State Fee</span></div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Total organizational management.</p>
-            <ul class="price-features">
-                <li>Everything in Elite</li>
-                <li>Full 1023 Long-Form Prep</li>
-                <li>State Tax Exempt Filing</li>
-                <li>Dedicated Mission Expert</li>
-            </ul>
-            <a href="order.html?plan=np-enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy);">Select Enterprise</a>
-        </div>
-    </div>
+<!-- SECTION 3: PRICING --> 
+<section id="pricing" class="pricing-section"> 
+    <span class="hero-tag">Deployment Tiers</span> 
+    <h2>Transparent mission pricing.</h2> 
+    <div class="pricing-grid"> 
+        
+        <!-- Basic / Starter Tier Card -->
+        <div class="price-card"> 
+            <h3>Basic</h3> 
+            <div class="amount">$299 <span>+ State Fee</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard non-profit state filing.</p> 
+            <ul class="price-features"> 
+                <li>Articles of Incorporation</li> 
+                <li>Exempt-Ready Bylaws</li> 
+                <li>Digital Document Access</li> 
+            </ul> 
+            <!--  FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=nonprofits&plan=starter" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Basic</a> 
+        </div> 
+
+        <!-- Elite / Compliance Tier Card -->
+        <div class="price-card featured"> 
+            <div class="price-badge">Most Popular</div> 
+            <h3>Elite</h3> 
+            <div class="amount">$599 <span>+ State Fee</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full exemption infrastructure.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Basic</li> 
+                <li><strong>EIN Tax ID Filing</strong></li> 
+                <li>1023-EZ Prep Support</li> 
+                <li>Board Resolution Kit</li> 
+            </ul> 
+            <!--  FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=nonprofits&plan=compliance" class="btn-main" style="width: 100%; text-align: center; text-decoration: none;">Select Elite</a> 
+        </div> 
+
+        <!-- Enterprise Tier Card -->
+        <div class="price-card"> 
+            <h3>Enterprise</h3> 
+            <div class="amount">$999 <span>+ State Fee</span></div> 
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Total organizational management.</p> 
+            <ul class="price-features"> 
+                <li>Everything in Elite</li> 
+                <li>Full 1023 Long-Form Prep</li> 
+                <li>State Tax Exempt Filing</li> 
+                <li>Dedicated Mission Expert</li> 
+            </ul> 
+            <!--  FIXED: Mapped directly to wizard framework query parameters -->
+            <a href="wizard.html?service=nonprofits&plan=enterprise" class="btn-main" style="width: 100%; text-align: center; background: var(--navy); text-decoration: none;">Select Enterprise</a> 
+        </div> 
+        
+    </div> 
 </section>
+
 
 <!-- SECTION 2: THE HUB (NAVY) -->
 <section class="feature-section">
@@ -177,9 +187,6 @@
         </div>
     </div>
 </section>
-
-
-
 
 <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
 <section class="faq-section">
