@@ -272,5 +272,46 @@
   </div>
     </div>
 </footer>
+
+<script>
+function toggleMobileAdminSidebar() {
+    const sidebar = document.querySelector('.portal-sidebar');
+    const trigger = document.querySelector('.mobile-menu-trigger');
+    
+    if (sidebar) {
+        // Toggle layout class modifier
+        sidebar.classList.toggle('mobile-open');
+        
+        // Update button visual state icons
+        if (sidebar.classList.contains('mobile-open')) {
+            trigger.innerHTML = '✕';
+            trigger.style.background = '#e53e3e'; // Crimson alert layout color
+        } else {
+            trigger.innerHTML = '☰';
+            trigger.style.background = '#0a1f44'; // Navy default theme accent
+        }
+    }
+}
+
+// Automatically close the menu overlay panel if a user resizes their dashboard back to desktop view
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 992) {
+        const sidebar = document.querySelector('.portal-sidebar');
+        const trigger = document.querySelector('.mobile-menu-trigger');
+        if (sidebar && sidebar.classList.contains('mobile-open')) {
+            sidebar.classList.remove('mobile-open');
+            if (trigger) {
+                trigger.innerHTML = '☰';
+                trigger.style.background = '#0a1f44';
+            }
+        }
+    }
+});
+</script>
+
+
+<!-- Floating Action Toggle Engine for Mobile Dashboards -->
+<button class="mobile-menu-trigger" onclick="toggleMobileAdminSidebar()" aria-label="Toggle Navigation Menu">☰</button>
+
 </body>
 </html>
