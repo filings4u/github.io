@@ -1,0 +1,238 @@
+/* site-elite.css - Master Global Styles for filings4u */
+@import url('https://googleapis.com');
+
+/* ==========================================================================
+   🌐 FILINGS4U UNIFIED RESPONSIVE ENGINE (REPAIRED)
+   ========================================================================== */
+
+/* --- 1. GLOBAL SANITIZATION & DESKTOP FALLBACKS (Applies to all views) --- */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    width: 100%; 
+    max-width: 100%; 
+    margin: 0; 
+    padding: 0;
+}
+
+/* Ensure horizontal leaks are locked down safely without breaking layout containers */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    background: #f8fafc;
+    color: #0a1f44;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+img { 
+    max-width: 100%; 
+    height: auto; 
+    display: inline-block;
+}
+
+/* --- 2. ADMIN PORTAL DATA TABLES WRAPPERS --- */
+.data-card { 
+    width: 100%; 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    margin-bottom: 20px; 
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+table, .entity-table { 
+    min-width: 600px; 
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+/* ==========================================================================
+   📱 MOBILE & TABLET CORE SPECIFICITY OVERRIDES (Viewports Under 991px)
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+    
+    /* Remove portal sidebar space from the main panel layout body wrapper */
+    body { 
+        padding-left: 0 !important; 
+    }
+
+    /* --- GLOBAL GENERAL WRAPPERS --- */
+    .page-container, .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 24px 16px !important;
+    }
+
+    /* --- MAIN PUBLIC SITE NAVIGATION TERMINAL --- */
+    nav { 
+        flex-direction: column !important; 
+        gap: 16px !important; 
+        padding: 16px !important; 
+        width: 100% !important; 
+        text-align: center !important;
+    }
+    .nav-links { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        width: 100% !important; 
+        gap: 12px !important; 
+        text-align: center !important; 
+    }
+    .dropdown-content { 
+        position: relative !important; 
+        box-shadow: none !important; 
+        background: #f8fafc !important; 
+        width: 100% !important; 
+    }
+    .btn-client-portal { 
+        width: 100% !important; 
+        text-align: center !important; 
+    }
+
+    /* --- HERO SECTIONS & LAYOUT CONTENT GRIDS --- */
+    /* Clean collapse of columns, grids, and mismatched card layouts */
+    .service-grid, .grid-half, .grid-layout, .flex-row { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        gap: 24px !important; 
+        width: 100% !important; 
+    }
+    
+    /* Realign text contents on responsive views */
+    .content-area { 
+        text-align: center !important; 
+        width: 100% !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .content-area h1 { 
+        font-size: 2rem !important; 
+        line-height: 1.25 !important;
+    }
+    .content-area div { 
+        justify-content: center !important; 
+    }
+    
+    .hero-image-container { 
+        width: 100% !important; 
+        max-width: 100% !important; 
+        text-align: center !important; 
+    }
+    .hero-image-container img { 
+        width: 100% !important; 
+        max-width: 85% !important; 
+        height: auto !important; 
+        margin: 0 auto;
+    }
+
+    /* --- COLUMN RESPONSIVE RESETS --- */
+    /* Snaps generic multi-column system architectures straight down to single lines */
+    .col-3, .col-4, .col-6, .card-metric, .page-header {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .btn-primary {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* --- PUBLIC FOOTER GRID DESIGNS --- */
+    .footer-container { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        gap: 32px !important; 
+        text-align: center !important; 
+    }
+    .footer-brand { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+    }
+    .footer-brand div { 
+        justify-content: center !important; 
+    }
+    .footer-bottom { 
+        flex-direction: column !important; 
+        gap: 16px !important; 
+        text-align: center !important; 
+        align-items: center !important;
+    }
+
+    /* --- INTERNAL PORTAL SLIDE OUT NAVIGATION SIDEBAR --- */
+    .portal-sidebar { 
+        transform: translateX(-100%); 
+        transition: transform 0.3s ease-in-out !important; 
+        box-shadow: 5px 0 25px rgba(0,0,0,0.15); 
+        left: 0 !important;
+    }
+    .portal-sidebar.mobile-open { 
+        transform: translateX(0); 
+    }
+
+    /* FLOATING ACTION OVERLAY MOBILE ENGINE CONTROLLER BUTTON */
+    .mobile-menu-trigger { 
+        display: flex !important; 
+        align-items: center; 
+        justify-content: center; 
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        width: 56px; 
+        height: 56px; 
+        background: #0a1f44; 
+        color: #ffffff; 
+        border-radius: 50%; 
+        border: none; 
+        cursor: pointer; 
+        z-index: 999; 
+        font-size: 24px; 
+        box-shadow: 0 4px 15px rgba(10,31,68,0.3); 
+    }
+}
+
+/* Base style fallback for the mobile trigger button (remains hidden on desktop monitors) */
+.mobile-menu-trigger { 
+    display: none; 
+}
+
+/* ==========================================================================
+   🎨 MOBILE BROWSER THEME INTEGRATION & ACCENTS (#10b981)
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+    /* 1. Sets a clean top layout border line anchoring the browser window frame */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #10b981 !important;
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    /* 2. Style active text fields and inputs to highlight with the theme color */
+    input:focus, textarea:focus, select:focus {
+        outline: none !important;
+        border-color: #10b981 !important;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+    }
+
+    /* 3. Style mobile button links to match your dashboard theme badge colors */
+    .badge-active {
+        background: rgba(16, 185, 129, 0.1) !important;
+        color: #10b981 !important;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+}
