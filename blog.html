@@ -16,192 +16,158 @@
     <!-- 🚀 CRITICAL SCRIPT LOADING ORDER -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
-    <style>
-        /* ==========================================================================
-        🧱 1. DIRECTORY CANVAS INFRASTRUCTURE
-        ========================================================================== */
+<style> 
+    /* ==========================================================================
+    🧱 1. DIRECTORY CANVAS INFRASTRUCTURE & LAYOUT
+    ========================================================================== */
+    .blog-wrapper-canvas {
+        max-width: 1200px;
+        margin: 0 auto 80px auto; /* 🔄 FIXED: Removed desktop top margin to eliminate gap below hero */
+        padding: 0 4%;
+        box-sizing: border-box;
+    }
+    #dynamicBlogPostsContainer {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 40px 30px !important; /* Balanced grid separation layout */
+        padding-top: 30px !important; /* 🔄 REDUCED: Pulls blog post grid cards closer to filter bar */
+        width: 100% !important;
+    }
+
+    /* ==========================================================================
+    🚨 2. MASTER CARD BOUNDS (CLEANED OF INTERIOR RESET CONFLICTS)
+    ========================================================================== */
+    .blog-card {
+        display: block !important; /* Neutralizes theme-enforced flex configurations */
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        text-decoration: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        margin-bottom: 20px !important;
+        box-shadow: 0 4px 12px rgba(10,31,68,0.01) !important;
+    }
+    .blog-card:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 8px 24px rgba(10,31,68,0.06) !important;
+    }
+
+    /* ==========================================================================
+    🌐 3. MASTER HORIZONTAL CATEGORY MENU SELECTORS
+    ========================================================================== */
+    nav.top-filter-menu-bar {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        position: relative !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 20px 0 20px 0 !important; /* 🔄 REDUCED: Minimal space above and below navigation tier */
+        padding-bottom: 15px !important; /* Compact interior track thickness */
+        padding-top: 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        border-top: none !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        background: transparent !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
+    }
+    nav.top-filter-menu-bar h3 {
+        margin: 0 !important;
+        font-size: 0.9rem !important;
+        color: #0a1f44 !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+    }
+    ul.horizontal-category-links {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        align-items: center !important;
+    }
+    ul.horizontal-category-links li {
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+    ul.horizontal-category-links li a {
+        display: inline-block !important;
+        text-decoration: none !important;
+        color: #4a5568 !important;
+        padding: 8px 16px !important;
+        font-size: 0.82rem !important;
+        font-weight: 600 !important;
+        background: #f1f5f9 !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        border-radius: 10px !important;
+        transition: all 0.2s ease !important;
+    }
+    ul.horizontal-category-links li a:hover, ul.horizontal-category-links li a.active-filter-tier {
+        background: #10b981 !important;
+        color: #ffffff !important;
+    }
+
+    /* ==========================================================================
+    🧱 4. MASTER FULL-HEIGHT STRETCH
+    ========================================================================== */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .blog-wrapper-canvas, .article-view-container, main.page-container {
+        flex: 1 0 auto;
+    }
+    footer.site-footer {
+        flex-shrink: 0;
+        margin-top: auto !important;
+    }
+
+    /* ==========================================================================
+    📱 5. RESPONSIVE MEDIA QUERIES (TIGHTENED DENSITY CONTROL)
+    ========================================================================== */
+    @media screen and (max-width: 980px) {
+        #dynamicBlogPostsContainer {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 30px !important;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
         .blog-wrapper-canvas {
-            max-width: 1200px;
-            margin: 80px auto 120px auto; /* 🔄 FIXED: Added space above hero and below footer */
-            padding: 0 4%;
-            box-sizing: border-box;
+            margin: 0 auto 40px auto !important; /* Tight structure padding layout for mobile footer */
+        }
+        nav.top-filter-menu-bar {
+            margin: 10px 0 5px 0 !important; /* 🔄 FIXED: Locks filter menu tight against mobile hero info block */
+            padding-bottom: 10px !important;
         }
         #dynamicBlogPostsContainer {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 60px 40px !important; /* 🔄 FIXED: Added row/column card gaps */
-            padding-top: 50px !important; /* 🔄 FIXED: Separates container from categories */
-            width: 100% !important;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important; /* Keeps stacked cards looking clean, not distant */
+            padding-top: 15px !important; /* Removes awkward overhead gaps on small monitors */
         }
-        @media screen and (max-width: 980px) {
-            #dynamicBlogPostsContainer {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 35px !important;
-            }
+        .blog-card > div[style*="padding: 28px"] {
+            padding: 20px !important; /* Snug text frames inside mobile cards */
         }
-        @media screen and (max-width: 640px) {
-            #dynamicBlogPostsContainer {
-                grid-template-columns: 1fr !important;
-                gap: 45px !important;
-            }
-        }
-
-        /* ==========================================================================
-        🚨 2. MASTER CARD BOUNDS (CLEANED OF INTERIOR RESET CONFLICTS)
-        ========================================================================== */
-        .blog-card {
-            display: block !important; /* Neutralizes theme-enforced flex configurations */
-            background: #ffffff !important;
-            border: 1px solid #e2e8f0 !important;
-            border-radius: 12px !important;
-            overflow: hidden !important;
-            text-decoration: none !important;
-            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-            margin-bottom: 20px !important;
-            box-shadow: 0 4px 12px rgba(10,31,68,0.01) !important;
-        }
-        .blog-card:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 8px 24px rgba(10,31,68,0.06) !important;
-        }
-
-        /* ==========================================================================
-        🌐 3. MASTER HORIZONTAL CATEGORY MENU SELECTORS
-        ========================================================================== */
-        nav.top-filter-menu-bar {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            position: relative !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            margin: 60px 0 50px 0 !important; /* 🔄 FIXED: Added space above and below menu */
-            padding-bottom: 25px !important;
-            padding-top: 15px !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            border-top: none !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-            background: transparent !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 20px !important;
-            box-sizing: border-box !important;
-        }
-        nav.top-filter-menu-bar h3 {
-            margin: 0 !important;
-            font-size: 0.9rem !important;
-            color: #0a1f44 !important;
-            font-weight: 800 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.5px !important;
-            white-space: nowrap !important;
-        }
-        ul.horizontal-category-links {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            gap: 8px !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            list-style: none !important;
-            align-items: center !important;
-        }
-        ul.horizontal-category-links li {
-            margin: 0 !important;
-            padding: 0 !important;
-            flex-shrink: 0 !important;
-        }
-        ul.horizontal-category-links li a {
-            display: inline-block !important;
-            text-decoration: none !important;
-            color: #4a5568 !important;
-            padding: 8px 16px !important;
-            font-size: 0.82rem !important;
-            font-weight: 600 !important;
-            background: #f1f5f9 !important;
-            white-space: nowrap !important;
-            margin: 0 !important;
-            border-radius: 10px !important; /* Sharp 10px corporate corner layout */
-            transition: all 0.2s ease !important;
-        }
-        ul.horizontal-category-links li a:hover, ul.horizontal-category-links li a.active-filter-tier {
-            background: #10b981 !important;
-            color: #ffffff !important;
-        }
-
-        /* ==========================================================================
-        🧱 4. MASTER FULL-HEIGHT STRETCH
-        ========================================================================== */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .blog-wrapper-canvas, .article-view-container, main.page-container {
-            flex: 1 0 auto;
-        }
-        footer.site-footer {
-            flex-shrink: 0;
-            margin-top: auto !important;
-        }
-
-        /* ==========================================================================
-🧱 1. DIRECTORY CANVAS INFRASTRUCTURE
-========================================================================== */
-.blog-wrapper-canvas {
-    max-width: 1200px;
-    margin: 80px auto 120px auto; /* Clean spacing for desktop */
-    padding: 0 4%;
-    box-sizing: border-box;
-}
-#dynamicBlogPostsContainer {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 60px 40px !important; 
-    padding-top: 50px !important; 
-    width: 100% !important;
-}
-
-/* 📱 MOBILE RESPONSIVE OVERRIDES TO TIGHTEN SPACE */
-@media screen and (max-width: 980px) {
-    #dynamicBlogPostsContainer {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 30px !important; /* 🔄 REDUCED from 35px to save vertical space */
     }
-}
+</style>
 
-@media screen and (max-width: 640px) {
-    /* 🔄 NEW: Shrinks the massive outer canvas layout gaps on mobile devices */
-    .blog-wrapper-canvas {
-        margin: 20px auto 40px auto !important; /* Drops canvas margins down significantly */
-    }
-    
-    /* 🔄 NEW: Tightens the space between the top menu bar and the blog grid */
-    nav.top-filter-menu-bar {
-        margin: 30px 0 10px 0 !important; /* Drops spacing above/below filter bar */
-        padding-bottom: 10px !important;
-    }
-
-    /* 🔄 NEW: Reduces grid gap so single-column cards aren't miles apart */
-    #dynamicBlogPostsContainer {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important; /* 🔄 REDUCED from 45px for crisp vertical stack spacing */
-        padding-top: 15px !important; /* 🔄 REDUCED from 50px to eliminate giant empty space */
-    }
-    
-    /* 🔄 NEW: Shaves interior padding down inside mobile cards so text blocks feel snug */
-    .blog-card > div[style*="padding: 28px"] {
-        padding: 20px !important; 
-    }
-}
-
-    </style>
 </head>
 <body>
 
@@ -268,7 +234,9 @@
                 <span class="hero-tag">Compliance Insights</span>
                 <h1>Knowledge for <br>Total Regulatory Sync.</h1>
                 <p>Stay updated on emerging corporate formation updates, DOT compliance changes, and federal trucking authority mandates compiled by our industry experts.</p>
-                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 50px;">
+               <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+
+
                     <div style="height: 2px; width: 30px; background: var(--emerald, #10b981);"></div>
                     <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Live Resource Feed Active</span>
                 </div>
