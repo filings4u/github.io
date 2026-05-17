@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🚀 MOBILE BROWSER INTERFACE EMERALD THEME CONTROLLERS -->
+    <meta name="theme-color" content="#10b981">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-navbutton-color" content="#10b981">
+    
+    <title>Get Started | Setup Your Business & Fleet Compliance | filings4u</title>
+    
+    <!-- 🖥️ GLOBAL ASSET STYLESHEET LINKS -->
+    <link rel="stylesheet" href="assets/css/site-elite.css">
+    
+    <style>
+        /* Specific page adjustments to support grouped categories cleanly */
+        .category-block {
+            margin-bottom: 60px;
+            width: 100%;
+        }
+        .category-title-bar {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .category-title-bar h2 {
+            font-size: 1.8rem;
+            color: #0a1f44;
+            font-weight: 800;
+            margin: 0;
+        }
+        .category-title-bar .count-badge {
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .wizard-card {
+            min-height: 260px !important; /* Calibrated height for tight grid sizing */
+        }
+        .btn-card-action {
+            background: #0a1f44;
+            color: #ffffff !important;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+        .wizard-card:hover .btn-card-action {
+            background: #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🌐 SITE-WIDE NAVIGATION HEADER -->
+    <nav>
+        <a href="index.html">
+            <img src="images/logo.png" alt="filings4u" class="logo" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+        <button class="mobile-toggle-btn" onclick="toggleMobileMenu()">☰</button>
+        <div class="nav-links">
+            <div class="nav-item-dropdown">
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Formations <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="limited-liability-company.html">LLC Formation</a>
+                    <a href="corporations.html">Corporations (C/S-Corp)</a>
+                    <a href="doing-business-as-dba.html">DBA Registration</a>
+                    <a href="nonprofits.html">Nonprofit Organization</a>
+                    <a href="sole-proprietorship.html">Sole Proprietorship</a>
+                </div>
+            </div>
+            <div class="nav-item-dropdown">
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Compliance <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="annual-reports.html">Annual Reports</a>
+                    <a href="business-licenses.html">Business Licenses</a>
+                    <a href="employer-identification-number-ein.html">Employer ID (EIN)</a>
+                    <a href="operating-agreement.html">Operating Agreement</a>
+                    <a href="registered-agent.html">Registered Agent</a>
+                    <a href="dissolution.html">Entity Dissolution</a>
+                </div>
+            </div>
+            <div class="nav-item-dropdown">
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Tax Filings <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
+                    <a href="federal-income-tax.html">Federal Income Tax</a>
+                    <a href="state-income-tax.html">State Income Tax</a>
+                    <a href="sales-tax-registration.html">Sales Tax Registration</a>
+                    <a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a>
+                    <a href="franchise-tax.html">Franchise Tax Filing</a>
+                </div>
+            </div>
+            <div class="nav-item-dropdown">
+                <a href="#" onclick="toggleMobileDropdown(event, this)">DOT & Fleet <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="owner-operators.html">Owner Operators</a>
+                    <a href="trucker-authority.html">Trucker Authority</a>
+                    <a href="broker-authority.html">Broker Authority</a>
+                    <a href="dot-consortium.html">DOT Consortium</a>
+                    <a href="driver-qualification-file.html">Driver Qualification File</a>
+                    <a href="ucr-registration.html">UCR Registration</a>
+                    <a href="process-agents-boc-3.html">Process Agent (BOC-3)</a>
+                    <a href="international-fuel-tax-agreement-ifta.html">IFTA Registration</a>
+                    <a href="licenses-permits.html">Licenses & Permits</a>
+                    <a href="trucker-insurance.html">Trucker Insurance</a>
+                    <a href="broker-insurance.html">Broker Insurance</a>
+                </div>
+            </div>
+            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a>
+        </div>
+    </nav>
+
+    <!-- 🧱 MASTER LAUNCH HUB CONTAINER -->
+    <main class="page-container">
+        
+        <!-- PAGE INTRODUCTION HEADER -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <span class="hero-tag" style="background: rgba(16,185,129,0.1); color: #10b981; padding: 6px 12px; border-radius: 4px; display: inline-block;">Filing Wizard Launcher</span>
+            <h1 style="font-size: 3rem; font-weight: 800; color: #0a1f44; margin: 15px 0;">Select Your Service Track</h1>
+            <p style="color: #64748b; max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Choose a service below to launch our step-by-step digital filing wizard. Automate your state, federal, and multi-jurisdictional logistics applications instantly.</p>
+        </div>
+
+        <!-- CATEGORY 1: BUSINESS FORMATIONS -->
+        <div class="category-block">
+            <div class="category-title-bar">
+                <h2>🏢 Corporate Formations</h2>
+                <span class="count-badge">6 Services</span>
+            </div>
+            <div class="wizard-grid">
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>LLC Formation</h3>
+                        <p>Incorporate a standard Limited Liability Company to protect corporate assets.</p>
+                    </div>
+                    <a href="wizard-llc.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>Corporations (C/S-Corp)</h3>
+                        <p>Establish a legal C-Corporation or S-Corporation tax boundary module.</p>
+                    </div>
+                    <a href="wizard-corporations.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>DBA Registration</h3>
+                        <p>Register a "Doing Business As" trade name within state frameworks.</p>
+                    </div>
+                    <a href="wizard-dba.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>Nonprofit Organization</h3>
+                        <p>Incorporate an exempt 501(c)(3) structured charity or foundation model.</p>
+                    </div>
+                    <a href="wizard-nonprofit.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>Sole Proprietorship</h3>
+                        <p>Establish basic local compliance parameters for single individual owners.</p>
+                    </div>
+                    <a href="wizard-sole-proprietorship.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Formations</span>
+                        <h3>Operating Agreement</h3>
+                        <p>Draft binding internal structure by-laws and member equity tokens.</p>
+                    </div>
+                    <a href="wizard-operating-agreement.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: CORPORATE COMPLIANCE -->
+        <div class="category-block">
+            <div class="category-title-bar">
+                <h2>📜 Corporate Compliance</h2>
+                <span class="count-badge">6 Services</span>
+            </div>
+            <div class="wizard-grid">
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Annual Reports</h3>
+                        <p>File mandatory calendar statements with state state secretaries.</p>
+                    </div>
+                    <a href="wizard-annual-reports.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Business Licenses</h3>
+                        <p>Obtain necessary county and municipal trading credentials.</p>
+                    </div>
+                    <a href="wizard-business-licenses.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Employer ID (EIN)</h3>
+                        <p>Secure a federal tax registration number directly from the IRS infrastructure.</p>
+                    </div>
+                    <a href="wizard-ein.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Registered Agent</h3>
+                        <p>Assign a dedicated legal office address network to capture state notices.</p>
+                    </div>
+                    <a href="wizard-registered-agent.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Entity Dissolution</h3>
+                        <p>Formally wind down corporate shells to eliminate lingering tax exposures.</p>
+                    </div>
+                    <a href="wizard-dissolution.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Compliance</span>
+                        <h3>Licenses & Permits</h3>
+                        <p>Audit and apply for specialty state jurisdictional operating mandates.</p>
+                    </div>
+                    <a href="wizard-licenses-permits.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: TAX FILINGS -->
+        <div class="category-block">
+            <div class="category-title-bar">
+                <h2>💰 Tax Registrations</h2>
+                <span class="count-badge">6 Services</span>
+            </div>
+            <div class="wizard-grid">
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>Heavy Use Tax (2290)</h3>
+                        <p>E-file IRS Form 2290 and secure Schedule 1 watermarks for logistics vehicles.</p>
+                    </div>
+                    <a href="wizard-heavy-use-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>Federal Income Tax</h3>
+                        <p>Prepare standard corporate 1120 or pass-through ledger architectures.</p>
+                    </div>
+                    <a href="wizard-federal-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>State Income Tax</h3>
+                        <p>Reconcile franchise margins and state corporate ledger protocols.</p>
+                    </div>
+                    <a href="wizard-state-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>Sales Tax Registration</h3>
+                        <p>Secure state resale certificates and transaction tax authority profiles.</p>
+                    </div>
+                    <a href="wizard-sales-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>Payroll Tax (940/941)</h3>
+                        <p>Automate withholding returns for employee asset networks.</p>
+                    </div>
+                    <a href="wizard-payroll-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Tax Filings</span>
+                        <h3>Franchise Tax Filing</h3>
+                        <p>Process ongoing corporate privilege access statements securely.</p>
+                    </div>
+                    <a href="wizard-franchise-tax.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4: TRUCKING AUTHORITY & FLEET COMPLIANCE -->
+        <div class="category-block">
+            <div class="category-title-bar">
+                <h2>🚛 Trucking & Logistics Compliance</h2>
+                <span class="count-badge">8 Services</span>
+            </div>
+            <div class="wizard-grid">
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>Owner Operators</h3>
+                        <p>Consolidate base compliance configurations for independent contractor operators.</p>
+                    </div>
+                    <a href="wizard-owner-operators.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>Trucker Authority</h3>
+                        <p>Secure federal MC and USDOT numbers for interstate logistics operations.</p>
+                    </div>
+                    <a href="wizard-trucker-authority.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>Broker Authority</h3>
+                        <p>Secure property broker licenses alongside required asset security bonds.</p>
+                    </div>
+                    <a href="wizard-broker-authority.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>DOT Consortium</h3>
+                        <p>Enroll drivers into matching FMCSA drug and alcohol random screening programs.</p>
+                    </div>
+                    <a href="wizard-dot-consortium.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>Driver Qualification File</h3>
+                        <p>Compile mandatory safety performance history files for every commercial driver.</p>
+                    </div>
+                    <a href="wizard-dqf.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>UCR Registration</h3>
+                        <p>Process current unified carrier state system clearance parameters.</p>
+                    </div>
+                    <a href="wizard-ucr.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>Process Agent (BOC-3)</h3>
+                        <p>Designate designated legal service nodes across all 50 operating states.</p>
+                    </div>
+                    <a href="wizard-boc3.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Logistics</span>
+                        <h3>IFTA Registration</h3>
+                        <p>Set up international fuel tax accounts and secure fleet license decals.</p>
+                    </div>
+                    <a href="wizard-ifta.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 5: COMMERCIAL RISK INSURANCE -->
+        <div class="category-block" style="margin-bottom: 0;">
+            <div class="category-title-bar">
+                <h2>🛡️ Commercial Risk Insurance</h2>
+                <span class="count-badge">2 Services</span>
+            </div>
+            <div class="wizard-grid">
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Insurance</span>
+                        <h3>Trucker Insurance</h3>
+                        <p>Secure auto liability, motor truck cargo, and physical damage insurance coverage.</p>
+                    </div>
+                    <a href="wizard-trucker-insurance.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+                <div class="wizard-card">
+                    <div>
+                        <span class="card-label">Insurance</span>
+                        <h3>Broker Insurance</h3>
+                        <p>Secure contingent cargo safeguards and mandatory $75,000 BMC-84 financial bonds.</p>
+                    </div>
+                    <a href="wizard-broker-insurance.html" class="btn-card-action">Launch Wizard →</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 🧱 GLOBAL CORPORATE SITE FOOTER MATRIX -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="filings4u" style="height: 35px; width: auto; object-fit: contain;">
+                <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
+                <div style="margin-top: 25px; display: flex; gap: 15px;">
+                    <a href="#" style="width: 32px; height: 32px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                        <svg width="14" height="14" fill="white" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Formations</h4>
+                <ul>
+                    <li><a href="limited-liability-company.html">LLC Formation</a></li>
+                    <li><a href="corporations.html">Corporations</a></li>
+                    <li><a href="nonprofits.html">Non-Profits</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Fleet & DOT</h4>
+                <ul>
+                    <li><a href="ucr-registration.html">UCR Registration</a></li>
+                    <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
+                    <li><a href="trucker-authority.html">DOT Authority</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="https://filings4u.com">Client Portal</a></li>
+                    <li><a href="compliance.html">Compliance Hub</a></li>
+                    <li><a href="contact.html">Contact Experts</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <p style="margin: 0; font-size: 0.85rem; max-width: 320px; line-height: 1.5; color: #94a3b8;">
+                    &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #10b981; text-transform: uppercase; font-weight: bold; text-decoration: none;">Roseland Companies</a>
+                </p>
+            </div>
+            <div class="trust-badge">
+                <span>SECURE</span> 256-bit SSL Encrypted Connection
+            </div>
+            <div class="legal-links">
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+                <a href="/refund-policy">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🎯 MASTER RESPONSIVE SCRIPT DRIVER LINK -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
