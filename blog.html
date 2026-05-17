@@ -10,149 +10,146 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-navbutton-color" content="#10b981">
     <title>Compliance Insights & Blog | filings4u</title>
-    <link rel="stylesheet" href="assets/css/site-elite.css">
-    
+    <link rel="stylesheet" href="assets/css/site-elite.css?v=10">
+    <!-- 🚀 CACHE BUSTER: Forces the browser to completely dump its cache and load your fixes instantly -->
+    <script src="assets/js/main.js?v=11"></script>
     <!-- 🚀 CRITICAL SCRIPT LOADING ORDER -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
-        /* Baseline Layout Fixes for Directory Grid */
+        /* ==========================================================================
+        🧱 1. DIRECTORY CANVAS INFRASTRUCTURE
+        ========================================================================== */
         .blog-wrapper-canvas {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 80px auto 120px auto; /* 🔄 FIXED: Added space above hero and below footer */
             padding: 0 4%;
             box-sizing: border-box;
         }
         #dynamicBlogPostsContainer {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
-            gap: 30px !important;
+            gap: 60px 40px !important; /* 🔄 FIXED: Added row/column card gaps */
+            padding-top: 50px !important; /* 🔄 FIXED: Separates container from categories */
             width: 100% !important;
         }
         @media screen and (max-width: 980px) {
             #dynamicBlogPostsContainer {
                 grid-template-columns: repeat(2, 1fr) !important;
-                gap: 20px !important;
+                gap: 35px !important;
             }
         }
         @media screen and (max-width: 640px) {
             #dynamicBlogPostsContainer {
                 grid-template-columns: 1fr !important;
+                gap: 45px !important;
             }
         }
-        .horizontal-category-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+
+        /* ==========================================================================
+        🚨 2. MASTER CARD BOUNDS (CLEANED OF INTERIOR RESET CONFLICTS)
+        ========================================================================== */
+        .blog-card {
+            display: block !important; /* Neutralizes theme-enforced flex configurations */
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            text-decoration: none !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+            margin-bottom: 20px !important;
+            box-shadow: 0 4px 12px rgba(10,31,68,0.01) !important;
         }
-        .horizontal-category-links a {
-            text-decoration: none;
-            color: #4a5568;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background: #f1f5f9;
-            font-size: 0.88rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
+        .blog-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 8px 24px rgba(10,31,68,0.06) !important;
         }
-        .horizontal-category-links a:hover,
-        .horizontal-category-links a.active-filter-tier {
+
+        /* ==========================================================================
+        🌐 3. MASTER HORIZONTAL CATEGORY MENU SELECTORS
+        ========================================================================== */
+        nav.top-filter-menu-bar {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            position: relative !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            margin: 60px 0 50px 0 !important; /* 🔄 FIXED: Added space above and below menu */
+            padding-bottom: 25px !important;
+            padding-top: 15px !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            border-top: none !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+            background: transparent !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px !important;
+            box-sizing: border-box !important;
+        }
+        nav.top-filter-menu-bar h3 {
+            margin: 0 !important;
+            font-size: 0.9rem !important;
+            color: #0a1f44 !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            white-space: nowrap !important;
+        }
+        ul.horizontal-category-links {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 8px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            list-style: none !important;
+            align-items: center !important;
+        }
+        ul.horizontal-category-links li {
+            margin: 0 !important;
+            padding: 0 !important;
+            flex-shrink: 0 !important;
+        }
+        ul.horizontal-category-links li a {
+            display: inline-block !important;
+            text-decoration: none !important;
+            color: #4a5568 !important;
+            padding: 8px 16px !important;
+            font-size: 0.82rem !important;
+            font-weight: 600 !important;
+            background: #f1f5f9 !important;
+            white-space: nowrap !important;
+            margin: 0 !important;
+            border-radius: 10px !important; /* Sharp 10px corporate corner layout */
+            transition: all 0.2s ease !important;
+        }
+        ul.horizontal-category-links li a:hover, ul.horizontal-category-links li a.active-filter-tier {
             background: #10b981 !important;
             color: #ffffff !important;
         }
 
-        /* 🚀 FIXED: Forces body layout to stretch full-height and locks footer to absolute page bottom */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-/* This targets your main wrapping blocks to expand, pushing the footer down */
-.blog-wrapper-canvas, 
-.article-view-container,
-main.page-container {
-    flex: 1 0 auto;
-}
-footer.site-footer {
-    flex-shrink: 0;
-    margin-top: auto !important; /* Dynamically glues the footer to the screen floor */
-}
-
-/* 🚀 UNIFIED ACTION FIX: Full-width bottom line with 10px rounded buttons */
-nav.top-filter-menu-bar {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 40px 0 30px 0 !important;
-    padding-bottom: 20px !important; /* Spacing between the text and the bottom line */
-    padding-top: 10px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    
-    /* 🌟 FIXED: One clean horizontal line exclusively running along the bottom */
-    border-top: none !important;
-    border-bottom: 1px solid #e2e8f0 !important; 
-    background: transparent !important;
-    
-    /* 🌟 FIXED: Perfectly centers your label and button cluster */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 20px !important;
-    box-sizing: border-box !important;
-}
-
-nav.top-filter-menu-bar h3 {
-    margin: 0 !important;
-    font-size: 0.9rem !important;
-    color: #0a1f44 !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-}
-
-ul.horizontal-category-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 8px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-    align-items: center !important;
-}
-
-ul.horizontal-category-links li {
-    margin: 0 !important;
-    padding: 0 !important;
-    flex-shrink: 0 !important;
-}
-
-ul.horizontal-category-links li a {
-    display: inline-block !important;
-    padding: 8px 16px !important;
-    font-size: 0.82rem !important;
-    white-space: nowrap !important;
-    margin: 0 !important;
-    
-    /* 🌟 FIXED: Removed pill roundness, set sharp 10px borders */
-    border-radius: 10px !important; 
-}
-
-
-
-
+        /* ==========================================================================
+        🧱 4. MASTER FULL-HEIGHT STRETCH
+        ========================================================================== */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .blog-wrapper-canvas, .article-view-container, main.page-container {
+            flex: 1 0 auto;
+        }
+        footer.site-footer {
+            flex-shrink: 0;
+            margin-top: auto !important;
+        }
     </style>
 </head>
 <body>
@@ -233,20 +230,17 @@ ul.horizontal-category-links li a {
         </div>
     </main>
 
-<!-- HORIZONTAL TOP BAR CATEGORY SELECTOR LINK MENU --> 
-<nav class="top-filter-menu-bar"> 
-    <h3>Filter Insights:</h3> 
-    <ul class="horizontal-category-links"> 
-        <li><a href="javascript:void(0)" class="active-filter-tier" onclick="fetchBlogArticlesByTier(null)">Show All Posts</a></li> 
-        <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Corporate Formations')">🏢 Corporate Formations</a></li> 
-        <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Compliance Auditing')">⚖️ Compliance Auditing</a></li> 
-        <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Corporate Tax Planning')">💰 Corporate Tax Planning</a></li> 
-        <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('DOT & Fleet')">Docs & Trucks</a></li> 
-    </ul> 
-</nav>
-
-
-
+    <!-- HORIZONTAL TOP BAR CATEGORY SELECTOR LINK MENU -->
+    <nav class="top-filter-menu-bar">
+        <h3>Filter Insights:</h3>
+        <ul class="horizontal-category-links">
+            <li><a href="javascript:void(0)" class="active-filter-tier" onclick="fetchBlogArticlesByTier(null)">Show All Posts</a></li>
+            <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Corporate Formations')">🏢 Corporate Formations</a></li>
+            <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Compliance Auditing')">⚖️ Compliance Auditing</a></li>
+            <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('Corporate Tax Planning')">💰 Corporate Tax Planning</a></li>
+            <li><a href="javascript:void(0)" onclick="fetchBlogArticlesByTier('DOT & Fleet')">Docs & Trucks</a></li>
+        </ul>
+    </nav>
 
     <!-- CONTENT FRAMEWORK CONTENT WRAPPER -->
     <div class="blog-wrapper-canvas">
@@ -254,164 +248,171 @@ ul.horizontal-category-links li a {
         <section id="dynamicBlogPostsContainer">
             <div class="empty-blog-msg" style="grid-column: span 3; text-align: center; padding: 40px 0; color: #64748b; font-weight:600;">Querying database repository...</div>
         </section>
-
+    </div>
 
     <!-- 🧱 GLOBAL CORPORATE SITE FOOTER MATRIX -->
-    <footer class="site-footer"> 
-        <div class="footer-container"> 
-            <div class="footer-brand"> 
-                <img src="images/logo-white.png" alt="filings4u" style="height: 35px;"> 
-                <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p> 
-                <div style="margin-top: 25px; display: flex; gap: 15px;"> 
-                    <!-- LinkedIn --> 
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> 
-                        <svg width="14" height="14" fill="white" viewBox="0 0 16 16"> <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/> </svg> 
-                    </a> 
-                    <!-- YouTube --> 
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> 
-                        <svg width="16" height="16" fill="white" viewBox="0 0 16 16"> <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.301 1.103.33 3.483.33 4.246 0 .763-.029 3.143-.33 4.246a2.01 2.01 0 0 1-1.415 1.419c-1.123.302-5.288.332-6.11.335h-.09c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.419C.03 11.143 0 8.763 0 8c0-.763.029-3.143.33-4.246a2.01 2.01 0 0 1 1.415-1.42c1.123-.302 5.288-.332 6.11-.335h.089zM6.374 11.155l4.356-2.651a.26.26 0 0 0 0-.442L6.374 5.412a.26.26 0 0 0-.398.221v5.301a.26.26 0 0 0 .398.22z"/> </svg> 
-                    </a> 
-                    <!-- X --> 
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;"> 
-                        <svg width="12" height="12" fill="white" viewBox="0 0 16 16"> <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/> </svg> 
-                    </a> 
-                </div> 
-            </div> 
-            <div class="footer-col"> 
-                <h4>Formations</h4> 
-                <ul> 
-                    <li><a href="limited-liability-company.html">LLC Formation</a></li> 
-                    <li><a href="corporations.html">Corporations</a></li> 
-                    <li><a href="nonprofits.html">Non-Profits</a></li> 
-                    <li><a href="registered-agent.html">Registered Agent</a></li> 
-                    <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li> 
-                </ul> 
-            </div> 
-            <div class="footer-col"> 
-                <h4>Fleet & DOT</h4> 
-                <ul> 
-                    <li><a href="ucr-registration.html">UCR Registration</a></li> 
-                    <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li> 
-                    <li><a href="trucker-authority.html">DOT Authority</a></li> 
-                    <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li> 
-                    <li><a href="heavy-use-tax-2290.html">Form 2290</a></li> 
-                </ul> 
-            </div> 
-            <div class="footer-col"> 
-                <h4>Support</h4> 
-                <ul> 
-                    <li><a href="login.html">Client Portal</a></li> 
-                    <li><a href="compliance.html">Compliance Hub</a></li> 
-                    <li><a href="contact.html">Contact Experts</a></li> 
-                    <li><a href="annual-reports.html">Annual Reports</a></li> 
-                    <li><a href="blog.html">Resource Library</a></li> 
-                </ul> 
-            </div> 
-        </div> 
-        <div class="footer-bottom"> 
-            <div> 
-                <p style="margin: 0; font-size: 0.85rem; max-width: 300px; line-height: 1.4; overflow-wrap: break-word;"> &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #c15254; text-decoration: none; font-weight: bold;">Roseland Companies, LLC</a> </p> 
-            </div> 
-            <div class="trust-badge"> <span>SECURE</span> 256-bit SSL Encrypted Connection </div> 
-            <div style="display: flex; gap: 20px; margin-bottom: 0px; flex-wrap: wrap;"> 
-                <a href="privacy-policy.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Privacy Policy</a> 
-                <a href="terms-of-service.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Terms of Service</a> 
-                <a href="refund-policy.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Refund Policy</a> 
-            </div> 
-        </div> 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="filings4u" style="height: 35px;">
+                <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
+                <div style="margin-top: 25px; display: flex; gap: 15px;">
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
+                        <svg width="14" height="14" fill="white" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
+                        <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.301 1.103.33 3.483.33 4.246 0 .763-.029 3.143-.33 4.246a2.01 2.01 0 0 1-1.415 1.419c-1.123.302-5.288.332-6.11.335h-.09c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.419C.03 11.143 0 8.763 0 8c0-.763.029-3.143.33-4.246a2.01 2.01 0 0 1 1.415-1.42c1.123-.302 5.288-.332 6.11-.335h.089zM6.374 11.155l4.356-2.651a.26.26 0 0 0 0-.442L6.374 5.412a.26.26 0 0 0-.398.221v5.301a.26.26 0 0 0 .398.22z"/>
+                        </svg>
+                    </a>
+                    <!-- X -->
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
+                        <svg width="12" height="12" fill="white" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Formations</h4>
+                <ul>
+                    <li><a href="limited-liability-company.html">LLC Formation</a></li>
+                    <li><a href="corporations.html">Corporations</a></li>
+                    <li><a href="nonprofits.html">Non-Profits</a></li>
+                    <li><a href="registered-agent.html">Registered Agent</a></li>
+                    <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Fleet & DOT</h4>
+                <ul>
+                    <li><a href="ucr-registration.html">UCR Registration</a></li>
+                    <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
+                    <li><a href="trucker-authority.html">DOT Authority</a></li>
+                    <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li>
+                    <li><a href="heavy-use-tax-2290.html">Form 2290</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="login.html">Client Portal</a></li>
+                    <li><a href="compliance.html">Compliance Hub</a></li>
+                    <li><a href="contact.html">Contact Experts</a></li>
+                    <li><a href="annual-reports.html">Annual Reports</a></li>
+                    <li><a href="blog.html">Resource Library</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <p style="margin: 0; font-size: 0.85rem; max-width: 300px; line-height: 1.4; overflow-wrap: break-word;">
+                    &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #c15254; text-decoration: none; font-weight: bold;">Roseland Companies, LLC</a>
+                </p>
+            </div>
+            <div class="trust-badge">
+                <span>SECURE</span> 256-bit SSL Encrypted Connection
+            </div>
+            <div style="display: flex; gap: 20px; margin-bottom: 0px; flex-wrap: wrap;">
+                <a href="privacy-policy.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Privacy Policy</a>
+                <a href="terms-of-service.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Terms of Service</a>
+                <a href="refund-policy.html" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Refund Policy</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- 🚀 AUTOMATED INSIGHTS SYNC QUERY ENGINE -->
+    <!-- 🚀 AUTOMATED INSIGHTS SYNC QUERY ENGINE (FULLY FIXED & ISOLATED) -->
     <script>
-    let directorySupabaseInstance = null;
+        let directorySupabaseInstance = null;
 
-    window.addEventListener('load', () => {
-        // Safe check for Supabase SDK initialization before constructing requests
-        if (typeof window.supabase === 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-            script.onload = () => initBlogDirectoryRouter();
-            document.head.appendChild(script);
-        } else {
-            initBlogDirectoryRouter();
-        }
-    });
-
-    function initBlogDirectoryRouter() {
-        directorySupabaseInstance = window.supabase.createClient(
-            'https://lrbimrlbskjweynxlgas.supabase.co',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'
-        );
-        fetchBlogArticlesByTier(null);
-    }
-
-    async function fetchBlogArticlesByTier(categoryFilterString) {
-        const displayContainer = document.getElementById('dynamicBlogPostsContainer');
-        if (!displayContainer) return;
-
-        displayContainer.innerHTML = '<div style="grid-column: span 3; text-align:center; padding:60px 0; color:#64748b; font-weight:600;">Querying live insights matrix...</div>';
-
-        // Update active class navigation styling states instantly
-        document.querySelectorAll('.horizontal-category-links a').forEach(link => {
-            link.classList.remove('active-filter-tier');
-            if (categoryFilterString === null && link.innerText.includes('Show All')) {
-                link.classList.add('active-filter-tier');
-            } else if (categoryFilterString && link.getAttribute('onclick').includes(categoryFilterString)) {
-                link.classList.add('active-filter-tier');
+        window.addEventListener('load', () => {
+            if (typeof window.supabase === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+                script.onload = () => initBlogDirectoryRouter();
+                document.head.appendChild(script);
+            } else {
+                initBlogDirectoryRouter();
             }
         });
 
-        try {
-            // 🚀 TARGET CORRECT SCHEMA TABLE NAME: 'blog_posts'
-            let query = directorySupabaseInstance.from('blog_posts').select('*').order('created_at', { ascending: false });
+        function initBlogDirectoryRouter() {
+            directorySupabaseInstance = window.supabase.createClient(
+                'https://lrbimrlbskjweynxlgas.supabase.co',
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'
+            );
+            fetchBlogArticlesByTier(null);
+        }
 
-            if (categoryFilterString) {
-                query = query.eq('category', categoryFilterString);
-            }
+        async function fetchBlogArticlesByTier(categoryFilterString) {
+            const displayContainer = document.getElementById('dynamicBlogPostsContainer');
+            if (!displayContainer) return;
 
-            const { data: posts, error } = await query;
+            displayContainer.innerHTML = '<div style="grid-column: span 3; text-align:center; padding:60px 0; color:#64748b; font-weight:600;">Querying live insights matrix...</div>';
 
-            if (error) throw error;
-
-            if (!posts || posts.length === 0) {
-                displayContainer.innerHTML = `
-                    <div style="grid-column: span 3; text-align:center; padding:60px 20px; background:#f8fafc; border: 1px dashed #e2e8f0; border-radius:12px; color:#64748b; width:100%; box-sizing:border-box;">
-                        <h3 style="margin:0 0 8px 0; color:#0a1f44; font-weight:800;">No Insights Posted Yet</h3>
-                        <p style="margin:0; font-size:0.9rem;">The filter container folder "${categoryFilterString || 'All'}" currently contains zero active articles.</p>
-                    </div>`;
-                return;
-            }
-
-            displayContainer.innerHTML = '';
-
-            // Generate clean marketing tiles on canvas array dynamically
-            posts.forEach(post => {
-                const dateString = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                const cardElement = document.createElement('a');
-                
-                // Routes parameters through search parameters to 'article.html' reader template
-                cardElement.href = `article.html?slug=${post.slug}`;
-                cardElement.className = 'blog-card';
-                cardElement.style.textDecoration = 'none';
-
-                cardElement.innerHTML = `
-                    <div style="height:180px; background: url('${post.image_url || 'images/blog-fallback.jpg'}') center/cover no-repeat; border-radius:8px 8px 0 0; background-color:#f1f5f9;"></div>
-                    <div style="padding:22px; text-align:left;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                            <span class="hero-tag" style="font-size:0.68rem; padding:4px 8px; border-radius:4px; margin:0; background:#10b981; color:#fff;">${post.category}</span>
-                            <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">${dateString}</span>
-                        </div>
-                        <h3 style="margin:0 0 10px 0; font-size:1.25rem; color:#0a1f44; font-weight:700; line-height:1.4;">${post.title}</h3>
-                        <p style="margin:0; color:#64748b; font-size:0.88rem; line-height:1.5;">${post.summary || 'Click to view full insight data analysis report...'}</p>
-                    </div>`;
-                displayContainer.appendChild(cardElement);
+            document.querySelectorAll('.horizontal-category-links a').forEach(link => {
+                link.classList.remove('active-filter-tier');
+                if (categoryFilterString === null && link.innerText.includes('Show All')) {
+                    link.classList.add('active-filter-tier');
+                } else if (categoryFilterString && link.getAttribute('onclick').includes(categoryFilterString)) {
+                    link.classList.add('active-filter-tier');
+                }
             });
 
-        } catch (err) {
-            console.error("Directory engine failed to pull entries:", err);
-            displayContainer.innerHTML = '<div style="grid-column: span 3; color:#ef4444; font-weight:700; text-align:center; padding:40px;"> HANDSHAKE INTERRUPTED: Unable to sync articles stream records.</div>';
+            try {
+                let query = directorySupabaseInstance.from('blog_posts').select('*').order('created_at', { ascending: false });
+                if (categoryFilterString) {
+                    query = query.eq('category', categoryFilterString);
+                }
+
+                const { data: posts, error } = await query;
+                if (error) throw error;
+
+                if (!posts || posts.length === 0) {
+                    displayContainer.innerHTML = `
+                        <div style="grid-column: span 3; text-align:center; padding:60px 20px; background:#f8fafc; border: 1px dashed #e2e8f0; border-radius:12px; color:#64748b; width:100%; box-sizing:border-box;">
+                            <h3 style="margin:0 0 8px 0; color:#0a1f44; font-weight:800;">No Insights Posted Yet</h3>
+                            <p style="margin:0; font-size:0.9rem;">The filter container folder "${categoryFilterString || 'All'}" currently contains zero active articles.</p>
+                        </div>`;
+                    return;
+                }
+
+                displayContainer.innerHTML = '';
+
+                posts.forEach(post => {
+                    const dateString = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                    const cardElement = document.createElement('a');
+                    cardElement.href = `article.html?slug=${post.slug}`;
+                    cardElement.className = 'blog-card';
+                    cardElement.style.cssText = "display: block !important; text-decoration: none !important; box-sizing: border-box !important; background: #ffffff !important;";
+
+                    cardElement.innerHTML = `
+                        <div style="height:180px; width:100%; background: url('${post.image_url || 'images/blog-fallback.jpg'}') center/cover no-repeat; border-radius:12px 12px 0 0; background-color:#f1f5f9; display:block;"></div>
+                        <div style="padding: 26px !important; text-align: left !important; display: block !important; box-sizing: border-box !important; background: #ffffff !important; border-radius: 0 0 12px 12px; width: 100% !important;">
+                            <div style="display:flex !important; justify-content:space-between !important; align-items:center !important; margin-bottom:15px !important; width:100% !important; padding:0 !important;">
+                                <span style="font-size:0.68rem; padding:4px 8px; border-radius:4px; background:#10b981; color:#ffffff; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; display:inline-block !important;">${post.category}</span>
+                                <span style="font-size:0.75rem; color:#94a3b8; font-weight:600; display:inline-block !important;">${dateString}</span>
+                            </div>
+                            <!-- 🔄 FIXED: Added a 15px bottom margin to separate title and paragraph summary text elements cleanly -->
+                            <div style="margin: 15px 0 15px 0 !important; padding: 0 !important; display: block !important; width: 100% !important; text-align: left !important;">
+                                <h3 style="margin: 0 !important; padding: 0 !important; font-size: 1.25rem !important; color: #0a1f44 !important; font-weight: 700 !important; line-height: 1.4 !important; text-transform: none !important; letter-spacing: normal !important; text-align: left !important; display: block !important;">${post.title}</h3>
+                            </div>
+                            <!-- 🔄 FIXED: Adjusted top buffer to give paragraph summary structural breathing room -->
+                            <div style="margin: 10px 0 0 0 !important; padding: 0 !important; display: block !important; width: 100% !important; text-align: left !important;">
+                                <p style="margin: 0 !important; padding: 0 !important; color: #64748b !important; font-size: 0.88rem !important; line-height: 1.6 !important; text-transform: none !important; letter-spacing: normal !important; text-align: left !important; display: block !important;">${post.summary || 'Click to view full insight data analysis report...'}</p>
+                            </div>
+                        </div>`;
+                    displayContainer.appendChild(cardElement);
+                });
+            } catch (err) {
+                console.error("Directory engine failed to pull entries:", err);
+                displayContainer.innerHTML = '<div style="grid-column: span 3; color:#ef4444; font-weight:700; text-align:center; padding:40px;"> HANDSHAKE INTERRUPTED: Unable to sync articles stream records.</div>';
+            }
         }
-    }
     </script>
 </body>
 </html>
