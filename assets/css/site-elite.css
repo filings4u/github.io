@@ -1100,9 +1100,6 @@ footer.site-footer,
 
 } /* 🌟 ALL MEDIA QUERIES CLEANLY SEALED HERE */
 
-}
-
-
 /* BREAK FOOTER TO FULL SCREEN WIDTH ON MOBILE */
 @media screen and (max-width: 980px) {
   footer.site-footer, 
@@ -1115,5 +1112,8 @@ footer.site-footer,
     padding-right: 20px !important; /* Prevents text from clipping off the screen */
     box-sizing: border-box !important;
   }
+}
+
+
 }
 
