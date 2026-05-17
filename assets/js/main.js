@@ -220,3 +220,66 @@ window.addEventListener('resize', function() {
         forceIgniteMobileMenuDrawer();
     }
 })();
+
+
+/* ==========================================================================
+   🚨 RESPONSIVE CORE INTERCEPTOR: BYPASSES HTML5 UP OVERLAYS
+   ========================================================================== */
+
+(function() {
+    function armFilings4uMobileMenu() {
+        const hamburgerBtn = document.querySelector('.mobile-menu-trigger');
+        const linksDrawer = document.querySelector('.nav-links');
+
+        if (!hamburgerBtn || !linksDrawer) {
+            // Keep poll indexing alive during canvas mounting lag
+            setTimeout(armFilings4uMobileMenu, 150);
+            return;
+        }
+
+        // Wipe out blocking inline event strings properties
+        hamburgerBtn.removeAttribute('onclick');
+
+        // Attach an direct click handler that the theme's default scripts cannot intercept
+        hamburgerBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation(); // Restricts parent library event bubbling blocks
+            
+            linksDrawer.classList.toggle('active');
+            
+            if (linksDrawer.classList.contains('active')) {
+                hamburgerBtn.innerHTML = '✕';
+                hamburgerBtn.style.setProperty('color', '#e53e3e', 'important'); // Smooth alert crimson on open
+            } else {
+                hamburgerBtn.innerHTML = '☰';
+                hamburgerBtn.style.setProperty('color', '#0a1f44', 'important'); // Restores brand navy on close
+            }
+        });
+
+        console.log("🎯 Mobile Navigation Triggers armed and synchronized successfully.");
+    }
+
+    // Initialize as soon as script compiled loops complete
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", armFilings4uMobileMenu);
+    } else {
+        armFilings4uMobileMenu();
+    }
+})();
+
+/**
+ * Mobile Touch Accordion Item Dropdowns Controller
+ */
+function toggleMobileDropdown(event, element) {
+    if (window.innerWidth <= 980) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const parentBlock = element.parentElement;
+        parentBlock.classList.toggle('active-toggle');
+        
+        document.querySelectorAll('.nav-item-dropdown').forEach(card => {
+            if (card !== parentBlock) card.classList.remove('active-toggle');
+        });
+    }
+}
