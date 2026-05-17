@@ -74,6 +74,29 @@
             color: #4a5568;
             font-weight: 600;
         }
+
+        /* 🚀 FIXED: Forces body layout to stretch full-height and locks footer to absolute page bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* This targets your main wrapping blocks to expand, pushing the footer down */
+.blog-wrapper-canvas, 
+.article-view-container,
+main.page-container {
+    flex: 1 0 auto;
+}
+footer.site-footer {
+    flex-shrink: 0;
+    margin-top: auto !important; /* Dynamically glues the footer to the screen floor */
+}
+
     </style>
     
 </head> 
@@ -220,89 +243,103 @@
     </div>
 </footer>
 
+<!-- 🚀 FIXED: Added an explicit inline spacer block right above the footer container -->
+<div style="margin-bottom: 80px; clear: both;"></div>
+
+<!-- SITE MASTER FOOTER INFRASTRUCTURE CONTINUED FROM PASTE 2... -->
+    </div>
+  </div>
+</footer>
+
 <script>
-    let articleSupabaseInstance = null;
+let articleSupabaseInstance = null;
 
-    window.addEventListener('load', async () => {
-        // Safe check: Verify library presence before calling constructor methods
-        if (typeof window.supabase === 'undefined') {
-            renderErrorState("System Setup Error: Core script libraries failed to load in head.");
-            return;
-        }
-
-        try {
-            articleSupabaseInstance = window.supabase.createClient(
-            'https://lrbimrlbskjweynxlgas.supabase.co',
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'
-            );
-            
-            const urlParams = new URLSearchParams(window.location.search);
-            const activeSlug = urlParams.get('slug');
-
-            if (!activeSlug) {
-                renderErrorState("Error: No valid article resource specified in URL parameters.");
-                return;
-            }
-
-            fetchArticleBodyPayload(activeSlug);
-        } catch (err) {
-            renderErrorState("Failed to establish server connection handshake.");
-        }
-    });
-
-    async function fetchArticleBodyPayload(slugString) {
-    const viewWrapper = document.getElementById('articleViewContentWrapper');
-    
-    const { data: posts, error } = await articleSupabaseInstance
-        .from('posts')
-        .select('*')
-        .eq('slug', slugString);
-
-    if (error || !posts || posts.length === 0) {
-        renderErrorState("Article Not Found. The resource may have been deleted or archived by administrators.");
+window.addEventListener('load', async () => {
+    // 🚀 FIXED: Checks for framework library components natively to avoid ReferenceErrors
+    if (typeof window.supabase === 'undefined') {
+        renderErrorState("System Setup Error: Core script libraries failed to load in head.");
         return;
     }
 
-    // 🛠️ FIXED: Target index [0] to extract the record properties accurately out of the array list!
-    const activePost = posts[0]; 
+    try {
+        // Initializes your specific project client directly inside the script block execution thread
+        articleSupabaseInstance = window.supabase.createClient(
+            'https://lrbimrlbskjweynxlgas.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'
+        );
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const activeSlug = urlParams.get('slug');
+
+        if (!activeSlug) {
+            renderErrorState("Error: No valid article resource specified in URL parameters.");
+            return;
+        }
+
+        fetchArticleBodyPayload(activeSlug);
+    } catch (err) {
+        renderErrorState("Failed to establish server connection handshake.");
+    }
+});
+
+async function fetchArticleBodyPayload(slugString) {
+    const viewWrapper = document.getElementById('articleViewContentWrapper');
     
-    const formattedDate = new Date(activePost.created_at).toLocaleDateString('en-US', {
-        year: 'numeric', month: 'long', day: 'numeric'
-    });
+    try {
+        // 🚀 FIXED: Changed target collection table name from 'posts' to match your schema 'blog_posts'
+        const { data: posts, error } = await articleSupabaseInstance
+            .from('blog_posts')
+            .select('*')
+            .eq('slug', slugString);
 
-    const parsedParagraphs = activePost.content 
-    ? activePost.content.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('')
-    : `<p>${activePost.summary}</p>`;
+        if (error || !posts || posts.length === 0) {
+            renderErrorState("Article Not Found. The resource may have been deleted or archived by administrators.");
+            return;
+        }
 
-    viewWrapper.innerHTML = `
-        <a href="blog.html" class="btn-back-link">← Return to Insights Feed</a>
-        <img src="${activePost.image_url || 'https://unsplash.com'}" alt="${activePost.title}" class="article-hero-image">
-        
-        <div class="article-header-meta">
-            <span class="category-tag">${activePost.category}</span>
-            <span>•</span>
-            <span>Published: ${formattedDate}</span>
-        </div>
-            
-        <h1>${activePost.title}</h1>
-            
-        <div class="article-body-content">
-            ${parsedParagraphs}
-        </div>
-    `;
+        const activePost = posts[0];
+        const formattedDate = new Date(activePost.created_at).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+
+        // Parse linebreaks cleanly out of JSON string arrays 
+        const parsedParagraphs = activePost.content 
+            ? activePost.content.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('') 
+            : `<p>${activePost.summary || 'No summary overview text provided.'}</p>`;
+
+        // Paint components clean onto page DOM window container
+        viewWrapper.innerHTML = `
+            <a href="blog.html" class="btn-back-link">← Return to Insights Feed</a>
+            <!-- 🚀 FIXED: Set clean image asset falls if admin portal path field properties are absent -->
+            <img src="${activePost.image_url || 'images/blog-fallback.jpg'}" alt="${activePost.title}" class="article-hero-image" onerror="this.src='images/blog-fallback.jpg';">
+            <div class="article-header-meta">
+                <span class="category-tag">${activePost.category || 'Insights'}</span>
+                <span>•</span>
+                <span>Published: ${formattedDate}</span>
+            </div>
+            <h1>${activePost.title}</h1>
+            <div class="article-body-content">
+                ${parsedParagraphs}
+            </div>
+        `;
+
+    } catch (networkError) {
+        console.error("Reader transaction crash logged:", networkError);
+        renderErrorState("A structural network error interrupted data stream protocols.");
+    }
 }
 
-
-    function renderErrorState(messageText) {
-        const wrapper = document.getElementById('articleViewContentWrapper');
-        if (wrapper) {
-            wrapper.innerHTML = `
-                <a href="blog.html" class="btn-back-link">← Return to Insights Feed</a>
-                <div class="article-loading-state" style="color: var(--danger-red);">${messageText}</div>
-            `;
-        }
+function renderErrorState(messageText) {
+    const wrapper = document.getElementById('articleViewContentWrapper');
+    if (wrapper) {
+        wrapper.innerHTML = `
+            <a href="blog.html" class="btn-back-link">← Return to Insights Feed</a>
+            <div class="article-loading-state" style="color: #ef4444; font-weight:700; padding:60px 0;">${messageText}</div>
+        `;
     }
+}
 </script>
-
-</body> 
+</body>
 </html>
