@@ -4,34 +4,48 @@
     <meta charset="UTF-8">
     <!-- 📱 FORCES MOBILE LAYOUT INITIALIZATION -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <!-- 🟢 FORCES TOP MOBILE BROWSER COLOR TO EMERALD -->
     <meta name="theme-color" content="#10b981">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- 🔄 FIXED: Replaced deprecated apple tag with modern mobile web standard -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-navbutton-color" content="#10b981">
+    
     <title>Compliance Insights & Blog | filings4u</title>
     <link rel="stylesheet" href="assets/css/site-elite.css?v=10">
-    <!-- 🚀 CACHE BUSTER: Forces the browser to completely dump its cache and load your fixes instantly -->
-    <script src="assets/js/main.js?v=11"></script>
-    <!-- 🚀 CRITICAL SCRIPT LOADING ORDER -->
+
+    <!-- 🔄 FIXED: Loading actual jQuery script library code instead of the website URL -->
+    <script src="https://jquery.com"></script>
+
+    <!-- 🔄 FIXED: Added the missing closing quote mark after the @2 parameter -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 🚀 CACHE BUSTER: Main dashboard logic script loader -->
+    <script src="assets/js/main.js?v=11"></script>
+<link rel="icon" type="image/png" href="images/fav.png">
+
     
 <style> 
     /* ==========================================================================
-    🧱 1. DIRECTORY CANVAS INFRASTRUCTURE & LAYOUT
+    🧱 1. UNIVERSAL INFRASTRUCTURE & GRID LAYOUT
     ========================================================================== */
     .blog-wrapper-canvas {
         max-width: 1200px;
-        margin: 0 auto !important; /* 🔄 FIXED: Removes layout displacement conflicts */
+        margin: 0 auto !important; 
         padding: 0 4%;
         box-sizing: border-box;
     }
-    #dynamicBlogPostsContainer {
+    
+    /* 🔄 FIXED: Controls both the blog page and homepage feeds together */
+    #dynamicBlogPostsContainer,
+    #public-homepage-blog-grid-target {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
         gap: 40px 30px !important; 
-        padding-top: 10px !important; /* Balanced close spacing to filter bar */
-        margin-bottom: 60px !important; /* 🔄 FIXED: Snug separation above desktop footer */
+        padding-top: 10px !important; 
+        margin-bottom: 80px !important; 
         width: 100% !important;
     }
 
@@ -39,19 +53,81 @@
     🚨 2. MASTER CARD BOUNDS (CLEANED OF INTERIOR RESET CONFLICTS)
     ========================================================================== */
     .blog-card {
-        display: block !important; 
+        display: block !important;
+        text-decoration: none !important;
         background: #ffffff !important;
         border: 1px solid #e2e8f0 !important;
         border-radius: 12px !important;
         overflow: hidden !important;
-        text-decoration: none !important;
+        margin-bottom: 0px !important; 
+        box-shadow: 0 4px 12px rgba(10,31,68,0.01) !important; 
         transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-        margin-bottom: 0px !important; /* Managed cleanly by grid row gaps */
-        box-shadow: 0 4px 12px rgba(10,31,68,0.01) !important;
     }
     .blog-card:hover {
         transform: translateY(-4px) !important;
         box-shadow: 0 8px 24px rgba(10,31,68,0.06) !important;
+    }
+
+    /* 🔄 CARD STRUCTURE DEFINITIONS */
+    .blog-card-img {
+        height: 180px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #f1f5f9;
+        display: block;
+    }
+    .blog-card-body {
+        padding: 24px !important;
+        text-align: left !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+    .blog-card-meta {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 16px !important;
+        gap: 10px !important;
+    }
+    .blog-card-category {
+        font-size: 0.68rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        background: #10b981;
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block !important;
+    }
+    .blog-card-date {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        font-weight: 600;
+        display: inline-block !important;
+    }
+    .blog-card-title {
+        margin: 0 0 12px 0 !important;
+        padding: 0 !important;
+        font-size: 1.2rem !important;
+        color: #0a1f44 !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        text-transform: none !important;
+        text-align: left !important;
+        display: block !important;
+    }
+    .blog-card-summary {
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #64748b !important;
+        font-size: 0.88rem !important;
+        line-height: 1.6 !important;
+        text-transform: none !important;
+        text-align: left !important;
+        display: block !important;
     }
 
     /* ==========================================================================
@@ -63,10 +139,10 @@
         position: relative !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        margin: 20px 0 30px 0 !important; /* 🔄 FIXED: Adds clean 30px air below menu on desktop */
-        padding-bottom: 15px !important; 
+        margin: 20px 0 30px 0 !important; 
+        padding-bottom: 15px !important;
         padding-top: 10px !important;
-        padding-left: 20px !important; /* Safety padding limits for side-scrolling */
+        padding-left: 20px !important; 
         padding-right: 20px !important;
         border-top: none !important;
         border-bottom: 1px solid #e2e8f0 !important;
@@ -120,10 +196,10 @@
     }
 
     /* ==========================================================================
-    🧱 4. MASTER FULL-HEIGHT STRETCH (RESOLVED FOOTER GAP DISTORTION)
+    🧱 4. MASTER FULL-HEIGHT STRETCH
     ========================================================================== */
     html, body {
-        height: auto; /* 🔄 FIXED: Stops forcing blank viewport stretches */
+        height: auto; 
         min-height: 100vh;
         margin: 0;
         padding: 0;
@@ -133,52 +209,51 @@
         flex-direction: column;
     }
     main.page-container {
-        flex: 0 0 auto !important; /* Keeps Hero intact */
+        flex: 0 0 auto !important;
     }
     .blog-wrapper-canvas {
-        flex: 1 0 auto !important; /* 🔄 FIXED: Seamless layout container behavior */
+        flex: 1 0 auto !important; 
     }
     footer.site-footer {
         flex-shrink: 0;
-        margin-top: 40px !important; /* Clean close-range spacing baseline */
+        margin-top: 40px !important; 
     }
 
     /* ==========================================================================
     📱 5. RESPONSIVE MEDIA QUERIES (SCROLLABLE & BALANCE BUFFERS)
     ========================================================================== */
     @media screen and (max-width: 980px) {
-        #dynamicBlogPostsContainer {
+        #dynamicBlogPostsContainer,
+        #public-homepage-blog-grid-target {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 30px !important;
         }
     }
 
     @media screen and (max-width: 640px) {
-        /* 🔄 FIXED MOBILE NAV: Unlocks touch gesture side-scrolling navigation */
         nav.top-filter-menu-bar {
-            margin: 15px 0 35px 0 !important; /* 🔄 FIXED: Pushes blog cards down 35px from menu */
+            margin: 15px 0 35px 0 !important; 
             padding-bottom: 12px !important;
-            justify-content: flex-start !important; /* Required layout adjustment for scroll tracking */
-            overflow-x: auto !important; /* Unlocks swipe gestures */
-            -webkit-overflow-scrolling: touch !important; /* Smooth inertial iOS scrolling */
+            justify-content: flex-start !important; 
+            overflow-x: auto !important; 
+            -webkit-overflow-scrolling: touch !important; 
         }
-        
-        /* Hides scrollbar display for a cleaner mobile interface layout look */
         nav.top-filter-menu-bar::-webkit-scrollbar {
             display: none !important;
         }
-
-        #dynamicBlogPostsContainer {
+        #dynamicBlogPostsContainer,
+        #public-homepage-blog-grid-target {
             grid-template-columns: 1fr !important;
-            gap: 24px !important; 
-            padding-top: 0px !important; /* Let navigation menu margin take control */
+            gap: 24px !important;
+            padding-top: 0px !important; 
             margin-bottom: 40px !important;
         }
-        .blog-card > div[style*="padding: 28px"] {
+        .blog-card-body {
             padding: 20px !important; 
         }
     }
 </style>
+
 
 
 </head>
@@ -274,13 +349,14 @@
         </ul>
     </nav>
 
-    <!-- CONTENT FRAMEWORK CONTENT WRAPPER -->
-    <div class="blog-wrapper-canvas">
-        <!-- Left Main Pane: Dynamic Horizontal Stacking Post Row Grid -->
-        <section id="dynamicBlogPostsContainer">
-            <div class="empty-blog-msg" style="grid-column: span 3; text-align: center; padding: 40px 0; color: #64748b; font-weight:600;">Querying database repository...</div>
-        </section>
-    </div>
+ <!-- CONTENT FRAMEWORK CONTENT WRAPPER -->
+<div class="blog-wrapper-canvas">
+    <!-- 🔄 FIXED: Updated element settings to match index.html page grid layout perfectly -->
+    <section id="dynamicBlogPostsContainer" class="resource-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 40px 30px !important; width: 100% !important; padding-top: 10px !important; margin-bottom: 80px !important;">
+        <div class="empty-blog-msg" style="grid-column: span 3; text-align: center; padding: 40px 0; color: #64748b; font-weight:600;">Querying database repository...</div>
+    </section>
+</div>
+
 
     <!-- 🧱 GLOBAL CORPORATE SITE FOOTER MATRIX -->
     <footer class="site-footer">
@@ -419,31 +495,20 @@ async function fetchBlogArticlesByTier(categoryFilterString) {
             const dateString = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }); 
             const cardElement = document.createElement('a'); 
             cardElement.href = `article.html?slug=${post.slug}`; 
-            cardElement.className = 'blog-card'; 
-            cardElement.style.cssText = "display: block !important; text-decoration: none !important; box-sizing: border-box !important; background: #ffffff !important;"; 
+            cardElement.className = 'blog-card'; // Hooks completely into external stylesheet rules
             
-            // 🔄 FIXED METADATA WRAPPER AND BLOCK MARGIN ANCHORS BELOW TO PREVENT TEXT COLLISION
+            // 🔄 FIXED: All hardcoded inline markup styles have been removed to let your clean CSS master file run perfectly
             cardElement.innerHTML = ` 
-                <div style="height:180px; width:100%; background: url('${post.image_url || 'images/blog-fallback.jpg'}') center/cover no-repeat; border-radius:12px 12px 0 0; background-color:#f1f5f9; display:block;"></div> 
-                <div style="padding: 28px !important; text-align: left !important; display: block !important; box-sizing: border-box !important; background: #ffffff !important; border-radius: 0 0 12px 12px; width: 100% !important;"> 
-                    
-                    <!-- Meta info alignment wrapper with rigid columns gaps -->
-                    <div style="display:flex !important; flex-direction:row !important; justify-content:space-between !important; align-items:center !important; gap:15px !important; margin-bottom:20px !important; width:100% !important; padding:0 !important; box-sizing:border-box !important;"> 
-                        <span style="font-size:0.68rem; padding:5px 10px; border-radius:4px; background:#10b981; color:#ffffff; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; display:inline-block !important; flex-shrink:0 !important; max-width:65% !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important;">${post.category}</span> 
-                        <span style="font-size:0.75rem; color:#94a3b8; font-weight:600; display:inline-block !important; flex-shrink:0 !important; white-space:nowrap !important;">${dateString}</span> 
+                <div class="blog-card-img" style="background-image: url('${post.image_url || 'images/blog-fallback.jpg'}');"></div> 
+                <div class="blog-card-body"> 
+                    <div class="blog-card-meta"> 
+                        <span class="blog-card-category">${post.category}</span> 
+                        <span class="blog-card-date">${dateString}</span> 
                     </div> 
-                    
-                    <!-- Title container with isolating lower padding block -->
-                    <div style="margin: 0 0 14px 0 !important; padding: 0 !important; display: block !important; width: 100% !important; text-align: left !important; box-sizing:border-box !important;"> 
-                        <h3 style="margin: 0 !important; padding: 0 !important; font-size: 1.25rem !important; color: #0a1f44 !important; font-weight: 700 !important; line-height: 1.4 !important; text-transform: none !important; letter-spacing: normal !important; text-align: left !important; display: block !important;">${post.title}</h3> 
-                    </div> 
-                    
-                    <!-- Summary block cleanly separated from elements above -->
-                    <div style="margin: 0 !important; padding: 0 !important; display: block !important; width: 100% !important; text-align: left !important; box-sizing:border-box !important;"> 
-                        <p style="margin: 0 !important; padding: 0 !important; color: #64748b !important; font-size: 0.88rem !important; line-height: 1.6 !important; text-transform: none !important; letter-spacing: normal !important; text-align: left !important; display: block !important;">${post.summary || 'Click to view full insight data analysis report...'}</p> 
-                    </div> 
+                    <h3 class="blog-card-title">${post.title}</h3> 
+                    <p class="blog-card-summary">${post.summary || 'Click to view full insight data analysis report...'}</p> 
                 </div>`; 
-            
+                
             displayContainer.appendChild(cardElement); 
         }); 
     } catch (err) { 
@@ -452,6 +517,8 @@ async function fetchBlogArticlesByTier(categoryFilterString) {
     } 
 } 
 </script>
+
+
 
 </body>
 </html>

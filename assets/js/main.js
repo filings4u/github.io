@@ -234,77 +234,82 @@ function toggleMobileDropdown(event, element) {
 }
 
 /* ==========================================================================
-   📰 AUTOMATED SUPABASE BLOG SYNC MODULE (FOUNDER INSIGHTS)
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', async () => {
-    const gridTarget = document.getElementById('public-homepage-blog-grid-target');
-    
-    // 🚀 SAFETY GUARD RAIL: Prevents script crashes on contact, pricing, and wizard pages!
-    if (!gridTarget) return; 
+📰 AUTOMATED SUPABASE BLOG SYNC MODULE (FOUNDER INSIGHTS)
+========================================================================== */
+(function($) {
+    "use strict";
 
-    const spinner = document.getElementById('blog-loading-spinner');
+    document.addEventListener('DOMContentLoaded', async () => {
+        const gridTarget = document.getElementById('public-homepage-blog-grid-target');
+        
+        // 🚀 SAFETY GUARD RAIL: Prevents script crashes on contact, pricing, and wizard pages!
+        if (!gridTarget) return;
 
-    // Default static placeholder markup cards to display if database tables are empty
-    const fallbackStaticCardsHTML = `
-        <a href="blog/checklist-2026.html" class="blog-card">
-            <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Launch Core</div>
-            <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Launch</span><h4>2026 Small Business Checklist</h4></div>
-        </a>
-        <a href="blog/dot-101.html" class="blog-card">
-            <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Logistics Hub</div>
-            <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Compliance</span><h4>DOT Authority 101</h4></div>
-        </a>
-        <a href="blog/depreciation.html" class="blog-card">
-            <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Tax Engine</div>
-            <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Tax</span><h4>Maximizing Depreciation</h4></div>
-        </a>
-    `;
+        const spinner = document.getElementById('blog-loading-spinner');
 
-    try {
-        // Double check if Supabase library framework loaded accurately in window scope
-        if (typeof window.supabase === 'undefined') {
-            throw new Error("Supabase library not initialized yet.");
-        }
+        // Default static placeholder markup cards to display if database tables are empty
+        const fallbackStaticCardsHTML = `
+            <a href="blog/checklist-2026.html" class="blog-card">
+                <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Launch Core</div>
+                <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Launch</span><h4>2026 Small Business Checklist</h4></div>
+            </a>
+            <a href="blog/dot-101.html" class="blog-card">
+                <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Logistics Hub</div>
+                <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Compliance</span><h4>DOT Authority 101</h4></div>
+            </a>
+            <a href="blog/depreciation.html" class="blog-card">
+                <div style="height:150px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-weight:600;">Tax Engine</div>
+                <div style="padding:20px;"><span class="hero-tag" style="margin-bottom:5px;">Tax</span><h4>Maximizing Depreciation</h4></div>
+            </a>
+        `;
 
-        // Fetch latest 3 items from public database table row logs
-        const { data: posts, error } = await window.supabase
-            .from('blog_posts')
-            .select('title, category, image_url, slug')
-            .order('created_at', { ascending: false })
-            .limit(3);
+        try {
+            // Double check if Supabase library framework loaded accurately in window scope
+            if (typeof window.supabase === 'undefined') {
+                throw new Error("Supabase library not initialized yet.");
+            }
 
-        if (error) throw error;
+            // Fetch latest 3 items from public database table row logs
+            const { data: posts, error } = await window.supabase
+                .from('blog_posts')
+                .select('title, category, image_url, slug')
+                .order('created_at', { ascending: false })
+                .limit(3);
 
-        // If no items have been added to the dashboard table yet, paint the design fallbacks
-        if (!posts || posts.length === 0) {
+            if (error) throw error;
+
+            // If no items have been added to the dashboard table yet, paint the design fallbacks
+            if (!posts || posts.length === 0) {
+                if (spinner) spinner.remove();
+                gridTarget.innerHTML = fallbackStaticCardsHTML;
+                return;
+            }
+
+            // Clean out loading placeholder element frame
+            if (spinner) spinner.remove();
+            gridTarget.innerHTML = "";
+
+            // Build and append individual dynamic article tiles
+            posts.forEach(post => {
+                const cardElement = document.createElement('a');
+                cardElement.href = `blog/${post.slug}.html`;
+                cardElement.className = 'blog-card';
+                cardElement.innerHTML = `
+                    <div style="height:150px; background: url('${post.image_url}') center/cover no-repeat; background-color: #f1f5f9;"></div>
+                    <div style="padding:20px;">
+                        <span class="hero-tag" style="margin-bottom:10px; display:inline-block; font-size:0.7rem;">${post.category}</span>
+                        <h4 style="margin:0; font-size:1.1rem; color:#0a1f44; font-weight:700; line-height:1.4;">${post.title}</h4>
+                    </div>
+                `;
+                gridTarget.appendChild(cardElement);
+            });
+
+        } catch (err) {
+            console.warn("Blog module handled connection fallback safely:", err.message);
             if (spinner) spinner.remove();
             gridTarget.innerHTML = fallbackStaticCardsHTML;
-            return;
         }
+    });
 
-        // Clean out loading placeholder element frame
-        if (spinner) spinner.remove();
-        gridTarget.innerHTML = "";
+})(jQuery); /* 🔄 FIXED: Added the required closing architecture to cleanly define and secure your jQuery reference frameworks */
 
-        // Build and append individual dynamic article tiles
-        posts.forEach(post => {
-            const cardElement = document.createElement('a');
-            cardElement.href = `blog/${post.slug}.html`;
-            cardElement.className = 'blog-card';
-            
-            cardElement.innerHTML = `
-                <div style="height:150px; background: url('${post.image_url}') center/cover no-repeat; background-color: #f1f5f9;"></div>
-                <div style="padding:20px;">
-                    <span class="hero-tag" style="margin-bottom:10px; display:inline-block; font-size:0.7rem;">${post.category}</span>
-                    <h4 style="margin:0; font-size:1.1rem; color:#0a1f44; font-weight:700; line-height:1.4;">${post.title}</h4>
-                </div>
-            `;
-            gridTarget.appendChild(cardElement);
-        });
-
-    } catch (err) {
-        console.warn("Blog module handled connection fallback safely:", err.message);
-        if (spinner) spinner.remove();
-        gridTarget.innerHTML = fallbackStaticCardsHTML;
-    }
-});
