@@ -933,3 +933,40 @@ section, .feature-section, .pricing-section, .resource-section, .faq-section {
         font-size: 0.85rem !important;
     }
 }
+
+/* ==========================================================================
+   📱 MOBILE-ONLY FOOTER COMPONENT RE-ALIGNMENT (Monitors Unchanged)
+   ========================================================================= */
+@media screen and (max-width: 980px) {
+    /* Collapses the 4 top categories into clean, readable vertical stacks */
+    .site-footer .footer-container,
+    footer .footer-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Single column layout for mobile */
+        gap: 40px !important; /* Vertical spacing between stacked lists */
+        text-align: center !important; /* Clean center-aligned mobile lists */
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Centers brand asset graphics, social icons, and bio text on phones */
+    .site-footer .footer-brand {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .site-footer .footer-brand p {
+        max-width: 450px !important;
+        margin: 15px auto 0 auto !important;
+    }
+
+    /* Centers the bullet lists beneath category headers */
+    .site-footer .footer-col ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 !important;
+    }
+}

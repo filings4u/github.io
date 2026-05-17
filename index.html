@@ -27,16 +27,20 @@
 
 </head>
 <body>
-    <!-- Floating Action Toggle Engine for Mobile Dashboards -->
-<button class="mobile-menu-trigger" onclick="toggleMobileAdminSidebar()">☰</button>
-
-
+<!-- 🌐 SITE-WIDE BALANCED NAVIGATION BAR HEADER -->
 <nav>
-    <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+    <a href="index.html">
+        <img src="images/logo.png" alt="filings4u" class="logo" style="height: 40px; width: auto; object-fit: contain;">
+    </a>
+    
+    <!-- 🚀 FIXED: Injected inside the nav bar container. This locks alignment flawlessly on mobile displays! -->
+    <button class="mobile-menu-trigger" onclick="toggleMobileAdminSidebar()">☰</button>
+    
     <div class="nav-links">
-        <!-- BUSINESS FORMATION -->
+        <!-- 🏢 BUSINESS FORMATION DROPDOWN -->
         <div class="nav-item-dropdown">
-            <a href="#">Formations ▾</a>
+            <!-- 🚀 FIXED: Added onclick intercept handlers to support pristine touch device mechanics -->
+            <a href="#" onclick="toggleMobileDropdown(event, this)">Formations <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
             <div class="dropdown-content">
                 <a href="limited-liability-company.html">LLC Formation</a>
                 <a href="corporations.html">Corporations (C/S-Corp)</a>
@@ -46,9 +50,9 @@
             </div>
         </div>
 
-        <!-- COMPLIANCE SERVICES -->
+        <!-- 📜 COMPLIANCE SERVICES DROPDOWN -->
         <div class="nav-item-dropdown">
-            <a href="#">Compliance ▾</a>
+            <a href="#" onclick="toggleMobileDropdown(event, this)">Compliance <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
             <div class="dropdown-content">
                 <a href="annual-reports.html">Annual Reports</a>
                 <a href="business-licenses.html">Business Licenses</a>
@@ -59,9 +63,9 @@
             </div>
         </div>
 
-        <!-- TAX FILINGS -->
+        <!-- 💰 TAX FILINGS DROPDOWN -->
         <div class="nav-item-dropdown">
-            <a href="#">Tax Filings ▾</a>
+            <a href="#" onclick="toggleMobileDropdown(event, this)">Tax Filings <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
             <div class="dropdown-content">
                 <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
                 <a href="federal-income-tax.html">Federal Income Tax</a>
@@ -72,9 +76,9 @@
             </div>
         </div>
 
-        <!-- DOT & FLEET -->
+        <!-- 🚛 DOT & FLEET DROPDOWN -->
         <div class="nav-item-dropdown">
-            <a href="#">DOT & Fleet ▾</a>
+            <a href="#" onclick="toggleMobileDropdown(event, this)">DOT & Fleet <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
             <div class="dropdown-content">
                 <a href="owner-operators.html">Owner Operators</a>
                 <a href="trucker-authority.html">Trucker Authority</a>
@@ -90,11 +94,11 @@
             </div>
         </div>
 
-        <!-- Main Site Navigation -->
-<a href="https://portal.filings4u.com" class="btn-client-portal">Secure Portal</a>
-
+        <!-- Main Site Portal Action Target -->
+        <a href="https://portal.filings4u.com" class="btn-client-portal">Secure Portal</a>
     </div>
 </nav>
+
 
 
 <!-- SECTION 1: HERO -->
