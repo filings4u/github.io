@@ -1114,6 +1114,27 @@ footer.site-footer,
   }
 }
 
+/* EXTEND WIZARD INTAKE AND SUMMARY CONTENT FULL-WIDTH ON DESKTOP */
+@media screen and (min-width: 981px) {
+  .wizard-container,
+  main.wizard-container {
+    max-width: 100% !important; /* Removes the rigid 850px desktop boundary box */
+    width: 100% !important;     /* Forces grid wrapper panels edge-to-edge */
+    padding-left: 4% !important;  /* Matches your ultra-wide system channel grid */
+    padding-right: 4% !important; /* Prevents text blocks from hugging monitor glass */
+    box-sizing: border-box !important;
+  }
+
+  /* Expand individual intake block step containers to sit balanced across canvas layout */
+  .step-pane-intake,
+  #step-pane-intake,
+  #step-pane-upsells,
+  #step-pane-summary {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 
 }
 
