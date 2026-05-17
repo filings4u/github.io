@@ -976,61 +976,49 @@ section, .feature-section, .pricing-section, .resource-section, .faq-section {
         margin-bottom: 10px !important;
     }
 
-    /* --- 3. PUBLIC MARKETING FOOTER RECONCILIATION --- */
+       /* --- 3. PUBLIC MARKETING FOOTER RECONCILIATION --- */
+    
+    /* 🚀 FIXED: Forces the 4 main footer columns side-by-side on mobile viewports instead of stacking */
     .site-footer .footer-container, 
-    footer .footer-container {
-        display: grid !important;
-        grid-template-columns: 1fr !important; /* Converts column categories into single vertical layouts */
-        gap: 40px !important;
-        text-align: center !important;
+    footer .footer-container { 
+        display: grid !important; 
+        grid-template-columns: repeat(2, 1fr) !important; /* Arranges lists into a clean 2x2 horizontal mobile grid layout */
+        gap: 30px 20px !important;                       /* Spacing layout gutters between categories */
+        text-align: left !important;                     /* Left-aligns headings for professional presentation */
+        width: 100% !important; 
+        box-sizing: border-box !important;
     }
 
-    .site-footer .footer-brand {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
+    /* 🚀 FIXED: Stretches the brand box horizontally across 2 mobile columns for readability */
+    .site-footer .footer-brand { 
+        grid-column: span 2 !important;                  /* Spans brand paragraph full width across row */
+        display: block !important; 
+        text-align: left !important; 
+        margin-bottom: 10px !important;
     }
 
-    .site-footer .footer-brand p {
-        max-width: 450px !important;
-        margin: 15px auto 0 auto !important;
+    .site-footer .footer-brand p { 
+        max-width: 100% !important; 
+        margin: 12px 0 0 0 !important; 
+        text-align: left !important;
     }
 
-    .site-footer .footer-col ul {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 0 !important;
+    /* Left-aligns bullet lists inside mobile grids rows */
+    .site-footer .footer-col {
+        text-align: left !important;
     }
 
-    /* Lower Metadata Center alignment blocks */
-    .site-footer .footer-bottom {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px !important;
-        text-align: center !important;
-    }
-
-    /* Forces your legal metadata sub-links rows to align side-by-side */
-    .site-footer .legal-links {
-        display: flex !important;
-        flex-direction: row !important; /* Locks links horizontally */
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 20px !important; /* Generates proportional gutter gutters spacing */
-        margin: 10px 0 0 0 !important;
-        width: 100% !important;
-    }
-
-    .site-footer .legal-links a {
+    .site-footer .footer-col ul { 
+        display: block !important; 
+        padding: 0 !important; 
         margin: 0 !important;
-        display: inline-block !important;
-        font-size: 0.85rem !important;
-        color: #f4f7fa !important;
+        list-style: none !important;
     }
-}
+    
+    .site-footer .footer-col ul li {
+        text-align: left !important;
+    }
+
 
 /* ==========================================================================
    🖥️ MASTER DESKTOP OVERLAY SAFEGUARDS (Monitors Above 980px)
