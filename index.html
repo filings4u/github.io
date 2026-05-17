@@ -261,7 +261,15 @@
         </div>
     </footer>
 
-    <!-- 🎯 CENTRAL RESPONSIVE JAVASCRIPT DRAW ENGINE CONTROLLER -->
-    <script src="assets/js/main.js?v=8"></script>
+      <!-- 🚀 FIXED: jQuery core library MUST load first to initialize layout elements -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    
+    <!-- 🚀 FIXED: Your custom main file now loads last so it can read jQuery safely with zero errors -->
+    <script src="assets/js/main.js?v=9"></script>
 </body>
 </html>
