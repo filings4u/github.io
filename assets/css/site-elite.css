@@ -1,875 +1,27 @@
 /* ==========================================================================
-   🌐 FILINGS4U MASTER GLOBAL CORE & PROFILE SYSTEM (Unfailing Clean Build)
-   ========================================================================== */
-@import url('https://googleapis.com');
+🧱 UNIVERSAL RE-ALIGNMENT MODULE: NAVBAR, HERO, WIZARD, & FULL-WIDTH FOOTER
+========================================================================== */
 
-:root {
-    --navy: #0a1f44;
-    --emerald: #10b981;
-    --ice: #f4f7fa;
-    --white: #ffffff;
-    --border: #e2e8f0;
-    --text-muted: #64748b;
-    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* --- 1. GLOBAL INITIALIZATION SANITIZATION --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* Safely secures side-leaking horizontal elements across views */
-}
-
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--navy);
-    background: var(--white);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-}
-
-/* --- 2. DESKTOP NAVIGATION BAR (PERFECT HORIZONTAL FLEX LOCK) --- */
-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 15px 8% !important; /* Locks left side of logo perfectly with sections */
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    position: sticky !important;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.logo {
-    height: 35px;
-    width: auto;
-    object-fit: contain;
-}
-
-.nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 40px !important;
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    width: auto !important;
-    height: auto !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--navy);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--emerald);
-}
-
-/* Mega Dropdown Architectures */
-.nav-item-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--white);
-    min-width: 240px;
-    box-shadow: 0px 20px 40px rgba(10, 31, 68, 0.12);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    z-index: 1100;
-    padding: 10px 0;
-}
-
-.dropdown-content a {
-    color: var(--navy);
-    padding: 12px 20px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.dropdown-content a:hover {
-    background-color: var(--ice);
-    color: var(--emerald);
-    padding-left: 25px;
-}
-
-.nav-item-dropdown:hover .dropdown-content {
-    display: block;
-    animation: navFadeUp 0.3s ease;
-}
-
-.btn-client-portal {
-    background: var(--navy);
-    color: var(--white) !important;
-    padding: 10px 24px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: var(--transition);
-}
-
-.btn-client-portal:hover {
-    background: var(--emerald);
-}
-
-/* ❌ ABSOLUTE DESKTOP TOGGLE RESETS (Destroys the stray icon completely on Desktops) */
-nav button,
-nav .mobile-toggle-btn,
-.mobile-toggle-btn {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    position: absolute !important;
-    pointer-events: none !important;
-}
-
-/* --- 3. REUSABLE HERO LAYOUTS (FULL WIDTH 8% PADDING ALIGNED) --- */
-.page-container {
-    padding: 40px 8% 20px !important; /* Matches exactly down to the pixel with sections */
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.service-grid {
-    display: grid !important;
-    grid-template-columns: 1.1fr 1.3fr !important;
-    gap: 60px !important;
-    align-items: flex-start !important; /* Perfect horizon alignment between H1 and image */
-    width: 100% !important;
-}
-
-.hero-tag {
-    color: var(--emerald);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    display: block;
-}
-
-.content-area h1 {
-    font-size: 3.2rem;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    margin: 0 0 15px 0; /* Clear space parameters for crisp leveling */
-    font-weight: 800;
-}
-
-.content-area p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-    max-width: 600px;
-}
-
-.hero-image-container {
-    width: 100%;
-    height: 380px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(10,31,68,0.1);
-    margin-top: 10px;
-}
-
-.hero-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* --- 4. COMPONENT & CONTENT MATRIX CORES --- */
-h1.section-title {
-    width: 100%;
-    margin: 0 auto 60px auto;
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--navy);
-    font-weight: 800;
-}
-
-.wizard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    width: 100%;
-}
-
-.wizard-card {
-    background: var(--white);
-    padding: 45px;
-    border-radius: 24px;
-    border: 1px solid #eef2f6;
-    box-shadow: 0 20px 40px rgba(10, 31, 68, 0.06);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 320px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.wizard-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(10, 31, 68, 0.12);
-}
-
-.wizard-card h3 {
-    font-size: 1.3rem;
-    margin: 0 0 15px 0;
-    color: var(--navy);
-    font-weight: 800;
-}
-
-.wizard-card p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
-    margin: 0 0 30px 0;
-}
-
-.card-label {
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    display: block;
-    opacity: 0.6;
-}
-
-.sidebar-card {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 40px rgba(10,31,68,0.05);
-    position: sticky;
-    top: 100px;
-}
-
-.price-tag {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 10px 0;
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-}
-
-.price-tag span {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 400;
-}
-
-.btn-main {
-    background: var(--emerald);
-    color: white;
-    padding: 16px 40px;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: var(--transition);
-    display: inline-block;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-main:hover {
-    background: #0e9f6e;
-    transform: translateY(-2px);
-}
-
-/* --- 5. UNIVERSAL MARKETING SECTIONS (CLEAN EXTENSION SETTINGS) --- */
-section, .feature-section, .pricing-section, .resource-section, .faq-section {
-    padding: 50px 8% !important; /* Strict uniform padding synchronization */
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-/* Color Theme Modifiers */
-.bg-navy, .feature-section {
-    background: var(--navy) !important;
-    color: var(--white);
-}
-
-.bg-navy h2, .bg-navy h4, .feature-section h2 {
-    color: var(--white);
-}
-
-.bg-navy .icon-box, .feature-section .icon-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 16px;
-}
-
-.bg-navy .icon-box h4, .feature-section .icon-box h4 {
-    color: var(--emerald);
-}
-
-.bg-navy .icon-box p, .feature-section .icon-box p {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.bg-ice, .pricing-section, .resource-section { background: var(--ice) !important; }
-.bg-white, .faq-section { background: var(--white) !important; }
-
-/* Grid Layout Implementations */
-.icon-grid, .pricing-grid, .resource-grid, .faq-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 30px !important;
-    margin-top: 30px !important;
-    width: 100% !important;
-}
-
-.faq-grid {
-    grid-template-columns: 1fr 1fr !important;
-}
-
-.price-card, .faq-item, .blog-card, .icon-box {
-    padding: 30px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    transition: var(--transition);
-    background: var(--white);
-}
-
-.price-card.featured {
-    border: 2.5px solid var(--emerald);
-    transform: scale(1.03);
-}
-
-/* Blog Card Extensions */
-.blog-card { text-decoration: none; color: inherit; overflow: hidden; }
-.blog-card:hover { transform: translateY(-5px); border-color: var(--emerald); box-shadow: 0 20px 40px rgba(10,31,68,0.05); }
-.blog-thumb { height: 200px; background: var(--ice); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.blog-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.blog-body { padding: 25px; }
-.blog-body span { font-size: 0.75rem; color: var(--emerald); font-weight: 800; text-transform: uppercase; }
-.blog-body h4 { margin: 10px 0; font-size: 1.2rem; line-height: 1.3; color: var(--navy); }
-.blog-body p { font-size: 0.9rem; color: var(--text-muted); }
-
-/* --- 6. CORE PUBLIC FOOTER (FULL WIDTH 8% LOCK / REMOVED PURPLE LINKS) --- */
-.site-footer {
-    background: var(--navy) !important;
-    color: #94a3b8 !important; /* Uniform Slate Gray Base Text */
-    padding: 60px 8% 40px !important; /* Absolute matching full-page horizontal alignment grid */
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.footer-container {
-    display: grid !important;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr !important;
-    gap: 60px !important;
-    width: 100% !important;
-}
-
-.footer-col h4 {
-    color: var(--white);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-    font-weight: 800;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-col ul li {
-    margin-bottom: 12px;
-}
-
-/* LOCKOUT PURPLE COLORS: Hard override removes browser default visited link colors */
-.footer-col ul li a,
-.footer-col ul li a:visited,
-.footer-col ul li a:active,
-.legal-links a,
-.legal-links a:visited,
-.legal-links a:active {
-    color: #94a3b8 !important; /* Standard Slate Gray across all historical view logs */
-    text-decoration: none !important;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-}
-
-.footer-col ul li a:hover,
-.legal-links a:hover {
-    color: var(--emerald) !important;
-    padding-left: 5px;
-}
-
-.footer-bottom {
-    width: 100% !important;
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-}
-
-.legal-links {
-    display: flex !important;
-    gap: 30px;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-}
-
-.trust-badge {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    color: var(--white);
-}
-
-.trust-badge span {
-    color: var(--emerald);
-    font-weight: 800;
-    margin-right: 8px;
-}
-
-
-/* ==========================================================================
-   📱 MOBILE & TABLET RESPONSIVE CORE ENGINE (STRICTLY VIEWPORTS UNDER 980px)
-   ========================================================================== */
-@media screen and (max-width: 980px) {
-    body {
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    /* Navbar Drawer Shifts */
-    nav {
-        padding: 15px 20px !important;
-    }
-
-    /* Reactivate Mobile Burger Icon Exclusively Under 980px Breakpoints */
-    nav button,
-    nav .mobile-toggle-btn,
-    .mobile-toggle-btn {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        pointer-events: auto !important;
-        background: none !important;
-        border: none !important;
-        font-size: 24px !important;
-        color: var(--navy) !important;
-        cursor: pointer !important;
-        z-index: 2000 !important;
-        padding: 5px !important;
-    }
-
-    .nav-links {
-        position: fixed !important;
-        top: 0 !important;
-        right: -100% !important;
-        width: 280px !important;
-        height: 100vh !important;
-        background: var(--white) !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        padding: 80px 20px 40px 20px !important;
-        gap: 0 !important;
-        overflow-y: auto !important;
-        box-shadow: -5px 0 25px rgba(10,31,68,0.15) !important;
-        transition: right 0.3s ease-in-out !important;
-        z-index: 1999 !important;
-    }
-
-    .nav-links.active {
-        right: 0 !important;
-    }
-
-    .nav-item-dropdown {
-        width: 100%;
-        border-bottom: 1px solid #f1f5f9;
-    }
-
-    .nav-item-dropdown > a {
-        width: 100%;
-        padding: 15px 5px !important;
-        font-size: 1rem !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
-
-    .dropdown-content {
-        position: relative !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        box-shadow: none !important;
-        padding: 0 0 10px 15px !important;
-        border-left: 2px solid var(--border) !important;
-        margin-bottom: 5px !important;
-        border-radius: 0 !important;
-        background: transparent !important;
-    }
-
-    .dropdown-content a {
-        padding: 8px 10px !important;
-        font-size: 0.9rem !important;
-    }
-
-    .nav-item-dropdown:hover .dropdown-content {
-        display: none !important;
-    }
-
-    .nav-item-dropdown.active-toggle .dropdown-content {
-        display: block !important;
-    }
-
-    .btn-client-portal {
-        width: 100%;
-        text-align: center;
-        margin-top: 25px;
-        padding: 12px !important;
-        display: block !important;
-    }
-
-    /* Full-Width Grid Collapse into Single Linear Column Blocks */
-    .page-container, section, .feature-section, .pricing-section, .resource-section, .faq-section {
-        padding: 40px 20px 20px !important;
-    }
-
-    .service-grid, .wizard-grid, .icon-grid, .pricing-grid, .resource-grid, .faq-grid, .footer-container {
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
-        text-align: center !important;
-        width: 100% !important;
-    }
-
-    .content-area h1 { font-size: 2.3rem !important; }
-    .content-area p { margin-left: auto; margin-right: auto; }
-    .content-area div { justify-content: center !important; }
-    .btn-main { width: 100% !important; text-align: center; }
-    .hero-image-container { height: 320px !important; }
-    
-    .sidebar-card { position: static !important; width: 100% !important; }
-    .price-card.featured { transform: scale(1) !important; }
-
-    .footer-brand { display: flex !important; flex-direction: column !important; align-items: center !important; }
-    .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 24px !important; }
-    .legal-links { justify-content: center !important; gap: 15px !important; }
-}
-
-/* --- 7. HARDWARE ANIMATION ENGINES --- */
-@keyframes navFadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ==========================================================================
-   🚨 CRITICAL STRUCTURAL OVERRIDES: GRAY ICON LOCKDOWN (SITE-WIDE)
-   ========================================================================== */
-
+/* --- A. HERO & NAV HIGHEST TRACK CONFIGURATIONS (ELIMINATES BLANK TRACK GAPS) --- */
 @media screen and (min-width: 981px) {
-    /* 1. Eliminate any element trying to force an inline character glyph inside the header */
-    nav *, .nav-links *, .logo * {
-        text-shadow: none !important;
-    }
-    
-    /* 2. Target any loose native list or bullet elements from the theme's reset sheet */
-    nav ul, nav li {
-        list-style: none !important;
-        list-style-type: none !important;
-    }
-
-    /* 3. Aggressive blanket hide for any theme-specific toggle mechanisms */
-    [class*="toggle"], [id*="toggle"],
-    [class*="burger"], [id*="burger"],
-    [class*="trigger"], [id*="trigger"],
-    [class*="mobile-menu"], [id*="mobile-menu"],
-    [class*="navPanel"], [id*="navPanel"],
-    [class*="navButton"], [id*="navButton"] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-        position: absolute !important;
-        pointer-events: none !important;
-    }
-
-    /* 4. Force reset body and canvas padding to stop the hero section from leaning right */
-    body, #wrapper, #main, .page-container {
-        padding-left: 0 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        transform: none !important;
-        left: 0 !important;
-    }
-
-    /* 5. Keep the explicit hero alignment locked into its proper 8% boundary channel */
-    .page-container {
-        padding: 40px 8% 20px !important;
-    }
-}
-
-
-/* ==========================================================================
-   🚀 SITE-WIDE EDGE-TO-EDGE FULL WIDTH EXTENSION 
-   ========================================================================== */
-
-@media screen and (min-width: 981px) {
-    /* 1. Force the Header Navigation bar to touch both screen edges */
-    nav {
-        padding: 15px 4% !important; /* Expands width by dropping horizontal padding to a lean 4% */
-        width: 100% !important;
-        max-width: 100% !important;
+    .page-container, main.page-container {
+        padding-top: 30px !important;
+        margin-top: 0 !important;
         box-sizing: border-box !important;
     }
-
-    /* 2. Force the Hero Section grid layout container to go completely full-width */
-    .page-container, 
-    main,
     .service-grid {
-        padding: 40px 4% 20px !important; /* Stretches the hero copy andPanoramic image out safely */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 3. Force the Site Footer grid to map perfectly with the new wider columns */
-    .site-footer {
-        padding: 60px 4% 40px !important; /* Extends dark ledger panels completely side-to-side */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .footer-container {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-}
-
-
-/* ==========================================================================
-   🚀 FILINGS4U ULTRA-WIDE EDGE-TO-EDGE LIQUID LAYOUT ENGINES
-   ========================================================================== */
-
-@media screen and (min-width: 981px) {
-    /* 1. EXTEND HERO CONTAINER AND FORCE GRID COLUMNS TO OUTMOST BOUNDARIES */
-    .page-container, 
-    main {
-        padding-left: 2% !important;  /* Ultra-flush edge placement on the left */
-        padding-right: 2% !important; /* Ultra-flush edge placement on the right */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Expands the internal structural grid row elements completely */
-    .service-grid {
-        display: grid !important;
-        grid-template-columns: 1.1fr 1.3fr !important;
-        gap: 40px !important; /* Tightened gap to let columns breathe outward */
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    /* Force the panoramic image box to stretch out to the right screen edge */
-    .hero-image-container {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    /* 2. FORCE FOOTER COLUMNS TO STRETCH EDGE-TO-EDGE PROPORTIONALLY */
-    .site-footer {
-        padding-left: 2% !important;  /* Snaps left side of footer to match the hero */
-        padding-right: 2% !important; /* Snaps right side of footer to match the edge */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-
-    /* Ensure the lower metadata link panels span the entire canvas width */
-    .footer-bottom {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
-}
-
-
-/* ==========================================================================
-   🧱 MASTER FOOTER STRETCH & EXTENSION CONTROLLER (site-footer OVERRIDES)
-   ========================================================================== */
-
-@media screen and (min-width: 981px) {
-    /* 1. Expand the master footer background completely out to the screen edges */
-    footer.site-footer,
-    .site-footer {
-        padding-left: 2% !important;   /* Matches your ultra-wide hero alignment */
-        padding-right: 2% !important;  /* Stretches container frame tightly to the right */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        display: block !important;
-    }
-
-    /* 2. Force the internal column block container to use 100% available canvas real estate */
-    .site-footer .footer-container,
-    .footer-container {
-        display: grid !important;
-        grid-template-columns: 1.8fr 1fr 1fr 1fr !important; /* Slightly enlarged brand gap to push rows right */
-        gap: 5% !important; /* Uses fluid percentage gaps instead of rigid fixed pixels */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 3. Ensure the last link category column snaps completely flush with the right screen margin */
-    .footer-container .footer-col:last-child {
-        text-align: right !important;
-    }
-    
-    .footer-container .footer-col:last-child ul {
-        align-items: flex-end !important;
-        text-align: right !important;
-    }
-
-    /* 4. Guarantee lower metadata row spans full width right beneath your column grids */
-    .site-footer .footer-bottom,
-    .footer-bottom {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        box-sizing: border-box !important;
-    }
-}
-
-/* ==========================================================================
-   🧱 MASTER FOOTER BALANCING SYSTEM (TIGHTENS TOP GRID ALIGNMENT)
-   ========================================================================== */
-
-@media screen and (min-width: 981px) {
-    /* 1. Standardize master background padding to use a clean 4% horizontal boundary */
-    footer.site-footer,
-    .site-footer {
-        padding: 60px 4% 40px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 2. Tighten column widths to stop them from stretching excessively right */
-    .site-footer .footer-container,
-    .footer-container {
-        display: grid !important;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr !important; /* Re-proportioned for tight balancing */
-        gap: 40px !important; /* Reverted from % gaps back to a crisp, controlled 40px margin */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 3. Revert right alignment so text stays clean, readable, and left-aligned */
-    .footer-container .footer-col:last-child {
-        text-align: left !important;
-    }
-    
-    .footer-container .footer-col:last-child ul {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
         align-items: flex-start !important;
-        text-align: left !important;
     }
-
-    /* 4. Match the lower footer bottom section perfectly with the upper container width */
-    .site-footer .footer-bottom,
-    .footer-bottom {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-top: 60px !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        box-sizing: border-box !important;
+    .content-area h1, .content-area {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
 
-
-/* ==========================================================================
-   🧱 MASTER INFRASTRUCTURE RE-ALIGNMENT: HEADER, HERO, & FULL-WIDTH FOOTER
-   ========================================================================== */
-
-/* --- A. HERO & DESKTOP NAV HEIGHT OPTIMIZATION (ELIMINATES NAV GAP) --- */
-@media screen and (min-width: 981px) {
-    .page-container, main.page-container { 
-        padding-top: 30px !important; 
-        margin-top: 0 !important; 
-        box-sizing: border-box !important; 
-    }
-    .service-grid { 
-        margin-top: 0 !important; 
-        padding-top: 0 !important; 
-        align-items: flex-start !important; 
-    }
-    .content-area h1, .content-area { 
-        margin-top: 0 !important; 
-        padding-top: 0 !important; 
-    }
-}
-
-/* --- B. UNIVERSAL FOOTER BREAKOUT: Forces full-width across ALL screens --- */
-footer.site-footer,
-.site-footer {
+/* --- B. MASTER FOOTER BACKDROP BREAKOUT: Forces full-width across ALL views --- */
+footer.site-footer, .site-footer {
     display: block !important;
     position: relative !important;
     width: 100vw !important;
@@ -878,22 +30,66 @@ footer.site-footer,
     transform: translateX(-50%) !important;
     left: 0 !important;
     right: 0 !important;
-    padding: 60px 8% 40px 8% !important;
     background: #0a1f44 !important;
     box-sizing: border-box !important;
 }
 
-/* --- C. DESKTOP VIEWPORTS (Monitors above 980px) --- */
+/* --- C. DESKTOP WIDE SCREEN PROFILE OVERRIDES (Monitors above 980px) --- */
 @media screen and (min-width: 981px) {
-    .site-footer .footer-container, footer .footer-container {
-        display: grid !important;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr !important; /* Spreads 4 sections side-by-side */
-        gap: 50px !important;
+    footer.site-footer, .site-footer {
+        padding-left: 4% !important; /* Balanced fluid wide layout buffers */
+        padding-right: 4% !important;
+        padding-top: 60px !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* 🔄 FIXED CONTAINER: Locked to 5 distinct tracks to distribute your new Tax column perfectly */
+    .site-footer .footer-container, 
+    footer .footer-container, 
+    .footer-container {
+        display: grid !important; 
+        grid-template-columns: 1.5fr repeat(4, 1fr) !important; /* 🔄 Allocates 1.5 parts for logo and 1 part for each of your 4 link structures */
+        gap: 40px 30px !important; 
+        max-width: 100% !important; /* Stretches columns evenly across ultra-wide monitors */
         width: 100% !important;
-        max-width: 1200px !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
     }
+    
+    .footer-container .footer-col {
+        text-align: left !important;
+    }
+    .footer-container .footer-col ul {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    
+    .site-footer .footer-bottom, .footer-bottom {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 60px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-top: 30px !important;
+    }
+
+    /* EXTEND WIZARD AND SUMMARY PAGES FULL-WIDTH */
+    .wizard-container, main.wizard-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+        box-sizing: border-box !important;
+    }
+    .step-pane-intake, #step-pane-intake, #step-pane-upsells, #step-pane-summary {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Eradicates layout burger toggle artifacts on desktop systems */
     nav .mobile-menu-trigger, nav .mobile-toggle-btn, .mobile-menu-trigger, .mobile-toggle-btn {
         display: none !important;
         visibility: hidden !important;
@@ -903,12 +99,11 @@ footer.site-footer,
     }
 }
 
-/* --- D. MOBILE & TABLET VIEWPORTS (Viewports 980px and under) --- */
+/* --- D. MOBILE & TABLET DEVICE VIEWPORTS (Viewports 980px and under) --- */
 @media screen and (max-width: 980px) {
-    
-    /* 1. SITE HEADER & HAMBURGER FORCING */
-    nav { 
-        padding: 15px 20px !important; 
+    /* SITE-WIDE HEADER & SLIDE DRAWER MANAGEMENT */
+    nav {
+        padding: 15px 20px !important;
         overflow: visible !important;
         position: relative !important;
     }
@@ -918,10 +113,8 @@ footer.site-footer,
         opacity: 1 !important;
         position: relative !important;
         pointer-events: auto !important;
-        background: none !important;
-        border: none !important;
         font-size: 28px !important;
-        color: #0a1f44 !important; /* Hard-locks trigger button to brand Navy */
+        color: #0a1f44 !important; 
         cursor: pointer !important;
         z-index: 2000 !important;
         margin: 0 !important;
@@ -930,7 +123,7 @@ footer.site-footer,
     nav .nav-links, #nav .nav-links {
         position: fixed !important;
         top: 0 !important;
-        right: -100% !important; /* Slides panel off-screen right until click actions fire */
+        right: -100% !important; 
         width: 280px !important;
         height: 100vh !important;
         background: #ffffff !important;
@@ -964,21 +157,39 @@ footer.site-footer,
         border-radius: 6px !important;
         padding: 12px !important;
     }
-    .nav-item-dropdown { width: 100% !important; }
-    .nav-item-dropdown > a { display: flex !important; justify-content: space-between !important; width: 100% !important; padding: 12px 10px !important; }
-    .nav-item-dropdown .dropdown-content { display: none !important; }
-    .nav-item-dropdown.active-toggle .dropdown-content { display: block !important; position: relative !important; box-shadow: none !important; border: none !important; background: #f8fafc !important; width: 100% !important; padding-left: 15px !important; border-left: 2px solid #e2e8f0 !important; }
+    .nav-item-dropdown {
+        width: 100% !important;
+    }
+    .nav-item-dropdown > a {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 12px 10px !important;
+    }
+    .nav-item-dropdown .dropdown-content {
+        display: none !important;
+    }
+    .nav-item-dropdown.active-toggle .dropdown-content {
+        display: block !important;
+        position: relative !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: #f8fafc !important;
+        width: 100% !important;
+        padding-left: 15px !important;
+        border-left: 2px solid #e2e8f0 !important;
+    }
 
-    /* 2. DECREASE WHITE SPACE & HEIGHT OPTIMIZATION */
-    .page-container, main.page-container, #main, .wrapper {
+    /* CONTENT STRUCTURE OPTIMIZATIONS FOR PHONES */
+    .page-container, main.page-container, #main, .wrapper, section, .feature-section, .pricing-section, .resource-section, .faq-section {
         margin-top: 10px !important;
-        padding-top: 15px !important;
+        padding: 40px 20px 20px !important;
     }
     .service-grid, .hero-section {
         margin-top: 0 !important;
         padding-top: 5px !important;
         display: flex !important;
-        flex-direction: column-reverse !important; /* Image floats over H1 copy */
+        flex-direction: column-reverse !important; 
         gap: 30px !important;
     }
     .hero-image-container {
@@ -990,154 +201,87 @@ footer.site-footer,
         margin-bottom: 10px !important;
     }
 
-/* ==========================================================================
-   🌐 1. GLOBAL DESKTOP SETTINGS (MONITORS ABOVE 980px)
-   ========================================================================== */
-@media screen and (min-width: 981px) {
-  /* STRETCH OUTER DARK FOOTER BACKDROP FULL-WIDTH */
-  footer.site-footer, 
-  .site-footer {
-    padding-left: 4% !important;   /* Dropped from 8% down to a fluid 4% */
-    padding-right: 4% !important;  
-    width: 100vw !important;       /* Locks blue panel edge-to-edge */
-    max-width: 100vw !important;
-  }
+    /* 📱 CODES 2 & 5 MOBILE FOOTER: Stable 2x2 grid matrix with stacked metadata card blocks */
+    footer.site-footer, .site-footer {
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        box-sizing: border-box !important;
+    }
+    .site-footer .footer-container, footer .footer-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 clean split side-by-side link columns */
+        gap: 30px 20px !important;
+        text-align: left !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .site-footer .footer-brand {
+        grid-column: span 2 !important; /* Forces brand summary card to use full viewport width row */
+        display: block !important;
+        text-align: left !important;
+        margin-bottom: 10px !important;
+    }
+    .site-footer .footer-brand p {
+        max-width: 100% !important;
+        margin: 12px 0 0 0 !important;
+        text-align: left !important;
+    }
+    .site-footer .footer-col {
+        text-align: left !important;
+    }
+    .site-footer .footer-col ul {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+    .site-footer .footer-col ul li, 
+    .site-footer .footer-col ul li a {
+        text-align: left !important;
+    }
 
-  /* BREAK INTERNAL COLUMNS OUT OF 1200px BOX */
-  .site-footer .footer-container, 
-  footer .footer-container, 
-  .footer-container {
-    max-width: 100% !important;   /* Unlocks desktop boundaries */
-    width: 100% !important;       /* Spreads columns fluidly across canvas */
-    gap: 60px !important;         /* Increases breathing room between 4 columns */
-    margin: 0 auto !important;    
-  }
-
-  /* EXTEND WIZARD AND SUMMARY PAGES FULL-WIDTH */
-  .wizard-container, 
-  main.wizard-container {
-    max-width: 100% !important;   /* Removes rigid 850px boundary box */
-    width: 100% !important;       
-    padding-left: 4% !important;  /* Matches your ultra-wide side margins */
-    padding-right: 4% !important; 
-    box-sizing: border-box !important;
-  }
-
-  /* Expand individual form pane selectors */
-  .step-pane-intake, 
-  #step-pane-intake, 
-  #step-pane-upsells, 
-  #step-pane-summary {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-/* ==========================================================================
-   📱 2. GLOBAL MOBILE SETTINGS (VIEWPORTS 980px AND UNDER)
-   ========================================================================== */
-@media screen and (max-width: 980px) {
-  /* BREAK OUTER FOOTER CONTAINER TO GLASS EDGES */
-  footer.site-footer, 
-  .site-footer {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding-left: 20px !important;  /* Safe space so text won't touch glass */
-    padding-right: 20px !important; 
-    box-sizing: border-box !important;
-  }
-
-  /* TOP MARKETING CHANNELS: 2x2 MOBILE GRID MATRIX */
-  .site-footer .footer-container, 
-  footer .footer-container {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* Two clean side-by-side columns */
-    gap: 30px 20px !important; 
-    text-align: left !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Brand spans full row right above column pairs */
-  .site-footer .footer-brand {
-    grid-column: span 2 !important; 
-    display: block !important;
-    text-align: left !important;
-    margin-bottom: 10px !important;
-  }
-
-  .site-footer .footer-brand p {
-    max-width: 100% !important;
-    margin: 12px 0 0 0 !important;
-    text-align: left !important;
-  }
-
-  .site-footer .footer-col {
-    text-align: left !important;
-  }
-
-  .site-footer .footer-col ul {
-    display: block !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-  }
-
-  .site-footer .footer-col ul li, 
-  .site-footer .footer-col ul li a {
-    text-align: left !important;
-  }
-
-  /* VERTICALLY RE-ORDER LOWER DATA META COMPONENTS */
-  .site-footer .footer-bottom {
-    display: flex !important;
-    flex-direction: column !important; /* Stacks components cleanly */
-    gap: 20px !important; 
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    padding-top: 20px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .site-footer .footer-bottom > div {
-    display: inline-block !important;
-    text-align: center !important;
-    margin: 0 !important;
-  }
-
-  /* 1. Secure Badge moves to top */
-  .site-footer .trust-badge {
-    order: 1 !important;
-    margin: 0 !important;
-  }
-
-  /* 2. Privacy links group in the middle */
-  .site-footer .legal-links {
-    order: 2 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    margin: 0 !important;
-    width: auto !important;
-  }
-
-  .site-footer .legal-links a {
-    margin: 0 !important;
-    display: inline-block !important;
-    font-size: 0.82rem !important;
-    color: #f4f7fa !important;
-  }
-
-  /* 3. Copyright block snaps to bottom */
-  .site-footer .footer-bottom > div:first-child {
-    order: 3 !important;
-  }
-}
-
+    /* MOBILE METADATA COMPONENTS VERTICAL SEQUENCING */
+    .site-footer .footer-bottom {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks panels into a neat center column list */
+        gap: 20px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding-top: 20px !important;
+        margin-top: 40px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-sizing: border-box !important;
+    }
+    .site-footer .footer-bottom > div {
+        display: inline-block !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+    .site-footer .trust-badge {
+        order: 1 !important; /* Secure badge stays at the top of stack tracker */
+        margin: 0 !important;
+    }
+    .site-footer .legal-links {
+        order: 2 !important; /* Legal privacy terms anchors map in the middle row track */
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+    .site-footer .legal-links a {
+        margin: 0 !important;
+        display: inline-block !important;
+        font-size: 0.82rem !important;
+        color: #f4f7fa !important;
+    }
+    .site-footer .footer-bottom > div:first-child {
+        order: 3 !important; /* Copyright statement safely lands at the very bottom layer line */
+    }
 }
