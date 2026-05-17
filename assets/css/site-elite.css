@@ -1135,6 +1135,27 @@ footer.site-footer,
   }
 }
 
+/* FINAL KNOCKOUT FORCE FOR FULL-WIDTH DESKTOP FOOTER */
+@media screen and (min-width: 981px) {
+  /* 1. Stop the outer dark container from squeezing inward */
+  footer.site-footer, 
+  .site-footer {
+    padding-left: 4% !important;   /* Expands out to your wide brand margins */
+    padding-right: 4% !important;  /* Dropped from 8% down to a fluid 4% */
+    width: 100vw !important;       /* Locks the blue background glass edge-to-edge */
+    max-width: 100vw !important;
+  }
+
+  /* 2. Break the internal columns out of their 1200px lock box */
+  .site-footer .footer-container, 
+  footer .footer-container,
+  .footer-container {
+    max-width: 100% !important;   /* Completely unlocks the content bounds */
+    width: 100% !important;       /* Spreads columns fluidly across the canvas */
+    margin: 0 auto !important;
+  }
+}
+
 
 }
 
