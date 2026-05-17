@@ -1087,8 +1087,6 @@ footer.site-footer,
   }
 }
 
-} /* 🌟 ALL MEDIA QUERIES CLEANLY SEALED HERE */
-
 /* STRETCH TOP FOOTER GRID TO FULL CANVAS WIDTH ON DESKTOP */
 @media screen and (min-width: 981px) {
   .site-footer .footer-container, 
@@ -1099,5 +1097,9 @@ footer.site-footer,
     gap: 60px !important;       /* Increases space between your 4 columns */
     margin: 0 !important;       /* Removes alignment centering margins */
   }
+
+} /* 🌟 ALL MEDIA QUERIES CLEANLY SEALED HERE */
+
+
 }
 
