@@ -466,33 +466,32 @@ footer.site-footer, .site-footer {
         left: 0 !important;
     }
 
-    /* Core Page Layout Edge Spans */
-    .page-container, main {
-        padding-left: 2% !important;
-        padding-right: 2% !important;
+ @media screen and (min-width: 981px) {
+    .page-container, main, main.page-container {
+        padding-left: 0% !important;   /* 🔄 DROPPED from 8% to 4% to pull content outward */
+        padding-right: 0% !important;  /* 🔄 DROPPED from 8% to 4% to pull image outward */
         padding-top: 30px !important;
         margin-top: 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: 1450px !important;  /* 🔄 INCREASED from 1200px to 1400px to allow a wider row container */
+        margin-left: auto !important;   
+        margin-right: auto !important;
         box-sizing: border-box !important;
     }
     .service-grid {
         display: grid !important;
         grid-template-columns: 1.1fr 1.3fr !important;
-        gap: 40px !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        align-items: flex-start !important;
+        gap: 60px !important; 
         width: 100% !important;
-    }
-    .content-area h1, .content-area {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+        max-width: 100% !important;
     }
     .hero-image-container {
         width: 100% !important;
         max-width: 100% !important;
+        height: 380px !important;
     }
+}
+
 
     /* Ultra Wide Wizard View Extensions */
     .wizard-container, main.wizard-container {
@@ -506,46 +505,110 @@ footer.site-footer, .site-footer {
         width: 100% !important;
         max-width: 100% !important;
     }
-
-    /* 🔄 REPAIRED DESKTOP FOOTER CONTAINER SETUP */
+/* ==========================================================================
+🌐 DESKTOP VIEWPORTS LAYOUT ENGINE (MONITORS WIDER THAN 980px)
+========================================================================== */
+@media screen and (min-width: 981px) {
     footer.site-footer, .site-footer {
-        padding: 60px 4% 40px 4% !important;
+        padding: 60px 0 40px 0 !important; 
     }
-    .site-footer .footer-container, footer .footer-container, .footer-container {
-        display: grid !important;
-        /* 🔄 FIXED: Upgraded layout matrix grid framework tracking to 5 total tracks */
-        grid-template-columns: 1.5fr repeat(4, 1fr) !important;
-        gap: 40px 30px !important;
+
+    /* 🔄 FIXED FLEX GRIDS: Brought your column contents inward while preserving strict outer bounds */
+    .site-footer .footer-container, 
+    footer .footer-container, 
+    .footer-container {
+        display: flex !important; /* 🔄 CHANGED: Switched from Grid to Flex to let columns size by text length */
+        flex-direction: row !important;
+        justify-content: space-between !important; /* 🔄 FIXED: Locks the first column far left and last column far right */
+        align-items: flex-start !important;
+        gap: 20px !important; /* Safety grid track spacing */
+        padding-left: 0% !important;  
+        padding-right: 0% !important; 
+        max-width: 1250px !important; /* 🔄 Keep the outer framework width aligned with your Hero */
         width: 100% !important;
-        max-width: 1200px !important;
-        margin: 0 auto !important;
+        margin: 0 auto !important;     
         box-sizing: border-box !important;
     }
+    
+    /* 🔄 FIXED COLUMN WIDTHS: Columns only take up the size of their text string lengths */
+    .footer-container .footer-brand,
     .footer-container .footer-col {
-        text-align: left !important;
-    }
-    .footer-container .footer-col ul {
-        align-items: flex-start !important;
-        text-align: left !important;
+        flex: 0 1 auto !important;
+        width: max-content !important; /* 🔄 Brings columns inward by eliminating invisible empty space boxes */
     }
 
-    /* Desktop Footer Base Split Bar */
-    .site-footer .footer-bottom, .footer-bottom {
-        width: 100% !important;
-        max-width: 1200px !important;
-        margin: 60px auto 0 auto !important;
+    .site-footer .footer-brand {
+        display: block !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+    
+    .site-footer .footer-brand p {
+        max-width: 280px !important; /* Restricts paragraph text width from spreading too wide */
+        margin-top: 15px !important;
+        line-height: 1.5 !important;
+    }
+
+    .site-footer .footer-col {
+        text-align: left !important;
+        display: block !important;
+    }
+
+    .site-footer .footer-col ul {
+        list-style: none !important;
+        display: block !important;
+    }
+
+    .site-footer .footer-col ul li {
+        text-align: left !important;
+        display: block !important;
+    }
+
+    /* Locks your last column text elements completely flush with the far right margin */
+    .footer-container .footer-col:last-child {
+        text-align: right !important; 
+    }
+
+    .footer-container .footer-col:last-child ul {
         display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important; 
+    }
+
+    .footer-container .footer-col:last-child ul li {
+        text-align: right !important;
+    }
+
+    .footer-container .footer-col:last-child ul li a:hover {
+        padding-left: 0 !important;
+        padding-right: 5px !important; 
+    }
+
+    /* Lower metadata row split bar */
+    .site-footer .footer-bottom {
+        width: 100% !important;
+        max-width: 1250px !important; 
+        margin: 60px auto 0 auto !important; 
+        display: flex !important;
+        flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
         box-sizing: border-box !important;
         border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
         padding-top: 30px !important;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
     }
-    .legal-links {
+
+    .site-footer .legal-links {
         display: flex !important;
-        gap: 30px !important;
         flex-direction: row !important;
+        gap: 30px !important;
     }
+}
+
+
+
 }
 
 /* --- Hardware Engine --- */
