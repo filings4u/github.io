@@ -1088,3 +1088,16 @@ footer.site-footer,
 }
 
 } /* 🌟 ALL MEDIA QUERIES CLEANLY SEALED HERE */
+
+/* STRETCH TOP FOOTER GRID TO FULL CANVAS WIDTH ON DESKTOP */
+@media screen and (min-width: 981px) {
+  .site-footer .footer-container, 
+  footer .footer-container,
+  .footer-container {
+    max-width: 100% !important; /* Removes the rigid 1200px lock box */
+    width: 100% !important;     /* Forces it to map out edge-to-edge */
+    gap: 60px !important;       /* Increases space between your 4 columns */
+    margin: 0 !important;       /* Removes alignment centering margins */
+  }
+}
+
