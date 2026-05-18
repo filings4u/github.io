@@ -1,86 +1,115 @@
 /* ==========================================================================
-    Stellar by HTML5 UP | @ajlkn
-   Free for personal and commercial use under the CCA 3.0 license
-   ========================================================================== */
+🟢 GLOBAL CHROMIUM MOBILE BROWSER COLOR INJECTION ENGINE
+========================================================================== */
+(function() {
+    "use strict";
+
+    function injectGlobalBrowserThemeColor() {
+        // Target emerald accent color configuration
+        const targetColorHex = "#10b981"; 
+        
+        // Safety checklist: update or append theme-color meta tag
+        let existingMetaTag = document.querySelector('meta[name="theme-color"]');
+        if (existingMetaTag) {
+            existingMetaTag.setAttribute("content", targetColorHex);
+        } else {
+            const newMetaTag = document.createElement('meta');
+            newMetaTag.name = "theme-color";
+            newMetaTag.content = targetColorHex;
+            document.head.appendChild(newMetaTag);
+        }
+
+        // Inject Microsoft mobile status bar fallback anchor compatibility properties
+        const metaStatusBarName = "msapplication-navbutton-color";
+        let existingMsMeta = document.querySelector(`meta[name="${metaStatusBarName}"]`);
+        if (!existingMsMeta) {
+            const msMeta = document.createElement('meta');
+            msMeta.name = metaStatusBarName;
+            msMeta.content = targetColorHex;
+            document.head.appendChild(msMeta);
+        }
+    }
+
+    // Execute the theme bar injection instantly as the page loads across views
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", injectGlobalBrowserThemeColor);
+    } else {
+        injectGlobalBrowserThemeColor();
+    }
+})();
+
+/* ==========================================================================
+📰 AUTOMATED THEME HANDLING MODULE (Stellar by HTML5 UP | @ajlkn)
+========================================================================== */
 (function($) {
+    var $window = $(window),
+        $body = $('body'),
+        $main = $('#main');
 
-	var	$window = $(window),
-		$body = $('body'),
-		$main = $('#main');
-
-	// Breakpoints (Synchronized site-wide at 980px)
-	breakpoints({
-		xlarge:   [ '1281px',  '1680px' ],
-		large:    [ '981px',   '1280px' ],
-		medium:   [ '737px',   '980px'  ],
-		small:    [ '481px',   '736px'  ],
-		xsmall:   [ '361px',   '480px'  ],
-		xxsmall:  [ null,      '360px'  ]
-	});
-
-	// Play initial animations on page load
-	$window.on('load', function() {
-		window.setTimeout(function() {
-			$body.removeClass('is-preload');
-		}, 100);
-	});
-
-	// Nav
-	var $nav = $('#nav');
-	if ($nav.length > 0) {
-
-		// Shrink effect
-		$main.scrollex({
-			mode: 'top',
-			enter: function() { $nav.addClass('alt'); },
-			leave: function() { $nav.removeClass('alt'); }
-		});
-
-		// Links
-		var $nav_a = $nav.find('a');
-		$nav_a.scrolly({
-			speed: 1000,
-			offset: function() { return $nav.height(); }
-		})
-		.on('click', function() {
-			var $this = $(this);
-			if ($this.attr('href').charAt(0) != '#') return;
-			$nav_a.removeClass('active').removeClass('active-locked');
-			$this.addClass('active').addClass('active-locked');
-		})
-		.each(function() {
-			var	$this = $(this),
-				id = $this.attr('href'),
-				$section = $(id);
-
-			if ($section.length < 1) return;
-
-			$section.scrollex({
-				mode: 'middle',
-				initialize: function() {
-					if (browser.canUse('transition')) $section.addClass('inactive');
-				},
-				enter: function() {
-					$section.removeClass('inactive');
-					if ($nav_a.filter('.active-locked').length == 0) {
-						$nav_a.removeClass('active');
-						$this.addClass('active');
-					} else if ($this.hasClass('active-locked')) {
-						$this.removeClass('active-locked');
-					}
-				}
-			});
-		});
-	}
-
-	// Scrolly
-	$('.scrolly').scrolly({ speed: 1000 });
-
-    // 🚀 FIXED: Forces jQuery to intercept and handle the mobile hamburger tap events on index.html
-    $(document).on('click', '.mobile-menu-trigger, .mobile-toggle-btn', function(e) {
-        e.preventDefault();
-        toggleMobileMenu();
+    // Breakpoints (Synchronized site-wide at 980px)
+    breakpoints({
+        xlarge:   [ '1281px',  '1680px' ],
+        large:    [ '981px',   '1280px' ],
+        medium:   [ '737px',   '980px'  ],
+        small:    [ '481px',   '736px'  ],
+        xsmall:   [ '361px',   '480px'  ],
+        xxsmall:  [ null,      '360px'  ]
     });
+
+    // Play initial animations on page load
+    $window.on('load', function() {
+        window.setTimeout(function() {
+            $body.removeClass('is-preload');
+        }, 100);
+    });
+
+    // Nav
+    var $nav = $('#nav');
+    if ($nav.length > 0) {
+        // Shrink effect
+        $main.scrollex({
+            mode: 'top',
+            enter: function() { $nav.addClass('alt'); },
+            leave: function() { $nav.removeClass('alt'); }
+        });
+
+        // Links
+        var $nav_a = $nav.find('a');
+        $nav_a.scrolly({
+            speed: 1000,
+            offset: function() { return $nav.height(); }
+        })
+        .on('click', function() {
+            var $this = $(this);
+            if ($this.attr('href').charAt(0) != '#') return;
+            $nav_a.removeClass('active').removeClass('active-locked');
+            $this.addClass('active').addClass('active-locked');
+        })
+        .each(function() {
+            var $this = $(this),
+                id = $this.attr('href'),
+                $section = $(id);
+
+            if ($section.length < 1) return;
+
+            $section.scrollex({
+                mode: 'middle',
+                initialize: function() { if (browser.canUse('transition')) $section.addClass('inactive'); },
+                enter: function() {
+                    $section.removeClass('inactive');
+                    if ($nav_a.filter('.active-locked').length == 0) {
+                        $nav_a.removeClass('active');
+                        $this.addClass('active');
+                    } else if ($this.hasClass('active-locked')) {
+                        $this.removeClass('active-locked');
+                    }
+                }
+            });
+        });
+    }
+
+    // Scrolly
+    $('.scrolly').scrolly({ speed: 1000 });
 
 })(jQuery);
 
@@ -148,9 +177,8 @@
     /* ==========================================================================
     🔄 FIXED MOBILE DROPDOWN ACCORDION ENGINE (WINDOW EXPOSED)
     ========================================================================== */
-    // Attaching directly to window scope lets your HTML templates trigger it instantly without errors
     window.toggleMobileDropdown = function(event, element) {
-        if (window.innerWidth <= 991) { // 🔄 FIXED: Synchronized width threshold to match your stylesheet 991px breakpoints
+        if (window.innerWidth <= 991) { // Synchronized width threshold with stylesheets
             event.preventDefault();
             event.stopPropagation();
             
@@ -169,7 +197,6 @@
     };
 })();
 
-
 /* ==========================================================================
 📰 AUTOMATED SUPABASE BLOG SYNC MODULE (FOUNDER INSIGHTS)
 ========================================================================== */
@@ -179,7 +206,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
         const gridTarget = document.getElementById('public-homepage-blog-grid-target');
         
-        // 🚀 SAFETY GUARD RAIL: Prevents script crashes on contact, pricing, and wizard pages!
+        // 🚀 SAFETY GUARD RAIL: Prevents script crashes on secondary wizard lines
         if (!gridTarget) return;
 
         const spinner = document.getElementById('blog-loading-spinner');
@@ -201,7 +228,7 @@
         `;
 
         try {
-            // Double check if Supabase library framework loaded accurately in window scope
+            // Validate if Supabase SDK is loaded
             if (typeof window.supabase === 'undefined') {
                 throw new Error("Supabase library not initialized yet.");
             }
@@ -215,14 +242,12 @@
 
             if (error) throw error;
 
-            // If no items have been added to the dashboard table yet, paint the design fallbacks
             if (!posts || posts.length === 0) {
                 if (spinner) spinner.remove();
                 gridTarget.innerHTML = fallbackStaticCardsHTML;
                 return;
             }
 
-            // Clean out loading placeholder element frame
             if (spinner) spinner.remove();
             gridTarget.innerHTML = "";
 
@@ -247,6 +272,4 @@
             gridTarget.innerHTML = fallbackStaticCardsHTML;
         }
     });
-
-})(jQuery); /* 🔄 FIXED: Added the required closing architecture to cleanly define and secure your jQuery reference frameworks */
-
+})(jQuery);
