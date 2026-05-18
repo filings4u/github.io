@@ -156,14 +156,18 @@
             </div>
         </div>
 
-    <!-- 🔄 FIXED GRID: Explicitly mirrors your desktop 3-column FAQ layout properties -->
-    <div class="resource-grid" id="public-homepage-blog-grid-target" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 40px 30px !important; width: 100% !important;"> 
-        <!-- 🌟 AUTOMATED SYNC HANDLER SPINNER --> 
-        <div id="blog-loading-spinner" style="grid-column: span 3; text-align: center; padding: 40px 0; color: #64748b;"> 
-            <div style="margin: 0 auto 10px; width: 25px; height: 25px; border: 2px solid #e2e8f0; border-top: 2px solid #10b981; border-radius: 50%; animation: spin 1s linear infinite;"></div> 
-            <span>Gathering latest articles...</span> 
-        </div> 
+   <!-- 🔄 FIXED GRID WITH ADDED HIGHLIGHT TITLE SUBSECTION -->
+<div class="hero-tag" style="margin-top: 50px;">Latest Insights</div> 
+<h2 style="margin-bottom: 30px;">Recent Compliance Updates</h2>
+
+<div class="resource-grid" id="public-homepage-blog-grid-target" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 40px 30px !important; width: 100% !important;"> 
+    <!-- 🌟 AUTOMATED SYNC HANDLER SPINNER --> 
+    <div id="blog-loading-spinner" style="grid-column: span 3; text-align: center; padding: 40px 0; color: #64748b;"> 
+        <div style="margin: 0 auto 10px; width: 25px; height: 25px; border: 2px solid #e2e8f0; border-top: 2px solid #10b981; border-radius: 50%; animation: spin 1s linear infinite;"></div> 
+        <span>Gathering latest articles...</span> 
     </div> 
+</div>
+
 </section>
 
 
