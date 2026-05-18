@@ -1,5 +1,5 @@
 /* ==========================================================================
-📱 FILINGS4U CLEAN MOBILE BREAKPOINT TRANSLATIONS (VIEWPORTS UNDER 991px)
+📱 FILINGS4U BREAKPOINT TRANSLATIONS (Viewports Under 991px)
 ========================================================================== */
 @media screen and (max-width: 991px) {
     /* Safe-Area calculations for iOS Safari Notch handling */
@@ -22,6 +22,8 @@
         overflow: visible !important;
         position: relative !important;
     }
+    
+    /* 🔄 RESTORED MOBILE HAMBURGER BUTTON TRACK */
     .mobile-toggle-btn, nav .mobile-menu-trigger, .mobile-menu-trigger {
         display: block !important;
         visibility: visible !important;
@@ -37,6 +39,8 @@
         margin: 0 !important;
         padding: 5px !important;
     }
+
+    /* 🔄 RESTORED MOBILE DRAWER CONTAINER FRAMEWORK */
     .nav-links, #nav .nav-links {
         position: fixed !important;
         top: 0 !important;
@@ -55,6 +59,7 @@
         z-index: 1999 !important;
         display: flex !important;
     }
+
     .nav-links.active {
         right: 0 !important;
     }
@@ -91,6 +96,8 @@
         padding: 8px 10px !important;
         font-size: 0.9rem !important;
     }
+    
+    /* Disable desktop hover functionality for mobile screens */
     .nav-item-dropdown:hover .dropdown-content {
         display: none !important;
     }
@@ -109,16 +116,16 @@
     }
 
     /* --- 🧱 CORE PAGE CONTAINER CONTROLLERS --- */
-    /* 🔄 FIXED: Isolated page-level containers from resetting footer matrix tracks */
+    /* 🔄 FIXED: Completely eliminates the empty white space gap below your nav bar */
     .page-container, main.page-container, #main, .wrapper { 
         margin-top: 0px !important;
-        padding: 25px 20px 20px 20px !important; /* Locks structural gutters cleanly */
+        padding: 25px 20px 20px 20px !important; 
         box-sizing: border-box !important;
         width: 100% !important;
     } 
 
     section, .feature-section, .pricing-section, .resource-section, .faq-section {
-        padding: 40px 20px !important; /* Uniform separate view sections spacing profile */
+        padding: 40px 20px !important; 
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -127,20 +134,20 @@
         margin-top: 0 !important; 
         padding-top: 5px !important; 
         display: flex !important; 
-        flex-direction: column-reverse !important; /* Panoramic graphic flips over text elements */ 
+        flex-direction: column-reverse !important; 
         gap: 25px !important; 
     } 
 
     /* --- 🔄 TEXT HEADINGS SIZE ADJUSTMENT PROFILE --- */
     .content-area h1 { 
-        font-size: 2.1rem !important; /* 🔄 MOBILE SMALLER: Perfect snug sentence wrapping profile */
+        font-size: 2.1rem !important; /* 🔄 MOBILE SMALLER: Perfect snug sentence wrapping layout */
         line-height: 1.15 !important;
     } 
     .category-block h2 {
-        font-size: 1.25rem !important; /* 🔄 MOBILE SMALLER: Prevents hyphen breakout errors */
+        font-size: 1.25rem !important; /* 🔄 MOBILE SMALLER */
     }
     .wizard-card h3 {
-        font-size: 1.15rem !important; /* 🔄 MOBILE SMALLER: Tight high-density reading tags */
+        font-size: 1.15rem !important; /* 🔄 MOBILE SMALLER */
     }
     .count-badge {
         font-size: 0.75rem !important;
@@ -162,12 +169,12 @@
         margin-bottom: 10px !important; 
     } 
 
-    /* --- 🧱 UNIVERSAL MOBILE BLOG CONTAINER LAYOUT --- */
+    /* --- 🧱 UNIVERSAL MOBILE CONFIG MATRIX --- */
     .blog-wrapper-canvas { 
         margin: 0 auto 40px auto !important; 
     } 
     #dynamicBlogPostsContainer, #public-homepage-blog-grid-target, .wizard-grid, .icon-grid, .pricing-grid, .resource-grid, .faq-grid { 
-        grid-template-columns: 1fr !important; /* Collapse standard body structures into clean single files */ 
+        grid-template-columns: 1fr !important; 
         gap: 24px !important; 
         padding-top: 0px !important; 
         padding-left: 16px !important; 
@@ -191,7 +198,7 @@
     } 
 
     /* ========================================================================== 
-    🧱 3. PUBLIC MOBILE FOOTER MATRIX RE-LOCK (STABLE 2x2 MATRIX LOCKED)
+    🧱 3. PUBLIC MOBILE FOOTER MATRIX RE-LOCK (STABLE 2x2 CONFIGURATION) 
     ========================================================================== */ 
     footer.site-footer, .site-footer { 
         display: block !important; 
@@ -206,21 +213,21 @@
         box-sizing: border-box !important; 
     } 
 
-    /* 🔄 RE-LOCKED GRID MATRIX: Restores the pristine 2-column mobile footer setup */
+    /* 🔄 LOCKED GRID MATRIX: Restores the pristine 2-column mobile footer setup */
     .site-footer .footer-container, 
     footer .footer-container, 
     .footer-container { 
         display: grid !important; 
-        grid-template-columns: repeat(2, 1fr) !important; /* 🔄 LOCKED: Locks matching column splits */
+        grid-template-columns: repeat(2, 1fr) !important; /* 🔄 FIXED: Locks stable 2-column splits */
         gap: 35px 20px !important; 
         text-align: left !important; 
         width: 100% !important; 
         box-sizing: border-box !important; 
     } 
 
-    /* Brand row fills width cleanly directly above column splits */
+    /* Brand row spans full row directly above column splits */
     .site-footer .footer-brand, .footer-brand { 
-        grid-column: span 2 !important; /* 🔄 LOCKED: Takes up full viewport width row */
+        grid-column: span 2 !important; 
         display: block !important; 
         text-align: left !important; 
         margin-bottom: 10px !important; 
@@ -245,7 +252,6 @@
         text-align: left !important; 
     } 
 
-    /* Mobile text fallback layout alignment */
     .footer-container .footer-col:last-child {
         text-align: left !important; 
     }
@@ -299,4 +305,4 @@
     .site-footer .footer-bottom > div:first-child, .footer-bottom > div:first-child { 
         order: 3 !important; 
     }
-}
+} /* Final Media Query Closing Bracket */
