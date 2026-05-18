@@ -138,28 +138,30 @@
     gap: 30px !important; 
 } 
 
-.content-area h1 { 
-    font-size: 2.3rem !important; 
-} 
+@media screen and (max-width: 980px) {
+    /* 🔄 FIXED: Shrinks the main hero banner headline on phone screens */
+    .content-area h1 {
+        font-size: 2.1rem !important; /* Reduced from 2.3rem for better text wrapping */
+        line-height: 1.15 !important;
+    }
+    
+    /* 🔄 FIXED: Shrinks the block category headers (e.g., Corporate Formations) */
+    .category-block h2 {
+        font-size: 1.25rem !important; /* Reduced from 1.5rem so it fits on one line */
+    }
+    
+    /* 🔄 FIXED: Shrinks individual service titles inside the wizard cards */
+    .wizard-card h3 {
+        font-size: 1.15rem !important; /* Scaled down for high mobile text density */
+    }
+    
+    /* 🔄 FIXED: Adjusts the category badge count tag alignment */
+    .count-badge {
+        font-size: 0.75rem !important;
+        padding: 3px 8px !important;
+    }
+}
 
-.content-area div { 
-    justify-content: center !important; 
-} 
-
-.btn-main { 
-    width: 100% !important; 
-    text-align: center !important; 
-} 
-
-.hero-image-container { 
-    width: 100% !important; 
-    height: 280px !important; 
-    margin-bottom: 10px !important; 
-} 
-
-hr, .site-header { 
-    margin-bottom: 10px !important; 
-} 
 
 /* ========================================================================== 
 🧱 UNIVERSAL ENTERPRISE MOBILE BLOG CANVAS LAYOUT 
