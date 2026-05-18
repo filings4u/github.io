@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Entrant Safety Audit Prep | filings4u Professional</title>
-    <link rel="stylesheet" href="assets/css/site-elite.css">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#10b981">
+
+    <title>New Entrant Safety Audit (DOT) | filings4u Professional Compliance</title>
+    
+    <link rel="stylesheet" href="assets/css/site-elite.css?v=12">
+    <link rel="stylesheet" href="assets/css/mobile.css?v=12">
+
+   <link rel="icon" type="image/png" href="images/fav.png">
+
+   <!-- 1. The jQuery library MUST load absolutely first -->
+<script src="https://jquery.com"></script>
+
+<!-- 2. The Supabase data engine loads second -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 3. Your custom main dashboard script executes LAST -->
+<script src="assets/js/main.js?v=14"></script>
+
+
 </head>
 <body>
 
+ <!-- 🌐 SITE-WIDE NAVIGATION HEADER -->
     <nav>
-        <a href="index.html"><img src="images/logo.png" alt="filings4u" class="logo"></a>
+        <a href="index.html">
+            <img src="images/logo.png" alt="filings4u" class="logo" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+        <button class="mobile-toggle-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="nav-links">
-            <!-- BUSINESS FORMATION -->
             <div class="nav-item-dropdown">
-                <a href="#">Formations ▾</a>
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Formations <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
                 <div class="dropdown-content">
                     <a href="limited-liability-company.html">LLC Formation</a>
                     <a href="corporations.html">Corporations (C/S-Corp)</a>
@@ -22,9 +44,8 @@
                     <a href="sole-proprietorship.html">Sole Proprietorship</a>
                 </div>
             </div>
-            <!-- COMPLIANCE SERVICES -->
             <div class="nav-item-dropdown">
-                <a href="#">Compliance ▾</a>
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Compliance <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
                 <div class="dropdown-content">
                     <a href="annual-reports.html">Annual Reports</a>
                     <a href="business-licenses.html">Business Licenses</a>
@@ -34,9 +55,8 @@
                     <a href="dissolution.html">Entity Dissolution</a>
                 </div>
             </div>
-            <!-- TAX FILINGS -->
             <div class="nav-item-dropdown">
-                <a href="#">Tax Filings ▾</a>
+                <a href="#" onclick="toggleMobileDropdown(event, this)">Tax Filings <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
                 <div class="dropdown-content">
                     <a href="heavy-use-tax-2290.html">Heavy Use Tax (2290)</a>
                     <a href="federal-income-tax.html">Federal Income Tax</a>
@@ -46,9 +66,8 @@
                     <a href="franchise-tax.html">Franchise Tax Filing</a>
                 </div>
             </div>
-            <!-- DOT & FLEET -->
             <div class="nav-item-dropdown">
-                <a href="#">DOT & Fleet ▾</a>
+                <a href="#" onclick="toggleMobileDropdown(event, this)">DOT & Fleet <span style="font-size:0.7rem; margin-left:4px;">▼</span></a>
                 <div class="dropdown-content">
                     <a href="owner-operators.html">Owner Operators</a>
                     <a href="trucker-authority.html">Trucker Authority</a>
@@ -63,7 +82,7 @@
                     <a href="broker-insurance.html">Broker Insurance</a>
                 </div>
             </div>
-            <a href="https://filings4u.com" class="btn-client-portal">Secure Portal</a>
+            <a href="https://portal.filings4u.com" class="btn-client-portal">Secure Portal</a>
         </div>
     </nav>
 
@@ -88,34 +107,51 @@
         </div>
     </main>
 
-    <section class="feature-section">
-        <div class="hero-tag">Pre-Audit Infrastructure</div>
-        <h2>Zero-Failure Safety Logic.</h2>
-        <div class="icon-grid">
-            <!-- Dynamic Pricing Plans Routing Tier Selectors Layout Cards -->
-            <div class="icon-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                <div>
-                    <h4>Starter Package</h4>
-                    <p>We verify every Driver Qualification file for missing MVRs, Med-Cards, or Road Tests before the FMCSA sees them.</p>
-                </div>
-                <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=starter" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Starter Plan →</a>
-            </div>
-            <div class="icon-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                <div>
-                    <h4>Compliance Shield</h4>
-                    <p>Digital organization of your 396 vehicle inspections and preventative maintenance records logs arrays.</p>
-                </div>
-                <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=compliance" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Compliance Plan →</a>
-            </div>
-            <div class="icon-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                <div>
-                    <h4>Enterprise Fleet Sync</h4>
-                    <p>Critical review of your ELD records and logbook compliance to eliminate technical data infrastructure violations.</p>
-                </div>
-                <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=enterprise" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Enterprise Plan →</a>
-            </div>
+  <!-- SECTION 3: PRICING -->
+<section id="pricing" class="pricing-section">
+    <span class="hero-tag">Deployment Tiers</span>
+    <h2>Transparent formation pricing.</h2>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Basic</h3>
+            <div class="amount">$75 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Standard state filing for cost-conscious founders.</p>
+            <ul class="price-features">
+                <li>Name Availability Check</li>
+                <li>Articles of Org. Filing</li>
+                <li>Digital Document Access</li>
+            </ul>
+            <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=starter" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Starter Plan</a>
         </div>
-    </section>
+
+        <div class="price-card featured">
+            <div class="price-badge">Most Popular</div>
+            <h3>Elite</h3>
+            <div class="amount">$199 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full automation and legal infrastructure.</p>
+            <ul class="price-features">
+                <li>Everything in Basic</li>
+                <li><strong>1-Year Registered Agent</strong></li>
+                <li>Custom Operating Agreement</li>
+                <li>Federal Tax ID (EIN) Filing</li>
+            </ul>
+            <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=compliance" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Compliance Plan</a>
+        </div>
+
+        <div class="price-card">
+            <h3>Enterprise</h3>
+            <div class="amount">$349 <span>+ State Fee</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Hands-off compliance for high-volume entities.</p>
+            <ul class="price-features">
+                <li>Everything in Elite</li>
+                <li>BOI FinCEN Reporting</li>
+                <li>Corporate Resolution Kit</li>
+                <li>Compliance Shield Monitoring</li>
+            </ul>
+            <a href="https://portal.filings4u.com/wizard-engine.html?service=new-entrant-safety-audit&plan=enterprise" class="btn-main" style="padding: 10px; font-size: 0.8rem; margin-top: 20px; text-align: center; text-decoration: none;">Select Enterprise Plan</a>
+        </div>
+    </div>
+</section>
 
     <section class="faq-section">
         <div class="hero-tag">Knowledge Base</div>
@@ -132,111 +168,219 @@
         </div>
     </section>
 
-    <section class="resource-section">
-        <div class="hero-tag">Insights</div>
-        <h2>Founder Insights</h2>
-        <div class="resource-grid">
-            <a href="blog.html" class="blog-card" style="text-decoration: none;">
-                <div style="height:150px; background:#ddd; background-image: url('images/login-hero.jpg'); background-size: cover; background-position: center;"></div>
-                <div style="padding:20px;">
-                    <span class="hero-tag" style="margin-bottom:5px;">Launch</span>
-                    <h4>2026 Small Business Checklist</h4>
-                </div>
-            </a>
-            <a href="blog.html" class="blog-card" style="text-decoration: none;">
-                <div style="height:150px; background:#ddd; background-image: url('images/login-hero.jpg'); background-size: cover; background-position: center;"></div>
-                <div style="padding:20px;">
-                    <span class="hero-tag" style="margin-bottom:5px;">Compliance</span>
-                    <h4>DOT Authority 101</h4>
-                </div>
-            </a>
-            <a href="blog.html" class="blog-card" style="text-decoration: none;">
-                <div style="height:150px; background:#ddd; background-image: url('images/login-hero.jpg'); background-size: cover; background-position: center;"></div>
-                <div style="padding:20px;">
-                    <span class="hero-tag" style="margin-bottom:5px;">Tax</span>
-                    <h4>Maximizing Depreciation</h4>
-                </div>
-            </a>
+  <!-- SECTION 5: LATEST INSIGHTS (BLOG SECTION) -->
+<section class="blog-section unified-site-section">
+    <div class="section-alignment-wrapper">
+        <div class="hero-tag">Latest Insights</div>
+        <h2 style="margin-bottom: 40px;">Recent Compliance Updates</h2>
+        <div class="resource-grid" id="public-homepage-blog-grid-target">
+            <!-- 🌟 AUTOMATED SYNC HANDLER SPINNER -->
+            <div id="blog-loading-spinner">
+                <div class="spinner-animation-circle"></div>
+                <span>Gathering latest articles...</span>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <img src="images/logo-white.png" alt="filings4u" style="height: 35px;">
-            <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p>
-            <!-- Social Icons Container -->
-<div style="margin-top: 25px; display: flex; gap: 15px;">
 
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/company/filings4u" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
-    <svg width="14" height="14" fill="white" viewBox="0 0 16 16">
-      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-    </svg>
-  </a>
 
-  <!-- YouTube -->
-  <a href="https://www.youtube.com/@filings4u" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
-    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.301 1.103.33 3.483.33 4.246 0 .763-.029 3.143-.33 4.246a2.01 2.01 0 0 1-1.415 1.419c-1.123.302-5.288.332-6.11.335h-.09c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.419C.03 11.143 0 8.763 0 8c0-.763.029-3.143.33-4.246a2.01 2.01 0 0 1 1.415-1.42c1.123-.302 5.288-.332 6.11-.335h.089zM6.374 11.155l4.356-2.651a.26.26 0 0 0 0-.442L6.374 5.412a.26.26 0 0 0-.398.221v5.301a.26.26 0 0 0 .398.22z"/>
-    </svg>
-  </a>
-
-  <!-- X (formerly Twitter) -->
-  <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none;">
-    <svg width="12" height="12" fill="white" viewBox="0 0 16 16">
-      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
-    </svg>
-  </a>
-
+  <!-- 🧱 GLOBAL CORPORATE SITE FOOTER MATRIX --> 
+<footer class="site-footer"> 
+    <div class="footer-container"> 
+        <div class="footer-brand"> 
+    <!-- 🔄 FIXED: Wrapped the brand logo in a link pointing to the homepage and increased height to 48px -->
+    <a href="index.html" style="display: inline-block; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        <img src="images/logo-white.png" alt="filings4u" style="height: 48px !important; width: auto !important; object-fit: contain;">
+    </a>
+    
+    <p>Providing enterprise-grade compliance infrastructure for the modern logistics and corporate landscape.</p> 
+    
+    <div style="margin-top: 25px; display: flex; gap: 15px;"> 
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"> 
+            <svg width="14" height="14" fill="white" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg> 
+        </a> 
+        
+        <!-- YouTube -->
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"> 
+            <svg width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.301 1.103.33 3.483.33 4.246 0 .763-.029 3.143-.33 4.246a2.01 2.01 0 0 1-1.415 1.419c-1.123.302-5.288.332-6.11.335h-.09c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.419C.03 11.143 0 8.763 0 8c0-.763.029-3.143.33-4.246a2.01 2.01 0 0 1 1.415-1.42c1.123-.302 5.288-.332 6.11-.335h.089zM6.374 11.155l4.356-2.651a.26.26 0 0 0 0-.442L6.374 5.412a.26.26 0 0 0-.398.221v5.301a.26.26 0 0 0 .398.22z"/></svg> 
+        </a> 
+        
+        <!-- X -->
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"> 
+            <svg width="12" height="12" fill="white" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg> 
+        </a> 
+    </div> 
 </div>
 
-        </div>
-        <div class="footer-col">
-            <h4>Formations</h4>
-            <ul>
-                <li><a href="limited-liability-company.html">LLC Formation</a></li>
-                <li><a href="corporations.html">Corporations</a></li>
-                <li><a href="nonprofits.html">Non-Profits</a></li>
-                <li><a href="registered-agent.html">Registered Agent</a></li>
-                <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Fleet & DOT</h4>
-            <ul>
-                <li><a href="ucr-registration.html">UCR Registration</a></li>
-                <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li>
-                <li><a href="trucker-authority.html">DOT Authority</a></li>
-                <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li>
-                <li><a href="heavy-use-tax-2290.html">Form 2290</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="login.html">Client Portal</a></li>
-                <li><a href="compliance.html">Compliance Hub</a></li>
-                <li><a href="contact.html">Contact Experts</a></li>
-                <li><a href="annual-reports.html">Annual Reports</a></li>
-                <li><a href="blog.html">Resource Library</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-   <div> 
-    <p style="margin: 0; font-size: 0.85rem; max-width: 300px; line-height: 1.4; overflow-wrap: break-word;">
-      &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of 
-      <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #c15254; text-decoration: none; font-weight: bold;">Roseland Companies, LLC</a>
-    </p> 
-  </div>
-        <div class="trust-badge"> <span>SECURE</span> 256-bit SSL Encrypted Connection </div>
-        <div style="display: flex; gap: 20px; margin-bottom: 0px; flex-wrap: wrap;">
-    <a href="/privacy-policy" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Privacy Policy</a>
-    <a href="/terms-of-service" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Terms of Service</a>
-    <a href="/refund-policy" style="color: #f4f7fa; font-size: 0.85rem; text-decoration: none;">Refund Policy</a>
-  </div>
-    </div>
+        <div class="footer-col"> 
+            <h4>Formations</h4> 
+            <ul> 
+                <li><a href="limited-liability-company.html">LLC Formation</a></li> 
+                <li><a href="corporations.html">Corporations</a></li> 
+                <li><a href="nonprofits.html">Non-Profits</a></li> 
+                <li><a href="registered-agent.html">Registered Agent</a></li> 
+                <li><a href="employer-identification-number-ein.html">Tax ID (EIN)</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-col"> 
+            <h4>Fleet & DOT</h4> 
+            <ul> 
+                <li><a href="ucr-registration.html">UCR Registration</a></li> 
+                <li><a href="international-fuel-tax-agreement-ifta.html">IFTA Filings</a></li> 
+                <li><a href="trucker-authority.html">DOT Authority</a></li> 
+                <li><a href="process-agents-boc-3.html">BOC-3 Filing</a></li> 
+                <li><a href="heavy-use-tax-2290.html">Form 2290</a></li> 
+            </ul> 
+        </div> 
+        <!-- 🔄 NEW SECTION: Tax & Filings --> 
+        <div class="footer-col"> 
+            <h4>Tax & Filings</h4> 
+            <ul> 
+                <li><a href="federal-income-tax.html">Federal Income Tax</a></li> 
+                <li><a href="state-income-tax.html">State Income Tax</a></li> 
+                <li><a href="sales-tax-registration.html">Sales Tax Registration</a></li> 
+                <li><a href="payroll-tax-940-941.html">Payroll Tax (940/941)</a></li> 
+                <li><a href="franchise-tax.html">Franchise Tax Filing</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-col"> 
+            <h4>Support</h4> 
+            <ul> 
+                <li><a href="login.html">Client Portal</a></li> 
+                <li><a href="compliance.html">Compliance Hub</a></li> 
+                <li><a href="contact.html">Contact Experts</a></li> 
+                <li><a href="annual-reports.html">Annual Reports</a></li> 
+                <li><a href="blog.html">Resource Library</a></li> 
+            </ul> 
+        </div> 
+    </div> 
+    <div class="footer-bottom"> 
+        <div> 
+            <p style="margin: 0; font-size: 0.85rem; max-width: 300px; line-height: 1.4; overflow-wrap: break-word;"> &copy; 2026 filings4u, LLC. All rights reserved. A Subsidiary of <a href="https://roselandcompanies.com" target="_blank" rel="noopener noreferrer" style="color: #c15254; text-decoration: none; font-weight: bold;">Roseland Companies, LLC</a> </p> </div> 
+        
+        <!-- 🔄 FIXED SECURE BADGE CONTAINER: Injected absolute block inline resets to override conflict issues -->
+        <div class="trust-badge" style="display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; position: relative !important; background: rgba(255, 255, 255, 0.05) !important; padding: 10px 20px !important; border-radius: 8px !important; font-size: 0.75rem !important; color: #ffffff !important;"> 
+            <span style="color: #10b981 !important; font-weight: 800 !important; margin-right: 8px !important; display: inline !important;">SECURE</span> 256-bit SSL Encrypted Connection 
+        </div> 
+        
+        <div class="legal-links"> 
+            <a href="privacy-policy.html">Privacy Policy</a> 
+            <a href="terms-of-service.html">Terms of Service</a> 
+            <a href="refund-policy.html">Refund Policy</a> 
+        </div> 
+    </div> 
 </footer>
+
+
+      <!-- 🚀 FIXED: jQuery core library MUST load first to initialize layout elements -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    
+
+<!-- 2. Securely bind your project public anonymous credentials to the window scope -->
+<script>
+  (function() {
+    const supabaseUrl = 'https://lrbimrlbskjweynxlgas.supabase.co';
+    // 🚀 ACTION REQUIRED: Replace the placeholder string below with your actual project Anon API Key
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'; 
+    
+    if (typeof supabaseJs !== 'undefined') {
+        window.supabase = supabaseJs.createClient(supabaseUrl, supabaseAnonKey);
+        console.log("📰 Supabase connection layer initialized for automated blog mapping.");
+    } else {
+        console.error("Critical: Supabase library failed to inject into canvas window.");
+    }
+  })();
+</script>
+
+<!-- 3. Your custom main file runs last, instantly picking up the database link -->
+<script src="assets/js/main.js?v=9"></script>
+
+
+<script>
+    // Safe initialization that avoids global namespace pollution
+    (function() {
+        window.addEventListener('DOMContentLoaded', () => {
+            // Check if Supabase is already initialized by your main layout scripts
+            const checkInterval = setInterval(() => {
+                if (window.supabase) {
+                    clearInterval(checkInterval);
+                    initializeHomepageFeed();
+                }
+            }, 100);
+            
+            // Safety timeout: stops searching after 4 seconds to prevent endless loops
+            setTimeout(() => clearInterval(checkInterval), 4000);
+        });
+
+        async function initializeHomepageFeed() {
+            const targetContainer = document.getElementById('public-homepage-blog-grid-target');
+            if (!targetContainer) return;
+
+            try {
+                // Connect to your live database table repository instantly
+                const clientInstance = window.supabase.createClient(
+                    'https://lrbimrlbskjweynxlgas.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyYmltcmxic2tqd2V5bnhsZ2FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjQ0NTYsImV4cCI6MjA5NDEwMDQ1Nn0.I8fQ6ZjA9oaTqJCF-7Z7vUboXC8zv2cogBv4PC_1ihU'
+                );
+
+                // Fetch the top 3 rows sorted chronologically
+                const { data: articles, error } = await clientInstance
+                    .from('blog_posts')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(3);
+
+                if (error) throw error;
+                if (!articles || articles.length === 0) {
+                    targetContainer.innerHTML = '<div style="grid-column:span 3;text-align:center;color:#64748b;font-weight:600;padding:20px;">No articles found.</div>';
+                    return;
+                }
+
+                targetContainer.innerHTML = '';
+
+                // Build isolated text fragments to prevent CSS leakage into your footer elements
+                articles.forEach(item => {
+                    const dateFormatted = new Date(item.created_at).toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'short', day: 'numeric'
+                    });
+
+                    const postAnchor = document.createElement('a');
+                    postAnchor.href = `article.html?slug=${item.slug}`;
+                    postAnchor.style.cssText = "display:block!important;text-decoration:none!important;background:#ffffff!important;border:1px solid #e2e8f0!important;border-radius:12px!important;overflow:hidden!important;box-shadow:0 4px 12px rgba(10,31,68,0.01)!important;";
+                    
+                    postAnchor.innerHTML = `
+                        <div style="height:180px;width:100%;background:url('${item.image_url || 'images/blog-fallback.jpg'}') center/cover no-repeat;background-color:#f1f5f9;display:block;"></div>
+                        <div style="padding:24px!important;text-align:left!important;display:block!important;box-sizing:border-box!important;">
+                            <div style="display:flex!important;justify-content:space-between!important;align-items:center!important;margin-bottom:16px!important;gap:10px!important;">
+                                <span style="font-size:0.68rem;padding:4px 8px;border-radius:4px;background:#10b981;color:#ffffff;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap!important;display:inline-block!important;">${item.category}</span>
+                                <span style="font-size:0.75rem;color:#94a3b8;font-weight:600;white-space:nowrap!important;display:inline-block!important;">${dateFormatted}</span>
+                            </div>
+                            <div style="margin:0 0 12px 0!important;padding:0!important;display:block!important;">
+                                <h3 style="margin:0!important;padding:0!important;font-size:1.2rem!important;color:#0a1f44!important;font-weight:700;line-height:1.4!important;text-transform:none!important;text-align:left!important;display:block!important;">${item.title}</h3>
+                            </div>
+                            <div style="margin:0!important;padding:0!important;display:block!important;">
+                                <p style="margin:0!important;padding:0!important;color:#64748b!important;font-size:0.88rem!important;line-height:1.6!important;text-transform:none!important;text-align:left!important;display:block!important;">${item.summary || 'Click to view full insight data analysis report...'}</p>
+                            </div>
+                        </div>`;
+                    
+                    targetContainer.appendChild(postAnchor);
+                });
+
+            } catch (err) {
+                console.error("Homepage safe database injection track broken:", err);
+                targetContainer.innerHTML = '<div style="grid-column:span 3;text-align:center;color:#ef4444;font-weight:600;padding:20px;">Unable to display recent updates.</div>';
+            }
+        }
+    })();
+</script>
+
+
 </body>
 </html>
