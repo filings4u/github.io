@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <!-- 🚀 FIXED: Modern universal browser mobile scaling theme parameters initializers -->
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#10b981">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#10b981">
 
-    
     <title>filings4u | Professional Compliance Dashboard</title>
     
-    <!-- Link directly to your optimized stylesheet asset cache bust -->
-<link rel="stylesheet" href="assets/css/site-elite.css?v=12">
-<link rel="stylesheet" href="assets/css/mobile.css?v=12">
+    <link rel="stylesheet" href="assets/css/site-elite.css?v=12">
+    <link rel="stylesheet" href="assets/css/mobile.css?v=12">
 
    <link rel="icon" type="image/png" href="images/fav.png">
 
@@ -121,32 +117,34 @@
         </div>
     </section>
 
- <!-- SECTION 3: CORE STATS (ICE BACKGROUND) --> 
-<section id="pricing" class="pricing-section"> 
+<!-- SECTION 3: CORE STATS (ICE BACKGROUND) --> 
+<section id="system-stats" class="resource-section" style="background: var(--ice) !important;"> 
     <span class="hero-tag">System Advantage</span> 
     <h2>Performance by the numbers.</h2> 
     
-    <div class="pricing-grid"> 
+    <!-- 🔄 FIXED: Switched container from pricing-grid to stats-grid to completely release your pricing tables -->
+    <div class="stats-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 30px !important; margin-top: 30px !important; width: 100% !important;"> 
+        
         <!-- CARD 1: PROCESSING METRIC -->
-        <div class="price-card" style="text-align: center;"> 
-            <!-- 🔄 STYLESHEET CONTROLLED: Font size is managed by .amount inside your site-elite.css and mobile.css files -->
-            <div class="amount">24h</div> 
-            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem;">Avg. Processing</p> 
+        <div class="stats-card" style="text-align: center; padding: 30px !important; border-radius: 16px !important; border: 1px solid var(--border) !important; background: var(--white) !important; box-sizing: border-box !important;"> 
+            <div class="stat-amount" style="font-size: 3.5rem !important; font-weight: 800 !important; color: var(--navy) !important; line-height: 1.1 !important; margin-bottom: 10px !important; display: block !important;">24h</div> 
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem; color: var(--text-muted); margin: 0 !important;">Avg. Processing</p> 
         </div> 
         
-        <!-- CARD 2: AUDIT SUCCESS METRIC (FEATURED TRACK) -->
-        <div class="price-card featured" style="text-align: center;"> 
-            <div class="amount">100%</div> 
-            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem;">Audit Success</p> 
+        <!-- CARD 2: AUDIT SUCCESS METRIC -->
+        <div class="stats-card" style="text-align: center; padding: 30px !important; border-radius: 16px !important; border: 1px solid var(--border) !important; background: var(--white) !important; box-sizing: border-box !important;"> 
+            <div class="stat-amount" style="font-size: 3.5rem !important; font-weight: 800 !important; color: var(--navy) !important; line-height: 1.1 !important; margin-bottom: 10px !important; display: block !important;">100%</div> 
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem; color: var(--text-muted); margin: 0 !important;">Audit Success</p> 
         </div> 
         
         <!-- CARD 3: SECURITY METRIC -->
-        <div class="price-card" style="text-align: center;"> 
-            <div class="amount">256bit</div> 
-            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem;">AES Encryption</p> 
+        <div class="stats-card" style="text-align: center; padding: 30px !important; border-radius: 16px !important; border: 1px solid var(--border) !important; background: var(--white) !important; box-sizing: border-box !important;"> 
+            <div class="stat-amount" style="font-size: 3.5rem !important; font-weight: 800 !important; color: var(--navy) !important; line-height: 1.1 !important; margin-bottom: 10px !important; display: block !important;">256bit</div> 
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.85rem; color: var(--text-muted); margin: 0 !important;">AES Encryption</p> 
         </div> 
     </div> 
 </section>
+
 
     <!-- SECTION 4: KNOWLEDGE BASE (FAQs) -->
     <section class="faq-section">

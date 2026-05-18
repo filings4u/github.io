@@ -7453,3 +7453,54 @@ p, h1, h2, h3, h4, h5, h6, li, span {
     white-space: normal !important;
 }
 
+/* ==========================================================================
+💰 PRICING SUITE RESTORATION TRACK (SITE-WIDE DEEP FIX)
+========================================================================== */
+.pricing-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    margin-top: 30px !important;
+    align-items: stretch !important; /* 🔄 RESTORES LAYOUT: Forces all cards to match equal long heights */
+}
+
+.price-card {
+    min-height: 520px !important; /* 🔄 RESTORES LONG FRAME: Gives vertical room for your details and buttons */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; /* Pushes button down to the exact bottom edge */
+    padding: 40px 30px !important;
+    background: var(--white) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+}
+
+.price-card .amount {
+    font-size: 3rem !important; /* 🔄 RESIZED: Pulls your price tags down to fit beautifully on screen */
+    font-weight: 800 !important;
+    color: var(--navy) !important;
+    margin: 15px 0 !important;
+    line-height: 1.1 !important;
+    display: block !important;
+}
+
+.price-card .amount span {
+    font-size: 1rem !important;
+    color: var(--text-muted) !important;
+    font-weight: 400 !important;
+}
+
+.price-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 auto 0 !important; /* Pushes any remaining features smoothly upwards */
+    text-align: left !important;
+}
+
+.price-features li {
+    margin-bottom: 14px !important;
+    font-size: 0.95rem !important;
+    color: var(--navy) !important;
+    display: list-item !important; /* Guarantees bullets stay active */
+}
