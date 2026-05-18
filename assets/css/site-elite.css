@@ -752,3 +752,20 @@ footer.site-footer, .site-footer {
     padding: 4px 10px !important;
     border-radius: 20px !important;
 }
+
+/* ==========================================================================
+   📊 RESPONSIVE CONTROL GRID FOR SYSTEM STATS ENGINE
+   ========================================================================== */
+
+/* A. Desktop Layout Layer Rules (Default track behavior) */
+.stats-grid {
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 Columns on Computer Monitors */
+}
+
+/* B. Smartphone Layout Layer Rules Override */
+@media screen and (max-width: 991px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important; /* 1 Full-Width Column on Mobile Phones */
+        gap: 20px !important; /* Slightly tightens the spacing row layout on small displays */
+    }
+}
